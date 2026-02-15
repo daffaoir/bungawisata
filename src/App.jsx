@@ -1,16 +1,16 @@
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 function App() {
   return (
-    <div className="relative font-sans">
+    <div className="relative font-sans bg-slate-50">
       <Navbar />
+      <Hero />
       
-      {/* Spacer agar konten tidak tertutup Navbar Fixed */}
-      <div className="pt-20">
-        <div className="min-h-[120vh] bg-slate-50 flex items-center justify-center">
-           <p className="text-slate-400">Navbar Ready! Siap ke Tahap 3.</p>
-        </div>
-      </div>
+      {/* Main Content Area */}
+      <main className="max-w-7xl mx-auto py-20 px-4">
+        <p className="text-center text-slate-400">Content selanjutnya: Featured Tours Grid...</p>
+      </main>
     </div>
   );
 }
