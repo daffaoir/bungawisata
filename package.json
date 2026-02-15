@@ -1,23 +1,16 @@
 {
   "name": "bungawisata",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "homepage": "https://daffaoir.github.io/bungawisata",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
-  }
-}{
-  "name": "bungawisata",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^0.564.0",
