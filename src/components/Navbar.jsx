@@ -28,25 +28,18 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-primary font-medium transition-colors"
-              >
+              <a key={link.name} href={link.href} className="text-slate-600 hover:text-primary font-medium transition-colors">
                 {link.name}
               </a>
             ))}
-            <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-hover transition-all shadow-md shadow-primary/20">
+            <button className="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary-hover transition-all">
               Pesan Sekarang
             </button>
           </div>
 
           {/* Mobile Button */}
           <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-primary p-2 transition-colors"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -54,27 +47,13 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div
-        className={`md:hidden absolute w-full bg-white border-b transition-all duration-300 ease-in-out ${
-          isOpen ? 'top-20 opacity-100' : '-top-96 opacity-0'
-        }`}
-      >
+      <div className={`md:hidden absolute w-full bg-white border-b transition-all duration-300 ${isOpen ? 'top-20 opacity-100' : '-top-96 opacity-0'}`}>
         <div className="px-4 pt-2 pb-6 space-y-2">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="block px-3 py-4 text-base font-medium text-slate-600 hover:text-primary hover:bg-blue-50 rounded-xl"
-              onClick={() => setIsOpen(false)}
-            >
+            <a key={link.name} href={link.href} className="block px-3 py-4 text-base font-medium text-slate-600 hover:text-primary" onClick={() => setIsOpen(false)}>
               {link.name}
             </a>
           ))}
-          <div className="pt-4">
-            <button className="w-full bg-primary text-white py-4 rounded-xl font-bold">
-              Pesan Sekarang
-            </button>
-          </div>
         </div>
       </div>
     </nav>

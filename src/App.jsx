@@ -5,11 +5,10 @@ function App() {
     <div className="relative font-sans">
       <Navbar />
       
-      {/* Spacer untuk Navbar Fixed */}
+      {/* Spacer agar konten tidak tertutup Navbar Fixed */}
       <div className="pt-20">
-        <div className="min-h-[120vh] bg-slate-50 flex flex-col items-center justify-center">
-           <h2 className="text-xl text-slate-400 italic">Navbar Berhasil Terpasang!</h2>
-           <p className="mt-4 text-slate-500">Coba scroll ke bawah dan tes mode mobile-nya.</p>
+        <div className="min-h-[120vh] bg-slate-50 flex items-center justify-center">
+           <p className="text-slate-400">Navbar Ready! Siap ke Tahap 3.</p>
         </div>
       </div>
     </div>
