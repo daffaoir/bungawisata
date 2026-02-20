@@ -7,20 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary: Biru Laut (Trust & Freshness)
         primary: {
-          DEFAULT: '#0284c7', // Sky-600
-          hover: '#0369a1',   // Sky-700
-        },
-        // Secondary: Hijau Alam (Nature & Growth)
-        secondary: {
           DEFAULT: '#10b981', // Emerald-500
           hover: '#059669',   // Emerald-600
+          light: '#34d399',   // Emerald-400
         },
-        // Aksen: Oranye Senja (CTA/Buttons)
-        accent: '#f97316',    // Orange-500
-        // Khusus WhatsApp
+        secondary: {
+          DEFAULT: '#64748b', // Slate-500
+          dark: '#0f172a',    // Slate-900
+          light: '#94a3b8',   // Slate-400
+        },
+        accent: '#f8fafc',    // Slate-50 (White-ish)
         'wa-green': '#25D366',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Optional: Add a nice font if desired later
       },
     },
   },

@@ -1,55 +1,57 @@
-// src/components/TourCard.jsx
 import React from 'react';
-import { MapPin, Star } from 'lucide-react';
+import { Star, Clock, MapPin } from 'lucide-react';
 
-const TourCard = ({ tour }) => {
-  // Helper untuk format Rupiah
-  const formatIDR = (price) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0,
-    }).format(price);
-  };
+export default function TourCard({ tour }) {
+    const formatRupiah = (price) => {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(price);
+    };
 
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
-      {/* Image Container */}
-      <div className="relative h-56 overflow-hidden">
-        <img 
-          src={tour.image} 
-          alt={tour.title} 
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
-          <Star className="text-accent fill-accent" size={14} />
-          <span className="text-xs font-bold text-slate-700">{tour.rating}</span>
+    return (
+        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+            <div className="relative h-64 overflow-hidden">
+                <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-800 flex items-center gap-1 shadow-sm">
+                    <Star size={14} className="text-yellow-500 fill-yellow-500" />
+                    {tour.rating}
+                </div>
+            </div>
+
+            <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center gap-2 text-primary text-sm font-medium mb-2">
+                    <MapPin size={16} />
+                    {tour.location}
+                </div>
+
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
+                    {tour.title}
+                </h3>
+
+                <div className="flex items-center gap-2 text-slate-500 text-sm mb-6">
+                    <Clock size={16} />
+                    {tour.duration}
+                </div>
+
+                <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p className="text-xs text-slate-400 mb-1">Mulai dari</p>
+                        <p className="text-lg font-bold text-primary">
+                            {formatRupiah(tour.price)}
+                        </p>
+                    </div>
+                    <button className="px-4 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors">
+                        Detail
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-
-      {/* Body Content */}
-      <div className="p-5">
-        <div className="flex items-center gap-1 text-slate-400 mb-2">
-          <MapPin size={14} />
-          <span className="text-xs font-medium uppercase tracking-wider">{tour.location}</span>
-        </div>
-        
-        <h3 className="text-lg font-bold text-slate-800 mb-3 line-clamp-2 h-14 group-hover:text-primary transition-colors">
-          {tour.title}
-        </h3>
-
-        <div className="flex items-center justify-between pt-4 border-t border-slate-50">
-          <div>
-            <p className="text-[10px] text-slate-400 uppercase font-bold">Mulai dari</p>
-            <p className="text-lg font-extrabold text-primary">{formatIDR(tour.price)}</p>
-          </div>
-          <button className="bg-slate-100 hover:bg-primary hover:text-white text-slate-600 px-4 py-2 rounded-lg text-sm font-bold transition-colors">
-            Detail
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default TourCard;
+    );
+}
