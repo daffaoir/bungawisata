@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Star, Clock, MapPin } from 'lucide-react';
 
 export default function TourCard({ tour }) {
@@ -31,9 +32,11 @@ export default function TourCard({ tour }) {
                     {tour.location}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
-                    {tour.title}
-                </h3>
+                <Link to={`/tour/${tour.id}`} className="block">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
+                        {tour.title}
+                    </h3>
+                </Link>
 
                 <div className="flex items-center gap-2 text-slate-500 text-sm mb-6">
                     <Clock size={16} />
@@ -47,9 +50,12 @@ export default function TourCard({ tour }) {
                             {formatRupiah(tour.price)}
                         </p>
                     </div>
-                    <button className="px-4 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors">
+                    <Link
+                        to={`/tour/${tour.id}`}
+                        className="px-4 py-2 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors"
+                    >
                         Detail
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
