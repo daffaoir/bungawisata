@@ -3,8 +3,8 @@ import { Compass, Instagram, Facebook, Twitter, Phone, Mail, MapPin } from 'luci
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 text-slate-300 py-12">
-            <div className="container mx-auto px-4">
+        <footer className="bg-slate-900 text-white py-12 w-full">
+            <div className="container mx-auto px-4 max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
@@ -12,7 +12,7 @@ export default function Footer() {
                             <Compass size={32} className="text-primary" />
                             <span className="text-2xl font-bold">Bunga<span className="text-primary">Wisata</span></span>
                         </div>
-                        <p className="text-sm leading-relaxed mb-4">
+                        <p className="text-sm leading-relaxed mb-4 text-slate-300">
                             Mitra perjalanan terpercaya Anda unuk menjelajahi keindahan Indonesia dengan kenyamanan dan layanan premium.
                         </p>
                         <div className="flex gap-4">
@@ -25,10 +25,10 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div>
                         <h4 className="text-white font-bold mb-4">Tautan Cepat</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="hover:text-primary transition-colors">Beranda</a></li>
-                            <li><a href="#tours" className="hover:text-primary transition-colors">Paket Wisata</a></li>
-                            <li><a href="#ai-planner" className="hover:text-primary transition-colors">AI Planner</a></li>
+                        <ul className="space-y-2 text-sm text-slate-300">
+                            <li><a href="/" className="hover:text-primary transition-colors">Beranda</a></li>
+                            <li><a href="/#tours" className="hover:text-primary transition-colors">Paket Wisata</a></li>
+                            <li><a href="/#ai-planner" className="hover:text-primary transition-colors">AI Planner</a></li>
                             <li><a href="#" className="hover:text-primary transition-colors">Tentang Kami</a></li>
                         </ul>
                     </div>
@@ -36,7 +36,7 @@ export default function Footer() {
                     {/* Support */}
                     <div>
                         <h4 className="text-white font-bold mb-4">Dukungan</h4>
-                        <ul className="space-y-2 text-sm">
+                        <ul className="space-y-2 text-sm text-slate-300">
                             <li><a href="#" className="hover:text-primary transition-colors">Pusat Bantuan</a></li>
                             <li><a href="#" className="hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
                             <li><a href="#" className="hover:text-primary transition-colors">Kebijakan Privasi</a></li>
@@ -47,7 +47,7 @@ export default function Footer() {
                     {/* Contact */}
                     <div>
                         <h4 className="text-white font-bold mb-4">Hubungi Kami</h4>
-                        <ul className="space-y-3 text-sm">
+                        <ul className="space-y-3 text-sm text-slate-300">
                             <li className="flex items-center gap-2">
                                 <MapPin size={16} className="text-primary shrink-0" />
                                 <span>Jl. Pariwisata No. 1, Denpasar, Bali</span>

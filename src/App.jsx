@@ -9,15 +9,15 @@ import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
-      <div className="font-sans text-slate-900 bg-white">
+      <div className="min-h-screen flex flex-col font-sans bg-slate-50">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tour/:id" element={<TourDetail />} />
-        </Routes>
-        <div id="contact">
-          <Footer />
-        </div>
+        <main className="flex-grow pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tour/:id" element={<TourDetail />} />
+          </Routes>
+        </main>
+        <Footer />
         <WhatsAppButton />
       </div>
     </BrowserRouter>

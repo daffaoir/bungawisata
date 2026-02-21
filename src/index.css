@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 /* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: #f8fafc; /* Slate-50: Putih gading bersih */

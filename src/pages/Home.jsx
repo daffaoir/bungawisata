@@ -7,10 +7,18 @@ import FeaturedTours from '../components/FeaturedTours';
 export default function Home() {
     return (
         <>
-            <Hero />
-            <AITravelPlanner />
-            <Features />
-            <FeaturedTours />
+            <div id="beranda">
+                <Hero />
+            </div>
+            <div id="ai-planner">
+                <AITravelPlanner />
+            </div>
+            <div id="features">
+                <Features />
+            </div>
+            <div id="paket-wisata">
+                <FeaturedTours />
+            </div>
         </>
     );
 }
