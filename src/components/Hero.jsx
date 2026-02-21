@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, MapPin } from 'lucide-react';
 
+const images = [
+    "/images/hero-1.jpg",
+    "/images/hero-2.jpg",
+    "/images/hero-3.jpg"
+];
+
 export default function Hero() {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src="https://images.unsplash.com/photo-1596401057633-565652b5e260?auto=format&fit=crop&q=80&w=2000"
-                    alt="Beautiful Bali Landscape"
-                    className="w-full h-full object-cover"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-slate-900/90" />
-            </div>
+            {/* Background Images with Fade Transition */}
+            {images.map((img, index) => (
+                <div
+                    key={index}
+                    className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'
+                        }`}
+                >
+                    <img
+                        src={img}
+                        alt={`Slide ${index + 1}`}
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-slate-900/90" />
+                </div>
+            ))}
 
             {/* Content */}
             <div className="relative z-10 container mx-auto px-4 text-center text-white mt-16">
