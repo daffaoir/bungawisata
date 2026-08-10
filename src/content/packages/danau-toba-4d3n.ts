@@ -1,0 +1,186 @@
+import { images } from "@/content/images";
+import type { PackageInput } from "@/lib/schema";
+import { DOMESTIC_NOTE } from "./shared";
+
+export const danauToba4d3n = {
+  slug: "danau-toba-4d3n",
+  region: "dalam-negeri",
+  destination: "Sumatera Utara",
+  durationDays: 4,
+  durationNights: 3,
+  priceFrom: 4250000,
+  departureFrom: "Medan (KNO)",
+  minPax: 15,
+  hotels: [
+    { city: "Parapat", name: "Niagara Hotel Parapat", nights: 1, stars: 3 },
+    { city: "Samosir", name: "Toba Village Inn", nights: 1, stars: 3 },
+    { city: "Berastagi", name: "Sinabung Hills Berastagi", nights: 1, stars: 4 },
+  ],
+  heroImage: images["toba-danau"],
+  gallery: [images["toba-perahu"], images["toba-samosir"]],
+  tags: ["danau", "budaya", "alam"],
+  content: {
+    id: {
+      title: "Danau Toba & Samosir 4 Hari 3 Malam",
+      summary:
+        "Danau vulkanik terbesar di dunia, kampung raja Batak di Samosir, dan udara sejuk Berastagi — perjalanan darat yang tenang dari Medan.",
+      highlights: [
+        "Menyeberangi Danau Toba dengan feri menuju Pulau Samosir",
+        "Kompleks makam Raja Sidabutar di Tomok dan rumah adat Batak di Ambarita",
+        "Air Terjun Sipiso-piso dari dek pandang di tepi kaldera",
+        "Pasar buah Berastagi dengan latar Gunung Sinabung dan Sibayak",
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Medan – Parapat",
+          meals: ["lunch", "dinner"],
+          activities: [
+            "Penjemputan di Bandara Kualanamu, Medan",
+            "Perjalanan darat menuju Parapat (± 4,5 jam)",
+            "Makan siang di Pematangsiantar",
+            "Berhenti di Kebun Teh Sidamanik untuk berfoto",
+            "Check-in hotel tepi danau di Parapat, makan malam",
+          ],
+        },
+        {
+          day: 2,
+          title: "Parapat – Pulau Samosir",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Sarapan dan check-out hotel",
+            "Menyeberang dengan feri dari Pelabuhan Ajibata ke Tomok",
+            "Kompleks makam batu Raja Sidabutar dan pasar suvenir Tomok",
+            "Makan siang khas Batak",
+            "Rumah adat dan batu persidangan di Ambarita",
+            "Check-in penginapan di Tuktuk, berenang di danau",
+            "Makan malam diiringi musik Batak",
+          ],
+        },
+        {
+          day: 3,
+          title: "Samosir – Sipiso-piso – Berastagi",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Sarapan dan check-out penginapan",
+            "Menyeberang kembali ke daratan lewat Tele atau Ajibata",
+            "Air Terjun Sipiso-piso setinggi 120 meter dari dek pandang",
+            "Makan siang di kawasan Merek",
+            "Perjalanan ke Berastagi, mampir ke pasar buah",
+            "Check-in hotel, makan malam, dan berendam air panas (opsional)",
+          ],
+        },
+        {
+          day: 4,
+          title: "Berastagi – Medan",
+          meals: ["breakfast", "lunch"],
+          activities: [
+            "Sarapan dan check-out hotel",
+            "Kunjungan ke Bukit Gundaling",
+            "Perjalanan kembali ke Medan lewat Sibolangit",
+            "Makan siang dan belanja bolu meranti serta oleh-oleh khas Medan",
+            "Pengantaran ke Bandara Kualanamu",
+          ],
+        },
+      ],
+      includes: [
+        "Hotel 3 malam di Parapat, Samosir, dan Berastagi (sekamar berdua)",
+        "Bus pariwisata ber-AC selama perjalanan",
+        "Tiket feri penyeberangan Danau Toba pulang-pergi",
+        "Makan sesuai program (3x makan pagi, 4x makan siang, 3x makan malam)",
+        "Tiket masuk seluruh objek wisata dalam itinerary",
+        "Tour leader dan pemandu lokal",
+        "Air mineral selama perjalanan",
+      ],
+      excludes: [
+        "Tiket pesawat pulang-pergi ke Medan",
+        "Biaya berendam air panas di Berastagi",
+        "Pengeluaran pribadi dan belanja oleh-oleh",
+        "Tipping untuk pemandu dan sopir",
+        "Asuransi perjalanan",
+      ],
+      notes: DOMESTIC_NOTE.id,
+    },
+    en: {
+      title: "Lake Toba & Samosir 4 Days 3 Nights",
+      summary:
+        "The largest volcanic lake in the world, the Batak royal villages of Samosir, and the cool air of Berastagi — an unhurried overland trip from Medan.",
+      highlights: [
+        "The ferry crossing of Lake Toba to Samosir Island",
+        "King Sidabutar's stone tombs in Tomok and the Batak houses of Ambarita",
+        "Sipiso-piso waterfall seen from the caldera-rim viewpoint",
+        "Berastagi fruit market with Mount Sinabung and Sibayak behind it",
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Medan – Parapat",
+          meals: ["lunch", "dinner"],
+          activities: [
+            "Pickup at Kualanamu Airport, Medan",
+            "Overland to Parapat (about 4.5 hours)",
+            "Lunch in Pematangsiantar",
+            "A photo stop at the Sidamanik tea plantation",
+            "Check in to a lakeside hotel in Parapat and have dinner",
+          ],
+        },
+        {
+          day: 2,
+          title: "Parapat – Samosir Island",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Breakfast and hotel check-out",
+            "Ferry from Ajibata harbour across to Tomok",
+            "King Sidabutar's stone tombs and the Tomok souvenir market",
+            "Batak lunch",
+            "Traditional houses and the stone court at Ambarita",
+            "Check in at Tuktuk and swim in the lake",
+            "Dinner with live Batak music",
+          ],
+        },
+        {
+          day: 3,
+          title: "Samosir – Sipiso-piso – Berastagi",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Breakfast and check-out",
+            "Cross back to the mainland via Tele or Ajibata",
+            "The 120-metre Sipiso-piso waterfall from the viewing deck",
+            "Lunch in the Merek area",
+            "Drive on to Berastagi with a stop at the fruit market",
+            "Hotel check-in, dinner, and an optional hot spring soak",
+          ],
+        },
+        {
+          day: 4,
+          title: "Berastagi – Medan",
+          meals: ["breakfast", "lunch"],
+          activities: [
+            "Breakfast and hotel check-out",
+            "A stop at Gundaling Hill",
+            "Drive back to Medan via Sibolangit",
+            "Lunch and shopping for bolu meranti and other Medan specialities",
+            "Transfer to Kualanamu Airport",
+          ],
+        },
+      ],
+      includes: [
+        "3 nights in Parapat, Samosir, and Berastagi (twin sharing)",
+        "Air-conditioned coach throughout the trip",
+        "Return Lake Toba ferry tickets",
+        "Meals as per programme (3 breakfasts, 4 lunches, 3 dinners)",
+        "Entrance tickets to every attraction in the itinerary",
+        "Tour leader and local guide",
+        "Bottled water throughout the trip",
+      ],
+      excludes: [
+        "Return flights to Medan",
+        "Hot spring entry in Berastagi",
+        "Personal expenses and souvenir shopping",
+        "Tipping for guide and driver",
+        "Travel insurance",
+      ],
+      notes: DOMESTIC_NOTE.en,
+    },
+  },
+} satisfies PackageInput;

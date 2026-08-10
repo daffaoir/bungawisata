@@ -1,0 +1,236 @@
+{
+  "Meta": {
+    "siteName": "Bunga Wisata",
+    "tagline": "Tour & Travel",
+    "defaultTitle": "Bunga Wisata — Tour & Travel Dalam & Luar Negeri",
+    "defaultDescription": "Paket wisata dalam negeri dan luar negeri dengan itinerary lengkap, harga transparan, dan pendampingan tour leader berpengalaman."
+  },
+  "Nav": {
+    "home": "Beranda",
+    "packages": "Paket Wisata",
+    "about": "Tentang Kami",
+    "gallery": "Galeri",
+    "testimonials": "Testimoni",
+    "contact": "Kontak",
+    "openMenu": "Buka menu navigasi",
+    "closeMenu": "Tutup menu navigasi",
+    "switchLanguage": "Ganti bahasa",
+    "languageId": "Indonesia",
+    "languageEn": "English"
+  },
+  "Common": {
+    "viewDetail": "Lihat Detail",
+    "viewAllPackages": "Lihat Semua Paket",
+    "startingFrom": "Mulai dari",
+    "perPerson": "/orang",
+    "days": "{count} Hari",
+    "nights": "{count} Malam",
+    "duration": "{days} Hari {nights} Malam",
+    "domestic": "Dalam Negeri",
+    "international": "Luar Negeri",
+    "backToPackages": "Kembali ke daftar paket",
+    "loading": "Memuat…"
+  },
+  "WhatsApp": {
+    "cta": "Tanya via WhatsApp",
+    "ctaShort": "Chat WhatsApp",
+    "ctaPackage": "Tanya Paket Ini",
+    "floatingLabel": "Hubungi kami di WhatsApp",
+    "generic": "Halo Bunga Wisata, saya ingin bertanya tentang paket wisata.",
+    "package": "Halo Bunga Wisata, saya tertarik dengan paket \"{packageTitle}\". Boleh minta info lebih lanjut?",
+    "custom": "Halo Bunga Wisata, saya ingin konsultasi paket wisata custom."
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Tour & Travel sejak 2015",
+      "titleLine1": "Perjalanan yang",
+      "titleHighlight": "Tak Terlupakan",
+      "titleLine2": "dimulai di sini",
+      "subtitle": "Paket wisata dalam dan luar negeri dengan itinerary yang jelas, harga transparan, dan tim yang mendampingi dari berangkat sampai pulang.",
+      "primaryCta": "Jelajahi Paket",
+      "secondaryCta": "Konsultasi Gratis",
+      "stats": {
+        "travelers": "Jamaah & wisatawan",
+        "destinations": "Destinasi",
+        "years": "Tahun pengalaman"
+      }
+    },
+    "regionSplit": {
+      "title": "Mau ke mana kali ini?",
+      "subtitle": "Pilih dulu arah perjalananmu, sisanya biar kami yang urus.",
+      "domesticTitle": "Dalam Negeri",
+      "domesticDescription": "Dari pantai Labuan Bajo sampai surga bawah laut Raja Ampat — keindahan Indonesia yang belum habis dijelajahi.",
+      "internationalTitle": "Luar Negeri",
+      "internationalDescription": "Turki, Jepang, Korea, dan destinasi impian lainnya dengan pendampingan penuh sejak dari bandara.",
+      "explore": "Jelajahi {count} paket"
+    },
+    "featured": {
+      "eyebrow": "Paling Diminati",
+      "title": "Paket Pilihan Bulan Ini",
+      "subtitle": "Itinerary yang paling sering ditanyakan pelanggan kami."
+    },
+    "whyUs": {
+      "eyebrow": "Kenapa Bunga Wisata",
+      "title": "Perjalanan tenang, tanpa drama",
+      "items": {
+        "itinerary": {
+          "title": "Itinerary Jelas di Muka",
+          "description": "Rundown harian dipublikasikan lengkap sebelum Anda memutuskan. Tidak ada acara dadakan yang tak disepakati."
+        },
+        "price": {
+          "title": "Harga Transparan",
+          "description": "Yang termasuk dan tidak termasuk tertulis apa adanya. Tanpa biaya kejutan di tengah perjalanan."
+        },
+        "leader": {
+          "title": "Tour Leader Berpengalaman",
+          "description": "Setiap keberangkatan didampingi tour leader yang paham rute, bahasa, dan kebiasaan setempat."
+        },
+        "flexible": {
+          "title": "Bisa Custom",
+          "description": "Rombongan keluarga, kantor, atau komunitas? Kami susun itinerary sesuai kebutuhan dan anggaran Anda."
+        }
+      }
+    },
+    "gallery": {
+      "eyebrow": "Galeri",
+      "title": "Sekilas dari destinasi kami",
+      "subtitle": "Geser untuk melihat tempat-tempat yang paling sering diminta rombongan kami.",
+      "previous": "Foto sebelumnya",
+      "next": "Foto berikutnya",
+      "viewAll": "Lihat galeri lengkap"
+    },
+    "testimonials": {
+      "eyebrow": "Kata Mereka",
+      "title": "Cerita dari perjalanan sebelumnya",
+      "viewAll": "Baca semua testimoni"
+    },
+    "cta": {
+      "title": "Siap berangkat?",
+      "subtitle": "Ceritakan rencana perjalanan Anda — kami bantu susun paket yang paling pas, gratis dan tanpa komitmen.",
+      "button": "Konsultasi via WhatsApp"
+    }
+  },
+  "Packages": {
+    "title": "Paket Wisata",
+    "description": "Semua paket dengan itinerary lengkap, harga transparan, dan pendampingan tour leader.",
+    "metaTitle": "Paket Wisata Dalam & Luar Negeri",
+    "metaDescription": "Jelajahi paket wisata Bunga Wisata: rundown harian lengkap, rincian yang termasuk dan tidak termasuk, serta harga mulai per orang.",
+    "filters": {
+      "all": "Semua",
+      "search": "Cari destinasi atau nama paket",
+      "searchPlaceholder": "Misalnya: Bali, Turki, honeymoon…",
+      "destination": "Destinasi",
+      "allDestinations": "Semua destinasi",
+      "duration": "Durasi",
+      "allDurations": "Semua durasi",
+      "durationShort": "1–4 hari",
+      "durationMedium": "5–8 hari",
+      "durationLong": "9 hari atau lebih",
+      "price": "Rentang Harga",
+      "allPrices": "Semua harga",
+      "priceLow": "Di bawah Rp 10 juta",
+      "priceMid": "Rp 10–25 juta",
+      "priceHigh": "Di atas Rp 25 juta",
+      "reset": "Atur ulang filter",
+      "resultCount": "{count, plural, =0 {Tidak ada paket} one {# paket} other {# paket}} ditemukan"
+    },
+    "empty": {
+      "title": "Belum ada paket yang cocok",
+      "description": "Coba longgarkan filternya, atau ceritakan rencana Anda pada kami — kami bisa susun paket custom.",
+      "cta": "Konsultasi paket custom"
+    }
+  },
+  "PackageDetail": {
+    "highlights": "Sorotan Perjalanan",
+    "itinerary": "Rundown Perjalanan",
+    "itinerarySubtitle": "Rincian kegiatan hari demi hari.",
+    "day": "Hari {day}",
+    "includes": "Sudah Termasuk",
+    "excludes": "Belum Termasuk",
+    "notes": "Catatan Penting",
+    "gallery": "Galeri Destinasi",
+    "priceLabel": "Harga mulai",
+    "priceNote": "Harga per orang, dapat berubah sewaktu-waktu tergantung musim dan ketersediaan.",
+    "durationLabel": "Durasi",
+    "destinationLabel": "Destinasi",
+    "departureLabel": "Keberangkatan",
+    "airlineLabel": "Maskapai",
+    "minPaxLabel": "Min. peserta",
+    "minPaxValue": "{count} orang",
+    "hotelsTitle": "Hotel yang Dipakai",
+    "hotelNights": "{count, plural, other {# malam}}",
+    "downloadPdf": "Unduh Itinerary (PDF)",
+    "downloadPdfShort": "PDF",
+    "relatedTitle": "Paket Serupa",
+    "askAbout": "Tanya paket ini"
+  },
+  "About": {
+    "title": "Tentang Bunga Wisata",
+    "metaDescription": "Profil Bunga Wisata — tim, pengalaman, dan cara kami menyusun perjalanan.",
+    "intro": "Bunga Wisata membantu Anda merencanakan perjalanan sejak 2015 — dari akhir pekan singkat ke Bromo sampai perjalanan sembilan hari ke Türkiye — dengan itinerary yang jelas sejak awal dan tim yang mendampingi sampai Anda pulang.",
+    "storyTitle": "Perjalanan Kami",
+    "story": "Trip pertama kami hanya rombongan belasan orang menuju Bromo, disusun lewat WhatsApp tanpa kantor resmi — itinerary ditulis manual, dicetak, dan dibagikan semalam sebelum berangkat. Dari sana permintaan terus berdatangan: mula-mula dari kerabat, lalu kolega kantor, lalu komunitas yang saling merekomendasikan dari mulut ke mulut. Sepuluh tahun kemudian, dengan kantor tetap di Karangploso dan rute yang merentang dari Sabang sampai Kapadokia, prinsip yang sama masih kami pegang sejak trip pertama itu: itinerary ditulis jelas di muka, harga tidak berubah di tengah jalan, dan setiap rombongan didampingi tour leader yang benar-benar paham rutenya.",
+    "valuesTitle": "Yang Kami Pegang",
+    "values": {
+      "honest": {
+        "title": "Jujur soal harga",
+        "description": "Setiap paket mencantumkan rincian sudah termasuk dan belum termasuk sebelum Anda membayar tanda jadi — tidak ada biaya kejutan yang muncul di tengah perjalanan."
+      },
+      "personal": {
+        "title": "Dampingan personal",
+        "description": "Setiap rombongan, besar maupun kecil, didampingi tour leader yang tinggal satu pesan WhatsApp jauhnya — bukan sekadar nomor layanan pelanggan yang berganti-ganti."
+      },
+      "detail": {
+        "title": "Detail yang diurus",
+        "description": "Dari tiket, akomodasi, sampai izin masuk objek wisata, semuanya kami urus lebih dulu supaya yang Anda pikirkan selama trip cukup soal menikmati perjalanan."
+      }
+    },
+    "ctaTitle": "Ingin kenal lebih jauh?",
+    "ctaSubtitle": "Kami senang mengobrol soal rencana perjalanan Anda."
+  },
+  "Gallery": {
+    "title": "Galeri Perjalanan",
+    "metaDescription": "Dokumentasi perjalanan bersama Bunga Wisata.",
+    "subtitle": "Momen-momen dari trip yang sudah berjalan.",
+    "placeholderNote": "Foto di atas masih stok Unsplash, bukan dokumentasi perjalanan kami. Gantilah lewat `src/content/images.ts`."
+  },
+  "Testimonials": {
+    "title": "Testimoni Pelanggan",
+    "metaDescription": "Ulasan jujur dari peserta trip Bunga Wisata.",
+    "subtitle": "Apa kata mereka yang sudah berangkat bersama kami.",
+    "ctaTitle": "Mau jadi cerita berikutnya?",
+    "ctaSubtitle": "Hubungi kami dan mulai rencanakan perjalanan Anda."
+  },
+  "Contact": {
+    "title": "Hubungi Kami",
+    "metaDescription": "Alamat, jam operasional, dan kontak WhatsApp Bunga Wisata.",
+    "subtitle": "Cara tercepat: langsung chat WhatsApp. Kami balas di jam kerja.",
+    "whatsappTitle": "WhatsApp",
+    "emailTitle": "Email",
+    "addressTitle": "Alamat Kantor",
+    "hoursTitle": "Jam Operasional",
+    "connectTitle": "Hubungi & Ikuti Kami",
+    "channelsEyebrow": "Cara Menghubungi",
+    "channelsTitle": "Pilih yang Paling Nyaman untuk Anda",
+    "mapEyebrow": "Lokasi",
+    "mapTitle": "Kantor Kami di Karangploso",
+    "mapSubtitle": "Silakan mampir di jam kerja. Kabari dulu lewat WhatsApp supaya kami siapkan waktunya.",
+    "faqTitle": "Pertanyaan yang Sering Diajukan",
+    "faqSubtitle": "Belum terjawab? Tanyakan langsung lewat WhatsApp."
+  },
+  "Footer": {
+    "about": "Bunga Wisata menyusun perjalanan dalam dan luar negeri dengan itinerary jelas dan harga yang transparan.",
+    "navTitle": "Navigasi",
+    "packagesTitle": "Paket Wisata",
+    "contactTitle": "Kontak",
+    "domestic": "Paket Dalam Negeri",
+    "international": "Paket Luar Negeri",
+    "rights": "Hak cipta dilindungi.",
+    "builtWith": "Semua harga dalam Rupiah dan dapat berubah sewaktu-waktu."
+  },
+  "NotFound": {
+    "title": "Halaman tidak ditemukan",
+    "description": "Halaman yang Anda cari mungkin sudah dipindahkan atau tidak pernah ada.",
+    "cta": "Kembali ke beranda"
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "Meta": {
+    "siteName": "Bunga Wisata",
+    "tagline": "Tour & Travel",
+    "defaultTitle": "Bunga Wisata — Domestic & International Tour Packages",
+    "defaultDescription": "Domestic and international tour packages with full day-by-day itineraries, transparent pricing, and experienced tour leaders."
+  },
+  "Nav": {
+    "home": "Home",
+    "packages": "Tour Packages",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "switchLanguage": "Change language",
+    "languageId": "Indonesia",
+    "languageEn": "English"
+  },
+  "Common": {
+    "viewDetail": "View Details",
+    "viewAllPackages": "View All Packages",
+    "startingFrom": "Starting from",
+    "perPerson": "/person",
+    "days": "{count} Days",
+    "nights": "{count} Nights",
+    "duration": "{days} Days {nights} Nights",
+    "domestic": "Domestic",
+    "international": "International",
+    "backToPackages": "Back to all packages",
+    "loading": "Loading…"
+  },
+  "WhatsApp": {
+    "cta": "Ask via WhatsApp",
+    "ctaShort": "WhatsApp Chat",
+    "ctaPackage": "Ask About This Package",
+    "floatingLabel": "Contact us on WhatsApp",
+    "generic": "Hello Bunga Wisata, I'd like to ask about your tour packages.",
+    "package": "Hello Bunga Wisata, I'm interested in the \"{packageTitle}\" package. Could I get more details?",
+    "custom": "Hello Bunga Wisata, I'd like to discuss a custom tour package."
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Tour & Travel since 2015",
+      "titleLine1": "Journeys you'll",
+      "titleHighlight": "Never Forget",
+      "titleLine2": "start right here",
+      "subtitle": "Domestic and international tour packages with clear itineraries, transparent pricing, and a team that stays with you from departure to return.",
+      "primaryCta": "Browse Packages",
+      "secondaryCta": "Free Consultation",
+      "stats": {
+        "travelers": "Happy travelers",
+        "destinations": "Destinations",
+        "years": "Years of experience"
+      }
+    },
+    "regionSplit": {
+      "title": "Where to this time?",
+      "subtitle": "Pick your direction — we'll handle everything else.",
+      "domesticTitle": "Domestic",
+      "domesticDescription": "From the beaches of Labuan Bajo to the underwater paradise of Raja Ampat — Indonesia still has so much left to explore.",
+      "internationalTitle": "International",
+      "internationalDescription": "Türkiye, Japan, Korea, and other dream destinations with full support from the moment you land.",
+      "explore": "Explore {count} packages"
+    },
+    "featured": {
+      "eyebrow": "Most Requested",
+      "title": "This Month's Picks",
+      "subtitle": "The itineraries our customers ask about most."
+    },
+    "whyUs": {
+      "eyebrow": "Why Bunga Wisata",
+      "title": "Calm trips, no surprises",
+      "items": {
+        "itinerary": {
+          "title": "Itinerary Upfront",
+          "description": "The full day-by-day rundown is published before you commit. No unannounced detours."
+        },
+        "price": {
+          "title": "Transparent Pricing",
+          "description": "What's included and what isn't is written plainly. No surprise costs mid-trip."
+        },
+        "leader": {
+          "title": "Experienced Tour Leaders",
+          "description": "Every departure is accompanied by a leader who knows the route, the language, and the local customs."
+        },
+        "flexible": {
+          "title": "Fully Customisable",
+          "description": "Travelling with family, colleagues, or a community group? We'll build an itinerary around your needs and budget."
+        }
+      }
+    },
+    "gallery": {
+      "eyebrow": "Gallery",
+      "title": "A glimpse of our destinations",
+      "subtitle": "Swipe through the places our groups ask for most often.",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "viewAll": "See the full gallery"
+    },
+    "testimonials": {
+      "eyebrow": "Their Words",
+      "title": "Stories from past trips",
+      "viewAll": "Read all testimonials"
+    },
+    "cta": {
+      "title": "Ready to go?",
+      "subtitle": "Tell us your travel plans — we'll help shape the right package, free and with no commitment.",
+      "button": "Chat on WhatsApp"
+    }
+  },
+  "Packages": {
+    "title": "Tour Packages",
+    "description": "Every package comes with a full itinerary, transparent pricing, and tour leader support.",
+    "metaTitle": "Domestic & International Tour Packages",
+    "metaDescription": "Browse Bunga Wisata tour packages: complete day-by-day rundowns, clear inclusions and exclusions, and starting prices per person.",
+    "filters": {
+      "all": "All",
+      "search": "Search destination or package name",
+      "searchPlaceholder": "Try: Bali, Türkiye, honeymoon…",
+      "destination": "Destination",
+      "allDestinations": "All destinations",
+      "duration": "Duration",
+      "allDurations": "Any duration",
+      "durationShort": "1–4 days",
+      "durationMedium": "5–8 days",
+      "durationLong": "9 days or more",
+      "price": "Price Range",
+      "allPrices": "Any price",
+      "priceLow": "Under IDR 10 million",
+      "priceMid": "IDR 10–25 million",
+      "priceHigh": "Above IDR 25 million",
+      "reset": "Reset filters",
+      "resultCount": "{count, plural, =0 {No packages} one {# package} other {# packages}} found"
+    },
+    "empty": {
+      "title": "No matching packages yet",
+      "description": "Try loosening the filters, or tell us your plans — we can put together a custom package.",
+      "cta": "Discuss a custom package"
+    }
+  },
+  "PackageDetail": {
+    "highlights": "Trip Highlights",
+    "itinerary": "Day-by-Day Itinerary",
+    "itinerarySubtitle": "Exactly what happens on each day.",
+    "day": "Day {day}",
+    "includes": "What's Included",
+    "excludes": "Not Included",
+    "notes": "Important Notes",
+    "gallery": "Destination Gallery",
+    "priceLabel": "Starting from",
+    "priceNote": "Price per person; subject to change depending on season and availability.",
+    "durationLabel": "Duration",
+    "destinationLabel": "Destination",
+    "departureLabel": "Departure from",
+    "airlineLabel": "Airline",
+    "minPaxLabel": "Min. pax",
+    "minPaxValue": "{count} people",
+    "hotelsTitle": "Hotels Used",
+    "hotelNights": "{count, plural, one {# night} other {# nights}}",
+    "downloadPdf": "Download Itinerary (PDF)",
+    "downloadPdfShort": "PDF",
+    "relatedTitle": "Similar Packages",
+    "askAbout": "Ask about this package"
+  },
+  "About": {
+    "title": "About Bunga Wisata",
+    "metaDescription": "The Bunga Wisata story — our team, our experience, and how we build trips.",
+    "intro": "Bunga Wisata has been planning trips since 2015 — from a short weekend at Bromo to a nine-day journey through Türkiye — with itineraries laid out clearly from day one and a team that stays with you until you're home.",
+    "storyTitle": "Our Journey",
+    "story": "Our first trip was a group of a dozen people headed to Bromo, arranged entirely over WhatsApp with no office to speak of — the itinerary was written by hand, printed, and handed out the night before departure. From there the requests kept coming: first from relatives, then colleagues, then communities passing our name along by word of mouth. Ten years on, with a permanent office in Karangploso and routes stretching from Sabang to Cappadocia, we still hold to what that first trip taught us: itineraries laid out clearly upfront, prices that don't shift mid-trip, and a tour leader who genuinely knows the route travelling with every group.",
+    "valuesTitle": "What We Stand For",
+    "values": {
+      "honest": {
+        "title": "Honest pricing",
+        "description": "Every package lists what's included and excluded before you pay the deposit — no surprise costs appearing partway through the trip."
+      },
+      "personal": {
+        "title": "Personal support",
+        "description": "Every group, large or small, travels with a tour leader who's one WhatsApp message away — not a rotating cast of customer service numbers."
+      },
+      "detail": {
+        "title": "Details handled",
+        "description": "From tickets and accommodation to attraction entry permits, we handle it all in advance so the only thing left for you to think about is enjoying the trip."
+      }
+    },
+    "ctaTitle": "Want to know more?",
+    "ctaSubtitle": "We're always happy to talk through your travel plans."
+  },
+  "Gallery": {
+    "title": "Trip Gallery",
+    "metaDescription": "Photos from journeys with Bunga Wisata.",
+    "subtitle": "Moments from trips already travelled.",
+    "placeholderNote": "These are still Unsplash stock photos, not our own trip documentation. Swap them out in `src/content/images.ts`."
+  },
+  "Testimonials": {
+    "title": "Customer Testimonials",
+    "metaDescription": "Honest reviews from Bunga Wisata travellers.",
+    "subtitle": "What travellers say after going with us.",
+    "ctaTitle": "Want to be the next story?",
+    "ctaSubtitle": "Get in touch and start planning your trip."
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "metaDescription": "Address, opening hours, and WhatsApp contact for Bunga Wisata.",
+    "subtitle": "Fastest route: message us on WhatsApp. We reply during business hours.",
+    "whatsappTitle": "WhatsApp",
+    "emailTitle": "Email",
+    "addressTitle": "Office Address",
+    "hoursTitle": "Opening Hours",
+    "connectTitle": "Contact & Follow Us",
+    "channelsEyebrow": "Get In Touch",
+    "channelsTitle": "Choose Whatever's Easiest for You",
+    "mapEyebrow": "Location",
+    "mapTitle": "Our Office in Karangploso",
+    "mapSubtitle": "Drop by during working hours. Message us on WhatsApp first so we can set the time aside.",
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Still unanswered? Just ask us on WhatsApp."
+  },
+  "Footer": {
+    "about": "Bunga Wisata builds domestic and international trips with clear itineraries and transparent pricing.",
+    "navTitle": "Navigation",
+    "packagesTitle": "Packages",
+    "contactTitle": "Contact",
+    "domestic": "Domestic Packages",
+    "international": "International Packages",
+    "rights": "All rights reserved.",
+    "builtWith": "All prices are in Indonesian Rupiah and subject to change."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for may have moved, or never existed.",
+    "cta": "Back to home"
+  }
+}

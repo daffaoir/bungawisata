@@ -1,0 +1,195 @@
+import { images } from "@/content/images";
+import type { PackageInput } from "@/lib/schema";
+import { INTERNATIONAL_NOTE } from "./shared";
+
+export const singapuraMalaysia4d3n = {
+  slug: "singapura-malaysia-4d3n",
+  region: "luar-negeri",
+  destination: "Singapura & Malaysia",
+  durationDays: 4,
+  durationNights: 3,
+  priceFrom: 7850000,
+  departureFrom: "Surabaya (SUB)",
+  airline: "Scoot",
+  minPax: 30,
+  hotels: [
+    { city: "Singapura", name: "Hotel Boss Singapore", nights: 2, stars: 3 },
+    {
+      city: "Kuala Lumpur",
+      name: "Sunway Putra Hotel Kuala Lumpur",
+      nights: 1,
+      stars: 4,
+    },
+  ],
+  featured: true,
+  heroImage: images["singapura-marina-bay"],
+  gallery: [
+    images["singapura-merlion"],
+    images["singapura-sentosa"],
+    images["malaysia-kuala-lumpur"],
+    images["malaysia-malaka"],
+  ],
+  tags: ["kota", "keluarga", "belanja"],
+  content: {
+    id: {
+      title: "Singapura – Malaysia 4 Hari 3 Malam",
+      summary:
+        "Dua negara dalam satu perjalanan darat: Singapura untuk Sentosa dan Marina Bay, lalu menyeberang lewat Johor menuju Kuala Lumpur.",
+      highlights: [
+        "Merlion Park dan Gardens by the Bay di Marina Bay, Singapura",
+        "Sentosa dengan Skyline Luge dan Wings of Time",
+        "Menara Kembar Petronas dan Dataran Merdeka di Kuala Lumpur",
+        "Batu Caves dengan 272 anak tangga berwarnanya",
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Surabaya – Singapura",
+          meals: ["dinner"],
+          activities: [
+            "Berkumpul di Bandara Internasional Juanda, Surabaya",
+            "Terbang menuju Bandara Changi, Singapura",
+            "Menyusuri Merlion Park dan Esplanade",
+            "Gardens by the Bay: Supertree Grove dan pertunjukan cahaya malam",
+            "Makan malam di kawasan Bugis, check-in hotel",
+          ],
+        },
+        {
+          day: 2,
+          title: "Sentosa – Singapura",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Sarapan di hotel",
+            "Menyeberang ke Pulau Sentosa dengan kereta gantung",
+            "Skyline Luge dan Siloso Beach",
+            "Makan siang di kawasan Resorts World Sentosa",
+            "Waktu bebas berbelanja di Orchard Road",
+            "Pertunjukan Wings of Time, lalu makan malam dan kembali ke hotel",
+          ],
+        },
+        {
+          day: 3,
+          title: "Singapura – Johor – Kuala Lumpur",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Sarapan dan check-out hotel",
+            "Menyeberang perbatasan darat melalui Woodlands – Johor Bahru",
+            "Makan siang di Johor Bahru",
+            "Perjalanan menuju Kuala Lumpur (± 4 jam)",
+            "Berhenti di Putrajaya untuk melihat Masjid Putra",
+            "Makan malam dan check-in hotel di Kuala Lumpur",
+          ],
+        },
+        {
+          day: 4,
+          title: "Kuala Lumpur – Surabaya",
+          meals: ["breakfast", "lunch"],
+          activities: [
+            "Sarapan dan check-out hotel",
+            "Batu Caves dan patung Dewa Murugan",
+            "Foto di depan Menara Kembar Petronas dan Dataran Merdeka",
+            "Makan siang, lalu belanja oleh-oleh di Central Market",
+            "Pengantaran ke Bandara Internasional Kuala Lumpur untuk penerbangan pulang",
+          ],
+        },
+      ],
+      includes: [
+        "Tiket pesawat Surabaya – Singapura dan Kuala Lumpur – Surabaya",
+        "Hotel 3 malam (sekamar berdua) di Singapura dan Kuala Lumpur",
+        "Bus pariwisata ber-AC selama di Singapura dan Malaysia",
+        "Makan sesuai program (3x makan pagi, 3x makan siang, 3x makan malam)",
+        "Tiket Sentosa, kereta gantung, Skyline Luge, dan Wings of Time",
+        "Tour leader dari Indonesia dan pemandu lokal berbahasa Indonesia",
+        "Air mineral 1 botol per orang per hari",
+      ],
+      excludes: [
+        "Paspor dengan masa berlaku minimal 6 bulan",
+        "Tiket Gardens by the Bay Flower Dome dan Cloud Forest",
+        "Pengeluaran pribadi, laundry, dan minuman di luar program",
+        "Tipping untuk pemandu dan sopir sebesar SGD 30 per orang",
+        "Asuransi perjalanan dan kelebihan bagasi",
+      ],
+      notes: INTERNATIONAL_NOTE.id,
+    },
+    en: {
+      title: "Singapore – Malaysia 4 Days 3 Nights",
+      summary:
+        "Two countries on one overland run: Singapore for Sentosa and Marina Bay, then across the Johor causeway to Kuala Lumpur.",
+      highlights: [
+        "Merlion Park and Gardens by the Bay in Marina Bay, Singapore",
+        "Sentosa, with the Skyline Luge and Wings of Time",
+        "The Petronas Twin Towers and Merdeka Square in Kuala Lumpur",
+        "Batu Caves and its 272 colourful steps",
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "Surabaya – Singapore",
+          meals: ["dinner"],
+          activities: [
+            "Meet at Juanda International Airport, Surabaya",
+            "Fly to Changi Airport, Singapore",
+            "Walk Merlion Park and the Esplanade",
+            "Gardens by the Bay: Supertree Grove and the evening light show",
+            "Dinner in the Bugis area, then hotel check-in",
+          ],
+        },
+        {
+          day: 2,
+          title: "Sentosa – Singapore",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Breakfast at the hotel",
+            "Cable car across to Sentosa Island",
+            "Skyline Luge and Siloso Beach",
+            "Lunch in the Resorts World Sentosa area",
+            "Free time to shop on Orchard Road",
+            "The Wings of Time show, then dinner and back to the hotel",
+          ],
+        },
+        {
+          day: 3,
+          title: "Singapore – Johor – Kuala Lumpur",
+          meals: ["breakfast", "lunch", "dinner"],
+          activities: [
+            "Breakfast and hotel check-out",
+            "Cross the land border at Woodlands – Johor Bahru",
+            "Lunch in Johor Bahru",
+            "Drive on to Kuala Lumpur (about 4 hours)",
+            "A stop in Putrajaya to see the Putra Mosque",
+            "Dinner and hotel check-in in Kuala Lumpur",
+          ],
+        },
+        {
+          day: 4,
+          title: "Kuala Lumpur – Surabaya",
+          meals: ["breakfast", "lunch"],
+          activities: [
+            "Breakfast and hotel check-out",
+            "Batu Caves and the Lord Murugan statue",
+            "Photo stops at the Petronas Twin Towers and Merdeka Square",
+            "Lunch, then souvenir shopping at Central Market",
+            "Transfer to Kuala Lumpur International Airport for the flight home",
+          ],
+        },
+      ],
+      includes: [
+        "Flights Surabaya – Singapore and Kuala Lumpur – Surabaya",
+        "3 nights hotel (twin sharing) in Singapore and Kuala Lumpur",
+        "Air-conditioned coach in Singapore and Malaysia",
+        "Meals as per programme (3 breakfasts, 3 lunches, 3 dinners)",
+        "Sentosa, cable car, Skyline Luge, and Wings of Time tickets",
+        "Tour leader from Indonesia and a local guide",
+        "One bottle of water per person per day",
+      ],
+      excludes: [
+        "A passport valid for at least 6 months",
+        "Gardens by the Bay Flower Dome and Cloud Forest tickets",
+        "Personal expenses, laundry, and drinks outside the programme",
+        "Tipping for guide and driver of SGD 30 per person",
+        "Travel insurance and excess baggage",
+      ],
+      notes: INTERNATIONAL_NOTE.en,
+    },
+  },
+} satisfies PackageInput;
