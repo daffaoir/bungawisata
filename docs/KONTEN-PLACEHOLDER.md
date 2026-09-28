@@ -1,139 +1,69 @@
-# Daftar Konten Karangan
+# Daftar Konten yang Belum dari Pemilik
 
-Berkas ini mencatat **setiap hal di situs yang saya karang**, bukan yang Anda
-berikan. Tujuannya satu: supaya Anda tidak perlu menebak mana yang aman
-dibiarkan dan mana yang wajib diganti sebelum situs ini dipublikasikan.
-
-Kolom **Status** memakai tiga nilai:
+Berkas ini mencatat apa saja di situs yang **belum berasal dari Bunga Wisata
+sendiri**, supaya jelas mana yang aman dibiarkan dan mana yang sebaiknya
+diganti. Diperbarui 2026-09-29 setelah plan `docs/plans/2026-09-28-seo-domain.md`.
 
 | Status | Artinya |
 |---|---|
-| 🔴 **Wajib ganti** | Salah atau berpotensi menyesatkan calon pelanggan kalau dibiarkan |
-| 🟡 **Sebaiknya dikoreksi** | Masuk akal secara industri, tapi belum tentu sesuai kondisi Anda |
-| 🟢 **Boleh dibiarkan** | Fakta yang bisa saya verifikasi, atau teks netral yang tidak mengklaim apa pun |
+| 🔴 **Wajib ganti** | Bisa menyesatkan calon pelanggan kalau dibiarkan |
+| 🟡 **Sebaiknya dikoreksi** | Wajar untuk biro tour, tapi belum tentu sesuai operasional Anda |
+| 🟢 **Aman** | Fakta yang bisa dicek, atau teks netral tanpa klaim |
+
+Aturan yang dipegang sejak 2026-09-28: **tidak ada testimoni, statistik, tahun
+berdiri, sertifikasi, atau kebijakan karangan** di situs. Foto stok boleh,
+asal tidak diklaim sebagai dokumentasi perjalanan Bunga Wisata.
 
 ---
 
-## Yang berasal dari Anda (bukan karangan)
+## Sudah diganti dengan data asli 🟢
 
-Supaya jelas batasnya, ini yang saya pakai apa adanya dari materi Anda:
+Sumbernya dicatat di `docs/interviews/2026-09-28-seo-domain.md`.
 
-- Logo (`assets/logo-master.png` → `public/logo-mark.png`, `public/logo-full.png`, `src/app/icon.png`)
-- Nomor WhatsApp `+62 812-3390-9129`
-- Alamat kantor di Karangploso, Kabupaten Malang
-- Nama dan tagline "Bunga Wisata — Ur Friendly Partner for Travelling"
-- Struktur PDF itinerary Bangkok–Pattaya, termasuk rute, pola hotel, dan harga Rp 7.000.000
+| Hal | Sumber |
+|---|---|
+| Nama bisnis "Bunga Wisata Tour and Travel", nama badan usaha "CV. Bunga Wisata Malang" | Google Business Profile, Facebook |
+| Alamat, koordinat, telepon/WhatsApp | Google Business Profile |
+| Jam buka Senin–Sabtu 08.00–17.00, Minggu tutup | Google Business Profile |
+| Instagram `@bungawisata`, Facebook `bungawisata.malang`, TikTok `@ownerbungawisata` | Dicek 2026-09-28, nama & nomor cocok |
+| Statistik beranda: rating 4,7 (30 ulasan Google), 6,7 rb pengikut Facebook, jumlah paket | Publik, bisa dicek |
+| Empat testimoni | Kutipan ulasan publik di Google Maps |
+
+Perbarui angka rating/pengikut di `site.proof` (`src/content/site.ts`) sesekali.
 
 ---
 
-## `src/content/site.ts`
+## Masih perlu dari pemilik
 
-| Hal | Nilai sekarang | Status | Catatan |
+| Hal | Status | Di mana | Catatan |
 |---|---|---|---|
-| `email` | `halo@bungawisata.com` | 🔴 Wajib ganti | Alamat ini saya karang. Muncul di halaman Kontak, footer, JSON-LD, dan **footer setiap PDF**. |
-| `hours` | Sen–Jum 09.00–17.00, Sabtu 09.00–14.00, Minggu tutup | 🟡 Sebaiknya dikoreksi | Jam kerja umum, bukan jam Anda. |
-| `social.instagram/facebook/tiktok` | `…/bungawisata` | 🔴 Wajib ganti | Akun-akun ini belum tentu milik Anda. Kalau belum punya, hapus saja kuncinya — footer dan JSON-LD akan menyesuaikan. |
-| `stats.travelers` | 2.500 | 🔴 Wajib ganti | Angka karangan yang tampil besar di beranda. |
-| `stats.destinations` | 40 | 🔴 Wajib ganti | Sama. |
-| `stats.years` | 10 | 🔴 Wajib ganti | Sama. Perhatikan juga eyebrow hero "Tour & Travel sejak 2015" di `src/messages/*.json`. |
-| `SITE_URL` | `https://bungawisata.co.id` | 🟡 Domain belum terdaftar | Menentukan URL absolut di sitemap, hreflang, dan tag OG. Domain `bungawisata.co.id` belum terdaftar/aktif per 2026-09-28. Timpa lewat `NEXT_PUBLIC_SITE_URL`. |
+| Email kontak | 🟡 | env `NEXT_PUBLIC_CONTACT_EMAIL` | Kosong = email disembunyikan di seluruh situs dan PDF. Isi setelah `info@bungawisata.co.id` aktif (lihat `docs/DOMAIN-LAUNCH.md` langkah 7). |
+| Harga 13 paket | 🔴 | `priceFrom` di `src/content/packages/*.ts` | Masih kisaran pasar dan **ditandai "estimasi"** di kartu, detail, dan PDF (`priceIsEstimate`). Setelah harga asli ada, isi `priceFrom` dan set `priceIsEstimate: false`. Bangkok–Pattaya sudah asli. |
+| `minPax`, hotel, maskapai, tipping, bagasi | 🟡 | `src/content/packages/*.ts` | Wajar untuk industri, tapi bukan ketentuan Anda. Hotel sudah bertanda "atau setaraf". |
+| Titik kumpul paket | 🟡 | `departureFrom` + hari 1 itinerary | Bromo–Ijen & Yogyakarta berkumpul di Malang, Bali lewat bus dari Malang atau pesawat dari Juanda. Sesuaikan dengan operasional. |
+| Kebijakan DP, minimal peserta, pembatalan | 🟡 | `src/content/faq.ts` | Sekarang netral ("dijelaskan saat pemesanan"). Tambahkan angka hanya kalau sudah pasti. |
+| Teks halaman layanan | 🟡 | `src/content/services/*.ts` | Menggambarkan layanan umum biro tour. Cek kalimat ini: rencana cadangan saat cuaca buruk (gathering), pemandu lokal & kontak WA selama perjalanan (private tour), e-tiket dikirim lewat WA (tiket), bantuan mencari fasilitas kesehatan (study tour). |
+| Artikel panduan | 🟢 | `src/content/guides/*.ts` | Informasi umum tanpa harga/aturan visa spesifik. Perbarui `updatedAt` kalau isinya diubah. |
+| Empat janji di "Kenapa Kami" | 🟡 | `Home.whyUs.items.*` di `src/messages/*.json` | Pastikan memang bisa dipenuhi. |
 
 ---
 
-## `src/content/testimonials.ts`
+## Foto 🟡
 
-| Hal | Status | Catatan |
-|---|---|---|
-| Enam testimoni beserta nama, kota, dan rating | 🔴 **Wajib ganti atau hapus** | Semuanya fiktif. Menampilkan ulasan palsu berisiko secara hukum maupun reputasi. Kalau belum ada testimoni asli, kosongkan array-nya — halaman Testimoni dan bagian testimoni di beranda akan menyesuaikan. |
+64 foto di `public/images/stock/` adalah foto stok Unsplash (lisensi boleh
+komersial; sumber di `docs/CREDITS-FOTO.md`). Galeri sudah diberi judul
+"Galeri Destinasi" dan caption hanya menyebut nama tempat; dokumentasi asli
+diarahkan ke Instagram.
 
-Kalau nanti memakai testimoni asli: minta izin tertulis sebelum menampilkan
-nama lengkap pelanggan.
-
----
-
-## `src/content/images.ts` dan `src/content/gallery.ts`
-
-| Hal | Status | Catatan |
-|---|---|---|
-| 64 foto Unsplash | 🟡 Sebaiknya dikoreksi | Semuanya foto stok, bukan dokumentasi perjalanan Anda. Tiap URL sudah saya uji membalas HTTP 200 (`node scripts/check-images.mjs`) dan dipilih lewat pencarian per destinasi, jadi subjeknya nyambung — tapi tetap bukan foto rombongan Anda. |
-| Keterangan galeri | 🟢 Boleh dibiarkan | Sengaja hanya menyebut nama tempat ("Balon udara di atas Cappadocia"), tidak mengklaim "rombongan kami di …". Begitu foto asli masuk, keterangannya boleh diubah jadi cerita perjalanan sungguhan. |
-
-Mengganti dengan foto asli: taruh berkas di `public/images/`, lalu ubah nilai
-kunci yang bersangkutan di `src/content/images.ts` menjadi
-`"/images/nama-berkas.jpg"`. Setelah tidak ada lagi URL Unsplash, hapus blok
-`images.remotePatterns` di `next.config.ts`.
+Mengganti dengan foto asli: taruh berkas di `public/images/`, lalu ubah kunci
+yang bersangkutan di `src/content/images.ts` menjadi `"/images/nama-berkas.jpg"`.
+Profil Google Maps punya 158+ foto — minta file aslinya ke papa.
 
 ---
 
-## `src/content/packages/*.ts` — 14 paket
+## Blok yang sengaja tidak ada
 
-### Yang akurat dan bisa diverifikasi 🟢
-
-- Nama objek wisata dan urutan rute yang masuk akal secara geografis
-- Maskapai yang benar-benar melayani rute tersebut
-- Nama hotel yang benar-benar ada di kota bersangkutan
-- Ketentuan visa untuk paspor Indonesia (bebas visa Vietnam & Türkiye, visa on
-  arrival UEA, visa diperlukan untuk Jepang & Korea Selatan)
-
-### Yang indikatif 🔴 / 🟡
-
-| Field | Status | Catatan |
-|---|---|---|
-| `priceFrom` | 🔴 Wajib ganti | Seluruh harga saya isi dengan kisaran pasar yang wajar, **bukan tarif Anda**. Satu-satunya pengecualian: Bangkok–Pattaya Rp 7.000.000, yang saya ambil dari PDF Anda. |
-| `minPax` | 🟡 Sebaiknya dikoreksi | 12–20 untuk dalam negeri, 25–40 untuk luar negeri. Bangkok–Pattaya memakai 40 sesuai PDF Anda. |
-| `hotels[].name` | 🟡 Sebaiknya dikoreksi | Hotelnya nyata dan ada di kota tersebut, tapi Anda belum tentu bekerja sama dengan mereka. Catatan tiap paket sudah menyebut "atau setaraf". |
-| `hotels[].stars` | 🟡 Sebaiknya dikoreksi | Mengikuti klasifikasi umum hotel bersangkutan. |
-| `airline` | 🟡 Sebaiknya dikoreksi | Maskapainya memang melayani rute itu, tapi belum tentu yang Anda pakai. |
-| `departureFrom` | 🟡 Sebaiknya dikoreksi | Surabaya/Jakarta untuk luar negeri, kota gerbang untuk dalam negeri. |
-| `includes` / `excludes` | 🟡 Sebaiknya dikoreksi | Termasuk nominal tipping (THB 400, SGD 30, USD 25/60, JPY 5.000, KRW 50.000, AED 120) dan jatah bagasi — angka lazim di industri, bukan ketentuan Anda. |
-| Rundown harian | 🟢 Boleh dibiarkan | Destinasi dan urutannya nyata; silakan sesuaikan kalau operasional Anda berbeda. |
-
----
-
-## `src/content/faq.ts`
-
-Sejak 2026-09-28 awalan "TODO:" sudah dihapus dari jawaban yang tampil di
-halaman Kontak. Akibatnya, dua angka di bawah kini terbaca sebagai **ketentuan
-pasti**, bukan lagi "umumnya", jadi justru makin penting dicocokkan dengan
-kebijakan Anda.
-
-| Kunci | Status | Catatan |
-|---|---|---|
-| `payment` — uang muka | 🔴 Wajib ganti | Menyatakan DP 30% dan pelunasan H-14 sebagai ketentuan. Angka karangan. |
-| `group-size` — minimum peserta | 🔴 Wajib ganti | Menyatakan minimal 15 peserta; harus cocok dengan `minPax` tiap paket, yang sekarang berkisar 10–40. |
-| `cancellation` — pembatalan | 🟡 Sebaiknya dikoreksi | Kini berisi kalimat netral: ketentuan dijelaskan saat pemesanan, hubungi lewat WhatsApp. Tidak menjanjikan angka, tapi sebaiknya diganti dengan ketentuan tertulis Anda. |
-| `booking`, `custom`, `visa` | 🟢 Boleh dibiarkan | Jawaban netral yang tidak menjanjikan angka apa pun. |
-
----
-
-## `src/messages/{id,en}.json`
-
-| Kunci | Status | Catatan |
-|---|---|---|
-| `Home.hero.eyebrow` — "Tour & Travel sejak 2015" | 🔴 Wajib ganti | Tahun berdirinya saya karang. |
-| `About.intro`, `About.story` | 🔴 Wajib ganti | Sebelumnya berupa teks "TODO:", sekarang sudah saya isi dengan narasi karangan (trip pertama ke Bromo lewat WhatsApp, kantor di Karangploso, dst.) supaya halaman tidak lagi menampilkan penanda TODO mentah. Ceritanya masuk akal tapi sepenuhnya fiktif — ganti dengan sejarah asli Anda. |
-| `About.values.*.description` | 🟡 Sebaiknya dikoreksi | Sama — sebelumnya "TODO:", sekarang sudah ditulis penuh. Isinya masuk akal untuk biro perjalanan pada umumnya, tapi bukan rumusan Anda; sesuaikan kalau ada penekanan berbeda. |
-| `Home.whyUs.items.*` | 🟡 Sebaiknya dikoreksi | Empat janji layanan — pastikan Anda memang bisa memenuhinya. |
-| `PackageDetail.priceNote` | 🟢 Boleh dibiarkan | Menyatakan harga dapat berubah — aman apa adanya. |
-
----
-
-## Blok yang sudah dihapus
-
-- **Legalitas** (`About.legalTitle` / `About.legalNote`) — dihapus dari halaman
-  Tentang Kami sesuai permintaan. Kalau nanti punya NIB atau keanggotaan ASITA
-  yang ingin ditampilkan, blok itu perlu dibuat ulang.
-- **Catatan foto stok di Galeri** (`Gallery.placeholderNote`) — dihapus
-  2026-09-28 karena menampilkan path kode ke pengunjung. Status foto stok tetap
-  tercatat di bagian `images.ts` di atas.
-
----
-
-## Urutan yang saya sarankan sebelum publikasi
-
-1. Ganti seluruh baris 🔴 — testimoni, harga, statistik, email, media sosial,
-   FAQ soal uang.
-2. Koreksi baris 🟡 sesuai operasional Anda.
-3. Unduh PDF salah satu paket dan bandingkan dengan lembar itinerary Anda
-   sendiri.
-4. Ganti foto stok dengan dokumentasi perjalanan asli.
+- **Legalitas** (NIB, ASITA, dll.) — belum ditampilkan. Setelah NIB terbit
+  (sedang diurus untuk domain `.co.id`), bisa ditambahkan di Tentang Kami.
+- **Schema `AggregateRating`/`Review`** — sengaja tidak dipasang; Google tidak
+  memberi bintang untuk ulasan bisnis tentang dirinya sendiri.

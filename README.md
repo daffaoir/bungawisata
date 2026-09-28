@@ -37,6 +37,8 @@ Buat file `.env.local` (tidak masuk git):
 ```bash
 NEXT_PUBLIC_WHATSAPP_NUMBER=6281234567890
 NEXT_PUBLIC_SITE_URL=https://bungawisata.co.id
+# Opsional — kosong = email disembunyikan di seluruh situs & PDF
+NEXT_PUBLIC_CONTACT_EMAIL=info@bungawisata.co.id
 ```
 
 Nomor WhatsApp ditulis format internasional **tanpa tanda `+` dan tanpa spasi**
@@ -150,8 +152,11 @@ src/
 
 Situs ini butuh runtime Node.js karena memakai middleware next-intl.
 
-**Vercel** — hubungkan repo, isi `NEXT_PUBLIC_WHATSAPP_NUMBER` dan
-`NEXT_PUBLIC_SITE_URL` di Environment Variables, selesai.
+**Vercel** — hubungkan repo, isi `NEXT_PUBLIC_WHATSAPP_NUMBER`,
+`NEXT_PUBLIC_SITE_URL`, dan (opsional) `NEXT_PUBLIC_CONTACT_EMAIL` di
+Environment Variables, selesai. Langkah memasang domain `bungawisata.co.id`
+(Cloudflare, Vercel, email, Search Console, Google Maps) ada di
+[`docs/DOMAIN-LAUNCH.md`](docs/DOMAIN-LAUNCH.md).
 
 **Hosting statis tanpa Node** — kalau nanti ternyata hanya tersedia shared
 hosting biasa, ubah `localePrefix` di `src/i18n/routing.ts` menjadi `"always"`,
