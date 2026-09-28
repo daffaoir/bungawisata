@@ -31,11 +31,11 @@ export function GalleryCarousel() {
     if (!track) return;
 
     /*
-     * Posisi "paling kiri" bukan scrollLeft 0: jalurnya punya padding kiri
-     * (px-5 / sm:px-8) dan `scroll-snap` mengunci kartu pertama tepat setelah
-     * padding itu, jadi scrollLeft awalnya sama dengan lebar padding. Tanpa
-     * memperhitungkannya, tombol "sebelumnya" tidak pernah nonaktif.
-     * Toleransi 2px karena pembulatan sub-piksel.
+     * Jalurnya punya padding kiri (px-5 / sm:px-8) yang diimbangi
+     * `scroll-padding` yang sama, jadi posisi snap kartu pertama adalah
+     * scrollLeft 0. Toleransi selebar padding tetap dipertahankan untuk
+     * peramban yang mengunci kartu tepat setelah padding tanpa memperhitungkan
+     * scroll-padding. Toleransi 2px karena pembulatan sub-piksel.
      */
     const padStart =
       Number.parseFloat(getComputedStyle(track).paddingInlineStart) || 0;
@@ -108,6 +108,10 @@ export function GalleryCarousel() {
       {/*
         `-mx-5` melebarkan jalur sampai tepi layar di ponsel supaya kartu
         terakhir terlihat "terpotong" — petunjuk visual bahwa masih ada lagi.
+        `scroll-px-*` (scroll-padding) membuat snap kartu sejajar kolom teks,
+        dan di `lg` jalurnya diteruskan sampai tepi kanan viewport sehingga
+        potongannya terjadi di tepi layar, bukan di tepi container. Kelebihan
+        lebarnya dipotong oleh `overflow-hidden` milik `Section`.
       */}
       <ul
         ref={trackRef}
@@ -116,7 +120,8 @@ export function GalleryCarousel() {
         tabIndex={0}
         aria-label={t("title")}
         className={cn(
-          "-mx-5 mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 sm:-mx-8 sm:px-8",
+          "-mx-5 mt-14 flex snap-x snap-mandatory scroll-px-5 gap-6 overflow-x-auto px-5 pb-4",
+          "sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:me-[calc(50%-50vw)]",
           "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
         )}
       >
