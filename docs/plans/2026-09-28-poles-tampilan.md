@@ -69,20 +69,23 @@
 
 Halaman yang diuji (ID / EN): `/` · `/en`; `/paket` · `/en/packages`; `/paket/bali-4d3n` · `/en/packages/bali-4d3n` (plus satu paket lain bebas); `/galeri` · `/en/gallery`; `/testimoni` · `/en/testimonials`; `/tentang-kami` · `/en/about`; `/kontak` · `/en/contact`; `/halaman-tidak-ada` · `/en/halaman-tidak-ada` (404).
 
-- [ ] Verify: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` semuanya exit 0
-- [ ] `npm test` menjalankan test baru `src/content/faq.test.ts` dan `src/content/site.test.ts`, keduanya lulus
-- [ ] Tidak ada "TODO" terlihat: di setiap halaman di atas (ID & EN), setelah semua `<details>` FAQ di Kontak dibuka, `document.body.innerText` tidak mengandung `TODO` (case-insensitive)
-- [ ] Jawaban FAQ uang muka, minimal peserta, dan pembatalan (ID & EN) terbaca sebagai kalimat utuh untuk pengunjung, tanpa kata "sesuaikan"/"adjust" yang ditujukan ke pemilik — cara cek: buka accordion di `/kontak` dan `/en/contact`
-- [ ] `grep -rn "bungawisata\.com" src README.md` hanya menemukan `email: "halo@bungawisata.com"` di `src/content/site.ts`
+- [x] Verify: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` semuanya exit 0
+- [x] `npm test` menjalankan test baru `src/content/faq.test.ts` dan `src/content/site.test.ts`, keduanya lulus
+- [x] Tidak ada "TODO" terlihat: di setiap halaman di atas (ID & EN), setelah semua `<details>` FAQ di Kontak dibuka, `document.body.innerText` tidak mengandung `TODO` (case-insensitive)
+- [x] Jawaban FAQ uang muka, minimal peserta, dan pembatalan (ID & EN) terbaca sebagai kalimat utuh untuk pengunjung, tanpa kata "sesuaikan"/"adjust" yang ditujukan ke pemilik — cara cek: buka accordion di `/kontak` dan `/en/contact`
+- [x] `grep -rn "bungawisata\.com" src README.md` hanya menemukan `email: "halo@bungawisata.com"` di `src/content/site.ts`
 - [ ] SITE_URL: dengan dev/prod server berjalan, `/sitemap.xml` dan `/robots.txt` memakai origin yang sama dengan `SITE_URL` efektif (fallback `https://bungawisata.co.id` bila env tidak di-set); `<link rel="canonical">`, `<link rel="alternate" hreflang="id|en|x-default">`, dan `og:url`/`og:image` di `/` dan `/en/packages/bali-4d3n` memakai origin yang sama. Kalau `.env.local` menimpa nilainya, tester mencatat origin yang terpakai dan mengandalkan `site.test.ts` untuk fallback
+  - FAIL (tester): sitemap/robots/canonical/hreflang/og:image = https://bungawisata.co.id (OK), tetapi `og:url` tidak ada sama sekali di `/` maupun `/en/packages/bali-4d3n` (tidak pernah di-set, sudah begitu sebelum perubahan).
 - [ ] Setiap item disetujui di `docs/design.md` terlihat di desktop 1280px — bukti: screenshot per item
+  - FAIL (tester): A2 tautan panah beranda 41px (<44); A7 kontras subjudul /tentang-kami p5 3.04:1 di 1280. Item lain terlihat (lihat Verification).
 - [ ] Setiap item disetujui di `docs/design.md` terlihat di mobile 375px — bukti: screenshot per item
-- [ ] Desktop 1280px: semua halaman di atas (ID & EN) tanpa scroll horizontal (`scrollWidth <= innerWidth`) dan tanpa error di console
-- [ ] Mobile 375px: semua halaman di atas (ID & EN) tanpa scroll horizontal dan tanpa error di console; menu mobile bisa dibuka-tutup dan pengalih bahasa berfungsi
-- [ ] CTA WhatsApp (header/floating/kartu paket/detail paket/kontak) masih membuka URL `wa.me`/`api.whatsapp.com`; tombol unduh PDF di detail paket masih mengunduh PDF (HTTP 200, `application/pdf`)
-- [ ] Identitas tetap: palet, font (Playfair Display heading, Inter body), dan logo tidak berubah — bandingkan dengan screenshot sebelum perubahan
-- [ ] Konten karangan tidak berubah: `git diff <sha-awal>..HEAD -- src/content/testimonials.ts src/content/packages` kosong, dan di `src/content/site.ts` hanya baris fallback `SITE_URL` yang berubah
-- [ ] Tidak ada push: `git status` menunjukkan branch `master` ahead dari `origin/master` (commit belum di-push)
+  - FAIL (tester): A2 belum penuh — tautan panah "Lihat galeri lengkap"/"Baca semua testimoni" (EN juga) tinggi 41px, nomor WA besar di Kontak 40px (<44). A7 — kontras subjudul PageHeader di /tentang-kami <4.5:1 (p5 1.88 di 375, 3.04 di 1280) dan /kontak 375 (p5 2.52).
+- [x] Desktop 1280px: semua halaman di atas (ID & EN) tanpa scroll horizontal (`scrollWidth <= innerWidth`) dan tanpa error di console
+- [x] Mobile 375px: semua halaman di atas (ID & EN) tanpa scroll horizontal dan tanpa error di console; menu mobile bisa dibuka-tutup dan pengalih bahasa berfungsi
+- [x] CTA WhatsApp (header/floating/kartu paket/detail paket/kontak) masih membuka URL `wa.me`/`api.whatsapp.com`; tombol unduh PDF di detail paket masih mengunduh PDF (HTTP 200, `application/pdf`)
+- [x] Identitas tetap: palet, font (Playfair Display heading, Inter body), dan logo tidak berubah — bandingkan dengan screenshot sebelum perubahan
+- [x] Konten karangan tidak berubah: `git diff <sha-awal>..HEAD -- src/content/testimonials.ts src/content/packages` kosong, dan di `src/content/site.ts` hanya baris fallback `SITE_URL` yang berubah
+- [x] Tidak ada push: `git status` menunjukkan branch `master` ahead dari `origin/master` (commit belum di-push)
 
 ## Pertanyaan terbuka
 - Wawancara menyebut branch `main`, tetapi repo memakai `master`. Plan memakai `master`.
@@ -106,3 +109,41 @@ Halaman yang diuji (ID / EN): `/` · `/en`; `/paket` · `/en/packages`; `/paket/
 
 ## Verification
 > Diisi tester: perintah + exit code, PASS/FAIL per item + bukti (screenshot/output), bug + cara reproduksi.
+
+### Verifikasi tester — 2026-09-28 (HEAD 604f00d, `next start` :3000 PID 11364, dihentikan dengan `taskkill //PID 11364`)
+
+**Verify (CLAUDE.md)** — tanpa perlu `next typegen` (types sudah ada):
+- `npm run lint` → exit 0
+- `npx tsc --noEmit` → exit 0
+- `npm test` → exit 0 (7 files, 63 tests); `vitest run src/content/faq.test.ts src/content/site.test.ts` → 2 files, 4 tests passed
+- `npm run build` → exit 0
+
+**Acceptance**
+- Verify exit 0 — PASS
+- Test baru faq/site lulus — PASS
+- Tanpa "TODO" (16 halaman × 1280/375, semua `<details>` dibuka) — PASS
+- FAQ uang muka/minimal peserta/pembatalan kalimat utuh ID+EN — PASS (satu-satunya "disesuaikan" adalah pertanyaan pengunjung "Bisakah itinerary disesuaikan…", bukan instruksi pemilik)
+- grep `bungawisata.com` → hanya `src/content/site.ts:58 email` — PASS
+- SITE_URL — **FAIL**: robots `Sitemap: https://bungawisata.co.id/sitemap.xml`, sitemap 60 URL semua `https://bungawisata.co.id`, canonical + hreflang id/en/x-default + og:image di `/`, `/en`, `/paket/bali-4d3n`, `/en/packages/bali-4d3n` semua origin itu. Tetapi `<meta property="og:url">` tidak ada. Repro: `curl -s localhost:3000/ | grep og:url` → kosong.
+- Item design 1280 — **FAIL** (A2, A7; lihat di bawah)
+- Item design 375 — **FAIL** (A2, A7)
+- 1280 tanpa horizontal scroll / console error — PASS (scrollWidth 1280 di 16 halaman; satu-satunya error "Failed to load resource: 404" di dua URL 404, sesuai harapan karena status dokumen 404)
+- 375 tanpa horizontal scroll / console error; menu buka-tutup; pengalih bahasa — PASS (scrollWidth 375 di 16 halaman; menu terbuka `[data-mobile-nav-open]`, klik EN → `/en`, menu tertutup; tombol Tutup menutup)
+- CTA WA + PDF — PASS (semua CTA `https://wa.me/6281233909129?text=…`; `/api/itinerary/{id,en}/bali-4d3n` 200 `application/pdf`, tombol punya atribut `download`)
+- Identitas — PASS (diff `globals.css` hanya +10 baris tanpa warna/font; screenshot tetap Playfair/Inter, logo sama)
+- Konten karangan — PASS (diff testimonials/packages kosong; site.ts hanya baris fallback + komentar)
+- Tidak ada push — PASS (`master...origin/master [ahead 29]`)
+
+**Item design P1/P2 (screenshot di `docs/design-audit/after/`, gitignored)**
+- A1 PASS — kartu /paket, /en/packages, ?region=luar-negeri di 375 opacity 1 setelah scroll (`A1-cards-mobile.png`, `A1-cards-en-mobile.png`)
+- A2 **FAIL (sebagian)** — OK: ID/EN 44×44, menu mobile 44 tinggi, footer 44, segmen 106×44, sticky 44, tombol hero 53. Kurang: "Lihat galeri lengkap"/"Baca semua testimoni" (+EN) 41px (`-my-3 py-3` dengan teks 0.72rem); nomor WA di Kontak 277×40. Repro: 375×812, `/`, ukur `getBoundingClientRect().height` tautan `a[href="/galeri"]` di main → 41.
+- A3, A4 (WA mengambang 48px, right/bottom 16, disembunyikan saat menu terbuka), A5, A6 — PASS (`home-*-*.png`, `A2-mobilenav-mobile.png`)
+- A7 **FAIL** — gradien baru terpasang (ink/90→/60→/10), tinggi header 303px (/paket 1280). Kontras subjudul white/70 diukur per piksel latar (5th percentile): /paket 7.7 (1280) / 4.7 (375), /testimoni 5.5 / 4.7, /galeri 4.9 / 4.7, /kontak 5.3 / **2.5**, /tentang-kami **3.0** / **1.9**. Repro: buka `/tentang-kami` di 375×812, subjudul di atas langit senja terang (`A7-pageheader-tentang-mobile.png`, `A7-pageheader-tentang-desktop.png`, `A7-pageheader-kontak-mobile.png`).
+- B1 PASS — foto hero 375×281 tepat di bawah header (top 77) (`B1-hero-mobile.png`); B2 PASS (dua tombol 335px); B3, B4, B5 PASS (`home-id-desktop.png`, `home-id-mobile.png`)
+- C2 PASS — segmen 3×106×44, satu baris; tombol FILTER/FILTERS `aria-expanded` false→true (`C2-filter-mobile.png`, `C2-filter-open-mobile.png`, `-en-`); C3–C5 PASS (`paket-*`)
+- D1 PASS — bilah fixed di 375: "Rp 24.900.000" dan "IDR 24,900,000" utuh (scrollWidth = clientWidth), PDF ikon 44×44 `[download]`, "TANYA"/"ASK" 44 tinggi (`D1-sticky_*-mobile.png`); D2, D3 PASS (`bali-*`)
+- E1, E2 (catatan stok hilang), E3, E4 PASS (`galeri-*`, `testi-*`)
+- F1 PASS — blok WhatsApp pertama, nomor besar + tombol wa.me + jam (`F1-contact-mobile.png`, `F1-contact-en-mobile.png`); F2, F3, F4 PASS (`kontak-*`, `tentang-*`)
+- G1 PASS — `/halaman-tidak-ada` & `/en/halaman-tidak-ada` HTTP 404, header+footer bermerek (`G1-404-mobile.png`, `viewport_halaman-tidak-ada-desktop.png`); G2 PASS
+
+**Hasil: FAIL** — A2 (dua tautan 41px, nomor WA 40px), A7 (kontras subjudul /tentang-kami & /kontak mobile), og:url tidak ada.
