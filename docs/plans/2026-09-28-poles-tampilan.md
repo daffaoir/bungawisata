@@ -74,12 +74,12 @@ Halaman yang diuji (ID / EN): `/` · `/en`; `/paket` · `/en/packages`; `/paket/
 - [x] Tidak ada "TODO" terlihat: di setiap halaman di atas (ID & EN), setelah semua `<details>` FAQ di Kontak dibuka, `document.body.innerText` tidak mengandung `TODO` (case-insensitive)
 - [x] Jawaban FAQ uang muka, minimal peserta, dan pembatalan (ID & EN) terbaca sebagai kalimat utuh untuk pengunjung, tanpa kata "sesuaikan"/"adjust" yang ditujukan ke pemilik — cara cek: buka accordion di `/kontak` dan `/en/contact`
 - [x] `grep -rn "bungawisata\.com" src README.md` hanya menemukan `email: "halo@bungawisata.com"` di `src/content/site.ts`
-- [ ] SITE_URL: dengan dev/prod server berjalan, `/sitemap.xml` dan `/robots.txt` memakai origin yang sama dengan `SITE_URL` efektif (fallback `https://bungawisata.co.id` bila env tidak di-set); `<link rel="canonical">`, `<link rel="alternate" hreflang="id|en|x-default">`, dan `og:url`/`og:image` di `/` dan `/en/packages/bali-4d3n` memakai origin yang sama. Kalau `.env.local` menimpa nilainya, tester mencatat origin yang terpakai dan mengandalkan `site.test.ts` untuk fallback
-  - FAIL (tester): sitemap/robots/canonical/hreflang/og:image = https://bungawisata.co.id (OK), tetapi `og:url` tidak ada sama sekali di `/` maupun `/en/packages/bali-4d3n` (tidak pernah di-set, sudah begitu sebelum perubahan).
-- [ ] Setiap item disetujui di `docs/design.md` terlihat di desktop 1280px — bukti: screenshot per item
-  - FAIL (tester): A2 tautan panah beranda 41px (<44); A7 kontras subjudul /tentang-kami p5 3.04:1 di 1280. Item lain terlihat (lihat Verification).
-- [ ] Setiap item disetujui di `docs/design.md` terlihat di mobile 375px — bukti: screenshot per item
-  - FAIL (tester): A2 belum penuh — tautan panah "Lihat galeri lengkap"/"Baca semua testimoni" (EN juga) tinggi 41px, nomor WA besar di Kontak 40px (<44). A7 — kontras subjudul PageHeader di /tentang-kami <4.5:1 (p5 1.88 di 375, 3.04 di 1280) dan /kontak 375 (p5 2.52).
+- [x] SITE_URL: dengan dev/prod server berjalan, `/sitemap.xml` dan `/robots.txt` memakai origin yang sama dengan `SITE_URL` efektif (fallback `https://bungawisata.co.id` bila env tidak di-set); `<link rel="canonical">`, `<link rel="alternate" hreflang="id|en|x-default">`, dan `og:url`/`og:image` di `/` dan `/en/packages/bali-4d3n` memakai origin yang sama. Kalau `.env.local` menimpa nilainya, tester mencatat origin yang terpakai dan mengandalkan `site.test.ts` untuk fallback
+  - Ronde awal FAIL, retest r1 PASS (lihat Verification r1). Catatan awal: sitemap/robots/canonical/hreflang/og:image = https://bungawisata.co.id (OK), tetapi `og:url` tidak ada sama sekali di `/` maupun `/en/packages/bali-4d3n` (tidak pernah di-set, sudah begitu sebelum perubahan).
+- [x] Setiap item disetujui di `docs/design.md` terlihat di desktop 1280px — bukti: screenshot per item
+  - Ronde awal FAIL, retest r1 PASS. Catatan awal: A2 tautan panah beranda 41px (<44); A7 kontras subjudul /tentang-kami p5 3.04:1 di 1280. Item lain terlihat (lihat Verification).
+- [x] Setiap item disetujui di `docs/design.md` terlihat di mobile 375px — bukti: screenshot per item
+  - Ronde awal FAIL, retest r1 PASS. Catatan awal: A2 belum penuh — tautan panah "Lihat galeri lengkap"/"Baca semua testimoni" (EN juga) tinggi 41px, nomor WA besar di Kontak 40px (<44). A7 — kontras subjudul PageHeader di /tentang-kami <4.5:1 (p5 1.88 di 375, 3.04 di 1280) dan /kontak 375 (p5 2.52).
 - [x] Desktop 1280px: semua halaman di atas (ID & EN) tanpa scroll horizontal (`scrollWidth <= innerWidth`) dan tanpa error di console
 - [x] Mobile 375px: semua halaman di atas (ID & EN) tanpa scroll horizontal dan tanpa error di console; menu mobile bisa dibuka-tutup dan pengalih bahasa berfungsi
 - [x] CTA WhatsApp (header/floating/kartu paket/detail paket/kontak) masih membuka URL `wa.me`/`api.whatsapp.com`; tombol unduh PDF di detail paket masih mengunduh PDF (HTTP 200, `application/pdf`)
@@ -148,3 +148,26 @@ Halaman yang diuji (ID / EN): `/` · `/en`; `/paket` · `/en/packages`; `/paket/
 - G1 PASS — `/halaman-tidak-ada` & `/en/halaman-tidak-ada` HTTP 404, header+footer bermerek (`G1-404-mobile.png`, `viewport_halaman-tidak-ada-desktop.png`); G2 PASS
 
 **Hasil: FAIL** — A2 (dua tautan 41px, nomor WA 40px), A7 (kontras subjudul /tentang-kami & /kontak mobile), og:url tidak ada.
+
+### Verifikasi tester — retest fix ronde 1, 2026-09-28 (HEAD ef8a5d9; fix 606964f, 84d819f, 190e958, 3396001; `next start` :3000 PID 22556, dihentikan)
+
+Catatan: commit progress plan adalah `ef8a5d9`, bukan `7c1b3c6` seperti yang disebut di pesan.
+
+**Verify:** `npm run lint` 0 · `npx tsc --noEmit` 0 · `npm test` 0 · `npm run build` 0
+
+1. **og:url — PASS.** Pada 14 halaman ber-canonical (ID+EN, 1280 & 375), `og:url` sama dengan canonical, mis. `https://bungawisata.co.id/en/packages/bali-4d3n`. Satu beda kosmetik: di `/`, `og:url` = `https://bungawisata.co.id` sedangkan canonical `https://bungawisata.co.id/`. URL-nya sama; hanya garis miring akhir yang berbeda. `og:image` ada di semua 16 halaman, termasuk 404.
+2. **A2 — PASS.** Tinggi 44px untuk "Lihat galeri lengkap"/"Baca semua testimoni", "See the full gallery"/"Read all testimonials", dan nomor WA `+62 812-3390-9129` di `/kontak` & `/en/contact`, di 1280 dan 375.
+3. **A7 — PASS.** Subjudul sekarang `text-white/90`; lapisan ink/65 di <lg, gradien ≥ink/70 sampai 60% di lg. Kontras persentil ke-5 per piksel latar (1280 / 375): /paket 13.1 / 10.2 · /testimoni 10.6 / 9.7 · /galeri 9.7 / 6.0 · /tentang-kami 6.9 / 5.3 · /kontak 10.5 / 7.2 (EN sama). Nilai terendah per piksel: 5.2 (375). Secara visual di 375 header lebih gelap, subjudul jelas, foto (siluet senja) masih terlihat: `after-r1/A7-pageheader-tentang-mobile.png`, `A7-pageheader-kontak-mobile.png`.
+4. **Regresi P1 — PASS.**
+   - A1: kartu opacity 1 di /paket, /en/packages, luar-negeri.
+   - B1: foto hero 375×281, top 77.
+   - C2: segmen 106×44; Filter `aria-expanded` false→true.
+   - D1: Rp 24.900.000 / IDR 24,900,000 utuh; PDF 44×44 dengan `download`; Tanya/Ask 44px.
+   - F1: blok WA → wa.me.
+   - G1: HTTP 404 bermerek.
+   - 16 halaman × 2 lebar: tanpa horizontal scroll, tanpa "TODO" (FAQ dibuka). Console error hanya status 404 dokumen di URL 404 (sesuai harapan).
+   - Menu mobile dan pengalih bahasa berfungsi.
+
+Screenshot: `docs/design-audit/after-r1/` (gitignored).
+
+**Hasil retest: PASS** — seluruh acceptance checklist tercentang.
