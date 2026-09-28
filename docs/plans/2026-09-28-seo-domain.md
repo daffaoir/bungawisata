@@ -321,26 +321,32 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 ## Acceptance checklist
 > Diperiksa independen oleh `tester` setelah semua langkah selesai.
 
-- [ ] **Verify** (`npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`) semua exit 0.
-- [ ] `grep -r "bungawisata.com" src public` kosong (selain komentar yang menjelaskan domain itu bukan milik kita).
-- [ ] Tidak ada nama testimoni lama maupun angka "2.500"/"2500", "sejak 2015", atau "since 2015" di `src/`.
-- [ ] Testimoni di `/` dan `/testimoni` adalah 4 ulasan Google dengan link "Lihat semua ulasan di Google". Rating 4,7 dan 30 ulasan tampil.
-- [ ] Jam buka di Kontak, Footer, dan JSON-LD: Senin–Sabtu 08.00–17.00, Minggu tutup.
-- [ ] Email tidak tampil di mana pun saat `NEXT_PUBLIC_CONTACT_EMAIL` kosong, dan tampil kalau diisi (cek dengan build lokal env `info@example.test`).
-- [ ] Harga di kartu, detail, dan PDF diberi label estimasi, kecuali Bangkok–Pattaya.
-- [ ] Title/H1 beranda memuat "Malang". Title halaman paket berformat "Paket Tour … dari Malang". Tidak ada title > 65 karakter dan tidak ada description < 110 atau > 165 karakter (ID & EN).
+- [x] **Verify** (`npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`) semua exit 0.
+- [x] `grep -r "bungawisata.com" src public` kosong (selain komentar yang menjelaskan domain itu bukan milik kita).
+- [x] Tidak ada nama testimoni lama maupun angka "2.500"/"2500", "sejak 2015", atau "since 2015" di `src/`.
+- [x] Testimoni di `/` dan `/testimoni` adalah 4 ulasan Google dengan link "Lihat semua ulasan di Google". Rating 4,7 dan 30 ulasan tampil.
+  - Catatan tester: `/testimoni` menampilkan 4 ulasan; beranda menampilkan 3 dari 4 (`testimonials.slice(0, 3)` di `TestimonialStrip`), semuanya ulasan asli.
+- [x] Jam buka di Kontak, Footer, dan JSON-LD: Senin–Sabtu 08.00–17.00, Minggu tutup.
+  - Catatan tester: "Minggu & hari libur Tutup" tertulis di Kontak; Footer hanya "Senin – Sabtu · 08.00 – 17.00 WIB"; JSON-LD hanya Mon–Sat (Minggu tutup secara implisit).
+- [x] Email tidak tampil di mana pun saat `NEXT_PUBLIC_CONTACT_EMAIL` kosong, dan tampil kalau diisi (cek dengan build lokal env `info@example.test`).
+- [x] Harga di kartu, detail, dan PDF diberi label estimasi, kecuali Bangkok–Pattaya.
+- [x] Title/H1 beranda memuat "Malang". Title halaman paket berformat "Paket Tour … dari Malang". Tidak ada title > 65 karakter dan tidak ada description < 110 atau > 165 karakter (ID & EN).
 - [ ] HTML statis `/paket` dan `/en/packages` memuat link ke 14 paket, tanpa `BAILOUT_TO_CLIENT_SIDE_RENDERING`.
-- [ ] Setiap halaman memuat satu JSON-LD organisasi dengan `@id`, `geo`, `openingHoursSpecification`, `logo`, dan `sameAs` 3 akun. Halaman selain beranda punya `BreadcrumbList`. Halaman paket berisi `TouristTrip` dengan `provider.@id`, dan halaman layanan berisi `Service`. Semua lolos Schema Markup Validator / Rich Results Test (lokal via paste HTML).
-- [ ] `/sitemap.xml` memuat `<lastmod>` serta semua halaman layanan dan panduan. `/id` dan `/id/paket` membalas 308.
-- [ ] Header respons memuat `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`, dan tidak ada `X-Powered-By`.
-- [ ] `/manifest.webmanifest` dan `apple-icon` ada.
+  - Gagal (tester 2026-09-29): 14 link unik ada, tetapi HTML **setiap** halaman memuat satu `<template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING">`. Sumbernya `<Analytics />` dari `@vercel/analytics/next` (memakai `useSearchParams` di dalam `Suspense fallback={null}`) di layout, bukan daftar paket. Secara maksud lolos, secara harfiah gagal.
+- [x] Setiap halaman memuat satu JSON-LD organisasi dengan `@id`, `geo`, `openingHoursSpecification`, `logo`, dan `sameAs` 3 akun. Halaman selain beranda punya `BreadcrumbList`. Halaman paket berisi `TouristTrip` dengan `provider.@id`, dan halaman layanan berisi `Service`. Semua lolos Schema Markup Validator / Rich Results Test (lokal via paste HTML).
+  - Catatan tester: validator Google tidak dijalankan (lokal). Divalidasi dengan `JSON.parse` + cek field di 62 halaman sitemap.
+- [x] `/sitemap.xml` memuat `<lastmod>` serta semua halaman layanan dan panduan. `/id` dan `/id/paket` membalas 308.
+- [x] Header respons memuat `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`, dan tidak ada `X-Powered-By`.
+- [x] `/manifest.webmanifest` dan `apple-icon` ada.
 - [ ] Lighthouse mobile (median 3 run, `next start`): `/` dan `/paket` Performance ≥ 85, Accessibility 100, SEO 100, CLS < 0,1.
-- [ ] Tidak ada request ke `images.unsplash.com`. `docs/CREDITS-FOTO.md` mencantumkan semua foto.
-- [ ] `/layanan` menampilkan 5 layanan, dan tiap halaman layanan ID/EN punya H1 berkata kunci, FAQ, paket terkait, form penawaran, dan CTA WA.
-- [ ] Form penawaran membuka `wa.me/6281233909129?text=…` berisi field yang diisi. Tidak ada request jaringan lain saat submit.
-- [ ] `/panduan` menampilkan 4 artikel ID/EN dengan `BlogPosting` + Breadcrumb dan link internal.
-- [ ] Menu desktop dan mobile memuat "Layanan". Semua halaman baru rapi di 1280 px dan 375 px (screenshot).
-- [ ] `docs/DOMAIN-LAUNCH.md` ada dan memuat 11 langkah di atas.
+  - Gagal (tester 2026-09-29): median `/` Perf 81, `/paket` Perf 84; SEO 92 di keduanya (audit `canonical`, karena canonical ke `bungawisata.co.id`). A11y 100 dan CLS 0 lolos.
+- [x] Tidak ada request ke `images.unsplash.com`. `docs/CREDITS-FOTO.md` mencantumkan semua foto.
+  - Catatan tester: 64 foto tercantum, tapi hanya URL sumber; nama fotografer (diminta langkah 12) belum ada.
+- [x] `/layanan` menampilkan 5 layanan, dan tiap halaman layanan ID/EN punya H1 berkata kunci, FAQ, paket terkait, form penawaran, dan CTA WA.
+- [x] Form penawaran membuka `wa.me/6281233909129?text=…` berisi field yang diisi. Tidak ada request jaringan lain saat submit.
+- [x] `/panduan` menampilkan 4 artikel ID/EN dengan `BlogPosting` + Breadcrumb dan link internal.
+- [x] Menu desktop dan mobile memuat "Layanan". Semua halaman baru rapi di 1280 px dan 375 px (screenshot).
+- [x] `docs/DOMAIN-LAUNCH.md` ada dan memuat 11 langkah di atas.
 
 ## Progress
 - 2026-09-28: plan dibuat setelah wawancara dan audit.
@@ -358,3 +364,10 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
   - `/galeri`: Perf 83, A11y 100; `/layanan/tour-rombongan`: Perf 85, A11y 100
   - CLS 0 di semua halaman. SEO 92 dan BP 96 di lokal hanya karena canonical ke `bungawisata.co.id` dan skrip Vercel Analytics yang tidak ada di localhost.
   - **Belum tercapai:** target Perf ≥ 85 untuk `/` dan `/paket`. LCP ±4 s (simulasi) didominasi *element render delay* akibat runtime React/Next + next-intl di client. Langkah lanjutan yang disarankan: kirim teks sebagai props ke komponen client dan lepas `NextIntlClientProvider`, lalu ukur ulang di domain produksi (PageSpeed Insights).
+- 2026-09-29 (tester): verifikasi independen di `c642f3b`.
+  - Verify: `npm run lint` 0, `npx tsc --noEmit` 0, `npm test` 0 (13 file, 135 tes), `npm run build` 0. Build tambahan dengan `NEXT_PUBLIC_CONTACT_EMAIL=info@example.test` juga 0.
+  - 18 dari 20 item lolos. Gagal: (1) `BAILOUT_TO_CLIENT_SIDE_RENDERING` masih ada di semua halaman, berasal dari `<Analytics />` Vercel, bukan daftar paket (14 link ada di HTML statis); (2) Lighthouse Perf `/` 81 dan `/paket` 84 (< 85), SEO 92 karena canonical.
+  - Lighthouse mobile lokal (`next start -p 3210`, 3 run): `/` Perf 85/81/80 (median 81), A11y 100, BP 96, SEO 92, LCP 3,67 s, TBT 369 ms, CLS 0. `/paket` Perf 85/83/84 (median 84), A11y 100, BP 96, SEO 92, LCP 3,84 s, TBT 210 ms, CLS 0. BP 96 hanya karena `/_vercel/insights/script.js` 404.
+  - Semua 62 URL sitemap (ID+EN) 200, title ≤ 65, description 110–165, JSON-LD bisa di-parse; tidak ada horizontal scroll di 1280/375; satu-satunya error console adalah skrip Vercel Insights 404.
+  - Catatan kecil: `CREDITS-FOTO.md` belum mencantumkan nama fotografer; beranda menampilkan 3 dari 4 ulasan; Footer tidak menulis "Minggu tutup" secara eksplisit.
+  - Screenshot: `.playwright-mcp/seo-domain/` (tidak di-commit).
