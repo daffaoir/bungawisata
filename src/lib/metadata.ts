@@ -7,7 +7,10 @@ type Href = Parameters<typeof getPathname>[0]["href"];
 
 /** URL absolut satu halaman dalam bahasa tertentu. */
 export function absoluteUrl(href: Href, locale: AppLocale): string {
-  return `${SITE_URL}${getPathname({ href, locale })}`;
+  const path = getPathname({ href, locale });
+  // Beranda ID ditulis tanpa garis miring akhir, sama seperti canonical yang
+  // dinormalisasi Next.js, supaya canonical, hreflang, dan sitemap identik.
+  return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
 }
 
 /**
@@ -34,12 +37,12 @@ export function buildAlternates(href: Href, locale: AppLocale) {
   const languages = Object.fromEntries(
     routing.locales.map((target) => [
       target,
-      `${SITE_URL}${getPathname({ href, locale: target })}`,
+      absoluteUrl(href, target),
     ]),
   );
 
   return {
-    canonical: `${SITE_URL}${getPathname({ href, locale })}`,
+    canonical: absoluteUrl(href, locale),
     languages: { ...languages, "x-default": languages[routing.defaultLocale] },
   };
 }
@@ -76,7 +79,7 @@ export async function buildOpenGraph(
     type: "website",
     siteName: site.name,
     locale: locale === "id" ? "id_ID" : "en_US",
-    url: `${SITE_URL}${getPathname({ href, locale })}`,
+    url: absoluteUrl(href, locale),
     title,
     description,
     ...(inherited ? { images: inherited } : {}),

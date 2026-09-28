@@ -1,8 +1,14 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/content/site";
-import { getPathname } from "@/i18n/navigation";
+import type { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { absoluteUrl } from "@/lib/metadata";
 import { getAllPackages } from "@/lib/packages";
+
+/**
+ * Situs dibangun statis, jadi tanggal build adalah saat terakhir kontennya
+ * bisa berubah.
+ */
+const BUILD_DATE = new Date();
 
 type Href = Parameters<typeof getPathname>[0]["href"];
 
@@ -10,12 +16,13 @@ function entry(href: Href, priority: number): MetadataRoute.Sitemap[number] {
   const languages = Object.fromEntries(
     routing.locales.map((locale) => [
       locale,
-      `${SITE_URL}${getPathname({ href, locale })}`,
+      absoluteUrl(href, locale),
     ]),
   );
 
   return {
     url: languages[routing.defaultLocale],
+    lastModified: BUILD_DATE,
     priority,
     alternates: { languages },
   };
