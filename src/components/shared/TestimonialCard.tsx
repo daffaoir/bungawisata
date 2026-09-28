@@ -4,104 +4,102 @@ import type { Testimonial } from "@/content/testimonials";
 import type { AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 
+type TestimonialCardProps = {
+  testimonial: Testimonial;
+  /** Hanya untuk varian `card`: latar terang atau gelap (section ink). */
+  tone?: "light" | "dark";
+  /**
+   * `card` — kotak bergaris (strip testimoni di beranda).
+   * `quote` — kutipan tanpa kotak, dipisah garis rambut (halaman Testimoni).
+   */
+  variant?: "card" | "quote";
+};
+
+function Stars({ rating, isDark }: { rating: number; isDark: boolean }) {
+  return (
+    <div className="flex gap-1" role="img" aria-label={`${rating}/5`}>
+      {Array.from({ length: 5 }, (_, index) => {
+        const earned = index < rating;
+
+        return (
+          <Star
+            key={index}
+            aria-hidden="true"
+            className={cn(
+              "size-3.5",
+              earned
+                ? isDark
+                  ? "fill-gold-400 text-gold-400"
+                  : "fill-gold-600 text-gold-600"
+                : isDark
+                  ? "fill-white/20 text-white/20"
+                  : "fill-line text-line",
+            )}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 /**
- * Kartu testimoni dengan interaksi murni CSS — tidak menambah JavaScript
- * apa pun ke bundel, dan seluruhnya berhenti saat `prefers-reduced-motion`
- * menyala (aturan globalnya ada di `globals.css`).
- *
- * Empat lapis interaksinya: kartu terangkat, garis tepi menjadi emas, tanda
- * kutip raksasa memudar masuk, dan bintang menyala berurutan dari kiri.
+ * Testimoni statis — tidak interaktif, jadi tidak masuk urutan Tab dan tanpa
+ * efek hover. Bintang yang diraih selalu berwarna emas supaya rating 4 dan 5
+ * langsung terbedakan, dan kutipan selalu tampil utuh.
  */
 export function TestimonialCard({
   testimonial,
   tone = "light",
-}: {
-  testimonial: Testimonial;
-  tone?: "light" | "dark";
-}) {
+  variant = "card",
+}: TestimonialCardProps) {
   const locale = useLocale() as AppLocale;
+
+  if (variant === "quote") {
+    return (
+      <figure className="flex h-full flex-col border-t border-line pt-8">
+        <Stars rating={testimonial.rating} isDark={false} />
+
+        <blockquote className="mt-5 flex-1 font-display text-[1.3rem] leading-[1.6] text-ink">
+          {testimonial.quote[locale]}
+        </blockquote>
+
+        <figcaption className="mt-6 text-[0.85rem]">
+          <span className="block font-semibold text-ink">
+            {testimonial.name}
+          </span>
+          <span className="mt-1 block text-ink-muted">
+            {testimonial.from} &middot; {testimonial.trip[locale]}
+          </span>
+        </figcaption>
+      </figure>
+    );
+  }
+
   const isDark = tone === "dark";
 
   return (
-    /*
-     * `tabIndex` membuat kartunya bisa disinggahi Tab. Tanpa itu, seluruh efek
-     * di bawah — termasuk terbukanya kutipan yang terpotong — hanya bisa
-     * dicapai dengan kursor.
-     */
     <figure
-      tabIndex={0}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden border p-8",
-        "transition-[transform,border-color,box-shadow] duration-500 ease-out",
-        "hover:-translate-y-1.5 focus:-translate-y-1.5",
-        isDark
-          ? "border-white/15 bg-white/[0.04] hover:border-gold-400/70 focus:border-gold-400/70"
-          : "border-line bg-white hover:border-gold-500 focus:border-gold-500 hover:shadow-[0_24px_60px_-40px_rgba(15,15,15,0.5)]",
+        "flex h-full flex-col border p-8",
+        isDark ? "border-white/15 bg-white/[0.04]" : "border-line bg-white",
       )}
     >
-      <span
-        aria-hidden="true"
-        className={cn(
-          "pointer-events-none absolute -top-8 right-4 font-display text-[9rem] leading-none",
-          "opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus:opacity-100",
-          isDark ? "text-gold-400/15" : "text-gold-500/15",
-        )}
-      >
-        &rdquo;
-      </span>
+      <Stars rating={testimonial.rating} isDark={isDark} />
 
-      <div
-        className="relative flex gap-1"
-        role="img"
-        aria-label={`${testimonial.rating}/5`}
-      >
-        {Array.from({ length: 5 }, (_, index) => {
-          const earned = index < testimonial.rating;
-
-          return (
-            <Star
-              key={index}
-              aria-hidden="true"
-              // Jeda bertingkat membuat bintangnya menyala satu per satu
-              // dari kiri ke kanan, bukan serentak.
-              style={{ transitionDelay: `${index * 70}ms` }}
-              className={cn(
-                "size-3.5 transition-colors duration-500",
-                earned
-                  ? isDark
-                    ? "fill-white/35 text-white/35 group-hover:fill-gold-400 group-hover:text-gold-400 group-focus:fill-gold-400 group-focus:text-gold-400"
-                    : "fill-ink/20 text-ink/20 group-hover:fill-gold-500 group-hover:text-gold-500 group-focus:fill-gold-500 group-focus:text-gold-500"
-                  : isDark
-                    ? "text-white/10"
-                    : "text-ink/10",
-              )}
-            />
-          );
-        })}
-      </div>
-
-      {/*
-        Kutipan panjang dipangkas di ~4 baris supaya tinggi kartu di satu baris
-        grid tetap seragam. Batasnya dilepas saat kartu disinggahi kursor atau
-        Tab; `max-height` dipakai (bukan `line-clamp`) karena hanya nilai
-        numerik yang bisa dianimasikan.
-      */}
       <blockquote
         className={cn(
-          "relative mt-6 flex-1 overflow-hidden text-[0.98rem] leading-[1.8]",
-          "max-h-[7.1rem] transition-[max-height] duration-500 ease-out",
-          "group-hover:max-h-[32rem] group-focus:max-h-[32rem]",
+          "mt-6 flex-1 text-[0.98rem] leading-[1.8]",
           isDark ? "text-white/75" : "text-ink-soft",
         )}
       >
         {testimonial.quote[locale]}
       </blockquote>
 
-      <figcaption className="relative mt-8">
+      <figcaption className="mt-8">
         <span
           aria-hidden="true"
           className={cn(
-            "mb-5 block h-px w-10 origin-left transition-transform duration-500 ease-out group-hover:scale-x-[3.2] group-focus:scale-x-[3.2]",
+            "mb-5 block h-px w-10",
             isDark ? "bg-white/25" : "bg-line",
           )}
         />
