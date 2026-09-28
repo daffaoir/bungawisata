@@ -371,3 +371,8 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
   - Semua 62 URL sitemap (ID+EN) 200, title ≤ 65, description 110–165, JSON-LD bisa di-parse; tidak ada horizontal scroll di 1280/375; satu-satunya error console adalah skrip Vercel Insights 404.
   - Catatan kecil: `CREDITS-FOTO.md` belum mencantumkan nama fotografer; beranda menampilkan 3 dari 4 ulasan; Footer tidak menulis "Minggu tutup" secara eksplisit.
   - Screenshot: `.playwright-mcp/seo-domain/` (tidak di-commit).
+- 2026-09-29 (builder, perbaikan setelah tester + code-review):
+  - `BAILOUT_TO_CLIENT_SIDE_RENDERING` berasal dari `<Analytics />` versi `/next` (memakai `useSearchParams`). Diganti `@vercel/analytics/react` (`2c2b784`). Setelah build, `/paket`, `/en/packages`, dan beranda tidak lagi memuat penanda itu, dan 14 link paket tetap ada.
+  - Code-review menemukan filter `/paket` basi saat navigasi client-side dari `/paket` ke `/paket?region=…` lewat footer. Link region di footer kini `<a>` biasa (`6a5418e`), dan skenario ini sudah dicek ulang di browser.
+  - Verify: lint 0, tsc 0, test 0 (135 tes), build 0.
+  - Performance mobile `/` (median 81) dan `/paket` (84) masih di bawah 85. Keputusan lanjutannya ada di user.
