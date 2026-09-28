@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -86,6 +87,8 @@ export default async function LocaleLayout({
           <Footer />
           <FloatingWhatsApp />
         </NextIntlClientProvider>
+        {/* Vercel Web Analytics: tanpa cookie, jadi tidak perlu banner izin. */}
+        <Analytics />
       </body>
     </html>
   );
