@@ -29,7 +29,7 @@ export function TestimonialStrip() {
       <div className="mt-12 text-center">
         <Link
           href="/testimoni"
-          className="inline-flex items-center gap-2.5 text-[0.72rem] font-semibold tracking-[0.14em] text-gold-400 uppercase transition-colors hover:text-white"
+          className="-my-3 inline-flex items-center gap-2.5 py-3 text-[0.72rem] font-semibold tracking-[0.14em] text-gold-400 uppercase transition-colors hover:text-white"
         >
           {t("viewAll")}
           <ArrowRight className="size-4" aria-hidden="true" />

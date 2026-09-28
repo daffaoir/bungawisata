@@ -126,7 +126,7 @@ export default async function PackageDetailPage({
           <div className="mx-auto w-full max-w-6xl px-5 pb-10 sm:px-8 sm:pb-14">
             <Link
               href="/paket"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition-colors hover:text-white"
+              className="-my-3 inline-flex min-h-11 items-center gap-2 py-3 text-sm font-semibold text-white/80 transition-colors hover:text-white"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
               {tCommon("backToPackages")}

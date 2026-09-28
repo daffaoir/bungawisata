@@ -39,8 +39,9 @@ const VARIANTS: Record<ButtonVariant, string> = {
 };
 
 const SIZES: Record<ButtonSize, string> = {
-  sm: "px-4 py-2.5 text-[0.68rem]",
-  md: "px-6 py-3 text-[0.72rem]",
+  // `min-h-11` menjaga target sentuh minimal 44px.
+  sm: "min-h-11 px-4 py-2.5 text-[0.68rem]",
+  md: "min-h-11 px-6 py-3 text-[0.72rem]",
   lg: "px-8 py-4 text-[0.78rem]",
 };
 

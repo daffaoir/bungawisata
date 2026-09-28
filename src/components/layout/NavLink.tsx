@@ -10,6 +10,11 @@ type NavLinkProps = {
   children: ReactNode;
   className?: string;
   onNavigate?: () => void;
+  /**
+   * `mobile` untuk menu panel: huruf sedikit lebih besar dan tinggi baris
+   * minimal 44px supaya mudah disentuh.
+   */
+  variant?: "desktop" | "mobile";
 };
 
 export function NavLink({
@@ -17,6 +22,7 @@ export function NavLink({
   children,
   className,
   onNavigate,
+  variant = "desktop",
 }: NavLinkProps) {
   const pathname = usePathname();
 
@@ -29,8 +35,11 @@ export function NavLink({
       onClick={onNavigate}
       aria-current={isActive ? "page" : undefined}
       className={cn(
-        "relative text-[0.82rem] font-medium tracking-[0.06em] uppercase transition-colors duration-300",
-        "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-gold-600",
+        "relative font-medium tracking-[0.06em] uppercase transition-colors duration-300",
+        "after:absolute after:left-0 after:h-px after:bg-gold-600",
+        variant === "mobile"
+          ? "inline-flex min-h-11 items-center text-[0.95rem] after:bottom-2"
+          : "text-[0.82rem] after:-bottom-1.5",
         "after:transition-all after:duration-500",
         isActive
           ? "text-ink after:w-full"

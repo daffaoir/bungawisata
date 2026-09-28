@@ -146,7 +146,7 @@ export function GalleryCarousel() {
       <div className="mt-10">
         <Link
           href="/galeri"
-          className="inline-flex items-center gap-2.5 text-[0.72rem] font-semibold tracking-[0.14em] text-gold-600 uppercase transition-colors hover:text-ink"
+          className="-my-3 inline-flex items-center gap-2.5 py-3 text-[0.72rem] font-semibold tracking-[0.14em] text-gold-600 uppercase transition-colors hover:text-ink"
         >
           {t("viewAll")}
           <ArrowRight className="size-4" aria-hidden="true" />

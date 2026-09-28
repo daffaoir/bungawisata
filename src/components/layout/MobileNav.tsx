@@ -78,12 +78,16 @@ export function MobileNav() {
               </button>
             </div>
 
-            <ul className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-1">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   {/* Menutup panel di sini sekaligus menangani perpindahan
                       halaman — tidak perlu memantau pathname. */}
-                  <NavLink href={item.href} onNavigate={() => setIsOpen(false)}>
+                  <NavLink
+                    href={item.href}
+                    variant="mobile"
+                    onNavigate={() => setIsOpen(false)}
+                  >
                     {t(item.key)}
                   </NavLink>
                 </li>

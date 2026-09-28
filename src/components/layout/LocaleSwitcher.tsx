@@ -40,7 +40,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
       role="group"
       aria-label={t("switchLanguage")}
       className={cn(
-        "inline-flex items-center gap-3 text-[0.7rem] font-semibold tracking-[0.12em]",
+        "inline-flex items-center gap-1 text-[0.7rem] font-semibold tracking-[0.12em]",
         isPending && "opacity-50",
         className,
       )}
@@ -49,7 +49,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
         const isActive = locale === activeLocale;
 
         return (
-          <span key={locale} className="inline-flex items-center gap-3">
+          <span key={locale} className="inline-flex items-center gap-1">
             {index > 0 ? (
               <span aria-hidden="true" className="h-3 w-px bg-line" />
             ) : null}
@@ -60,7 +60,8 @@ export function LocaleSwitcher({ className }: { className?: string }) {
               aria-pressed={isActive}
               disabled={isPending}
               className={cn(
-                "transition-colors duration-300",
+                // Huruf tetap kecil, tapi area sentuhnya minimal 44×44px.
+                "inline-flex min-h-11 min-w-11 items-center justify-center transition-colors duration-300",
                 isActive
                   ? "text-ink underline decoration-gold-600 decoration-2 underline-offset-[6px]"
                   : "text-ink-muted hover:text-ink",

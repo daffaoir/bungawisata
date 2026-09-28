@@ -33,12 +33,12 @@ export function Footer() {
             <h3 id="footer-nav" className="eyebrow text-gold-400">
               {t("navTitle")}
             </h3>
-            <ul className="mt-6 space-y-3.5 text-sm">
+            <ul className="mt-4 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/65 transition-colors duration-300 hover:text-white"
+                    className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
                   >
                     {tNav(item.key)}
                   </Link>
@@ -51,11 +51,11 @@ export function Footer() {
             <h3 id="footer-packages" className="eyebrow text-gold-400">
               {t("packagesTitle")}
             </h3>
-            <ul className="mt-6 space-y-3.5 text-sm">
+            <ul className="mt-4 text-sm">
               <li>
                 <Link
                   href={{ pathname: "/paket", query: { region: "dalam-negeri" } }}
-                  className="text-white/65 transition-colors duration-300 hover:text-white"
+                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
                 >
                   {t("domestic")}
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
               <li>
                 <Link
                   href={{ pathname: "/paket", query: { region: "luar-negeri" } }}
-                  className="text-white/65 transition-colors duration-300 hover:text-white"
+                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
                 >
                   {t("international")}
                 </Link>
@@ -79,7 +79,7 @@ export function Footer() {
                   href={buildWhatsAppUrl(tWa("generic"))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 transition-colors duration-300 hover:text-white"
+                  className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
                 >
                   <WhatsAppIcon className="mt-0.5 size-4 shrink-0 text-[#25D366]" />
                   <span>{site.phoneDisplay}</span>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="flex items-start gap-3 transition-colors duration-300 hover:text-white"
+                  className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
                 >
                   <Mail
                     className="mt-0.5 size-4 shrink-0 text-gold-400"
