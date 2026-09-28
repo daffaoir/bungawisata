@@ -98,7 +98,7 @@ export default async function ContactPage({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-block font-display text-[2rem] leading-tight text-ink transition-colors hover:text-gold-600"
+              className="mt-4 inline-flex min-h-11 items-center font-display text-[2rem] leading-tight text-ink transition-colors hover:text-gold-600"
             >
               {site.phoneDisplay}
             </a>
