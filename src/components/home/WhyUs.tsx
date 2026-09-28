@@ -11,8 +11,8 @@ const ITEMS = [
 ] as const;
 
 /**
- * Empat kolom dipisahkan garis rambut, bukan kartu berbayang. Nomor urut
- * kecil di atas ikon memberi ritme baca dari kiri ke kanan.
+ * Empat alasan dalam grid 2×2 dipisahkan garis rambut, bukan kartu
+ * berbayang. Tanpa nomor urut — alasannya tidak berurutan.
  */
 export function WhyUs() {
   const t = useTranslations("Home.whyUs");
@@ -25,23 +25,19 @@ export function WhyUs() {
         align="center"
       />
 
-      <StaggerGroup className="mt-16 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-        {ITEMS.map(({ key, Icon }, index) => (
+      <StaggerGroup className="mt-16 grid gap-px border border-line bg-line sm:grid-cols-2">
+        {ITEMS.map(({ key, Icon }) => (
           <StaggerItem key={key} className="h-full">
-            <div className="group h-full bg-white p-8 transition-colors duration-500 hover:bg-gold-50">
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-sm text-gold-600">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+            <div className="h-full bg-white p-8 lg:p-10">
+              <div className="flex items-center gap-3">
                 <Icon
-                  className="size-6 text-ink transition-colors duration-500 group-hover:text-gold-600"
+                  className="size-6 shrink-0 text-ink"
                   strokeWidth={1.25}
                   aria-hidden="true"
                 />
+                <h3 className="text-lg">{t(`items.${key}.title`)}</h3>
               </div>
-
-              <h3 className="mt-6 text-lg">{t(`items.${key}.title`)}</h3>
-              <p className="mt-3 text-[0.95rem] leading-[1.8] text-ink-soft">
+              <p className="mt-4 max-w-[46ch] text-[0.95rem] leading-[1.8] text-ink-soft">
                 {t(`items.${key}.description`)}
               </p>
             </div>
