@@ -2,8 +2,8 @@
   "Meta": {
     "siteName": "Bunga Wisata",
     "tagline": "Tour & Travel",
-    "defaultTitle": "Bunga Wisata — Tour & Travel Dalam & Luar Negeri",
-    "defaultDescription": "Paket wisata dalam negeri dan luar negeri dengan itinerary lengkap, harga transparan, dan pendampingan tour leader berpengalaman."
+    "defaultTitle": "Tour & Travel Malang — Paket Wisata Rombongan | Bunga Wisata",
+    "defaultDescription": "Bunga Wisata, tour & travel di Malang: paket tour rombongan, study tour, gathering, dan private tour ke Bromo, Bali, hingga luar negeri."
   },
   "Nav": {
     "home": "Beranda",
@@ -43,11 +43,10 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Tour & Travel · Malang",
-      "titleLine1": "Perjalanan yang",
-      "titleHighlight": "Tak Terlupakan",
-      "titleLine2": "dimulai di sini",
-      "subtitle": "Paket wisata dalam dan luar negeri dengan itinerary yang jelas, harga transparan, dan tim yang mendampingi dari berangkat sampai pulang.",
+      "eyebrow": "Rombongan · Keluarga · Study Tour",
+      "titleLine1": "Tour & Travel Malang untuk",
+      "titleHighlight": "perjalanan tak terlupakan",
+      "subtitle": "Paket wisata dalam dan luar negeri dari Malang untuk grup kecil sampai rombongan besar — itinerary jelas, harga terbuka, dan tim yang mendampingi dari berangkat sampai pulang.",
       "primaryCta": "Jelajahi Paket",
       "secondaryCta": "Konsultasi Gratis",
       "stats": {
@@ -114,8 +113,8 @@
   "Packages": {
     "title": "Paket Wisata",
     "description": "Semua paket dengan itinerary lengkap, harga transparan, dan pendampingan tour leader.",
-    "metaTitle": "Paket Wisata Dalam & Luar Negeri",
-    "metaDescription": "Jelajahi paket wisata Bunga Wisata: rundown harian lengkap, rincian yang termasuk dan tidak termasuk, serta harga mulai per orang.",
+    "metaTitle": "Paket Tour dari Malang: Dalam & Luar Negeri",
+    "metaDescription": "Daftar paket tour dari Malang: Bromo, Bali, Yogyakarta, Labuan Bajo, Jepang, Korea, Turki, dan lainnya, lengkap dengan rundown harian dan harga mulai.",
     "filters": {
       "all": "Semua",
       "search": "Cari destinasi atau nama paket",
@@ -190,7 +189,8 @@
       }
     },
     "ctaTitle": "Ingin kenal lebih jauh?",
-    "ctaSubtitle": "Kami senang mengobrol soal rencana perjalanan Anda."
+    "ctaSubtitle": "Kami senang mengobrol soal rencana perjalanan Anda.",
+    "metaTitle": "Tentang Kami: Biro Tour & Travel di Malang"
   },
   "Gallery": {
     "title": "Galeri Destinasi",
@@ -213,7 +213,7 @@
   },
   "Contact": {
     "title": "Hubungi Kami",
-    "metaDescription": "Alamat, jam operasional, dan kontak WhatsApp Bunga Wisata.",
+    "metaDescription": "Hubungi Bunga Wisata Tour and Travel Malang lewat WhatsApp 0812-3390-9129 atau datang ke kantor kami di Karangploso. Buka Senin–Sabtu 08.00–17.00.",
     "subtitle": "Cara tercepat: langsung chat WhatsApp. Kami balas di jam kerja.",
     "whatsappTitle": "WhatsApp",
     "emailTitle": "Email",
@@ -227,7 +227,8 @@
     "mapSubtitle": "Silakan mampir di jam kerja. Kabari dulu lewat WhatsApp supaya kami siapkan waktunya.",
     "openMaps": "Buka di Google Maps",
     "faqTitle": "Pertanyaan yang Sering Diajukan",
-    "faqSubtitle": "Belum terjawab? Tanyakan langsung lewat WhatsApp."
+    "faqSubtitle": "Belum terjawab? Tanyakan langsung lewat WhatsApp.",
+    "metaTitle": "Kontak & Alamat Kantor di Karangploso, Malang"
   },
   "Footer": {
     "about": "Bunga Wisata menyusun perjalanan dalam dan luar negeri dengan itinerary jelas dan harga yang transparan.",

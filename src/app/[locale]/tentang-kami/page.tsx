@@ -23,11 +23,11 @@ export async function generateMetadata(
   const t = await getTranslations({ locale, namespace: "About" });
 
   return {
-    title: t("title"),
+    title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: buildAlternates("/tentang-kami", locale as AppLocale),
     openGraph: await buildOpenGraph("/tentang-kami", locale as AppLocale, {
-      title: t("title"),
+      title: t("metaTitle"),
       description: t("metaDescription"),
       parent,
     }),

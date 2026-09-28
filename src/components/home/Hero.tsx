@@ -71,8 +71,7 @@ export function Hero() {
             {t("titleLine1")}{" "}
             <em className="font-normal text-gold-600 italic">
               {t("titleHighlight")}
-            </em>{" "}
-            {t("titleLine2")}
+            </em>
           </h1>
 
           <p className="mt-7 max-w-lg text-[1.05rem] leading-[1.85] text-ink-soft">

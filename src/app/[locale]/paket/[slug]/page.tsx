@@ -17,6 +17,7 @@ import {
 import { Badge } from "@/components/shared/Badge";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { SITE_URL } from "@/content/site";
+import { packageMetaTitle } from "@/lib/seo";
 import { getPathname, Link } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
@@ -37,9 +38,10 @@ export async function generateMetadata({
   if (!pkg) return {};
 
   const content = pkg.content[locale as AppLocale];
+  const title = packageMetaTitle(pkg, locale as AppLocale);
 
   return {
-    title: content.title,
+    title,
     description: content.summary,
     alternates: buildAlternates(
       { pathname: "/paket/[slug]", params: { slug } },
@@ -49,7 +51,7 @@ export async function generateMetadata({
       { pathname: "/paket/[slug]", params: { slug } },
       locale as AppLocale,
       {
-        title: content.title,
+        title,
         description: content.summary,
         images: [{ url: pkg.heroImage }],
       },

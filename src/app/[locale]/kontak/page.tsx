@@ -28,11 +28,11 @@ export async function generateMetadata(
   const t = await getTranslations({ locale, namespace: "Contact" });
 
   return {
-    title: t("title"),
+    title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: buildAlternates("/kontak", locale as AppLocale),
     openGraph: await buildOpenGraph("/kontak", locale as AppLocale, {
-      title: t("title"),
+      title: t("metaTitle"),
       description: t("metaDescription"),
       parent,
     }),

@@ -2,8 +2,8 @@
   "Meta": {
     "siteName": "Bunga Wisata",
     "tagline": "Tour & Travel",
-    "defaultTitle": "Bunga Wisata — Domestic & International Tour Packages",
-    "defaultDescription": "Domestic and international tour packages with full day-by-day itineraries, transparent pricing, and experienced tour leaders."
+    "defaultTitle": "Malang Tour & Travel — Group & Holiday Tours | Bunga Wisata",
+    "defaultDescription": "Bunga Wisata, a tour & travel agency in Malang, East Java: group tours, study tours, gatherings and private trips to Bromo, Bali and abroad."
   },
   "Nav": {
     "home": "Home",
@@ -43,11 +43,10 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Tour & Travel · Malang",
-      "titleLine1": "Journeys you'll",
-      "titleHighlight": "Never Forget",
-      "titleLine2": "start right here",
-      "subtitle": "Domestic and international tour packages with clear itineraries, transparent pricing, and a team that stays with you from departure to return.",
+      "eyebrow": "Groups · Families · Study Tours",
+      "titleLine1": "Malang Tour & Travel for",
+      "titleHighlight": "unforgettable journeys",
+      "subtitle": "Domestic and international tour packages from Malang for small groups and large groups alike — clear itineraries, open pricing, and a team with you from departure to return.",
       "primaryCta": "Browse Packages",
       "secondaryCta": "Free Consultation",
       "stats": {
@@ -114,8 +113,8 @@
   "Packages": {
     "title": "Tour Packages",
     "description": "Every package comes with a full itinerary, transparent pricing, and tour leader support.",
-    "metaTitle": "Domestic & International Tour Packages",
-    "metaDescription": "Browse Bunga Wisata tour packages: complete day-by-day rundowns, clear inclusions and exclusions, and starting prices per person.",
+    "metaTitle": "Tour Packages from Malang: Indonesia & Abroad",
+    "metaDescription": "Tour packages from Malang, East Java: Bromo, Bali, Yogyakarta, Labuan Bajo, Japan, Korea, Türkiye and more, with day-by-day rundowns and starting prices.",
     "filters": {
       "all": "All",
       "search": "Search destination or package name",
@@ -190,7 +189,8 @@
       }
     },
     "ctaTitle": "Want to know more?",
-    "ctaSubtitle": "We're always happy to talk through your travel plans."
+    "ctaSubtitle": "We're always happy to talk through your travel plans.",
+    "metaTitle": "About Us: Tour & Travel Agency in Malang"
   },
   "Gallery": {
     "title": "Destination Gallery",
@@ -213,7 +213,7 @@
   },
   "Contact": {
     "title": "Contact Us",
-    "metaDescription": "Address, opening hours, and WhatsApp contact for Bunga Wisata.",
+    "metaDescription": "Reach Bunga Wisata Tour and Travel in Malang on WhatsApp +62 812-3390-9129 or visit our office in Karangploso. Open Monday–Saturday 08:00–17:00.",
     "subtitle": "Fastest route: message us on WhatsApp. We reply during business hours.",
     "whatsappTitle": "WhatsApp",
     "emailTitle": "Email",
@@ -227,7 +227,8 @@
     "mapSubtitle": "Drop by during working hours. Message us on WhatsApp first so we can set the time aside.",
     "openMaps": "Open in Google Maps",
     "faqTitle": "Frequently Asked Questions",
-    "faqSubtitle": "Still unanswered? Just ask us on WhatsApp."
+    "faqSubtitle": "Still unanswered? Just ask us on WhatsApp.",
+    "metaTitle": "Contact & Office Address in Karangploso, Malang"
   },
   "Footer": {
     "about": "Bunga Wisata builds domestic and international trips with clear itineraries and transparent pricing.",
