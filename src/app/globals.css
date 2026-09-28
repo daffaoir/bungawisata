@@ -133,6 +133,16 @@
     body:has([data-sticky-cta]) [data-floating-wa] {
       display: none;
     }
+
+    /* Beri ruang supaya bilah sticky tidak menutupi baris hak cipta. */
+    body:has([data-sticky-cta]) footer {
+      padding-bottom: 4.5rem;
+    }
+  }
+
+  /* Tombol mengambang tidak perlu menimpa panel menu mobile. */
+  body:has([data-mobile-nav-open]) [data-floating-wa] {
+    display: none;
   }
 }
 

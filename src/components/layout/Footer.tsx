@@ -120,7 +120,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 pb-20 text-xs sm:pb-0 text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. {t("rights")}
           </p>
