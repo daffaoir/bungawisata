@@ -25,9 +25,26 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-canvas pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <section className="relative overflow-hidden bg-canvas pt-0 pb-20 sm:pb-28 lg:pt-24">
       <div className="relative mx-auto grid w-full max-w-6xl gap-16 px-5 sm:px-8 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-20">
         <div>
+          {/*
+            Di bawah `lg` kolom foto disembunyikan, jadi layar pertama ponsel
+            dibuka dengan satu foto full-bleed yang menempel di bawah header.
+          */}
+          <div className="relative -mx-5 mb-10 aspect-[4/3] overflow-hidden sm:-mx-8 lg:hidden">
+            <Image
+              src={images["bromo-kaldera"]}
+              alt=""
+              aria-hidden="true"
+              fill
+              loading="eager"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 0px, 100vw"
+              className="object-cover"
+            />
+          </div>
+
           <p className="eyebrow rule-gold text-gold-600">{t("eyebrow")}</p>
 
           <h1 className="text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[4.2rem]">
@@ -42,8 +59,8 @@ export function Hero() {
             {t("subtitle")}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/paket" size="lg">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <ButtonLink href="/paket" size="lg" className="w-full sm:w-auto">
               {t("primaryCta")}
               <ArrowRight
                 className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1"
@@ -55,6 +72,7 @@ export function Hero() {
               label={t("secondaryCta")}
               variant="outline"
               size="lg"
+              className="w-full sm:w-auto"
             />
           </div>
 
@@ -82,7 +100,7 @@ export function Hero() {
         <div className="relative hidden lg:block">
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src={images["komodo-padar"]}
+              src={images["bromo-kaldera"]}
               alt=""
               aria-hidden="true"
               fill
