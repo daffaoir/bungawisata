@@ -27,7 +27,7 @@ export const vietnam5d4n = {
     id: {
       title: "Vietnam: Hanoi – Ha Long 5 Hari 4 Malam",
       summary:
-        "Ibu kota Vietnam yang padat dan penuh sejarah, dipasangkan dengan teluk karst Ha Long yang masuk daftar Warisan Dunia UNESCO.",
+        "Paket tour Vietnam 5 hari dari Jakarta: Kota Tua Hanoi dan berlayar di Teluk Ha Long — perjalanan dari Malang atau Surabaya ke Jakarta bisa dibantu.",
       highlights: [
         "Berlayar di Teluk Ha Long dan singgah di Gua Sung Sot",
         "Kota Tua Hanoi dengan 36 jalan pedagangnya",
@@ -121,7 +121,7 @@ export const vietnam5d4n = {
     en: {
       title: "Vietnam: Hanoi – Ha Long 5 Days 4 Nights",
       summary:
-        "Vietnam's dense, history-heavy capital paired with the karst seascape of Ha Long Bay, a UNESCO World Heritage site.",
+        "A 5-day Vietnam tour from Jakarta: Hanoi's Old Quarter and a cruise on Ha Long Bay — travel from Malang or Surabaya to Jakarta can be arranged.",
       highlights: [
         "Cruising Ha Long Bay with a stop at Sung Sot Cave",
         "Hanoi's Old Quarter and its 36 merchant streets",

@@ -1,6 +1,6 @@
 import { images } from "@/content/images";
 import type { PackageInput } from "@/lib/schema";
-import { DOMESTIC_NOTE } from "./shared";
+import { DOMESTIC_NOTE, FLIGHT_FROM_EAST_JAVA_NOTE } from "./shared";
 
 export const rajaAmpat6d5n = {
   slug: "raja-ampat-6d5n",
@@ -27,7 +27,7 @@ export const rajaAmpat6d5n = {
     id: {
       title: "Raja Ampat 6 Hari 5 Malam",
       summary:
-        "Enam hari di jantung Segitiga Terumbu Karang: Piaynemo, Wayag mini, Pasir Timbul, dan desa wisata Arborek — dengan ritme yang cukup lambat untuk benar-benar menikmatinya.",
+        "Paket tour Raja Ampat 6 hari dari Sorong: Piaynemo, Pasir Timbul, dan Arborek — penerbangan dari Surabaya atau Malang ke Sorong bisa dibantu.",
       highlights: [
         "Panorama karst Piaynemo dari dek pandang di puncak tangga",
         "Snorkeling di dermaga Arborek yang ramai ikan",
@@ -125,12 +125,12 @@ export const rajaAmpat6d5n = {
         "Tipping untuk awak kapal dan pemandu",
         "Asuransi perjalanan",
       ],
-      notes: DOMESTIC_NOTE.id,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.id + " " + DOMESTIC_NOTE.id,
     },
     en: {
       title: "Raja Ampat 6 Days 5 Nights",
       summary:
-        "Six days at the heart of the Coral Triangle: Piaynemo, the mini Wayag, Pasir Timbul, and Arborek village — paced slowly enough to actually take it in.",
+        "A 6-day Raja Ampat tour from Sorong: Piaynemo, Pasir Timbul, and Arborek village — flights to Sorong from Surabaya or Malang can be arranged.",
       highlights: [
         "The Piaynemo karst panorama from the viewing deck at the top of the stairs",
         "Snorkelling off Arborek jetty, thick with fish",
@@ -228,7 +228,7 @@ export const rajaAmpat6d5n = {
         "Tipping for crew and guide",
         "Travel insurance",
       ],
-      notes: DOMESTIC_NOTE.en,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.en + " " + DOMESTIC_NOTE.en,
     },
   },
 } satisfies PackageInput;

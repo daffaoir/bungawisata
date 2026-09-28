@@ -9,7 +9,7 @@ export const bromoIjen4d3n = {
   durationDays: 4,
   durationNights: 3,
   priceFrom: 3450000,
-  departureFrom: "Surabaya (SUB)",
+  departureFrom: "Malang",
   minPax: 15,
   hotels: [
     { city: "Probolinggo", name: "Jiwa Jawa Resort Bromo", nights: 1, stars: 3 },
@@ -27,7 +27,7 @@ export const bromoIjen4d3n = {
     id: {
       title: "Bromo – Ijen 4 Hari 3 Malam",
       summary:
-        "Dua gunung berapi paling terkenal di Jawa Timur dalam satu perjalanan: matahari terbit di Penanjakan, lalu pendakian dini hari ke kawah Ijen.",
+        "Paket tour Bromo – Ijen 4 hari dari Malang: matahari terbit di Penanjakan, jip di Lautan Pasir, lalu pendakian dini hari ke kawah biru Ijen.",
       highlights: [
         "Matahari terbit dari Penanjakan dengan latar Bromo, Batok, dan Semeru",
         "Menyeberangi Lautan Pasir menuju kawah Bromo",
@@ -37,12 +37,12 @@ export const bromoIjen4d3n = {
       itinerary: [
         {
           day: 1,
-          title: "Surabaya – Kawasan Bromo",
+          title: "Malang – Kawasan Bromo",
           meals: ["lunch", "dinner"],
           activities: [
-            "Berkumpul dan berangkat dari Surabaya",
-            "Makan siang di kawasan Pasuruan",
-            "Perjalanan menuju kawasan Bromo (± 4 jam)",
+            "Berkumpul di Malang pada siang hari",
+            "Makan siang di Malang sebelum berangkat",
+            "Perjalanan via tol Pandaan – Probolinggo lalu naik ke Sukapura, kawasan Bromo (± 3 jam)",
             "Check-in penginapan di ketinggian, pengarahan pendakian",
             "Makan malam dan istirahat awal — bangun dini hari",
           ],
@@ -75,19 +75,19 @@ export const bromoIjen4d3n = {
         },
         {
           day: 4,
-          title: "Banyuwangi – Surabaya",
+          title: "Banyuwangi – Malang",
           meals: ["breakfast", "lunch"],
           activities: [
             "Sarapan dan check-out hotel",
             "Belanja oleh-oleh khas Banyuwangi",
-            "Perjalanan kembali ke Surabaya dengan makan siang di perjalanan",
-            "Pengantaran ke Bandara Juanda atau titik penjemputan awal",
+            "Perjalanan kembali ke Malang via Situbondo dan tol Probolinggo (± 7 jam) dengan makan siang di perjalanan",
+            "Tiba di titik kumpul awal di Malang pada malam hari",
           ],
         },
       ],
       includes: [
         "Penginapan 3 malam (sekamar berdua) di kawasan Bromo dan Banyuwangi",
-        "Transportasi ber-AC Surabaya – Bromo – Banyuwangi – Surabaya",
+        "Transportasi ber-AC Malang – Bromo – Banyuwangi – Malang",
         "Sewa jip 4x4 di kawasan Bromo (1 jip untuk 6 orang)",
         "Makan sesuai program (3x makan pagi, 4x makan siang, 3x makan malam)",
         "Tiket masuk Taman Nasional Bromo Tengger Semeru, Kawah Ijen, dan Baluran",
@@ -95,7 +95,7 @@ export const bromoIjen4d3n = {
         "Masker dan senter kepala untuk pendakian Ijen",
       ],
       excludes: [
-        "Tiket pesawat atau kereta menuju Surabaya",
+        "Transportasi menuju titik kumpul di Malang",
         "Ojek di kawasan Bromo dan troli tarik di Ijen",
         "Pengeluaran pribadi dan belanja oleh-oleh",
         "Tipping untuk pemandu, sopir jip, dan sopir bus",
@@ -108,7 +108,7 @@ export const bromoIjen4d3n = {
     en: {
       title: "Bromo – Ijen 4 Days 3 Nights",
       summary:
-        "East Java's two best-known volcanoes in one trip: sunrise from Penanjakan, then a pre-dawn hike up to the Ijen crater.",
+        "A 4-day Bromo – Ijen tour from Malang: sunrise at Penanjakan, a jeep across the Sea of Sand, then a pre-dawn hike to Ijen's blue crater.",
       highlights: [
         "Sunrise from Penanjakan with Bromo, Batok, and Semeru lined up behind",
         "Crossing the Sea of Sand to the Bromo crater rim",
@@ -118,12 +118,12 @@ export const bromoIjen4d3n = {
       itinerary: [
         {
           day: 1,
-          title: "Surabaya – Bromo area",
+          title: "Malang – Bromo area",
           meals: ["lunch", "dinner"],
           activities: [
-            "Meet and depart from Surabaya",
-            "Lunch in the Pasuruan area",
-            "Drive up to the Bromo area (about 4 hours)",
+            "Meet in Malang around midday",
+            "Lunch in Malang before setting off",
+            "Drive via the Pandaan – Probolinggo toll road, then up to Sukapura in the Bromo area (about 3 hours)",
             "Check in to the highland lodge and take the hike briefing",
             "Dinner and an early night — the wake-up call is before dawn",
           ],
@@ -156,19 +156,19 @@ export const bromoIjen4d3n = {
         },
         {
           day: 4,
-          title: "Banyuwangi – Surabaya",
+          title: "Banyuwangi – Malang",
           meals: ["breakfast", "lunch"],
           activities: [
             "Breakfast and hotel check-out",
             "Shopping for Banyuwangi specialities",
-            "Drive back to Surabaya with lunch en route",
-            "Transfer to Juanda Airport or the original meeting point",
+            "Drive back to Malang via Situbondo and the Probolinggo toll road (about 7 hours) with lunch en route",
+            "Arrive back at the Malang meeting point in the evening",
           ],
         },
       ],
       includes: [
         "3 nights accommodation (twin sharing) in the Bromo and Banyuwangi areas",
-        "Air-conditioned transport Surabaya – Bromo – Banyuwangi – Surabaya",
+        "Air-conditioned transport Malang – Bromo – Banyuwangi – Malang",
         "4x4 jeep hire in the Bromo area (one jeep per 6 people)",
         "Meals as per programme (3 breakfasts, 4 lunches, 3 dinners)",
         "Entrance to Bromo Tengger Semeru National Park, Ijen, and Baluran",
@@ -176,7 +176,7 @@ export const bromoIjen4d3n = {
         "Mask and head torch for the Ijen climb",
       ],
       excludes: [
-        "Flights or train tickets to Surabaya",
+        "Travel to the meeting point in Malang",
         "Motorbike rides at Bromo and pull-carts at Ijen",
         "Personal expenses and souvenir shopping",
         "Tipping for guides, jeep drivers, and the coach driver",

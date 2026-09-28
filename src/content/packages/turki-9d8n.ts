@@ -47,7 +47,7 @@ export const turki9d8n = {
     id: {
       title: "Türkiye 9 Hari 8 Malam",
       summary:
-        "Menyeberangi dua benua dan tiga peradaban: Istanbul, reruntuhan Troya dan Efesus, teras kapur Pamukkale, lalu lanskap peri Kapadokya.",
+        "Paket tour Turki 9 hari dari Jakarta: Istanbul, Troya, Efesus, Pamukkale, dan Kapadokya — penerbangan lanjutan dari Malang atau Surabaya bisa dibantu.",
       highlights: [
         "Hagia Sophia dan Masjid Biru yang berhadapan di Sultanahmet",
         "Kota kuno Efesus, salah satu situs Romawi paling utuh di dunia",
@@ -188,7 +188,7 @@ export const turki9d8n = {
     en: {
       title: "Türkiye 9 Days 8 Nights",
       summary:
-        "Two continents and three civilisations: Istanbul, the ruins of Troy and Ephesus, the limestone terraces of Pamukkale, and the fairy chimneys of Cappadocia.",
+        "A 9-day Türkiye tour from Jakarta: Istanbul, Troy, Ephesus, Pamukkale, and Cappadocia — connecting flights from Malang or Surabaya can be arranged.",
       highlights: [
         "Hagia Sophia and the Blue Mosque facing each other in Sultanahmet",
         "Ancient Ephesus, one of the best-preserved Roman sites anywhere",

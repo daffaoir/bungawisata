@@ -9,7 +9,7 @@ export const bali4d3n = {
   durationDays: 4,
   durationNights: 3,
   priceFrom: 4850000,
-  departureFrom: "Denpasar (DPS)",
+  departureFrom: "Malang (bus) / Surabaya (SUB)",
   minPax: 15,
   hotels: [{ city: "Kuta", name: "Grand Zuri Kuta Bali", nights: 3, stars: 4 }],
   featured: true,
@@ -25,7 +25,7 @@ export const bali4d3n = {
     id: {
       title: "Bali 4 Hari 3 Malam",
       summary:
-        "Perpaduan pantai, budaya, dan kuliner Bali dalam empat hari yang santai — cocok untuk keluarga yang baru pertama kali ke Pulau Dewata.",
+        "Paket tour Bali 4 hari dari Malang (bus) atau Surabaya: Tari Kecak di Uluwatu, sawah Tegalalang, snorkeling Padangbai, dan senja di Tanah Lot.",
       highlights: [
         "Tari Kecak saat matahari terbenam di Pura Luhur Uluwatu",
         "Panorama sawah terasering Tegalalang, warisan subak yang diakui UNESCO",
@@ -35,10 +35,11 @@ export const bali4d3n = {
       itinerary: [
         {
           day: 1,
-          title: "Tiba di Denpasar – Uluwatu",
+          title: "Malang – Bali – Uluwatu",
           meals: ["lunch", "dinner"],
           activities: [
-            "Penjemputan di Bandara I Gusti Ngurah Rai oleh tour leader",
+            "Berkumpul di Malang dan berangkat pukul 00.00 dengan bus menuju Pelabuhan Ketapang (± 7 jam), menyeberang ke Gilimanuk, lalu lanjut ke Bali selatan (± 3,5 jam)",
+            "Peserta dari Surabaya dapat terbang dari Juanda dan dijemput di Bandara I Gusti Ngurah Rai",
             "Makan siang di restoran lokal kawasan Jimbaran",
             "Pura Luhur Uluwatu di atas tebing setinggi 70 meter, dilanjutkan Tari Kecak saat matahari terbenam",
             "Makan malam seafood di tepi Pantai Jimbaran",
@@ -73,18 +74,19 @@ export const bali4d3n = {
         },
         {
           day: 4,
-          title: "Waktu Bebas – Kepulangan",
+          title: "Bali – Kembali ke Malang",
           meals: ["breakfast"],
           activities: [
             "Sarapan dan check-out hotel",
-            "Waktu bebas di sekitar Kuta atau Seminyak",
-            "Pengantaran ke Bandara I Gusti Ngurah Rai",
+            "Peserta penerbangan diantar ke Bandara I Gusti Ngurah Rai",
+            "Perjalanan bus ke Gilimanuk, menyeberang ke Ketapang, lalu kembali ke Malang (± 11 jam termasuk penyeberangan)",
+            "Tiba di titik kumpul awal di Malang pada malam hari",
           ],
         },
       ],
       includes: [
         "Hotel bintang 4 selama 3 malam (sekamar berdua)",
-        "Transportasi ber-AC selama perjalanan sesuai itinerary",
+        "Bus pariwisata ber-AC Malang – Bali – Malang, termasuk feri Ketapang – Gilimanuk pulang-pergi",
         "Makan sesuai program (3x makan pagi, 3x makan siang, 3x makan malam)",
         "Tiket masuk seluruh objek wisata dalam itinerary",
         "Peralatan snorkeling dan pemandu air di Blue Lagoon",
@@ -92,7 +94,7 @@ export const bali4d3n = {
         "Air mineral selama perjalanan",
       ],
       excludes: [
-        "Tiket pesawat pulang-pergi ke Denpasar",
+        "Tiket pesawat Surabaya – Denpasar pulang-pergi (bagi yang memilih terbang)",
         "Pengeluaran pribadi dan belanja oleh-oleh",
         "Tipping untuk pemandu dan sopir",
         "Asuransi perjalanan",
@@ -103,7 +105,7 @@ export const bali4d3n = {
     en: {
       title: "Bali 4 Days 3 Nights",
       summary:
-        "Beaches, culture, and Balinese food across four unhurried days — ideal for a family's first trip to the Island of the Gods.",
+        "A 4-day Bali tour from Malang by coach or from Surabaya by air: the Kecak at Uluwatu, Tegalalang rice terraces, Padangbai snorkelling, Tanah Lot.",
       highlights: [
         "The Kecak dance at sunset at Uluwatu Temple",
         "The Tegalalang rice terraces, part of Bali's UNESCO-listed subak system",
@@ -113,10 +115,11 @@ export const bali4d3n = {
       itinerary: [
         {
           day: 1,
-          title: "Arrival in Denpasar – Uluwatu",
+          title: "Malang – Bali – Uluwatu",
           meals: ["lunch", "dinner"],
           activities: [
-            "Airport pickup at I Gusti Ngurah Rai by your tour leader",
+            "Meet in Malang and depart at midnight by coach to Ketapang port (about 7 hours), cross to Gilimanuk, then drive on to south Bali (about 3.5 hours)",
+            "Guests from Surabaya can fly from Juanda and are met at I Gusti Ngurah Rai Airport",
             "Lunch at a local restaurant in the Jimbaran area",
             "Uluwatu Temple on its 70-metre cliff, followed by the Kecak dance at sunset",
             "Seafood dinner on Jimbaran Beach",
@@ -151,18 +154,19 @@ export const bali4d3n = {
         },
         {
           day: 4,
-          title: "Free Time – Departure",
+          title: "Bali – Back to Malang",
           meals: ["breakfast"],
           activities: [
             "Breakfast and hotel check-out",
-            "Free time around Kuta or Seminyak",
-            "Transfer to I Gusti Ngurah Rai Airport",
+            "Guests flying home are transferred to I Gusti Ngurah Rai Airport",
+            "Coach to Gilimanuk, the ferry to Ketapang, then the drive back to Malang (about 11 hours including the crossing)",
+            "Arrive back at the Malang meeting point in the evening",
           ],
         },
       ],
       includes: [
         "4-star hotel for 3 nights (twin sharing)",
-        "Air-conditioned transport throughout the itinerary",
+        "Air-conditioned coach Malang – Bali – Malang, including the Ketapang – Gilimanuk ferry both ways",
         "Meals as per programme (3 breakfasts, 3 lunches, 3 dinners)",
         "Entrance tickets to all attractions in the itinerary",
         "Snorkelling gear and a water guide at Blue Lagoon",
@@ -170,7 +174,7 @@ export const bali4d3n = {
         "Bottled water throughout the trip",
       ],
       excludes: [
-        "Return flights to Denpasar",
+        "Return flights Surabaya – Denpasar (for guests who choose to fly)",
         "Personal expenses and souvenir shopping",
         "Tipping for guide and driver",
         "Travel insurance",

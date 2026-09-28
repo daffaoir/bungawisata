@@ -27,7 +27,7 @@ export const dubaiAbuDhabi5d4n = {
     id: {
       title: "Dubai – Abu Dhabi 5 Hari 4 Malam",
       summary:
-        "Menara tertinggi di dunia, safari gurun dengan makan malam di bawah bintang, dan Masjid Sheikh Zayed di Abu Dhabi dalam satu perjalanan.",
+        "Paket tour Dubai – Abu Dhabi 5 hari dari Jakarta: Burj Khalifa, safari gurun, dan Masjid Sheikh Zayed — perjalanan dari Malang ke Jakarta bisa dibantu.",
       highlights: [
         "Dek pandang lantai 124 Burj Khalifa, gedung tertinggi di dunia",
         "Desert safari dune bashing dilanjutkan makan malam barbeku di kemah gurun",
@@ -120,7 +120,7 @@ export const dubaiAbuDhabi5d4n = {
     en: {
       title: "Dubai – Abu Dhabi 5 Days 4 Nights",
       summary:
-        "The world's tallest tower, a desert safari with dinner under the stars, and the Sheikh Zayed Grand Mosque in Abu Dhabi, all in one trip.",
+        "A 5-day Dubai – Abu Dhabi tour from Jakarta: Burj Khalifa, a desert safari, and Sheikh Zayed Mosque — the connection from Malang can be arranged.",
       highlights: [
         "The level 124 observation deck of the Burj Khalifa, the world's tallest building",
         "Desert dune bashing followed by a barbecue dinner at a desert camp",

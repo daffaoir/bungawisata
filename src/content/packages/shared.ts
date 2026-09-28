@@ -24,6 +24,20 @@ export const INTERNATIONAL_NOTE: Record<AppLocale, string> = {
 };
 
 /**
+ * Tambahan untuk paket dalam negeri yang harus diawali penerbangan (Toba,
+ * Labuan Bajo, Lombok, Raja Ampat): pelanggan kebanyakan dari Malang dan
+ * sekitarnya, jadi sebutkan bandara terdekat tanpa menjanjikan maskapai.
+ */
+export const FLIGHT_FROM_EAST_JAVA_NOTE: Record<AppLocale, string> = {
+  id:
+    "Penerbangan menuju kota awal tur dari Surabaya (Juanda) atau Malang (Abdul Rachman Saleh) " +
+    "bisa kami bantu atur; jadwal dan tarif mengikuti ketersediaan saat pemesanan.",
+  en:
+    "Flights to the starting city from Surabaya (Juanda) or Malang (Abdul Rachman Saleh) can be " +
+    "arranged on request; schedules and fares depend on availability at the time of booking.",
+};
+
+/**
  * Catatan tetap untuk paket dalam negeri. Tidak menyinggung kurs, tapi tetap
  * menegaskan bahwa tiket pesawat menuju kota awal tur ditanggung terpisah.
  */

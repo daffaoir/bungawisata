@@ -1,6 +1,6 @@
 import { images } from "@/content/images";
 import type { PackageInput } from "@/lib/schema";
-import { DOMESTIC_NOTE } from "./shared";
+import { DOMESTIC_NOTE, FLIGHT_FROM_EAST_JAVA_NOTE } from "./shared";
 
 export const danauToba4d3n = {
   slug: "danau-toba-4d3n",
@@ -23,7 +23,7 @@ export const danauToba4d3n = {
     id: {
       title: "Danau Toba & Samosir 4 Hari 3 Malam",
       summary:
-        "Danau vulkanik terbesar di dunia, kampung raja Batak di Samosir, dan udara sejuk Berastagi — perjalanan darat yang tenang dari Medan.",
+        "Paket tour Danau Toba 4 hari: Samosir, Sipiso-piso, dan Berastagi mulai dari Medan — penerbangan dari Surabaya atau Malang bisa kami bantu atur.",
       highlights: [
         "Menyeberangi Danau Toba dengan feri menuju Pulau Samosir",
         "Kompleks makam Raja Sidabutar di Tomok dan rumah adat Batak di Ambarita",
@@ -99,12 +99,12 @@ export const danauToba4d3n = {
         "Tipping untuk pemandu dan sopir",
         "Asuransi perjalanan",
       ],
-      notes: DOMESTIC_NOTE.id,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.id + " " + DOMESTIC_NOTE.id,
     },
     en: {
       title: "Lake Toba & Samosir 4 Days 3 Nights",
       summary:
-        "The largest volcanic lake in the world, the Batak royal villages of Samosir, and the cool air of Berastagi — an unhurried overland trip from Medan.",
+        "A 4-day Lake Toba tour from Medan: Samosir, Sipiso-piso falls, and Berastagi — flights from Surabaya or Malang can be arranged on request.",
       highlights: [
         "The ferry crossing of Lake Toba to Samosir Island",
         "King Sidabutar's stone tombs in Tomok and the Batak houses of Ambarita",
@@ -180,7 +180,7 @@ export const danauToba4d3n = {
         "Tipping for guide and driver",
         "Travel insurance",
       ],
-      notes: DOMESTIC_NOTE.en,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.en + " " + DOMESTIC_NOTE.en,
     },
   },
 } satisfies PackageInput;

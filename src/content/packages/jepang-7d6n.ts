@@ -36,7 +36,7 @@ export const jepang7d6n = {
     id: {
       title: "Jepang: Tokyo – Fuji – Kyoto – Osaka 7 Hari 6 Malam",
       summary:
-        "Rute klasik Golden Route dari timur ke barat: Tokyo yang modern, Gunung Fuji, kuil-kuil Kyoto, lalu berakhir di Osaka yang gemar makan.",
+        "Paket tour Jepang 7 hari dari Jakarta: Tokyo, Gunung Fuji, Kyoto, dan Osaka naik Shinkansen — penerbangan lanjutan dari Malang atau Surabaya bisa dibantu.",
       highlights: [
         "Gunung Fuji stasiun ke-5 dan Danau Kawaguchi di kakinya",
         "Lorong ribuan torii merah di Fushimi Inari Taisha, Kyoto",
@@ -154,7 +154,7 @@ export const jepang7d6n = {
     en: {
       title: "Japan: Tokyo – Fuji – Kyoto – Osaka 7 Days 6 Nights",
       summary:
-        "The classic Golden Route from east to west: modern Tokyo, Mount Fuji, the temples of Kyoto, and a finish in food-obsessed Osaka.",
+        "A 7-day Japan tour from Jakarta: Tokyo, Mount Fuji, Kyoto, and Osaka by Shinkansen — connecting flights from Malang or Surabaya can be arranged.",
       highlights: [
         "Mount Fuji's 5th Station and Lake Kawaguchi at its foot",
         "The tunnel of thousands of red torii at Fushimi Inari Taisha, Kyoto",

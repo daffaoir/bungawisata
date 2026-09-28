@@ -34,7 +34,7 @@ export const singapuraMalaysia4d3n = {
     id: {
       title: "Singapura – Malaysia 4 Hari 3 Malam",
       summary:
-        "Dua negara dalam satu perjalanan darat: Singapura untuk Sentosa dan Marina Bay, lalu menyeberang lewat Johor menuju Kuala Lumpur.",
+        "Paket tour Singapura – Malaysia 4 hari dari Surabaya (Juanda): Sentosa, Marina Bay, Petronas, Batu Caves — transfer dari Malang bisa dibantu.",
       highlights: [
         "Merlion Park dan Gardens by the Bay di Marina Bay, Singapura",
         "Sentosa dengan Skyline Luge dan Wings of Time",
@@ -114,7 +114,7 @@ export const singapuraMalaysia4d3n = {
     en: {
       title: "Singapore – Malaysia 4 Days 3 Nights",
       summary:
-        "Two countries on one overland run: Singapore for Sentosa and Marina Bay, then across the Johor causeway to Kuala Lumpur.",
+        "A 4-day Singapore – Malaysia tour from Surabaya (Juanda): Sentosa, Marina Bay, the Petronas Towers, Batu Caves — Malang transfers on request.",
       highlights: [
         "Merlion Park and Gardens by the Bay in Marina Bay, Singapore",
         "Sentosa, with the Skyline Luge and Wings of Time",

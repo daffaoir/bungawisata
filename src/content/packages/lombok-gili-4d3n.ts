@@ -1,6 +1,6 @@
 import { images } from "@/content/images";
 import type { PackageInput } from "@/lib/schema";
-import { DOMESTIC_NOTE } from "./shared";
+import { DOMESTIC_NOTE, FLIGHT_FROM_EAST_JAVA_NOTE } from "./shared";
 
 export const lombokGili4d3n = {
   slug: "lombok-gili-4d3n",
@@ -22,7 +22,7 @@ export const lombokGili4d3n = {
     id: {
       title: "Lombok & Gili 4 Hari 3 Malam",
       summary:
-        "Pantai selatan Lombok, desa adat Sasak, dan satu malam menginap di Gili Trawangan yang bebas kendaraan bermotor.",
+        "Paket tour Lombok & Gili 4 hari: desa Sade, Tanjung Aan, dan semalam di Gili Trawangan — tiket pesawat dari Surabaya atau Malang bisa dibantu.",
       highlights: [
         "Desa adat Sade dengan rumah beratap alang-alang dan lantai tanah liat",
         "Pantai Tanjung Aan dan Bukit Merese di ujung selatan Lombok",
@@ -96,12 +96,12 @@ export const lombokGili4d3n = {
         "Asuransi perjalanan",
         "Biaya di luar itinerary yang tertulis",
       ],
-      notes: DOMESTIC_NOTE.id,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.id + " " + DOMESTIC_NOTE.id,
     },
     en: {
       title: "Lombok & Gili 4 Days 3 Nights",
       summary:
-        "Lombok's southern beaches, a traditional Sasak village, and a night on Gili Trawangan, where no motor vehicles are allowed.",
+        "A 4-day Lombok and Gili tour: Sade village, Tanjung Aan beach, and a night on Gili Trawangan — flights from Surabaya or Malang can be arranged.",
       highlights: [
         "Sade village, with thatched roofs and clay floors",
         "Tanjung Aan beach and Merese Hill at Lombok's southern tip",
@@ -175,7 +175,7 @@ export const lombokGili4d3n = {
         "Travel insurance",
         "Anything not listed in the itinerary",
       ],
-      notes: DOMESTIC_NOTE.en,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.en + " " + DOMESTIC_NOTE.en,
     },
   },
 } satisfies PackageInput;

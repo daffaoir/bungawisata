@@ -1,6 +1,6 @@
 import { images } from "@/content/images";
 import type { PackageInput } from "@/lib/schema";
-import { DOMESTIC_NOTE } from "./shared";
+import { DOMESTIC_NOTE, FLIGHT_FROM_EAST_JAVA_NOTE } from "./shared";
 
 export const labuanBajo4d3n = {
   slug: "labuan-bajo-4d3n",
@@ -26,7 +26,7 @@ export const labuanBajo4d3n = {
     id: {
       title: "Labuan Bajo & Komodo 4 Hari 3 Malam",
       summary:
-        "Dua hari penuh berlayar di Taman Nasional Komodo — Padar, Pink Beach, dan Manta Point — dengan pangkalan yang nyaman di Labuan Bajo.",
+        "Paket tour Labuan Bajo 4 hari: berlayar ke Padar, Pulau Komodo, Pink Beach, dan Manta Point — penerbangan dari Surabaya atau Malang bisa dibantu.",
       highlights: [
         "Trekking ke puncak Pulau Padar, titik pandang tiga teluk",
         "Bertemu komodo di Pulau Komodo bersama ranger taman nasional",
@@ -98,12 +98,12 @@ export const labuanBajo4d3n = {
         "Asuransi perjalanan",
         "Biaya dokumentasi drone dan kamera bawah air",
       ],
-      notes: DOMESTIC_NOTE.id,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.id + " " + DOMESTIC_NOTE.id,
     },
     en: {
       title: "Labuan Bajo & Komodo 4 Days 3 Nights",
       summary:
-        "Two full days sailing Komodo National Park — Padar, Pink Beach, and Manta Point — with a comfortable base back in Labuan Bajo.",
+        "A 4-day Labuan Bajo tour sailing to Padar, Komodo Island, Pink Beach, and Manta Point — flights from Surabaya or Malang can be arranged for you.",
       highlights: [
         "The trek up Padar Island for its three-bay viewpoint",
         "Meeting Komodo dragons on Komodo Island with a park ranger",
@@ -175,7 +175,7 @@ export const labuanBajo4d3n = {
         "Travel insurance",
         "Drone and underwater camera documentation fees",
       ],
-      notes: DOMESTIC_NOTE.en,
+      notes: FLIGHT_FROM_EAST_JAVA_NOTE.en + " " + DOMESTIC_NOTE.en,
     },
   },
 } satisfies PackageInput;

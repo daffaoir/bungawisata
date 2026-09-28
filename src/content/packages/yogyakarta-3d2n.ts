@@ -9,7 +9,7 @@ export const yogyakarta3d2n = {
   durationDays: 3,
   durationNights: 2,
   priceFrom: 2750000,
-  departureFrom: "Yogyakarta (YIA)",
+  departureFrom: "Malang",
   minPax: 20,
   hotels: [
     {
@@ -26,7 +26,7 @@ export const yogyakarta3d2n = {
     id: {
       title: "Yogyakarta & Borobudur 3 Hari 2 Malam",
       summary:
-        "Dua candi warisan dunia, keraton yang masih hidup, dan Malioboro di malam hari — paket paling ringkas untuk rombongan sekolah maupun kantor.",
+        "Paket tour Yogyakarta 3 hari dari Malang dengan bus: Borobudur, Prambanan, Keraton, dan Malioboro — ringkas untuk rombongan sekolah maupun kantor.",
       highlights: [
         "Candi Borobudur, candi Buddha terbesar di dunia (Warisan Dunia UNESCO)",
         "Candi Prambanan, kompleks candi Hindu abad ke-9",
@@ -36,10 +36,10 @@ export const yogyakarta3d2n = {
       itinerary: [
         {
           day: 1,
-          title: "Tiba di Yogyakarta – Keraton – Malioboro",
+          title: "Malang – Yogyakarta – Keraton – Malioboro",
           meals: ["lunch", "dinner"],
           activities: [
-            "Penjemputan di Bandara Yogyakarta International Airport atau Stasiun Tugu",
+            "Berkumpul di Malang dan berangkat pukul 03.00 via tol Trans Jawa menuju Yogyakarta (± 6–7 jam)",
             "Makan siang gudeg khas Yogyakarta",
             "Keraton Ngayogyakarta Hadiningrat bersama abdi dalem pemandu",
             "Taman Sari, bekas pemandian kerajaan",
@@ -62,26 +62,26 @@ export const yogyakarta3d2n = {
         },
         {
           day: 3,
-          title: "Oleh-oleh – Kepulangan",
+          title: "Oleh-oleh – Kembali ke Malang",
           meals: ["breakfast"],
           activities: [
             "Sarapan dan check-out hotel",
             "Belanja bakpia di kawasan Pathuk",
             "Mampir ke sentra kerajinan perak Kotagede",
-            "Pengantaran ke bandara atau stasiun",
+            "Perjalanan kembali ke Malang via tol Trans Jawa (± 6–7 jam), tiba malam hari",
           ],
         },
       ],
       includes: [
         "Hotel bintang 4 selama 2 malam (sekamar berdua)",
-        "Bus pariwisata ber-AC selama perjalanan",
+        "Bus pariwisata ber-AC Malang – Yogyakarta – Malang",
         "Makan sesuai program (2x makan pagi, 2x makan siang, 2x makan malam)",
         "Tiket masuk Borobudur, Prambanan, Keraton, dan Taman Sari",
         "Pemandu resmi di kawasan candi",
         "Tour leader dan air mineral selama perjalanan",
       ],
       excludes: [
-        "Tiket pesawat atau kereta menuju Yogyakarta",
+        "Transportasi menuju titik kumpul di Malang",
         "Tiket naik ke struktur Candi Borobudur (kuota terbatas, dipesan terpisah)",
         "Pengeluaran pribadi dan belanja oleh-oleh",
         "Tipping untuk pemandu dan sopir",
@@ -92,7 +92,7 @@ export const yogyakarta3d2n = {
     en: {
       title: "Yogyakarta & Borobudur 3 Days 2 Nights",
       summary:
-        "Two World Heritage temples, a palace that is still lived in, and Malioboro after dark — our most compact package for school and office groups.",
+        "A 3-day Yogyakarta coach tour from Malang: Borobudur, Prambanan, the Kraton, and Malioboro after dark — compact enough for school and office groups.",
       highlights: [
         "Borobudur, the largest Buddhist temple in the world (UNESCO World Heritage)",
         "Prambanan, the 9th-century Hindu temple complex",
@@ -102,10 +102,10 @@ export const yogyakarta3d2n = {
       itinerary: [
         {
           day: 1,
-          title: "Arrival in Yogyakarta – Kraton – Malioboro",
+          title: "Malang – Yogyakarta – Kraton – Malioboro",
           meals: ["lunch", "dinner"],
           activities: [
-            "Pickup at Yogyakarta International Airport or Tugu Station",
+            "Meet in Malang and depart at 03:00 via the Trans-Java toll road to Yogyakarta (about 6–7 hours)",
             "Lunch of gudeg, the city's signature dish",
             "The Kraton of Yogyakarta with an abdi dalem palace guide",
             "Taman Sari, the former royal bathing complex",
@@ -128,26 +128,26 @@ export const yogyakarta3d2n = {
         },
         {
           day: 3,
-          title: "Souvenirs – Departure",
+          title: "Souvenirs – Back to Malang",
           meals: ["breakfast"],
           activities: [
             "Breakfast and hotel check-out",
             "Bakpia pastry shopping in the Pathuk district",
             "A stop at the Kotagede silverwork workshops",
-            "Transfer to the airport or station",
+            "Drive back to Malang via the Trans-Java toll road (about 6–7 hours), arriving in the evening",
           ],
         },
       ],
       includes: [
         "4-star hotel for 2 nights (twin sharing)",
-        "Air-conditioned coach throughout the trip",
+        "Air-conditioned coach Malang – Yogyakarta – Malang",
         "Meals as per programme (2 breakfasts, 2 lunches, 2 dinners)",
         "Entrance tickets to Borobudur, Prambanan, the Kraton, and Taman Sari",
         "Official guides at the temple sites",
         "Tour leader and bottled water throughout",
       ],
       excludes: [
-        "Flights or train tickets to Yogyakarta",
+        "Travel to the meeting point in Malang",
         "The ticket to climb the Borobudur structure (limited quota, booked separately)",
         "Personal expenses and souvenir shopping",
         "Tipping for guide and driver",
