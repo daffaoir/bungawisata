@@ -163,7 +163,8 @@
     "downloadPdf": "Download Itinerary (PDF)",
     "downloadPdfShort": "PDF",
     "relatedTitle": "Similar Packages",
-    "askAbout": "Ask about this package"
+    "askAbout": "Ask about this package",
+    "askShort": "Ask"
   },
   "About": {
     "title": "About Bunga Wisata",

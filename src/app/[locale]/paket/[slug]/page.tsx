@@ -9,7 +9,11 @@ import { InclusionList } from "@/components/package/InclusionList";
 import { ItineraryTimeline } from "@/components/package/ItineraryTimeline";
 import { PackageCard } from "@/components/package/PackageCard";
 import { PackageGallery } from "@/components/package/PackageGallery";
-import { PriceBox, StickyPriceBar } from "@/components/package/PriceBox";
+import {
+  PackageFacts,
+  PriceBox,
+  StickyPriceBar,
+} from "@/components/package/PriceBox";
 import { Badge } from "@/components/shared/Badge";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { SITE_URL } from "@/content/site";
@@ -158,6 +162,8 @@ export default async function PackageDetailPage({
             <p className="text-lg leading-relaxed text-ink-soft">
               {content.summary}
             </p>
+
+            <PackageFacts pkg={pkg} className="mt-8" />
 
             <Reveal className="mt-14">
               <h2 className="flex items-center gap-2.5 text-2xl">

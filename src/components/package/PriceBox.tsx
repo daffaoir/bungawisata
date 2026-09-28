@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ButtonAnchor } from "@/components/shared/Button";
 import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import type { AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { formatPrice } from "@/lib/format";
 import type { Package } from "@/lib/schema";
 
@@ -15,13 +16,15 @@ function pdfHref(locale: AppLocale, slug: string) {
   return `/api/itinerary/${locale}/${slug}`;
 }
 
-export function PriceBox({ pkg }: { pkg: Package }) {
-  const locale = useLocale() as AppLocale;
+/**
+ * Fakta kunci paket — sumber bersama untuk kotak harga (desktop) dan blok
+ * fakta ringkas di bawah ringkasan (ponsel).
+ */
+function usePackageFacts(pkg: Package) {
   const t = useTranslations("PackageDetail");
   const tCommon = useTranslations("Common");
-  const content = pkg.content[locale];
 
-  const rows = [
+  return [
     {
       label: t("durationLabel"),
       value: tCommon("duration", {
@@ -34,6 +37,45 @@ export function PriceBox({ pkg }: { pkg: Package }) {
     ...(pkg.airline ? [{ label: t("airlineLabel"), value: pkg.airline }] : []),
     { label: t("minPaxLabel"), value: t("minPaxValue", { count: pkg.minPax }) },
   ];
+}
+
+/**
+ * Di bawah `lg` kotak harga baru muncul setelah rundown yang panjang, jadi
+ * fakta kuncinya ditampilkan lebih awal di sini. Desktop tidak butuh ini —
+ * kotak harga sticky sudah ada di samping.
+ */
+export function PackageFacts({
+  pkg,
+  className,
+}: {
+  pkg: Package;
+  className?: string;
+}) {
+  const rows = usePackageFacts(pkg);
+
+  return (
+    <dl
+      className={cn(
+        "grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-6 lg:hidden",
+        className,
+      )}
+    >
+      {rows.map((row) => (
+        <div key={row.label} className="min-w-0">
+          <dt className="text-[0.75rem] text-ink-muted">{row.label}</dt>
+          <dd className="mt-1 text-[0.95rem] font-medium">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function PriceBox({ pkg }: { pkg: Package }) {
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("PackageDetail");
+  const tCommon = useTranslations("Common");
+  const content = pkg.content[locale];
+  const rows = usePackageFacts(pkg);
 
   return (
     <div className="border border-line bg-white p-8">
@@ -100,33 +142,34 @@ export function StickyPriceBar({ pkg }: { pkg: Package }) {
       data-sticky-cta
       className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-canvas/95 px-5 py-3 backdrop-blur-lg lg:hidden"
     >
+      {/*
+        Harga tidak boleh terpotong: kiri dibiarkan selebar isinya
+        (`whitespace-nowrap`), kanan cukup tombol PDF ikon 44px dan tombol
+        WhatsApp berlabel pendek. Muat untuk harga terpanjang di layar 320px.
+      */}
       <div className="flex items-center justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-[0.6rem] tracking-[0.12em] text-ink-muted uppercase">
+        <div className="shrink-0">
+          <p className="text-[0.75rem] whitespace-nowrap text-ink-muted">
             {tCommon("startingFrom")}
           </p>
-          <p className="truncate font-display text-lg text-ink">
+          <p className="font-display text-[1.1rem] whitespace-nowrap text-ink">
             {formatPrice(pkg.priceFrom, locale)}
           </p>
         </div>
 
         <div className="flex shrink-0 items-center gap-2">
-          <ButtonAnchor
+          <a
             href={pdfHref(locale, pkg.slug)}
             download
-            target="_self"
-            rel=""
             aria-label={t("downloadPdf")}
-            variant="outline"
-            size="sm"
+            className="inline-flex size-11 items-center justify-center border border-ink/25 text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-canvas"
           >
             <Download className="size-4" strokeWidth={1.5} aria-hidden="true" />
-            {t("downloadPdfShort")}
-          </ButtonAnchor>
+          </a>
 
           <WhatsAppCta
             packageTitle={content.title}
-            label={t("askAbout")}
+            label={t("askShort")}
             size="sm"
           />
         </div>

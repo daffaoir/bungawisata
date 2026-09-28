@@ -163,7 +163,8 @@
     "downloadPdf": "Unduh Itinerary (PDF)",
     "downloadPdfShort": "PDF",
     "relatedTitle": "Paket Serupa",
-    "askAbout": "Tanya paket ini"
+    "askAbout": "Tanya paket ini",
+    "askShort": "Tanya"
   },
   "About": {
     "title": "Tentang Bunga Wisata",
