@@ -30,7 +30,10 @@ export function StaggerGroup({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+      // `amount: "some"`, bukan pecahan: grup setinggi ribuan piksel (mis.
+      // 14 kartu satu kolom di ponsel) tak pernah punya 10% tingginya
+      // terlihat sekaligus, sehingga anak-anaknya tertahan di opacity 0.
+      viewport={{ once: true, amount: "some", margin: "0px 0px -60px 0px" }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: gap } },

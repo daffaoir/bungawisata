@@ -41,7 +41,10 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
+      // `amount: "some"`, bukan pecahan: grup setinggi ribuan piksel (mis.
+      // 14 kartu satu kolom di ponsel) tak pernah punya 10% tingginya
+      // terlihat sekaligus, sehingga anak-anaknya tertahan di opacity 0.
+      viewport={{ once: true, amount: "some", margin: "0px 0px -60px 0px" }}
       transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
