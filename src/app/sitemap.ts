@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import type { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/metadata";
+import { getAllGuides } from "@/lib/guides";
 import { getAllPackages } from "@/lib/packages";
+import { getAllServices } from "@/lib/services";
 
 /**
  * Situs dibangun statis, jadi tanggal build adalah saat terakhir kontennya
@@ -36,8 +38,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/galeri", 0.5),
     entry("/testimoni", 0.5),
     entry("/kontak", 0.6),
+    entry("/layanan", 0.9),
+    entry("/panduan", 0.6),
     ...getAllPackages().map((pkg) =>
       entry({ pathname: "/paket/[slug]", params: { slug: pkg.slug } }, 0.8),
+    ),
+    ...getAllServices().map((service) =>
+      entry(
+        { pathname: "/layanan/[slug]", params: { slug: service.slug } },
+        0.8,
+      ),
+    ),
+    ...getAllGuides().map((guide) =>
+      entry({ pathname: "/panduan/[slug]", params: { slug: guide.slug } }, 0.6),
     ),
   ];
 }

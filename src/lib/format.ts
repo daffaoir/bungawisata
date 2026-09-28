@@ -28,3 +28,13 @@ export function formatPriceCompact(value: number, locale: AppLocale): string {
 
   return locale === "id" ? `Rp ${number} jt` : `IDR ${number}M`;
 }
+
+/** Tanggal ISO (`YYYY-MM-DD`) → "29 September 2026" / "September 29, 2026". */
+export function formatDate(isoDate: string, locale: AppLocale): string {
+  return new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${isoDate}T00:00:00Z`));
+}

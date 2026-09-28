@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatPrice, formatPriceCompact } from "./format";
+import { formatDate, formatPrice, formatPriceCompact } from "./format";
 
 describe("formatPrice", () => {
   it("memakai pemisah ribuan Indonesia dan tanpa desimal", () => {
@@ -31,5 +31,12 @@ describe("formatPriceCompact", () => {
 
   it("menghilangkan desimal untuk angka bulat", () => {
     expect(formatPriceCompact(19_000_000, "id")).toBe("Rp 19 jt");
+  });
+});
+
+describe("formatDate", () => {
+  it("memformat tanggal ISO per bahasa tanpa geser zona waktu", () => {
+    expect(formatDate("2026-09-29", "id")).toBe("29 September 2026");
+    expect(formatDate("2026-09-29", "en")).toBe("September 29, 2026");
   });
 });

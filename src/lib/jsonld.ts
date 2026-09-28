@@ -85,3 +85,82 @@ export function serializeJsonLd(data: unknown): string {
   // `<` di-escape agar teks apa pun mustahil menutup tag <script>.
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
+
+/** Halaman layanan: `Service` yang disediakan entitas bisnis. */
+export function serviceJsonLd({
+  url,
+  name,
+  description,
+  image,
+}: {
+  url: string;
+  name: string;
+  description: string;
+  image: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    url,
+    name,
+    description,
+    image,
+    serviceType: name,
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: [
+      { "@type": "City", name: "Malang" },
+      { "@type": "AdministrativeArea", name: "Jawa Timur" },
+    ],
+  };
+}
+
+/** FAQ yang tampil di halaman yang sama. */
+export function faqPageJsonLd(
+  items: ReadonlyArray<{ question: string; answer: string }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+/** Artikel panduan; penulis & penerbitnya entitas bisnis. */
+export function articleJsonLd({
+  url,
+  headline,
+  description,
+  image,
+  datePublished,
+  dateModified,
+  inLanguage,
+}: {
+  url: string;
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  inLanguage: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: url,
+    url,
+    headline,
+    description,
+    image,
+    datePublished,
+    dateModified,
+    inLanguage,
+    author: { "@id": ORGANIZATION_ID },
+    publisher: { "@id": ORGANIZATION_ID },
+  };
+}

@@ -68,6 +68,14 @@ export function Footer() {
                   {t("international")}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/panduan"
+                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
+                >
+                  {tNav("guides")}
+                </Link>
+              </li>
             </ul>
           </nav>
 

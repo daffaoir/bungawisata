@@ -4,6 +4,7 @@ import { FeaturedPackages } from "@/components/home/FeaturedPackages";
 import { GalleryCarousel } from "@/components/home/GalleryCarousel";
 import { Hero } from "@/components/home/Hero";
 import { RegionSplit } from "@/components/home/RegionSplit";
+import { ServicesStrip } from "@/components/home/ServicesStrip";
 import { TestimonialStrip } from "@/components/home/TestimonialStrip";
 import { WhyUs } from "@/components/home/WhyUs";
 import { ClosingCta } from "@/components/shared/ClosingCta";
@@ -37,6 +38,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     <>
       <Hero />
       <RegionSplit />
+      <ServicesStrip />
       <FeaturedPackages />
       <WhyUs />
       <GalleryCarousel />

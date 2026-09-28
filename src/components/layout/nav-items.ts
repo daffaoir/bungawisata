@@ -16,6 +16,7 @@ export const NAV_ITEMS: ReadonlyArray<{
 }> = [
   { href: "/", key: "home" },
   { href: "/paket", key: "packages" },
+  { href: "/layanan", key: "services" },
   { href: "/tentang-kami", key: "about" },
   { href: "/galeri", key: "gallery" },
   { href: "/kontak", key: "contact" },

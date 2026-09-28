@@ -16,7 +16,9 @@
     "closeMenu": "Tutup menu navigasi",
     "switchLanguage": "Ganti bahasa",
     "languageId": "Indonesia",
-    "languageEn": "English"
+    "languageEn": "English",
+    "services": "Layanan",
+    "guides": "Panduan Wisata"
   },
   "Common": {
     "viewDetail": "Lihat Detail",
@@ -108,6 +110,13 @@
       "title": "Siap berangkat?",
       "subtitle": "Ceritakan rencana perjalanan Anda — kami bantu susun paket yang paling pas, gratis dan tanpa komitmen.",
       "button": "Konsultasi via WhatsApp"
+    },
+    "services": {
+      "eyebrow": "Layanan Kami",
+      "title": "Dari rombongan besar sampai tiket pesawat",
+      "subtitle": "Satu kontak WhatsApp untuk tour rombongan, study tour, gathering, private tour, dan tiket pesawat dari Malang.",
+      "viewAll": "Lihat semua layanan",
+      "more": "Selengkapnya"
     }
   },
   "Packages": {
@@ -246,5 +255,50 @@
     "description": "Halaman yang Anda cari mungkin sudah dipindahkan atau tidak pernah ada.",
     "cta": "Kembali ke beranda",
     "packagesCta": "Lihat paket wisata"
+  },
+  "Services": {
+    "title": "Layanan Bunga Wisata",
+    "metaTitle": "Layanan Tour & Travel di Malang",
+    "metaDescription": "Layanan Bunga Wisata di Malang: tour rombongan, study tour sekolah, gathering kantor, private tour keluarga, dan pemesanan tiket pesawat. Konsultasi via WhatsApp.",
+    "subtitle": "Kami susun perjalanan sesuai kebutuhan grup Anda — kecil maupun besar, dalam maupun luar negeri.",
+    "introTitle": "Tentang layanan ini",
+    "stepsTitle": "Cara memesan",
+    "relatedTitle": "Paket yang cocok",
+    "faqTitle": "Pertanyaan yang sering diajukan",
+    "quoteTitle": "Minta penawaran",
+    "quoteSubtitle": "Isi singkat, lalu kirim lewat WhatsApp — tim kami membalas di jam kerja.",
+    "otherServices": "Layanan lainnya",
+    "ctaTitle": "Belum yakin mulai dari mana?",
+    "ctaSubtitle": "Ceritakan rencana Anda lewat WhatsApp, kami bantu susun pilihannya."
+  },
+  "Guides": {
+    "title": "Panduan Wisata",
+    "metaTitle": "Panduan Wisata & Tips Tour dari Malang",
+    "metaDescription": "Panduan wisata dari Bunga Wisata Malang: tips Bromo, tour rombongan kantor, study tour sekolah, dan persiapan tour luar negeri pertama Anda.",
+    "subtitle": "Tips praktis sebelum Anda berangkat, ditulis oleh tim Bunga Wisata di Malang.",
+    "readMore": "Baca panduan",
+    "published": "Terbit {date}",
+    "updated": "Diperbarui {date}",
+    "relatedPackages": "Paket terkait",
+    "relatedServices": "Layanan terkait",
+    "backToList": "Semua panduan"
+  },
+  "QuoteForm": {
+    "service": "Layanan",
+    "servicePlaceholder": "Pilih layanan",
+    "destination": "Tujuan",
+    "destinationPlaceholder": "mis. Bromo, Bali, Jepang",
+    "pax": "Jumlah peserta",
+    "date": "Perkiraan tanggal/bulan",
+    "datePlaceholder": "mis. Juli 2027",
+    "pickup": "Kota penjemputan",
+    "budget": "Budget per orang (opsional)",
+    "budgetPlaceholder": "mis. Rp3–5 juta",
+    "name": "Nama Anda",
+    "submit": "Kirim via WhatsApp",
+    "privacy": "Data tidak disimpan di situs ini — form hanya menyusun pesan WhatsApp untuk Anda kirim sendiri.",
+    "errorRequired": "Isi nama, tujuan, dan jumlah peserta dulu.",
+    "greeting": "Halo Bunga Wisata, saya ingin minta penawaran.",
+    "defaultPickup": "Malang"
   }
 }

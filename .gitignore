@@ -45,3 +45,4 @@ next-env.d.ts
 
 # design audit screenshots
 docs/design-audit/
+/.playwright-mcp/

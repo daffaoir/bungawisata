@@ -25,3 +25,20 @@ export function buildWhatsAppUrl(
     ? `https://wa.me/${digits}?text=${encodeURIComponent(trimmed)}`
     : `https://wa.me/${digits}`;
 }
+
+/**
+ * Menyusun pesan permintaan penawaran dari isian form: sapaan, lalu satu
+ * baris "Label: isi" per field yang terisi. Field kosong dilewati supaya
+ * pesannya tidak berisi baris menggantung.
+ */
+export function buildQuoteMessage(
+  greeting: string,
+  fields: ReadonlyArray<{ label: string; value: string | undefined }>,
+): string {
+  const lines = fields
+    .map(({ label, value }) => ({ label, value: value?.trim() ?? "" }))
+    .filter(({ value }) => value !== "")
+    .map(({ label, value }) => `${label}: ${value}`);
+
+  return [greeting.trim(), "", ...lines].join("\n").trim();
+}

@@ -16,7 +16,9 @@
     "closeMenu": "Close navigation menu",
     "switchLanguage": "Change language",
     "languageId": "Indonesia",
-    "languageEn": "English"
+    "languageEn": "English",
+    "services": "Services",
+    "guides": "Travel Guides"
   },
   "Common": {
     "viewDetail": "View Details",
@@ -108,6 +110,13 @@
       "title": "Ready to go?",
       "subtitle": "Tell us your travel plans — we'll help shape the right package, free and with no commitment.",
       "button": "Chat on WhatsApp"
+    },
+    "services": {
+      "eyebrow": "Our Services",
+      "title": "From large groups to flight tickets",
+      "subtitle": "One WhatsApp contact for group tours, study tours, gatherings, private tours and flight tickets from Malang.",
+      "viewAll": "See all services",
+      "more": "Learn more"
     }
   },
   "Packages": {
@@ -246,5 +255,50 @@
     "description": "The page you're looking for may have moved, or never existed.",
     "cta": "Back to home",
     "packagesCta": "Browse tour packages"
+  },
+  "Services": {
+    "title": "Bunga Wisata Services",
+    "metaTitle": "Tour & Travel Services in Malang",
+    "metaDescription": "Bunga Wisata services in Malang, East Java: group tours, school study tours, company gatherings, private family tours and flight tickets. Ask on WhatsApp.",
+    "subtitle": "We plan trips around your group — small or large, in Indonesia or abroad.",
+    "introTitle": "About this service",
+    "stepsTitle": "How to book",
+    "relatedTitle": "Suitable packages",
+    "faqTitle": "Frequently asked questions",
+    "quoteTitle": "Request a quote",
+    "quoteSubtitle": "Fill in a few details and send them on WhatsApp — we reply during office hours.",
+    "otherServices": "Other services",
+    "ctaTitle": "Not sure where to start?",
+    "ctaSubtitle": "Tell us your plans on WhatsApp and we'll help you shape the options."
+  },
+  "Guides": {
+    "title": "Travel Guides",
+    "metaTitle": "Travel Guides & Tour Tips from Malang",
+    "metaDescription": "Travel guides from Bunga Wisata in Malang, East Java: Bromo tips, company group tours, school study tours and preparing for your first trip abroad.",
+    "subtitle": "Practical tips before you travel, written by the Bunga Wisata team in Malang.",
+    "readMore": "Read the guide",
+    "published": "Published {date}",
+    "updated": "Updated {date}",
+    "relatedPackages": "Related packages",
+    "relatedServices": "Related services",
+    "backToList": "All guides"
+  },
+  "QuoteForm": {
+    "service": "Service",
+    "servicePlaceholder": "Choose a service",
+    "destination": "Destination",
+    "destinationPlaceholder": "e.g. Bromo, Bali, Japan",
+    "pax": "Number of travellers",
+    "date": "Approximate date/month",
+    "datePlaceholder": "e.g. July 2027",
+    "pickup": "Pick-up city",
+    "budget": "Budget per person (optional)",
+    "budgetPlaceholder": "e.g. IDR 3–5 million",
+    "name": "Your name",
+    "submit": "Send via WhatsApp",
+    "privacy": "Nothing is stored on this site — the form only drafts a WhatsApp message for you to send.",
+    "errorRequired": "Please fill in your name, destination and number of travellers.",
+    "greeting": "Hello Bunga Wisata, I'd like to request a quote.",
+    "defaultPickup": "Malang"
   }
 }

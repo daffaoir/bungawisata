@@ -6,6 +6,7 @@ import { FacebookIcon } from "@/components/shared/FacebookIcon";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { InstagramIcon } from "@/components/shared/InstagramIcon";
 import { PageHeader } from "@/components/shared/PageHeader";
+import { QuoteRequestForm } from "@/components/shared/QuoteRequestForm";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { TikTokIcon } from "@/components/shared/TikTokIcon";
 import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
@@ -20,6 +21,7 @@ import {
   buildOpenGraph,
 } from "@/lib/metadata";
 import { JsonLd } from "@/components/shared/JsonLd";
+import { getAllServices } from "@/lib/services";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function generateStaticParams() {
@@ -54,6 +56,7 @@ export default async function ContactPage({
   const appLocale = locale as AppLocale;
   const t = await getTranslations({ locale, namespace: "Contact" });
   const tWhatsApp = await getTranslations({ locale, namespace: "WhatsApp" });
+  const tServices = await getTranslations({ locale, namespace: "Services" });
 
   const otherChannels = [
     // Email hanya tampil kalau `NEXT_PUBLIC_CONTACT_EMAIL` diisi.
@@ -196,6 +199,21 @@ export default async function ContactPage({
               </li>
             ))}
           </ul>
+        </div>
+      </Section>
+
+      <Section tone="canvas" compact>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <SectionHeading
+            title={tServices("quoteTitle")}
+            subtitle={tServices("quoteSubtitle")}
+          />
+          <QuoteRequestForm
+            services={getAllServices().map((service) => ({
+              slug: service.slug,
+              name: service.content[appLocale].name,
+            }))}
+          />
         </div>
       </Section>
 
