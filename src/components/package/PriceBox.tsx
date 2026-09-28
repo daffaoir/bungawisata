@@ -85,6 +85,7 @@ export function PriceBox({ pkg }: { pkg: Package }) {
       </p>
       <p className="mt-2 text-xs tracking-[0.08em] text-ink-muted uppercase">
         {tCommon("perPerson")}
+        {pkg.priceIsEstimate ? ` · ${tCommon("estimate")}` : null}
       </p>
 
       <dl className="mt-8 space-y-4 border-t border-line pt-6 text-sm">
@@ -118,7 +119,7 @@ export function PriceBox({ pkg }: { pkg: Package }) {
       </ButtonAnchor>
 
       <p className="mt-5 text-xs leading-[1.7] text-ink-muted">
-        {t("priceNote")}
+        {pkg.priceIsEstimate ? t("priceNoteEstimate") : t("priceNote")}
       </p>
     </div>
   );
@@ -151,6 +152,7 @@ export function StickyPriceBar({ pkg }: { pkg: Package }) {
         <div className="shrink-0">
           <p className="text-[0.75rem] whitespace-nowrap text-ink-muted">
             {tCommon("startingFrom")}
+            {pkg.priceIsEstimate ? ` · ${tCommon("estimate")}` : null}
           </p>
           <p className="font-display text-[1.1rem] whitespace-nowrap text-ink">
             {formatPrice(pkg.priceFrom, locale)}

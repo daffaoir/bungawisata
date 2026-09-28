@@ -15,6 +15,8 @@ export const bangkokPattaya4d3n = {
   durationDays: 4,
   durationNights: 3,
   priceFrom: 7000000,
+  // Harga dari PDF itinerary asli milik pemilik.
+  priceIsEstimate: false,
   departureFrom: "Surabaya (SUB)",
   airline: "Royal Brunei Airlines",
   minPax: 40,

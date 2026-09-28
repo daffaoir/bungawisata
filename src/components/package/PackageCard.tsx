@@ -59,6 +59,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
           <div>
             <p className="text-[0.75rem] tracking-[0.12em] text-ink-muted uppercase">
               {t("startingFrom")}
+              {pkg.priceIsEstimate ? ` · ${t("estimate")}` : null}
             </p>
             <p className="mt-1 font-display text-xl text-ink">
               {formatPrice(pkg.priceFrom, locale)}

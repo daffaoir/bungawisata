@@ -55,6 +55,11 @@ export const packageSchema = z
     durationDays: z.number().int().positive(),
     durationNights: z.number().int().nonnegative(),
     priceFrom: z.number().int().positive(),
+    /**
+     * `true` = harga masih perkiraan (belum dari pemilik) dan ditandai
+     * "estimasi" di kartu, detail, dan PDF. Set `false` hanya untuk harga asli.
+     */
+    priceIsEstimate: z.boolean().default(true),
     /** Kota keberangkatan utama, mis. "Surabaya (SUB)". */
     departureFrom: nonEmpty,
     /** Kosongkan untuk paket yang tidak memakai penerbangan tertentu. */

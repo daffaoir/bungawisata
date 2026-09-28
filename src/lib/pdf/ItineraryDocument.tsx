@@ -33,6 +33,7 @@ const LABELS: Record<AppLocale, Record<string, string>> = {
     nights: "MALAM",
     price: "HARGA",
     perPerson: "per orang",
+    estimate: "harga estimasi, konfirmasi via WhatsApp",
     minPax: "min. peserta",
     departure: "Keberangkatan",
     airline: "Maskapai",
@@ -51,6 +52,7 @@ const LABELS: Record<AppLocale, Record<string, string>> = {
     nights: "NIGHTS",
     price: "PRICE",
     perPerson: "per person",
+    estimate: "estimated price, confirm on WhatsApp",
     minPax: "min. pax",
     departure: "Departure from",
     airline: "Airline",
@@ -286,7 +288,11 @@ export function ItineraryDocument({
               <Text style={styles.price}>
                 {formatPrice(pkg.priceFrom, locale)}
               </Text>
-              <Text style={{ color: INK_MUTED }}>{t.perPerson}</Text>
+              <Text style={{ color: INK_MUTED }}>
+                {pkg.priceIsEstimate
+                  ? `${t.perPerson} · ${t.estimate}`
+                  : t.perPerson}
+              </Text>
             </View>
           </View>
         </View>

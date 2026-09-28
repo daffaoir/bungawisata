@@ -6,7 +6,10 @@ export type FaqItem = {
   answer: Record<AppLocale, string>;
 };
 
-/** TODO: sesuaikan jawaban di bawah dengan kebijakan Bunga Wisata yang berlaku. */
+/**
+ * Jawaban sengaja tidak menyebut angka kebijakan (DP, minimal peserta) yang
+ * belum dikonfirmasi pemilik. Tambahkan angka hanya kalau sudah pasti.
+ */
 export const faq: FaqItem[] = [
   {
     id: "booking",
@@ -26,8 +29,8 @@ export const faq: FaqItem[] = [
       en: "How much deposit is required?",
     },
     answer: {
-      id: "Uang muka sebesar 30% dari harga paket, dan pelunasan paling lambat 14 hari sebelum keberangkatan.",
-      en: "A 30% deposit is required, with the balance settled no later than 14 days before departure.",
+      id: "Besaran uang muka dan tenggat pelunasan tergantung paket dan tanggal keberangkatan. Rinciannya kami kirim tertulis lewat WhatsApp sebelum Anda membayar apa pun.",
+      en: "The deposit amount and final payment deadline depend on the package and departure date. We send the details in writing on WhatsApp before you pay anything.",
     },
   },
   {
@@ -37,8 +40,8 @@ export const faq: FaqItem[] = [
       en: "What is the minimum group size for a departure?",
     },
     answer: {
-      id: "Trip berangkat jika terkumpul minimal 15 peserta. Jika kuota tidak terpenuhi, Anda dapat memilih pindah tanggal atau menerima pengembalian penuh.",
-      en: "Departures run once at least 15 travellers have joined. If the minimum isn't met you may move to another date or receive a full refund.",
+      id: "Kami melayani grup kecil, keluarga, hingga rombongan besar. Jumlah minimal peserta berbeda di tiap paket dan memengaruhi harga, jadi sebutkan perkiraan jumlah peserta saat menghubungi kami.",
+      en: "We serve small groups, families and large groups alike. The minimum group size differs per package and affects the price, so tell us your expected headcount when you get in touch.",
     },
   },
   {
