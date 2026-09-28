@@ -42,7 +42,7 @@ export default async function PackagesPage({
         image={images["bromo-lanskap"]}
       />
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-16">
+      <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-12">
         {/* useSearchParams di dalam PackageBrowser butuh batas Suspense
             agar halaman ini tetap bisa dirender statis saat build. */}
         <Suspense fallback={<div className="h-72" />}>
