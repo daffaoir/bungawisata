@@ -1,17 +1,17 @@
 import { Clock, Mail, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Reveal } from "@/components/motion/Reveal";
+import { ButtonAnchor } from "@/components/shared/Button";
 import { FacebookIcon } from "@/components/shared/FacebookIcon";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { InstagramIcon } from "@/components/shared/InstagramIcon";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { TikTokIcon } from "@/components/shared/TikTokIcon";
-import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
+import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import { faq } from "@/content/faq";
 import { images } from "@/content/images";
-import { MAPS_EMBED_URL, site } from "@/content/site";
+import { MAPS_EMBED_URL, MAPS_LINK, site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { buildAlternates } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -43,13 +43,7 @@ export default async function ContactPage({
   const t = await getTranslations({ locale, namespace: "Contact" });
   const tWhatsApp = await getTranslations({ locale, namespace: "WhatsApp" });
 
-  const contactIcons = [
-    {
-      key: "whatsapp",
-      label: t("whatsappTitle"),
-      href: buildWhatsAppUrl(tWhatsApp("generic")),
-      Icon: WhatsAppIcon,
-    },
+  const otherChannels = [
     {
       key: "email",
       label: t("emailTitle"),
@@ -76,6 +70,9 @@ export default async function ContactPage({
     },
   ] as const;
 
+  const whatsappUrl = buildWhatsAppUrl(tWhatsApp("generic"));
+  const replyHours = site.hours[0];
+
   return (
     <>
       <PageHeader
@@ -85,27 +82,40 @@ export default async function ContactPage({
       />
 
       {/*
-        Satu kartu utama berisi info kunci (alamat + jam operasional), lalu
-        baris icon di bawahnya untuk semua kanal kontak — WhatsApp, email,
-        dan media sosial sejajar sebagai satu grup, bukan kartu-kartu
-        terpisah yang bersaing perhatian.
+        WhatsApp adalah kanal utama, jadi ia membuka halaman: nomor besar +
+        tombol. Alamat dan jam operasional di kolom kanan (desktop) atau di
+        bawahnya (ponsel). Kanal lain menyusul sebagai tautan berlabel.
       */}
-      <Section tone="alt">
-        <SectionHeading
-          eyebrow={t("channelsEyebrow")}
-          title={t("channelsTitle")}
-          align="center"
-        />
+      <Section tone="white">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <h2 className="text-2xl">{t("whatsappTitle")}</h2>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block font-display text-[2rem] leading-tight text-ink transition-colors hover:text-gold-600"
+            >
+              {site.phoneDisplay}
+            </a>
+            <div className="mt-6">
+              <WhatsAppCta size="lg" className="w-full sm:w-auto" />
+            </div>
+            <p className="mt-4 text-sm text-ink-soft">
+              {replyHours.days[appLocale]} · {replyHours.time}
+            </p>
+          </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
-          <Reveal className="h-full">
-            <div className="flex h-full flex-col bg-white p-8">
-              <MapPin
-                className="size-6 text-gold-600"
-                strokeWidth={1.25}
-                aria-hidden="true"
-              />
-              <h3 className="mt-5 text-lg">{t("addressTitle")}</h3>
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7">
+            <div>
+              <h3 className="flex items-center gap-2.5 text-lg">
+                <MapPin
+                  className="size-5 text-gold-600"
+                  strokeWidth={1.25}
+                  aria-hidden="true"
+                />
+                {t("addressTitle")}
+              </h3>
               <address className="mt-3 leading-[1.75] text-ink-soft not-italic">
                 {site.address.street}
                 <br />
@@ -115,16 +125,16 @@ export default async function ContactPage({
                 {site.address.postalCode}
               </address>
             </div>
-          </Reveal>
 
-          <Reveal className="h-full" from="right">
-            <div className="flex h-full flex-col bg-white p-8">
-              <Clock
-                className="size-6 text-gold-600"
-                strokeWidth={1.25}
-                aria-hidden="true"
-              />
-              <h3 className="mt-5 text-lg">{t("hoursTitle")}</h3>
+            <div>
+              <h3 className="flex items-center gap-2.5 text-lg">
+                <Clock
+                  className="size-5 text-gold-600"
+                  strokeWidth={1.25}
+                  aria-hidden="true"
+                />
+                {t("hoursTitle")}
+              </h3>
               <dl className="mt-4 space-y-2.5 text-sm">
                 {site.hours.map((entry) => (
                   <div
@@ -141,54 +151,67 @@ export default async function ContactPage({
                 ))}
               </dl>
             </div>
-          </Reveal>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <span className="text-[0.68rem] tracking-[0.12em] text-ink-muted uppercase">
-            {t("connectTitle")}
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {contactIcons.map(({ key, label, href, Icon }) => (
-              <a
-                key={key}
-                href={href}
-                target={key === "email" ? undefined : "_blank"}
-                rel={key === "email" ? undefined : "noopener noreferrer"}
-                aria-label={label}
-                className="flex size-12 items-center justify-center rounded-full border border-line text-ink-soft transition-colors hover:border-ink hover:bg-ink hover:text-canvas"
-              >
-                <Icon className="size-5" />
-              </a>
+        <div className="mt-14 border-t border-line pt-8">
+          <h3 className="text-base">{t("connectTitle")}</h3>
+          <ul className="mt-5 flex flex-wrap gap-3">
+            {otherChannels.map(({ key, label, href, Icon }) => (
+              <li key={key}>
+                <a
+                  href={href}
+                  target={key === "email" ? undefined : "_blank"}
+                  rel={key === "email" ? undefined : "noopener noreferrer"}
+                  className="inline-flex min-h-11 items-center gap-2.5 border border-line px-4 text-sm text-ink transition-colors hover:border-ink hover:bg-ink hover:text-canvas"
+                >
+                  <Icon className="size-4 shrink-0" aria-hidden="true" />
+                  {label}
+                </a>
+              </li>
             ))}
+          </ul>
+        </div>
+      </Section>
+
+      <Section tone="alt">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div>
+            <h2 className="text-[2rem] sm:text-[2.6rem]">{t("mapTitle")}</h2>
+            <address className="mt-5 leading-[1.75] text-ink-soft not-italic">
+              {site.address.street}, {site.address.area}, {site.address.city},{" "}
+              {site.address.province} {site.address.postalCode}
+            </address>
+            <ButtonAnchor
+              href={MAPS_LINK}
+              variant="outline"
+              className="mt-6 w-full sm:w-auto"
+            >
+              <MapPin className="size-4" strokeWidth={1.5} aria-hidden="true" />
+              {t("openMaps")}
+            </ButtonAnchor>
+            <p className="mt-6 text-sm leading-[1.75] text-ink-soft">
+              {t("mapSubtitle")}
+            </p>
+          </div>
+
+          {/*
+            Peta dimuat malas supaya tidak ikut menahan LCP. Latar
+            `canvas-alt` mengisi kotaknya selama iframe belum termuat.
+          */}
+          <div className="aspect-[4/3] w-full border border-line bg-canvas-alt">
+            <iframe
+              src={MAPS_EMBED_URL}
+              title={t("mapTitle")}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="size-full"
+            />
           </div>
         </div>
       </Section>
 
-      <Section tone="white">
-        <SectionHeading
-          eyebrow={t("mapEyebrow")}
-          title={t("mapTitle")}
-          subtitle={t("mapSubtitle")}
-        />
-
-        {/*
-          Peta dimuat malas supaya tidak ikut menahan LCP — bagi kebanyakan
-          pengunjung alamat teks di atas sudah cukup, petanya baru dilihat
-          saat mereka menggulir sampai sini.
-        */}
-        <div className="mt-10 aspect-[16/10] w-full border border-line sm:aspect-[16/7]">
-          <iframe
-            src={MAPS_EMBED_URL}
-            title={t("mapTitle")}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="size-full"
-          />
-        </div>
-      </Section>
-
-      <Section tone="alt" id="faq">
+      <Section tone="white" id="faq">
         <SectionHeading
           title={t("faqTitle")}
           subtitle={t("faqSubtitle")}
@@ -196,6 +219,9 @@ export default async function ContactPage({
         />
         <div className="mx-auto mt-10 max-w-3xl">
           <FaqAccordion items={faq} />
+        </div>
+        <div className="mt-10 flex justify-center">
+          <WhatsAppCta variant="outline" />
         </div>
       </Section>
     </>
