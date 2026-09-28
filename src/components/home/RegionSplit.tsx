@@ -15,12 +15,12 @@ const CARDS: Array<{
 }> = [
   {
     region: "dalam-negeri",
-    image: images["raja-ampat-piaynemo"],
+    image: images["raja-ampat-gugusan"],
     from: "left",
   },
   {
     region: "luar-negeri",
-    image: images["turki-cappadocia"],
+    image: images["jepang-chureito"],
     from: "right",
   },
 ];
