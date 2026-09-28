@@ -29,7 +29,17 @@ export function PackageCard({ pkg }: { pkg: Package }) {
       </div>
 
       <div className="flex flex-1 flex-col p-7">
-        <p className="eyebrow text-gold-600">{pkg.destination}</p>
+        {/* Durasi di baris yang sama dengan destinasi, supaya posisinya tidak
+            bergeser saat judul patah dua baris. */}
+        <div className="flex items-baseline justify-between gap-3">
+          <p className="eyebrow text-gold-600">{pkg.destination}</p>
+          <p className="shrink-0 text-[0.75rem] text-ink-muted">
+            {t("duration", {
+              days: pkg.durationDays,
+              nights: pkg.durationNights,
+            })}
+          </p>
+        </div>
 
         <h3 className="mt-3 text-[1.35rem] leading-snug">
           <Link
@@ -41,25 +51,18 @@ export function PackageCard({ pkg }: { pkg: Package }) {
           </Link>
         </h3>
 
-        <p className="mt-3 line-clamp-2 text-sm leading-[1.75] text-ink-soft">
+        <p className="mt-3 mb-6 line-clamp-2 text-sm leading-[1.75] text-ink-soft">
           {content.summary}
-        </p>
-
-        <p className="mt-5 text-xs tracking-[0.08em] text-ink-muted uppercase">
-          {t("duration", {
-            days: pkg.durationDays,
-            nights: pkg.durationNights,
-          })}
         </p>
 
         <div className="mt-auto flex items-end justify-between gap-4 border-t border-line pt-6">
           <div>
-            <p className="text-[0.65rem] tracking-[0.12em] text-ink-muted uppercase">
+            <p className="text-[0.75rem] tracking-[0.12em] text-ink-muted uppercase">
               {t("startingFrom")}
             </p>
             <p className="mt-1 font-display text-xl text-ink">
               {formatPrice(pkg.priceFrom, locale)}
-              <span className="ms-1 font-sans text-[0.65rem] tracking-wide text-ink-muted">
+              <span className="ms-1 font-sans text-[0.75rem] tracking-wide text-ink-muted">
                 {t("perPerson")}
               </span>
             </p>
