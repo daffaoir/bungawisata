@@ -1,9 +1,9 @@
 "use client";
 
-import { RotateCcw, Search } from "lucide-react";
+import { RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { EmptyState } from "@/components/shared/EmptyState";
 import { Select } from "@/components/shared/Select";
@@ -68,6 +68,9 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
   const [filters, setFilters] = useState<FilterState>(() =>
     readInitialState(new URLSearchParams(searchParams.toString())),
   );
+  /** Hanya berlaku di bawah `lg`; di desktop semua field selalu terlihat. */
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
+  const moreFiltersId = useId();
 
   // Menulis langsung ke history — bukan router.replace — supaya mengetik di
   // kolom pencarian tidak memicu permintaan RSC pada setiap ketukan.
@@ -112,6 +115,11 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
   );
 
   const isFiltered = JSON.stringify(filters) !== JSON.stringify(EMPTY);
+  const activeMoreFilters = [
+    filters.destination,
+    filters.duration,
+    filters.price,
+  ].filter(Boolean).length;
 
   function update<K extends keyof FilterState>(key: K, value: FilterState[K]) {
     setFilters((current) => {
@@ -124,11 +132,17 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
 
   return (
     <div>
-      <div className="border border-line bg-white p-6 sm:p-8">
+      {/*
+        Di ponsel panel ini harus ringkas: baris segmen region, lalu kolom
+        cari + tombol "Filter" yang membuka tiga pilihan lainnya. Di `lg`
+        semuanya terlihat dalam satu kotak seperti sebelumnya — pembungkus
+        `lg:contents` meleburkan anak-anaknya ke grid empat kolom.
+      */}
+      <div className="lg:border lg:border-line lg:bg-white lg:p-8">
         <div
           role="group"
           aria-label={tCommon("viewAllPackages")}
-          className="flex flex-wrap gap-2"
+          className="grid grid-cols-3 gap-2 lg:flex lg:flex-wrap"
         >
           {(["all", ...REGIONS] as const).map((region) => {
             const isActive = filters.region === region;
@@ -146,11 +160,11 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
                 onClick={() => update("region", region)}
                 aria-pressed={isActive}
                 className={cn(
-                  "border px-5 py-2.5 text-[0.68rem] font-semibold tracking-[0.1em] uppercase",
+                  "min-h-11 border px-1 text-[0.68rem] font-semibold tracking-[0.04em] whitespace-nowrap uppercase lg:px-5 lg:tracking-[0.1em]",
                   "transition-colors duration-300",
                   isActive
                     ? "border-ink bg-ink text-canvas"
-                    : "border-line text-ink-soft hover:border-ink hover:text-ink",
+                    : "border-line bg-white text-ink-soft hover:border-ink hover:text-ink",
                 )}
               >
                 {label}
@@ -159,63 +173,91 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
           })}
         </div>
 
-        <div className="mt-6 grid gap-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
-          <div className="relative">
-            <Search
-              className="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-ink-muted"
-              strokeWidth={1.5}
-              aria-hidden="true"
-            />
-            <input
-              type="search"
-              value={filters.query}
-              onChange={(event) => update("query", event.target.value)}
-              placeholder={t("searchPlaceholder")}
-              aria-label={t("search")}
-              className="w-full border border-line bg-white py-3 ps-11 pe-4 text-sm text-ink transition-colors duration-300 hover:border-ink/40 focus:border-ink focus:outline-none"
-            />
+        <div className="mt-3 grid gap-3 lg:mt-6 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+          <div className="flex gap-3 lg:contents">
+            <div className="relative min-w-0 flex-1">
+              <Search
+                className="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-ink-muted"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              <input
+                type="search"
+                value={filters.query}
+                onChange={(event) => update("query", event.target.value)}
+                placeholder={t("searchPlaceholder")}
+                aria-label={t("search")}
+                className="min-h-11 w-full border border-line bg-white py-3 ps-11 pe-4 text-sm text-ink transition-colors duration-300 hover:border-ink/40 focus:border-ink focus:outline-none"
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowMoreFilters((open) => !open)}
+              aria-expanded={showMoreFilters}
+              aria-controls={moreFiltersId}
+              className={cn(
+                "inline-flex min-h-11 shrink-0 items-center gap-2 border px-4 text-[0.68rem] font-semibold tracking-[0.1em] uppercase lg:hidden",
+                "transition-colors duration-300",
+                showMoreFilters || activeMoreFilters > 0
+                  ? "border-ink bg-ink text-canvas"
+                  : "border-line bg-white text-ink hover:border-ink",
+              )}
+            >
+              <SlidersHorizontal
+                className="size-4"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              {t("toggle", { count: activeMoreFilters })}
+            </button>
           </div>
 
-          <Select
-            value={filters.destination}
-            onChange={(value) => update("destination", value)}
-            label={t("destination")}
-            options={[
-              { value: "", label: t("allDestinations") },
-              ...destinations.map((destination) => ({
-                value: destination,
-                label: destination,
-              })),
-            ]}
-          />
+          <div
+            id={moreFiltersId}
+            className={cn("gap-3 lg:contents", showMoreFilters ? "grid" : "hidden")}
+          >
+            <Select
+              value={filters.destination}
+              onChange={(value) => update("destination", value)}
+              label={t("destination")}
+              options={[
+                { value: "", label: t("allDestinations") },
+                ...destinations.map((destination) => ({
+                  value: destination,
+                  label: destination,
+                })),
+              ]}
+            />
 
-          <Select
-            value={filters.duration}
-            onChange={(value) => update("duration", value as DurationBucket | "")}
-            label={t("duration")}
-            options={[
-              { value: "", label: t("allDurations") },
-              { value: "short", label: t("durationShort") },
-              { value: "medium", label: t("durationMedium") },
-              { value: "long", label: t("durationLong") },
-            ]}
-          />
+            <Select
+              value={filters.duration}
+              onChange={(value) => update("duration", value as DurationBucket | "")}
+              label={t("duration")}
+              options={[
+                { value: "", label: t("allDurations") },
+                { value: "short", label: t("durationShort") },
+                { value: "medium", label: t("durationMedium") },
+                { value: "long", label: t("durationLong") },
+              ]}
+            />
 
-          <Select
-            value={filters.price}
-            onChange={(value) => update("price", value as PriceBucket | "")}
-            label={t("price")}
-            options={[
-              { value: "", label: t("allPrices") },
-              { value: "low", label: t("priceLow") },
-              { value: "mid", label: t("priceMid") },
-              { value: "high", label: t("priceHigh") },
-            ]}
-          />
+            <Select
+              value={filters.price}
+              onChange={(value) => update("price", value as PriceBucket | "")}
+              label={t("price")}
+              options={[
+                { value: "", label: t("allPrices") },
+                { value: "low", label: t("priceLow") },
+                { value: "mid", label: t("priceMid") },
+                { value: "high", label: t("priceHigh") },
+              ]}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-3">
+      <div className="mt-8 flex min-h-11 flex-wrap items-center justify-between gap-3 lg:mt-10">
         <p
           aria-live="polite"
           className="text-[0.7rem] tracking-[0.12em] text-ink-muted uppercase"
@@ -227,7 +269,7 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
           <button
             type="button"
             onClick={() => setFilters(EMPTY)}
-            className="inline-flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.12em] text-gold-600 uppercase transition-colors hover:text-ink"
+            className="inline-flex min-h-11 items-center gap-2 text-[0.7rem] font-semibold tracking-[0.12em] text-gold-600 uppercase transition-colors hover:text-ink"
           >
             <RotateCcw className="size-4" aria-hidden="true" />
             {t("reset")}

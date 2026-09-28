@@ -132,6 +132,7 @@
       "priceMid": "Rp 10–25 juta",
       "priceHigh": "Di atas Rp 25 juta",
       "reset": "Atur ulang filter",
+      "toggle": "Filter{count, plural, =0 {} other { (#)}}",
       "resultCount": "{count, plural, =0 {Tidak ada paket} one {# paket} other {# paket}} ditemukan"
     },
     "empty": {
