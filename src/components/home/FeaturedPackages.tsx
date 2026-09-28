@@ -17,6 +17,7 @@ export function FeaturedPackages() {
         eyebrow={t("eyebrow")}
         title={t("title")}
         subtitle={t("subtitle")}
+        hideActionOnMobile
         action={
           <ButtonLink href="/paket" variant="outline">
             {tCommon("viewAllPackages")}
@@ -32,6 +33,11 @@ export function FeaturedPackages() {
           </StaggerItem>
         ))}
       </StaggerGroup>
+
+      <ButtonLink href="/paket" variant="outline" className="mt-10 w-full sm:hidden">
+        {tCommon("viewAllPackages")}
+        <ArrowRight className="size-4" aria-hidden="true" />
+      </ButtonLink>
     </Section>
   );
 }

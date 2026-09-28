@@ -55,6 +55,12 @@ type SectionHeadingProps = {
    * subjudul kalau teksnya panjang dan melipat dua baris.
    */
   action?: ReactNode;
+  /**
+   * Di bawah `sm`, `action` dirender setelah subjudul supaya urutan bacanya
+   * judul → penjelas → tombol. Isi `true` kalau pemanggil menaruh versi
+   * ponselnya sendiri di tempat lain (mis. setelah grid kartu).
+   */
+  hideActionOnMobile?: boolean;
 };
 
 export function SectionHeading({
@@ -65,6 +71,7 @@ export function SectionHeading({
   tone = "dark",
   className,
   action,
+  hideActionOnMobile = false,
 }: SectionHeadingProps) {
   const isLight = tone === "light";
 
@@ -93,7 +100,7 @@ export function SectionHeading({
           <h2 className="max-w-2xl text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
             {title}
           </h2>
-          <div className="shrink-0">{action}</div>
+          <div className="hidden shrink-0 sm:block">{action}</div>
         </div>
       ) : (
         <h2 className="text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">{title}</h2>
@@ -108,6 +115,10 @@ export function SectionHeading({
         >
           {subtitle}
         </p>
+      ) : null}
+
+      {action && !hideActionOnMobile ? (
+        <div className="mt-6 sm:hidden">{action}</div>
       ) : null}
     </div>
   );
