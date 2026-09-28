@@ -41,7 +41,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ### Grup A — Kebenaran data & konten
 
-1. [ ] **Samakan identitas bisnis dengan Google Business Profile (GBP)**
+1. [x] **Samakan identitas bisnis dengan Google Business Profile (GBP)**
    - **File:** `src/content/site.ts`, `src/content/site.test.ts`
    - **Field baru di `site`:**
      - `legalName: "CV. Bunga Wisata Malang"`
@@ -64,7 +64,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
      - `hours` memuat 6 hari kerja.
    - **Commit:** `fix(content): align business identity with Google Business Profile`
 
-2. [ ] **Ganti statistik karangan dengan bukti nyata**
+2. [x] **Ganti statistik karangan dengan bukti nyata**
    - **File:** `src/content/site.ts`, komponen yang memakai `stats` (cari `stats.` dan `AnimatedCounter`), `src/messages/*.json`
    - **Ganti** `travelers/destinations/years` menjadi:
      - rating Google **4,7** (label "dari 30 ulasan Google", link ke `GOOGLE_REVIEWS_URL`)
@@ -73,7 +73,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
    - Hapus "sejak 2015" dan klaim tahun berdiri lain di `src/messages/*.json`.
    - **Commit:** `fix(content): replace invented stats with verifiable proof`
 
-3. [ ] **Testimoni jadi kutipan ulasan Google asli**
+3. [x] **Testimoni jadi kutipan ulasan Google asli**
    - **File:** `src/content/testimonials.ts` (+ tes), `src/components/home/TestimonialStrip.tsx`, `src/components/shared/TestimonialCard.tsx`, `src/app/[locale]/testimoni/page.tsx`, `src/messages/*.json`
    - **Isi `testimonials`:** 4 ulasan dari file wawancara.
      - Kutipan asli berbahasa Indonesia, dirapikan ejaan ringan tanpa mengubah makna.
@@ -87,7 +87,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
    - **Tes:** setiap testimoni punya `source`, dan tidak ada nama dari daftar lama (Rina Kusuma, Andi Prasetyo, dst.).
    - **Commit:** `feat(testimonials): show real Google reviews instead of invented quotes`
 
-4. [ ] **Harga = estimasi, FAQ & About tanpa klaim karangan**
+4. [x] **Harga = estimasi, FAQ & About tanpa klaim karangan**
    - **File:** `src/components/package/PriceBox.tsx`, `PackageCard.tsx`, sticky price bar, template PDF itinerary (cari di `src/lib`/`src/components` `@react-pdf`), `src/content/faq.ts`, teks About di `src/messages/*.json`
    - **Harga:** label "Mulai dari" + catatan kecil "Harga estimasi — konfirmasi via WhatsApp" (EN "Estimated price — confirm on WhatsApp") di kartu, detail, dan PDF. Paket Bangkok–Pattaya (harga asli) boleh tanpa label estimasi. Tambahkan flag `priceIsEstimate` di schema paket.
    - **FAQ:** angka kebijakan karangan (DP 30%, 14 hari, minimal 15 peserta) diganti kalimat netral bahwa ketentuan dijelaskan saat pemesanan.
@@ -97,14 +97,14 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
      - tagline
    - **Commit:** `fix(content): mark package prices as estimates and drop invented policies`
 
-5. [ ] **Galeri jadi "inspirasi destinasi" + link Instagram**
+5. [x] **Galeri jadi "inspirasi destinasi" + link Instagram**
    - **File:** `src/app/[locale]/galeri/page.tsx`, `src/content/gallery.ts`, `src/messages/*.json`
    - Judul dan deskripsi menegaskan bahwa ini galeri destinasi.
    - Tambah CTA "Lihat dokumentasi perjalanan kami di Instagram @bungawisata".
    - Caption hanya menyebut nama tempat.
    - **Commit:** `fix(gallery): present stock photos as destination inspiration`
 
-6. [ ] **Konten paket menyebut keberangkatan dari Malang**
+6. [x] **Konten paket menyebut keberangkatan dari Malang**
    - **File:** `src/content/packages/*.ts`
    - **Paket domestik:** titik kumpul/penjemputan Malang–Batu, dengan opsi Surabaya/Juanda bila relevan. Bromo–Ijen berkumpul di Malang.
    - **Paket luar negeri:** summary menyebut "berangkat dari Surabaya (Juanda) atau Jakarta, bisa dibantu transfer dari Malang".
@@ -114,7 +114,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ### Grup B — SEO on-page & data terstruktur
 
-7. [ ] **Kata kunci di title, description, H1**
+7. [x] **Kata kunci di title, description, H1**
    - **File:** `src/messages/id.json`, `en.json`, `src/components/home/Hero.tsx`, `src/app/[locale]/paket/[slug]/page.tsx`
    - **Default title ID:**
      ```
@@ -132,7 +132,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
    - **Tes:** semua title (template diterapkan) ≤ 65 karakter dan description 110–165 karakter untuk seluruh key `Meta`/`*.meta` di kedua locale.
    - **Commit:** `feat(seo): target Malang tour keywords in titles, descriptions and H1`
 
-8. [ ] **Entitas bisnis global + BreadcrumbList**
+8. [x] **Entitas bisnis global + BreadcrumbList**
    - **File:** `src/lib/jsonld.ts` (baru) + `src/lib/jsonld.test.ts`, `src/app/[locale]/layout.tsx`, `page.tsx` beranda, `paket/[slug]/page.tsx`, halaman dalam lain
    - **`organizationJsonLd(locale)`:**
      - `@type: ["TravelAgency","LocalBusiness"]`
@@ -153,7 +153,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
    - **Tes:** bentuk JSON-LD (field wajib ada, `email` hilang kalau undefined, tidak ada `<` mentah setelah serialisasi).
    - **Commit:** `feat(seo): site-wide business entity and breadcrumbs in JSON-LD`
 
-9. [ ] **Sitemap, redirect, canonical, OG**
+9. [x] **Sitemap, redirect, canonical, OG**
    - **File:** `src/app/sitemap.ts`, `next.config.ts` (atau `src/proxy.ts`), `src/lib/metadata.ts`, `src/app/[locale]/paket/[slug]/opengraph-image.tsx` (baru, opsional kalau foto lokal sudah ada dari langkah 12)
    - **Sitemap:** tambahkan `lastModified`. Nilainya dari tanggal build, atau dari field `updatedAt` per paket/layanan/panduan kalau ditambahkan.
    - **Redirect:** `/id` dan `/id/:path*` harus **308** ke tanpa prefix. Pastikan tidak bentrok dengan middleware next-intl.
@@ -163,7 +163,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ### Grup C — Performa, standar, aksesibilitas
 
-10. [ ] **`/paket` di-render di server**
+10. [x] **`/paket` di-render di server**
     - **File:** `src/app/[locale]/paket/page.tsx`, `src/components/package/PackageBrowser.tsx`
     - Hapus ketergantungan `useSearchParams` saat render awal. Semua 14 kartu (dengan link) harus ada di HTML statis.
     - Filter dijalankan di client, dan state awalnya dibaca dari URL setelah mount **tanpa** mengosongkan list. Contoh: `window.location.search` di `useEffect`, atau `nuqs`-style shallow update memakai `history.replaceState`.
@@ -172,7 +172,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - **Cek build:** HTML `/paket` di `.next` memuat 14 href `/paket/`.
     - **Commit:** `perf(packages): server-render the package list for crawlers and CLS`
 
-11. [ ] **Kurangi JS client di mobile**
+11. [x] **Kurangi JS client di mobile**
     - **File:** `src/components/motion/*`, `src/components/home/*`, `src/app/[locale]/layout.tsx`
     - Audit komponen `"use client"`, lalu pilih yang sesuai:
       - `motion`: pakai `LazyMotion` + `m`, atau ganti animasi reveal dengan CSS (`@starting-style` / IntersectionObserver ringan)
@@ -182,7 +182,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - **Target Lighthouse mobile** (median 3 run, lokal `next start` atau preview): `/` ≥ 85, `/paket` ≥ 85, CLS < 0,1. Catat angka sebelum dan sesudah di Progress.
     - **Commit:** `perf(home): cut client JavaScript and prioritise hero images`
 
-12. [ ] **Foto stok di-host lokal**
+12. [x] **Foto stok di-host lokal**
     - **File:** `public/images/**`, `src/content/images.ts`, `next.config.ts`, `docs/CREDITS-FOTO.md` (baru)
     - Unduh foto Unsplash yang dipakai ke `public/images/`, maksimal lebar 1600, dikompresi.
     - Catat fotografer dan URL sumber di `CREDITS-FOTO.md`.
@@ -191,7 +191,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - Pastikan total aset wajar, kurang dari ±25 MB.
     - **Commit:** `perf(images): self-host stock photos with credits and AVIF`
 
-13. [ ] **Header keamanan & ikon**
+13. [x] **Header keamanan & ikon**
     - **File:** `next.config.ts`, `src/app/apple-icon.png`, `src/app/manifest.ts` (baru)
     - **`headers()` untuk semua path:**
       - `X-Content-Type-Options: nosniff`
@@ -204,14 +204,14 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - **Ikon:** tambahkan `apple-icon` 180×180 dan `manifest` (name, short_name, theme_color gold, icons) dari logo yang ada.
     - **Commit:** `chore(security): baseline security headers, manifest and apple icon`
 
-14. [ ] **Kontras & urutan heading**
+14. [x] **Kontras & urutan heading**
     - **File:** `src/app/globals.css`, komponen yang memakai abu `#6f6f6f` dan `text-gold-600` untuk teks kecil, `PackageBrowser`/`PackageCard`, halaman galeri
     - Teks abu dan eyebrow gold mencapai rasio ≥ 4,5 dengan menggelapkan token. Hue tetap.
     - Tidak ada lompatan h1 ke h3: tambahkan h2 (boleh `sr-only`) atau turunkan level.
     - **Target:** Lighthouse Accessibility 100 di `/`, `/paket`, `/galeri`.
     - **Commit:** `fix(a11y): meet 4.5:1 text contrast and fix heading order`
 
-15. [ ] **Vercel Web Analytics**
+15. [x] **Vercel Web Analytics**
     - **File:** `package.json`, `src/app/[locale]/layout.tsx`
     - Pasang `@vercel/analytics`, lalu render `<Analytics />` di layout.
     - Custom event (klik WA) **tidak** dibuat, karena di plan Hobby tidak tersedia. Catat sebagai ide kalau nanti pindah ke Pro atau GA4.
@@ -219,7 +219,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ### Grup D — Halaman baru
 
-16. [ ] **Halaman layanan (`/layanan`, `/layanan/[slug]`)**
+16. [x] **Halaman layanan (`/layanan`, `/layanan/[slug]`)**
     - **File:**
       - `src/content/services/*.ts` + `index.ts` (schema zod meniru `src/lib/packages.ts`)
       - `src/lib/services.ts` (+ tes)
@@ -247,7 +247,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - **Beranda:** tambahkan section singkat "Layanan kami" yang menaut ke kelima halaman.
     - **Commit:** `feat(services): add service landing pages for groups, study tours, events, private tours and flights`
 
-17. [ ] **Form "minta penawaran" → WhatsApp**
+17. [x] **Form "minta penawaran" → WhatsApp**
     - **File:** `src/components/shared/QuoteRequestForm.tsx` (baru, client), `src/lib/whatsapp.ts` (fungsi `buildQuoteMessage`, + tes), halaman layanan dan `/kontak`
     - **Field:**
       - layanan (select)
@@ -264,7 +264,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
     - **Tes:** `buildQuoteMessage` menghasilkan pesan yang memuat semua field terisi dan melewati field kosong.
     - **Commit:** `feat(contact): quote request form that composes a WhatsApp message`
 
-18. [ ] **Panduan (artikel)**
+18. [x] **Panduan (artikel)**
     - **File:** `src/content/guides/*.ts`, `src/lib/guides.ts` (+ tes), `src/app/[locale]/panduan/page.tsx`, `src/app/[locale]/panduan/[slug]/page.tsx`, routing (`/panduan` → en `/guides`), sitemap, footer link
     - **4 artikel evergreen** (ID dan EN, ±800–1.200 kata, fakta umum yang bisa dipertanggungjawabkan, tanpa aturan visa atau harga yang cepat basi):
       - "Paket Wisata Bromo dari Malang: rute, waktu terbaik, dan persiapan"
@@ -277,7 +277,7 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ### Grup E — Peluncuran domain
 
-19. [ ] **Runbook peluncuran domain untuk user**
+19. [x] **Runbook peluncuran domain untuk user**
     - **File:** `docs/DOMAIN-LAUNCH.md` (baru), `README.md`, `docs/KONTEN-PLACEHOLDER.md`
     - Runbook ditulis sebagai langkah bernomor. Tiap langkah menyebut tempat (URL/menu), nilai persis, arti istilah, dan cara cek berhasil. Isi langkahnya:
       1. Cek domain sudah aktif, yaitu email PANDI/Niagahoster dan `nslookup` tidak lagi NXDOMAIN.
@@ -344,3 +344,17 @@ Situs siap dipasang di `bungawisata.co.id` begitu PANDI mengaktifkan domain, den
 
 ## Progress
 - 2026-09-28: plan dibuat setelah wawancara dan audit.
+- 2026-09-29 (builder): langkah 1–19 selesai, satu commit per langkah kecuali:
+  - Langkah 1+2 digabung karena `site.stats` dipakai di tempat yang sama.
+  - Langkah 16–18 digabung (`276cb9e`) karena routing, sitemap, dan messages memuat ketiganya sekaligus; dipecah akan menghasilkan commit yang tidak bisa di-build.
+- Keputusan saat implementasi:
+  - Library `motion` dihapus. Reveal/timeline pakai CSS scroll-driven animation (hanya geser, tanpa fade, supaya kontras tidak gagal di tengah animasi); menu mobile pakai transisi CSS.
+  - `/paket` mengirim indeks ringan ke client; kartu dirender di server (JS `/paket` turun ±386 KB).
+  - Satu elemen `<Link>` yang dirender di dua tempat di `ServicesStrip` membuat prerender beranda macet >60 detik; diperbaiki dengan dua elemen terpisah.
+  - OG image paket memakai foto lokal + alt; `width/height` tidak diisi karena rasio foto bervariasi.
+- Lighthouse mobile lokal (`next start`, median 3 run), sebelum → sesudah:
+  - `/`: Perf 72 → 77, A11y 96 → 100
+  - `/paket`: Perf 57 → 80, A11y 96 → 100
+  - `/galeri`: Perf 83, A11y 100; `/layanan/tour-rombongan`: Perf 85, A11y 100
+  - CLS 0 di semua halaman. SEO 92 dan BP 96 di lokal hanya karena canonical ke `bungawisata.co.id` dan skrip Vercel Analytics yang tidak ada di localhost.
+  - **Belum tercapai:** target Perf ≥ 85 untuk `/` dan `/paket`. LCP ±4 s (simulasi) didominasi *element render delay* akibat runtime React/Next + next-intl di client. Langkah lanjutan yang disarankan: kirim teks sebagai props ke komponen client dan lepas `NextIntlClientProvider`, lalu ukur ulang di domain produksi (PageSpeed Insights).
