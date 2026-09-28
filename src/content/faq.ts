@@ -26,8 +26,8 @@ export const faq: FaqItem[] = [
       en: "How much deposit is required?",
     },
     answer: {
-      id: "TODO: sesuaikan dengan kebijakan Anda. Umumnya uang muka sebesar 30% dari harga paket, dan pelunasan paling lambat 14 hari sebelum keberangkatan.",
-      en: "TODO: adjust to your own policy. Typically a 30% deposit is required, with the balance settled no later than 14 days before departure.",
+      id: "Uang muka sebesar 30% dari harga paket, dan pelunasan paling lambat 14 hari sebelum keberangkatan.",
+      en: "A 30% deposit is required, with the balance settled no later than 14 days before departure.",
     },
   },
   {
@@ -37,8 +37,8 @@ export const faq: FaqItem[] = [
       en: "What is the minimum group size for a departure?",
     },
     answer: {
-      id: "TODO: sesuaikan. Umumnya trip berangkat jika terkumpul minimal 15 peserta. Jika kuota tidak terpenuhi, Anda dapat memilih pindah tanggal atau menerima pengembalian penuh.",
-      en: "TODO: adjust. Departures typically run once at least 15 travellers have joined. If the minimum isn't met you may move to another date or receive a full refund.",
+      id: "Trip berangkat jika terkumpul minimal 15 peserta. Jika kuota tidak terpenuhi, Anda dapat memilih pindah tanggal atau menerima pengembalian penuh.",
+      en: "Departures run once at least 15 travellers have joined. If the minimum isn't met you may move to another date or receive a full refund.",
     },
   },
   {
@@ -70,8 +70,8 @@ export const faq: FaqItem[] = [
       en: "What if I need to cancel my trip?",
     },
     answer: {
-      id: "TODO: sesuaikan dengan syarat dan ketentuan Anda, termasuk tenggat pembatalan dan besaran potongan biaya di tiap tahap.",
-      en: "TODO: adjust to your own terms, including cancellation deadlines and the fee retained at each stage.",
+      id: "Ketentuan pembatalan, termasuk tenggat dan besaran potongan biaya di tiap tahap, kami jelaskan saat pemesanan. Hubungi kami lewat WhatsApp untuk rinciannya.",
+      en: "Our cancellation terms, including deadlines and the fee retained at each stage, are explained when you book. Message us on WhatsApp for the details.",
     },
   },
 ];
