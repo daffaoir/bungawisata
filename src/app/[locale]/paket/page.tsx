@@ -1,6 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PackageBrowser } from "@/components/package/PackageBrowser";
+import { PackageCard } from "@/components/package/PackageCard";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -11,7 +12,7 @@ import {
   buildOpenGraph,
 } from "@/lib/metadata";
 import { JsonLd } from "@/components/shared/JsonLd";
-import { getAllPackages } from "@/lib/packages";
+import { getAllPackages, toIndexEntry } from "@/lib/packages";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -62,7 +63,15 @@ export default async function PackagesPage({
       />
 
       <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-12">
-        <PackageBrowser packages={packages} />
+        <PackageBrowser
+          index={packages.map(toIndexEntry)}
+          cards={Object.fromEntries(
+            packages.map((pkg) => [
+              pkg.slug,
+              <PackageCard key={pkg.slug} pkg={pkg} />,
+            ]),
+          )}
+        />
       </div>
     </>
   );

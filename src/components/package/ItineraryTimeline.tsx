@@ -1,45 +1,26 @@
-"use client";
-
-import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
 import type { ItineraryDay } from "@/lib/schema";
 
 /**
  * Rundown harian dengan garis vertikal yang "tergambar" mengikuti scroll —
- * memberi rasa maju secara berurutan, bukan sekadar hiasan.
+ * memberi rasa maju secara berurutan, bukan sekadar hiasan. Animasinya murni
+ * CSS (`.timeline-progress` di `globals.css`); tanpa dukungan browser garis
+ * emasnya tampil penuh.
  */
 export function ItineraryTimeline({ days }: { days: ItineraryDay[] }) {
   const t = useTranslations("PackageDetail");
-  const containerRef = useRef<HTMLOListElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 0.8", "end 0.6"],
-  });
-
-  const lineScale = useSpring(scrollYProgress, {
-    stiffness: 110,
-    damping: 32,
-    restDelta: 0.001,
-  });
-
   return (
-    <ol ref={containerRef} className="relative">
+    <ol className="relative">
       {/* Garis dasar yang selalu tampak, agar strukturnya jelas tanpa JS. */}
       <div
         aria-hidden="true"
         className="absolute top-2 bottom-2 start-[7px] w-px bg-line"
       />
 
-      {shouldReduceMotion ? null : (
-        <motion.div
-          aria-hidden="true"
-          style={{ scaleY: lineScale }}
-          className="absolute top-2 bottom-2 start-[7px] w-px origin-top bg-gold-500"
-        />
-      )}
+      <div
+        aria-hidden="true"
+        className="timeline-progress absolute top-2 bottom-2 start-[7px] w-px origin-top bg-gold-500"
+      />
 
       {days.map((day) => (
         <li key={day.day} className="relative ps-10 pb-12 last:pb-0">

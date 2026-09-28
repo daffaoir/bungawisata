@@ -1,7 +1,8 @@
 import { z } from "zod";
 
-export const REGIONS = ["dalam-negeri", "luar-negeri"] as const;
-export type Region = (typeof REGIONS)[number];
+import { REGIONS, type Region } from "./package-filters";
+
+export { REGIONS, type Region };
 
 export const LOCALES = ["id", "en"] as const;
 

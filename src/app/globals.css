@@ -147,7 +147,50 @@
 }
 
 /*
- * Hormati preferensi sistem. Semua animasi — CSS maupun Motion — berhenti,
+ * Animasi "muncul saat di-scroll" tanpa JavaScript (dipakai `Reveal` dan
+ * `StaggerItem`). Hanya aktif kalau browser mendukung scroll-driven
+ * animation dan pengguna tidak meminta gerakan dikurangi; selain itu konten
+ * tampil apa adanya. Elemen yang sudah terlihat saat halaman dimuat langsung
+ * berada di akhir animasi, jadi LCP tidak tertahan.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    .timeline-progress {
+      animation: grow-y linear both;
+      animation-timeline: view();
+      animation-range: cover 15% cover 65%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: var(--reveal-x, 0px) var(--reveal-y, 28px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes grow-y {
+  from {
+    scale: 1 0;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+/*
+ * Hormati preferensi sistem. Semua animasi dan transisi CSS berhenti,
  * dan situs tetap sepenuhnya terbaca tanpa gerakan.
  */
 @media (prefers-reduced-motion: reduce) {

@@ -1,53 +1,33 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
-  /** Jeda mulai, dalam detik. */
+  /** Tidak dipakai lagi (animasi mengikuti posisi scroll); dipertahankan agar API tetap sama. */
   delay?: number;
   /** Arah masuk elemen. */
   from?: "bottom" | "left" | "right";
 };
 
-const OFFSET = {
-  bottom: { y: 28, x: 0 },
-  left: { y: 0, x: -28 },
-  right: { y: 0, x: 28 },
+const OFFSET: Record<NonNullable<RevealProps["from"]>, CSSProperties> = {
+  bottom: {},
+  left: { "--reveal-x": "-28px", "--reveal-y": "0px" } as CSSProperties,
+  right: { "--reveal-x": "28px", "--reveal-y": "0px" } as CSSProperties,
 };
 
 /**
- * Muncul perlahan saat elemen masuk viewport. Dipakai ulang di seluruh
- * section supaya ritme animasi situs konsisten.
+ * Muncul perlahan saat elemen masuk viewport — murni CSS (scroll-driven
+ * animation, lihat `.reveal` di `globals.css`), tanpa JavaScript.
+ *
+ * Konten selalu terlihat di HTML awal. Browser yang belum mendukung
+ * `animation-timeline` atau pengguna dengan "reduce motion" melihatnya tanpa
+ * animasi, bukan tersembunyi.
  */
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  from = "bottom",
-}: RevealProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  const offset = OFFSET[from];
-
+export function Reveal({ children, className, from = "bottom" }: RevealProps) {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, ...offset }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      // `amount: "some"`, bukan pecahan: grup setinggi ribuan piksel (mis.
-      // 14 kartu satu kolom di ponsel) tak pernah punya 10% tingginya
-      // terlihat sekaligus, sehingga anak-anaknya tertahan di opacity 0.
-      viewport={{ once: true, amount: "some", margin: "0px 0px -60px 0px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className={cn("reveal", className)} style={OFFSET[from]}>
       {children}
-    </motion.div>
+    </div>
   );
 }

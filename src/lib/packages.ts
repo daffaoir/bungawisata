@@ -1,5 +1,11 @@
 import { packageList } from "@/content/packages";
 import type { AppLocale } from "@/i18n/routing";
+import {
+  filterIndex,
+  type PackageFilterState,
+  type PackageIndexEntry,
+  type PackageSort,
+} from "./package-filters";
 import { parsePackage, type Package, type Region } from "./schema";
 
 /**
@@ -49,55 +55,41 @@ export function getDestinations(region?: Region): string[] {
   );
 }
 
-export const DURATION_BUCKETS = ["short", "medium", "long"] as const;
-export type DurationBucket = (typeof DURATION_BUCKETS)[number];
-
-export const PRICE_BUCKETS = ["low", "mid", "high"] as const;
-export type PriceBucket = (typeof PRICE_BUCKETS)[number];
-
-export function matchesDuration(days: number, bucket: DurationBucket): boolean {
-  if (bucket === "short") return days <= 4;
-  if (bucket === "medium") return days >= 5 && days <= 8;
-  return days >= 9;
-}
-
-export function matchesPrice(price: number, bucket: PriceBucket): boolean {
-  if (bucket === "low") return price < 10_000_000;
-  if (bucket === "mid") return price >= 10_000_000 && price <= 25_000_000;
-  return price > 25_000_000;
-}
-
-export type PackageFilterState = {
-  region?: Region | "all";
-  destination?: string;
-  duration?: DurationBucket;
-  price?: PriceBucket;
-  query?: string;
-};
-
-export type PackageSort = "default" | "price-asc" | "price-desc" | "duration-asc";
+export {
+  DURATION_BUCKETS,
+  PRICE_BUCKETS,
+  matchesDuration,
+  matchesPrice,
+  type DurationBucket,
+  type PackageFilterState,
+  type PackageIndexEntry,
+  type PackageSort,
+  type PriceBucket,
+} from "./package-filters";
 
 /**
- * Pencarian sengaja menelusuri judul KEDUA bahasa sekaligus, jadi mengetik
- * "Turkey" saat situs berbahasa Indonesia tetap menemukan paket Turki.
+ * Indeks ringan satu paket untuk filter di client. Pencarian sengaja
+ * menelusuri teks KEDUA bahasa sekaligus, jadi mengetik "Turkey" saat situs
+ * berbahasa Indonesia tetap menemukan paket Turki.
  */
-function matchesQuery(pkg: Package, query: string): boolean {
-  const haystack = [
-    pkg.destination,
-    pkg.content.id.title,
-    pkg.content.en.title,
-    pkg.content.id.summary,
-    pkg.content.en.summary,
-    ...pkg.tags,
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return query
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .every((term) => haystack.includes(term));
+export function toIndexEntry(pkg: Package): PackageIndexEntry {
+  return {
+    slug: pkg.slug,
+    region: pkg.region,
+    destination: pkg.destination,
+    durationDays: pkg.durationDays,
+    priceFrom: pkg.priceFrom,
+    searchText: [
+      pkg.destination,
+      pkg.content.id.title,
+      pkg.content.en.title,
+      pkg.content.id.summary,
+      pkg.content.en.summary,
+      ...pkg.tags,
+    ]
+      .join(" ")
+      .toLowerCase(),
+  };
 }
 
 export function filterPackages(
@@ -105,28 +97,11 @@ export function filterPackages(
   filters: PackageFilterState,
   sort: PackageSort = "default",
 ): Package[] {
-  const { region, destination, duration, price, query } = filters;
+  const bySlug = new Map(source.map((pkg) => [pkg.slug, pkg]));
 
-  const result = source.filter((pkg) => {
-    if (region && region !== "all" && pkg.region !== region) return false;
-    if (destination && pkg.destination !== destination) return false;
-    if (duration && !matchesDuration(pkg.durationDays, duration)) return false;
-    if (price && !matchesPrice(pkg.priceFrom, price)) return false;
-    if (query?.trim() && !matchesQuery(pkg, query.trim())) return false;
-    return true;
-  });
-
-  if (sort === "price-asc") {
-    return [...result].sort((a, b) => a.priceFrom - b.priceFrom);
-  }
-  if (sort === "price-desc") {
-    return [...result].sort((a, b) => b.priceFrom - a.priceFrom);
-  }
-  if (sort === "duration-asc") {
-    return [...result].sort((a, b) => a.durationDays - b.durationDays);
-  }
-
-  return result;
+  return filterIndex(source.map(toIndexEntry), filters, sort).map(
+    (entry) => bySlug.get(entry.slug)!,
+  );
 }
 
 /** Paket lain dengan region sama, untuk bagian "Paket Serupa". */

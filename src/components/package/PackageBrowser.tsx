@@ -2,7 +2,7 @@
 
 import { RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState, type ReactNode } from "react";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { EmptyState } from "@/components/shared/EmptyState";
 import { Select } from "@/components/shared/Select";
@@ -11,12 +11,13 @@ import { cn } from "@/lib/cn";
 import {
   DURATION_BUCKETS,
   PRICE_BUCKETS,
-  filterPackages,
+  REGIONS,
+  filterIndex,
   type DurationBucket,
+  type PackageIndexEntry,
   type PriceBucket,
-} from "@/lib/packages";
-import { REGIONS, type Package, type Region } from "@/lib/schema";
-import { PackageCard } from "./PackageCard";
+  type Region,
+} from "@/lib/package-filters";
 
 type RegionFilter = Region | "all";
 
@@ -58,7 +59,18 @@ function readInitialState(params: URLSearchParams): FilterState {
   };
 }
 
-export function PackageBrowser({ packages }: { packages: Package[] }) {
+/**
+ * Kartu paket dirender di server dan diteruskan lewat `cards` (per slug);
+ * client hanya menerima `index` ringan untuk memfilter. Dengan begitu data
+ * itinerary lengkap dan zod tidak ikut ter-bundle ke browser.
+ */
+export function PackageBrowser({
+  index,
+  cards,
+}: {
+  index: PackageIndexEntry[];
+  cards: Record<string, ReactNode>;
+}) {
   const t = useTranslations("Packages.filters");
   const tEmpty = useTranslations("Packages.empty");
   const tCommon = useTranslations("Common");
@@ -108,24 +120,24 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
   const destinations = useMemo(() => {
     const source =
       filters.region === "all"
-        ? packages
-        : packages.filter((pkg) => pkg.region === filters.region);
+        ? index
+        : index.filter((pkg) => pkg.region === filters.region);
 
     return [...new Set(source.map((pkg) => pkg.destination))].sort((a, b) =>
       a.localeCompare(b, "id"),
     );
-  }, [packages, filters.region]);
+  }, [index, filters.region]);
 
   const results = useMemo(
     () =>
-      filterPackages(packages, {
+      filterIndex(index, {
         region: filters.region,
         destination: filters.destination || undefined,
         duration: filters.duration || undefined,
         price: filters.price || undefined,
         query: filters.query,
       }),
-    [packages, filters],
+    [index, filters],
   );
 
   const isFiltered = JSON.stringify(filters) !== JSON.stringify(EMPTY);
@@ -296,7 +308,7 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
         <StaggerGroup className="mt-6 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((pkg) => (
             <StaggerItem key={pkg.slug} className="h-full">
-              <PackageCard pkg={pkg} />
+              {cards[pkg.slug]}
             </StaggerItem>
           ))}
         </StaggerGroup>

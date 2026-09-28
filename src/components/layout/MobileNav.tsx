@@ -1,11 +1,11 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
+import { cn } from "@/lib/cn";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { NAV_ITEMS } from "./nav-items";
 import { NavLink } from "./NavLink";
@@ -17,10 +17,10 @@ export function MobileNav() {
    * Portal baru dipasang setelah menu pertama kali dibuka. Karena itu hanya
    * bisa terjadi lewat klik di browser, `document` dijamin sudah ada — tidak
    * perlu flag "sudah ter-mount" yang di-set dari dalam effect. Setelah itu
-   * portal dibiarkan terpasang supaya animasi menutupnya sempat berjalan.
+   * portal dibiarkan terpasang supaya transisi menutupnya sempat berjalan.
    */
   const [isPortalReady, setIsPortalReady] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   // Kunci scroll halaman dan tutup dengan Escape selagi panel terbuka.
   useEffect(() => {
@@ -33,6 +33,7 @@ export function MobileNav() {
       if (event.key === "Escape") setIsOpen(false);
     };
     document.addEventListener("keydown", onKeyDown);
+    closeButtonRef.current?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -45,61 +46,62 @@ export function MobileNav() {
     setIsOpen(true);
   }
 
+  /*
+   * Panel tetap terpasang setelah dibuka pertama kali; buka/tutup cukup
+   * transisi CSS. Saat tertutup ia `inert` dan `invisible` (visibility baru
+   * berubah setelah transisi selesai), jadi tidak bisa difokus maupun diklik.
+   */
   const panel = (
-    <AnimatePresence>
-      {isOpen ? (
-        <motion.div
-          data-mobile-nav-open
-          className="fixed inset-0 z-50 bg-ink/50 backdrop-blur-sm lg:hidden"
-          initial={shouldReduceMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={shouldReduceMotion ? undefined : { opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          onClick={() => setIsOpen(false)}
-        >
-          <motion.nav
-            aria-label={t("openMenu")}
-            className="ms-auto flex h-full w-[min(20rem,86vw)] flex-col gap-10 border-s border-line bg-canvas p-7"
-            initial={shouldReduceMotion ? false : { x: "100%" }}
-            animate={{ x: 0 }}
-            exit={shouldReduceMotion ? undefined : { x: "100%" }}
-            transition={{ type: "spring", stiffness: 320, damping: 34 }}
-            onClick={(event) => event.stopPropagation()}
+    <div
+      data-mobile-nav-open={isOpen ? "" : undefined}
+      inert={!isOpen}
+      className={cn(
+        "fixed inset-0 z-50 bg-ink/50 backdrop-blur-sm transition-[opacity,visibility] duration-200 lg:hidden",
+        isOpen ? "visible opacity-100" : "invisible opacity-0",
+      )}
+      onClick={() => setIsOpen(false)}
+    >
+      <nav
+        aria-label={t("openMenu")}
+        className={cn(
+          "ms-auto flex h-full w-[min(20rem,86vw)] flex-col gap-10 border-s border-line bg-canvas p-7",
+          "transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          isOpen ? "translate-x-0" : "translate-x-full",
+        )}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-center justify-between">
+          <LocaleSwitcher />
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label={t("closeMenu")}
+            className="flex size-11 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
           >
-            <div className="flex items-center justify-between">
-              <LocaleSwitcher />
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                aria-label={t("closeMenu")}
-                autoFocus
-                className="flex size-11 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
+            <X className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+
+        <ul className="flex flex-col gap-1">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.href}>
+              {/* Menutup panel di sini sekaligus menangani perpindahan
+                  halaman — tidak perlu memantau pathname. */}
+              <NavLink
+                href={item.href}
+                variant="mobile"
+                onNavigate={() => setIsOpen(false)}
               >
-                <X className="size-5" aria-hidden="true" />
-              </button>
-            </div>
+                {t(item.key)}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
 
-            <ul className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  {/* Menutup panel di sini sekaligus menangani perpindahan
-                      halaman — tidak perlu memantau pathname. */}
-                  <NavLink
-                    href={item.href}
-                    variant="mobile"
-                    onNavigate={() => setIsOpen(false)}
-                  >
-                    {t(item.key)}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-
-            <WhatsAppCta size="lg" className="mt-auto w-full" />
-          </motion.nav>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+        <WhatsAppCta size="lg" className="mt-auto w-full" />
+      </nav>
+    </div>
   );
 
   return (
