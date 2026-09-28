@@ -7,7 +7,6 @@ import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { images } from "@/content/images";
 import { testimonials } from "@/content/testimonials";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { cn } from "@/lib/cn";
 import { buildAlternates } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -45,23 +44,15 @@ export default async function TestimonialsPage({
 
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         {/*
-          Grid lima kolom dengan kartu selebar 3 dan 2 bergantian. Tiap baris
-          tetap genap (3+2 = 5), tapi lebarnya tidak seragam sehingga
-          susunannya tidak terbaca seperti tabel.
+          Kutipan tanpa kotak: teks kutipan jadi elemen utama, tiap item
+          dipisah garis rambut di atasnya.
         */}
-        <StaggerGroup className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-          {testimonials.map((testimonial, index) => {
-            const wide = index % 4 === 0 || index % 4 === 3;
-
-            return (
-              <StaggerItem
-                key={testimonial.id}
-                className={cn("h-full", wide ? "lg:col-span-3" : "lg:col-span-2")}
-              >
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            );
-          })}
+        <StaggerGroup className="grid gap-x-16 gap-y-12 lg:grid-cols-2">
+          {testimonials.map((testimonial) => (
+            <StaggerItem key={testimonial.id} className="h-full">
+              <TestimonialCard testimonial={testimonial} variant="quote" />
+            </StaggerItem>
+          ))}
         </StaggerGroup>
       </div>
 
