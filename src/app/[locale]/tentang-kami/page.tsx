@@ -1,5 +1,5 @@
-import { BadgeCheck, HeartHandshake, Wallet } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { Section, SectionHeading } from "@/components/shared/Section";
@@ -9,11 +9,7 @@ import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { buildAlternates } from "@/lib/metadata";
 
-const VALUES = [
-  { key: "honest", Icon: Wallet },
-  { key: "personal", Icon: HeartHandshake },
-  { key: "detail", Icon: BadgeCheck },
-] as const;
+const VALUES = ["honest", "personal", "detail"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -48,26 +44,54 @@ export default async function AboutPage({
         image={images["umum-rombongan"]}
       />
 
-      <Section tone="white">
-        <SectionHeading title={t("storyTitle")} />
-        <p className="mt-6 max-w-3xl text-[1.05rem] leading-[1.9] text-ink-soft">
-          {t("story")}
-        </p>
-      </Section>
+      {/*
+        Cerita dua kolom di desktop: judul + foto menempel di kiri, teks
+        dengan lebar baca nyaman di kanan. Di ponsel urutannya judul, teks,
+        lalu foto. Sengaja bukan `Section`: `overflow-hidden` miliknya
+        mematikan `position: sticky` di kolom kiri.
+      */}
+      <section className="bg-white py-24 text-ink sm:py-32">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <h2 className="text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
+              {t("storyTitle")}
+            </h2>
+            <div className="relative mt-10 hidden aspect-[4/5] overflow-hidden lg:block">
+              <Image
+                src={images["umum-rombongan"]}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 40vw, 0px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div>
+            <p className="max-w-[62ch] text-[1.05rem] leading-[1.9] text-ink-soft">
+              {t("story")}
+            </p>
+            <div className="relative mt-10 aspect-[4/5] overflow-hidden lg:hidden">
+              <Image
+                src={images["umum-rombongan"]}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 0px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Section tone="alt">
         <SectionHeading title={t("valuesTitle")} align="center" />
 
-        <StaggerGroup className="mt-16 grid gap-px border border-line bg-line md:grid-cols-3">
-          {VALUES.map(({ key, Icon }) => (
+        <StaggerGroup className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
+          {VALUES.map((key) => (
             <StaggerItem key={key} className="h-full">
-              <div className="h-full bg-white p-8">
-                <Icon
-                  className="size-7 text-gold-600"
-                  strokeWidth={1.25}
-                  aria-hidden="true"
-                />
-                <h3 className="mt-6 text-lg">{t(`values.${key}.title`)}</h3>
+              <div>
+                <h3 className="rule-gold text-lg">{t(`values.${key}.title`)}</h3>
                 <p className="mt-3 leading-[1.8] text-ink-soft">
                   {t(`values.${key}.description`)}
                 </p>
