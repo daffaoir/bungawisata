@@ -115,14 +115,14 @@ export function Footer() {
                   {site.address.postalCode}
                 </address>
               </li>
-              <li className="ps-7 text-xs text-white/45">
+              <li className="ps-7 text-xs text-white/60">
                 {site.hours[0].days[locale]} · {site.hours[0].time}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 pb-20 text-xs sm:pb-0 text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 pb-20 text-xs sm:pb-0 text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. {t("rights")}
           </p>
