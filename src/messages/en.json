@@ -133,7 +133,8 @@
       "priceHigh": "Above IDR 25 million",
       "reset": "Reset filters",
       "toggle": "Filters{count, plural, =0 {} other { (#)}}",
-      "resultCount": "{count, plural, =0 {No packages} one {# package} other {# packages}} found"
+      "resultCount": "{count, plural, =0 {No packages} one {# package} other {# packages}} found",
+      "resultsHeading": "Tour package list"
     },
     "empty": {
       "title": "No matching packages yet",

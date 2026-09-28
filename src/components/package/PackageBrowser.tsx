@@ -2,7 +2,6 @@
 
 import { RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useId, useMemo, useState } from "react";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { EmptyState } from "@/components/shared/EmptyState";
@@ -63,18 +62,33 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
   const t = useTranslations("Packages.filters");
   const tEmpty = useTranslations("Packages.empty");
   const tCommon = useTranslations("Common");
-  const searchParams = useSearchParams();
-
-  const [filters, setFilters] = useState<FilterState>(() =>
-    readInitialState(new URLSearchParams(searchParams.toString())),
-  );
+  /**
+   * Render awal (termasuk HTML statis) selalu menampilkan semua paket supaya
+   * mesin pencari melihat seluruh tautan dan tidak ada layout shift. Filter
+   * dari URL baru diterapkan setelah mount.
+   */
+  const [filters, setFilters] = useState<FilterState>(EMPTY);
+  const [hasReadUrl, setHasReadUrl] = useState(false);
   /** Hanya berlaku di bawah `lg`; di desktop semua field selalu terlihat. */
   const [showMoreFilters, setShowMoreFilters] = useState(false);
   const moreFiltersId = useId();
 
+  useEffect(() => {
+    const initial = readInitialState(
+      new URLSearchParams(window.location.search),
+    );
+    // Sinkronisasi sekali dengan URL (sistem eksternal) setelah hidrasi.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setFilters(initial);
+    setHasReadUrl(true);
+  }, []);
+
   // Menulis langsung ke history — bukan router.replace — supaya mengetik di
   // kolom pencarian tidak memicu permintaan RSC pada setiap ketukan.
   useEffect(() => {
+    // Jangan menimpa URL sebelum filter awal dari URL terbaca.
+    if (!hasReadUrl) return;
+
     const params = new URLSearchParams();
     if (filters.region !== "all") params.set("region", filters.region);
     if (filters.destination) params.set("destination", filters.destination);
@@ -88,7 +102,7 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
       : window.location.pathname;
 
     window.history.replaceState(null, "", url);
-  }, [filters]);
+  }, [filters, hasReadUrl]);
 
   /** Destinasi menyesuaikan region aktif agar pilihannya tidak sia-sia. */
   const destinations = useMemo(() => {
@@ -257,6 +271,7 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
         </div>
       </div>
 
+      <h2 className="sr-only">{t("resultsHeading")}</h2>
       <div className="mt-8 flex min-h-11 flex-wrap items-center justify-between gap-3 lg:mt-10">
         <p
           aria-live="polite"
