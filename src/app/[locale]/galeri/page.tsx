@@ -65,10 +65,6 @@ export default async function GalleryPage({
             </StaggerItem>
           ))}
         </StaggerGroup>
-
-        <p className="mt-10 border border-dashed border-line p-5 text-center text-sm text-ink-muted">
-          {t("placeholderNote")}
-        </p>
       </div>
     </>
   );

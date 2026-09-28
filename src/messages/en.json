@@ -193,8 +193,7 @@
   "Gallery": {
     "title": "Trip Gallery",
     "metaDescription": "Photos from journeys with Bunga Wisata.",
-    "subtitle": "Moments from trips already travelled.",
-    "placeholderNote": "These are still Unsplash stock photos, not our own trip documentation. Swap them out in `src/content/images.ts`."
+    "subtitle": "Moments from trips already travelled."
   },
   "Testimonials": {
     "title": "Customer Testimonials",

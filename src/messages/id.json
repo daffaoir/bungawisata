@@ -193,8 +193,7 @@
   "Gallery": {
     "title": "Galeri Perjalanan",
     "metaDescription": "Dokumentasi perjalanan bersama Bunga Wisata.",
-    "subtitle": "Momen-momen dari trip yang sudah berjalan.",
-    "placeholderNote": "Foto di atas masih stok Unsplash, bukan dokumentasi perjalanan kami. Gantilah lewat `src/content/images.ts`."
+    "subtitle": "Momen-momen dari trip yang sudah berjalan."
   },
   "Testimonials": {
     "title": "Testimoni Pelanggan",
