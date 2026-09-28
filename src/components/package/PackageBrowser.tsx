@@ -160,7 +160,7 @@ export function PackageBrowser({ packages }: { packages: Package[] }) {
                 onClick={() => update("region", region)}
                 aria-pressed={isActive}
                 className={cn(
-                  "min-h-11 border px-1 text-[0.68rem] font-semibold tracking-[0.04em] whitespace-nowrap uppercase lg:px-5 lg:tracking-[0.1em]",
+                  "min-h-11 border px-1 text-[0.68rem] leading-tight font-semibold tracking-[0.04em] uppercase lg:px-5 lg:tracking-[0.1em]",
                   "transition-colors duration-300",
                   isActive
                     ? "border-ink bg-ink text-canvas"
