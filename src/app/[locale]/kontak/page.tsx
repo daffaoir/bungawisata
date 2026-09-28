@@ -13,7 +13,7 @@ import { faq } from "@/content/faq";
 import { images } from "@/content/images";
 import { MAPS_EMBED_URL, MAPS_LINK, site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function generateStaticParams() {
@@ -30,6 +30,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/kontak", locale as AppLocale),
+    openGraph: buildOpenGraph("/kontak", locale as AppLocale, {
+      title: t("title"),
+      description: t("metaDescription"),
+    }),
   };
 }
 

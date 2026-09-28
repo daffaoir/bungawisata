@@ -9,15 +9,20 @@ import { WhyUs } from "@/components/home/WhyUs";
 import { ClosingCta } from "@/components/shared/ClosingCta";
 import { MAPS_LINK, SITE_URL, site } from "@/content/site";
 import type { AppLocale } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Meta" });
 
   return {
     alternates: buildAlternates("/", locale as AppLocale),
+    openGraph: buildOpenGraph("/", locale as AppLocale, {
+      title: t("defaultTitle"),
+      description: t("defaultDescription"),
+    }),
   };
 }
 

@@ -7,7 +7,7 @@ import { ClosingCta } from "@/components/shared/ClosingCta";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 
 const VALUES = ["honest", "personal", "detail"] as const;
 
@@ -25,6 +25,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/tentang-kami", locale as AppLocale),
+    openGraph: buildOpenGraph("/tentang-kami", locale as AppLocale, {
+      title: t("title"),
+      description: t("metaDescription"),
+    }),
   };
 }
 

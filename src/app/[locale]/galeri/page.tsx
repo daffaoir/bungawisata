@@ -7,7 +7,7 @@ import { gallery } from "@/content/gallery";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -23,6 +23,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/galeri", locale as AppLocale),
+    openGraph: buildOpenGraph("/galeri", locale as AppLocale, {
+      title: t("title"),
+      description: t("metaDescription"),
+    }),
   };
 }
 

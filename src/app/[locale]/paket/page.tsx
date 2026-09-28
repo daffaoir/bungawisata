@@ -5,7 +5,7 @@ import { PackageBrowser } from "@/components/package/PackageBrowser";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 import { getAllPackages } from "@/lib/packages";
 
 export function generateStaticParams() {
@@ -22,6 +22,10 @@ export async function generateMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: buildAlternates("/paket", locale as AppLocale),
+    openGraph: buildOpenGraph("/paket", locale as AppLocale, {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+    }),
   };
 }
 

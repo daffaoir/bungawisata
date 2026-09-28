@@ -19,7 +19,7 @@ import { Section, SectionHeading } from "@/components/shared/Section";
 import { SITE_URL } from "@/content/site";
 import { getPathname, Link } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 import { getAllPackages, getPackageBySlug, getRelatedPackages } from "@/lib/packages";
 
 export function generateStaticParams() {
@@ -45,11 +45,15 @@ export async function generateMetadata({
       { pathname: "/paket/[slug]", params: { slug } },
       locale as AppLocale,
     ),
-    openGraph: {
-      title: content.title,
-      description: content.summary,
-      images: [{ url: pkg.heroImage }],
-    },
+    openGraph: buildOpenGraph(
+      { pathname: "/paket/[slug]", params: { slug } },
+      locale as AppLocale,
+      {
+        title: content.title,
+        description: content.summary,
+        images: [{ url: pkg.heroImage }],
+      },
+    ),
   };
 }
 
