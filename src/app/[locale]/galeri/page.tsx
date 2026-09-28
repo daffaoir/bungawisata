@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { gallery } from "@/content/gallery";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { buildAlternates } from "@/lib/metadata";
 
 export function generateStaticParams() {
@@ -43,22 +44,37 @@ export default async function GalleryPage({
       />
 
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <StaggerGroup className="grid auto-rows-[14rem] grid-cols-2 gap-4 sm:auto-rows-[17rem] lg:grid-cols-4">
+        {/*
+          Keterangan selalu terlihat di bawah foto — pengguna ponsel dan
+          keyboard tidak punya hover. Foto `span: 2` memakai rasio 8/3 supaya
+          tingginya sama dengan foto 4/3 di sebelahnya.
+        */}
+        <StaggerGroup className="grid grid-cols-2 items-start gap-x-4 gap-y-8 lg:grid-cols-4">
           {gallery.map((item) => (
             <StaggerItem
               key={item.src}
               className={item.span === 2 ? "sm:col-span-2" : undefined}
             >
-              <figure className="group relative h-full overflow-hidden">
-                <Image
-                  src={item.src}
-                  alt={item.caption[appLocale]}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <figcaption className="absolute inset-x-0 bottom-0 translate-y-2 p-5 text-sm leading-snug text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+              <figure>
+                <div
+                  className={cn(
+                    "relative aspect-[4/3] overflow-hidden",
+                    item.span === 2 && "sm:aspect-[8/3]",
+                  )}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.caption[appLocale]}
+                    fill
+                    sizes={
+                      item.span === 2
+                        ? "(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 50vw"
+                        : "(min-width: 1024px) 25vw, 50vw"
+                    }
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-[0.85rem] leading-snug text-ink-soft">
                   {item.caption[appLocale]}
                 </figcaption>
               </figure>
