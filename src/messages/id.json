@@ -193,9 +193,12 @@
     "ctaSubtitle": "Kami senang mengobrol soal rencana perjalanan Anda."
   },
   "Gallery": {
-    "title": "Galeri Perjalanan",
-    "metaDescription": "Dokumentasi perjalanan bersama Bunga Wisata.",
-    "subtitle": "Momen-momen dari trip yang sudah berjalan."
+    "title": "Galeri Destinasi",
+    "metaDescription": "Inspirasi destinasi tour dari Malang bersama Bunga Wisata: Bromo, Bali, Labuan Bajo, Jepang, Korea, Türkiye, dan tujuan favorit rombongan lainnya.",
+    "subtitle": "Inspirasi tempat-tempat yang bisa Anda kunjungi bersama kami.",
+    "gridTitle": "Foto destinasi",
+    "instagramTitle": "Dokumentasi perjalanan kami",
+    "instagramText": "Foto rombongan dan cerita trip terbaru kami unggah di Instagram."
   },
   "Testimonials": {
     "title": "Ulasan Pelanggan",

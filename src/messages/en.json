@@ -193,9 +193,12 @@
     "ctaSubtitle": "We're always happy to talk through your travel plans."
   },
   "Gallery": {
-    "title": "Trip Gallery",
-    "metaDescription": "Photos from journeys with Bunga Wisata.",
-    "subtitle": "Moments from trips already travelled."
+    "title": "Destination Gallery",
+    "metaDescription": "Destination ideas for tours from Malang with Bunga Wisata: Bromo, Bali, Labuan Bajo, Japan, Korea, Türkiye and other favourites for group travel.",
+    "subtitle": "Inspiration for places you can visit with us.",
+    "gridTitle": "Destination photos",
+    "instagramTitle": "Photos from our trips",
+    "instagramText": "We post photos of our groups and the latest trip stories on Instagram."
   },
   "Testimonials": {
     "title": "Traveller Reviews",

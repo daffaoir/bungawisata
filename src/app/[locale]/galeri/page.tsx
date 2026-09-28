@@ -2,9 +2,12 @@ import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { ButtonAnchor } from "@/components/shared/Button";
+import { InstagramIcon } from "@/components/shared/InstagramIcon";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { gallery } from "@/content/gallery";
 import { images } from "@/content/images";
+import { site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
@@ -50,6 +53,7 @@ export default async function GalleryPage({
       />
 
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <h2 className="sr-only">{t("gridTitle")}</h2>
         {/*
           Keterangan selalu terlihat di bawah foto — pengguna ponsel dan
           keyboard tidak punya hover. Foto `span: 2` memakai rasio 8/3 supaya
@@ -87,6 +91,27 @@ export default async function GalleryPage({
             </StaggerItem>
           ))}
         </StaggerGroup>
+
+        {/*
+          Foto di atas adalah foto stok destinasi. Dokumentasi perjalanan
+          asli ada di Instagram, jadi pengunjung diarahkan ke sana.
+        */}
+        <div className="mt-16 flex flex-col items-start gap-5 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-2xl">{t("instagramTitle")}</h2>
+            <p className="mt-2 max-w-xl text-ink-soft">
+              {t("instagramText")}
+            </p>
+          </div>
+          <ButtonAnchor
+            href={site.social.instagram}
+            variant="outline"
+            className="shrink-0"
+          >
+            <InstagramIcon className="size-4" />
+            @bungawisata
+          </ButtonAnchor>
+        </div>
       </div>
     </>
   );
