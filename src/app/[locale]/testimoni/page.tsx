@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { ClosingCta } from "@/components/shared/ClosingCta";
@@ -13,9 +13,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/[locale]/testimoni">): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: PageProps<"/[locale]/testimoni">,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Testimonials" });
 
@@ -23,9 +24,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/testimoni", locale as AppLocale),
-    openGraph: buildOpenGraph("/testimoni", locale as AppLocale, {
+    openGraph: await buildOpenGraph("/testimoni", locale as AppLocale, {
       title: t("title"),
       description: t("metaDescription"),
+      parent,
     }),
   };
 }

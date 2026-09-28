@@ -1,5 +1,5 @@
 import { Clock, Mail, MapPin } from "lucide-react";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ButtonAnchor } from "@/components/shared/Button";
 import { FacebookIcon } from "@/components/shared/FacebookIcon";
@@ -20,9 +20,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/[locale]/kontak">): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: PageProps<"/[locale]/kontak">,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Contact" });
 
@@ -30,9 +31,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/kontak", locale as AppLocale),
-    openGraph: buildOpenGraph("/kontak", locale as AppLocale, {
+    openGraph: await buildOpenGraph("/kontak", locale as AppLocale, {
       title: t("title"),
       description: t("metaDescription"),
+      parent,
     }),
   };
 }

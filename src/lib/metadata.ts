@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { SITE_URL, site } from "@/content/site";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -30,22 +30,27 @@ export function buildAlternates(href: Href, locale: AppLocale) {
  *
  * Metadata antar-segmen digabung secara dangkal: `openGraph` milik halaman
  * menggantikan seluruh `openGraph` dari layout. Karena itu `siteName`,
- * `type`, dan `locale` ikut diisi di sini, bukan hanya `url`. Gambar OG
- * bawaan tetap datang dari `[locale]/opengraph-image.tsx`.
+ * `type`, dan `locale` ikut diisi di sini, bukan hanya `url`. Bila `images`
+ * tidak diisi, gambar dari segmen induk (`[locale]/opengraph-image.tsx`)
+ * diteruskan lewat `parent` supaya tidak hilang.
  */
-export function buildOpenGraph(
+export async function buildOpenGraph(
   href: Href,
   locale: AppLocale,
   {
     title,
     description,
     images,
+    parent,
   }: {
     title: string;
     description: string;
     images?: NonNullable<Metadata["openGraph"]>["images"];
+    parent?: ResolvingMetadata;
   },
-): NonNullable<Metadata["openGraph"]> {
+): Promise<NonNullable<Metadata["openGraph"]>> {
+  const inherited = images ?? (parent ? (await parent).openGraph?.images : undefined);
+
   return {
     type: "website",
     siteName: site.name,
@@ -53,6 +58,6 @@ export function buildOpenGraph(
     url: `${SITE_URL}${getPathname({ href, locale })}`,
     title,
     description,
-    ...(images ? { images } : {}),
+    ...(inherited ? { images: inherited } : {}),
   };
 }

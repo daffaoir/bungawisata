@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
@@ -15,9 +15,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/[locale]/tentang-kami">): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: PageProps<"/[locale]/tentang-kami">,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "About" });
 
@@ -25,9 +26,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("metaDescription"),
     alternates: buildAlternates("/tentang-kami", locale as AppLocale),
-    openGraph: buildOpenGraph("/tentang-kami", locale as AppLocale, {
+    openGraph: await buildOpenGraph("/tentang-kami", locale as AppLocale, {
       title: t("title"),
       description: t("metaDescription"),
+      parent,
     }),
   };
 }

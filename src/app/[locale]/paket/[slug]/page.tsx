@@ -45,7 +45,7 @@ export async function generateMetadata({
       { pathname: "/paket/[slug]", params: { slug } },
       locale as AppLocale,
     ),
-    openGraph: buildOpenGraph(
+    openGraph: await buildOpenGraph(
       { pathname: "/paket/[slug]", params: { slug } },
       locale as AppLocale,
       {

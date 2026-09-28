@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 import { PackageBrowser } from "@/components/package/PackageBrowser";
@@ -12,9 +12,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/[locale]/paket">): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: PageProps<"/[locale]/paket">,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Packages" });
 
@@ -22,9 +23,10 @@ export async function generateMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: buildAlternates("/paket", locale as AppLocale),
-    openGraph: buildOpenGraph("/paket", locale as AppLocale, {
+    openGraph: await buildOpenGraph("/paket", locale as AppLocale, {
       title: t("metaTitle"),
       description: t("metaDescription"),
+      parent,
     }),
   };
 }
