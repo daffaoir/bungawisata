@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import type { Testimonial } from "@/content/testimonials";
 import type { AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
@@ -53,6 +53,15 @@ export function TestimonialCard({
   variant = "card",
 }: TestimonialCardProps) {
   const locale = useLocale() as AppLocale;
+  const t = useTranslations("Testimonials");
+  // Kutipan asli berbahasa Indonesia; di EN diberi tanda terjemahan.
+  const meta = [
+    t("sourceGoogle"),
+    testimonial.when[locale],
+    locale === "id" ? null : t("translated"),
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   if (variant === "quote") {
     return (
@@ -68,7 +77,7 @@ export function TestimonialCard({
             {testimonial.name}
           </span>
           <span className="mt-1 block text-ink-muted">
-            {testimonial.from} &middot; {testimonial.trip[locale]}
+            {meta}
           </span>
         </figcaption>
       </figure>
@@ -117,7 +126,7 @@ export function TestimonialCard({
             isDark ? "text-white/50" : "text-ink-muted",
           )}
         >
-          {testimonial.from} &middot; {testimonial.trip[locale]}
+          {meta}
         </span>
       </figcaption>
     </figure>

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import { GoogleRatingSummary } from "@/components/shared/GoogleRatingSummary";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { testimonials } from "@/content/testimonials";
@@ -18,7 +19,9 @@ export function TestimonialStrip() {
         align="center"
       />
 
-      <StaggerGroup className="mt-16 grid gap-6 md:grid-cols-3">
+      <GoogleRatingSummary tone="dark" className="mt-8" />
+
+      <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-3">
         {testimonials.slice(0, 3).map((testimonial) => (
           <StaggerItem key={testimonial.id} className="h-full">
             <TestimonialCard testimonial={testimonial} tone="dark" />

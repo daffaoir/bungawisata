@@ -100,9 +100,9 @@
       "viewAll": "See the full gallery"
     },
     "testimonials": {
-      "eyebrow": "Their Words",
-      "title": "Stories from past trips",
-      "viewAll": "Read all testimonials"
+      "eyebrow": "Google reviews",
+      "title": "What our travellers say",
+      "viewAll": "Read selected reviews"
     },
     "cta": {
       "title": "Ready to go?",
@@ -196,11 +196,15 @@
     "subtitle": "Moments from trips already travelled."
   },
   "Testimonials": {
-    "title": "Customer Testimonials",
-    "metaDescription": "Honest reviews from Bunga Wisata travellers.",
-    "subtitle": "What travellers say after going with us.",
+    "title": "Traveller Reviews",
+    "metaDescription": "Genuine Google reviews of Bunga Wisata Tour and Travel in Malang, East Java: rated 4.7 from 30 reviews for group, family and event tours.",
+    "subtitle": "Quotes from our customers' public reviews on Google Maps.",
     "ctaTitle": "Want to be the next story?",
-    "ctaSubtitle": "Get in touch and start planning your trip."
+    "ctaSubtitle": "Get in touch and start planning your trip.",
+    "sourceGoogle": "Google review",
+    "translated": "translated from Indonesian",
+    "ratingSummary": "from {count} Google reviews",
+    "viewOnGoogle": "See all reviews on Google"
   },
   "Contact": {
     "title": "Contact Us",

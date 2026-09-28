@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { ClosingCta } from "@/components/shared/ClosingCta";
+import { GoogleRatingSummary } from "@/components/shared/GoogleRatingSummary";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { images } from "@/content/images";
@@ -53,6 +54,8 @@ export default async function TestimonialsPage({
           Kutipan tanpa kotak: teks kutipan jadi elemen utama, tiap item
           dipisah garis rambut di atasnya.
         */}
+        <GoogleRatingSummary className="mb-14 border-b border-line pb-10" />
+
         <StaggerGroup className="grid gap-x-16 gap-y-12 lg:grid-cols-2">
           {testimonials.map((testimonial) => (
             <StaggerItem key={testimonial.id} className="h-full">

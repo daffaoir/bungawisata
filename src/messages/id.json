@@ -100,9 +100,9 @@
       "viewAll": "Lihat galeri lengkap"
     },
     "testimonials": {
-      "eyebrow": "Kata Mereka",
-      "title": "Cerita dari perjalanan sebelumnya",
-      "viewAll": "Baca semua testimoni"
+      "eyebrow": "Ulasan Google",
+      "title": "Kata pelanggan kami",
+      "viewAll": "Baca ulasan pilihan"
     },
     "cta": {
       "title": "Siap berangkat?",
@@ -196,11 +196,15 @@
     "subtitle": "Momen-momen dari trip yang sudah berjalan."
   },
   "Testimonials": {
-    "title": "Testimoni Pelanggan",
-    "metaDescription": "Ulasan jujur dari peserta trip Bunga Wisata.",
-    "subtitle": "Apa kata mereka yang sudah berangkat bersama kami.",
+    "title": "Ulasan Pelanggan",
+    "metaDescription": "Ulasan asli pelanggan Bunga Wisata Tour and Travel Malang di Google: rating 4,7 dari 30 ulasan untuk tour rombongan, keluarga, dan event.",
+    "subtitle": "Kutipan ulasan publik pelanggan kami di Google Maps.",
     "ctaTitle": "Mau jadi cerita berikutnya?",
-    "ctaSubtitle": "Hubungi kami dan mulai rencanakan perjalanan Anda."
+    "ctaSubtitle": "Hubungi kami dan mulai rencanakan perjalanan Anda.",
+    "sourceGoogle": "Ulasan Google",
+    "translated": "diterjemahkan",
+    "ratingSummary": "dari {count} ulasan di Google",
+    "viewOnGoogle": "Lihat semua ulasan di Google"
   },
   "Contact": {
     "title": "Hubungi Kami",
