@@ -16,6 +16,7 @@ import {
 } from "@/components/package/PriceBox";
 import { Badge } from "@/components/shared/Badge";
 import { Section, SectionHeading } from "@/components/shared/Section";
+import { SITE_URL } from "@/content/site";
 import { packageMetaTitle } from "@/lib/seo";
 import { breadcrumbJsonLd, ORGANIZATION_ID } from "@/lib/jsonld";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -63,7 +64,7 @@ export async function generateMetadata({
       {
         title,
         description: content.summary,
-        images: [{ url: pkg.heroImage }],
+        images: [{ url: pkg.heroImage, alt: content.title }],
       },
     ),
   };
@@ -98,7 +99,7 @@ export default async function PackageDetailPage({
     url,
     name: content.title,
     description: content.summary,
-    image: pkg.heroImage,
+    image: new URL(pkg.heroImage, SITE_URL).href,
     touristType: pkg.tags,
     itinerary: {
       "@type": "ItemList",

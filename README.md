@@ -26,7 +26,8 @@ Perintah lain:
 | `npm test` | Menjalankan test Vitest |
 | `npm run test:watch` | Test dalam mode watch |
 | `npm run lint` | ESLint |
-| `node scripts/check-images.mjs` | Menguji seluruh URL foto di `src/content/images.ts` masih membalas 200 |
+| `node scripts/check-images.mjs` | Memastikan setiap foto di `src/content/images.ts` ada di `public/images/stock/` |
+| `node scripts/download-stock-images.mjs` | Mengunduh ulang foto stok Unsplash yang belum ada (lihat `docs/CREDITS-FOTO.md`) |
 | `node scripts/prepare-logo.mjs` | Membuat ulang turunan logo dari `assets/logo-master.png` |
 
 ## Konfigurasi

@@ -16,15 +16,12 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    // Foto sementara diambil dari Unsplash — daftarnya terpusat di
-    // `src/content/images.ts`. Setelah diganti dokumentasi asli di
-    // `public/images/`, blok ini boleh dihapus.
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
+    // Foto dilayani dari `public/` (lihat `src/content/images.ts`). AVIF
+    // lebih kecil daripada WebP; browser lama tetap mendapat WebP/JPEG.
+    formats: ["image/avif", "image/webp"],
+    // Batas atas 1920: sumber foto hanya 1600px, jadi varian 2048/3840
+    // hanya pembesaran yang membuang kuota.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
   },
 };
 
