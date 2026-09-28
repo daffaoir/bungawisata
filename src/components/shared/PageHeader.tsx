@@ -23,7 +23,7 @@ export function PageHeader({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink pt-20 pb-24 text-white sm:pt-28 sm:pb-32">
+    <section className="relative overflow-hidden bg-ink pt-16 pb-16 text-white sm:pt-20 sm:pb-20">
       {image ? (
         <>
           <Image
@@ -35,7 +35,7 @@ export function PageHeader({
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
         </>
       ) : null}
 
