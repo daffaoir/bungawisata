@@ -44,45 +44,79 @@ export const ADDRESS_LINE = `${ADDRESS.street}, ${ADDRESS.area}, ${ADDRESS.city}
 export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent("Bunga Wisata Tour and Travel, Karangploso, Malang")}&output=embed`;
 
 /**
- * Tautan profil bisnis Google resmi Bunga Wisata — lebih akurat daripada
- * kueri alamat teks biasa, karena menunjuk entitas yang sudah diverifikasi.
- * Dipakai tombol "Buka di Google Maps"; TIDAK bisa dipakai untuk `<iframe>`
- * karena halaman yang dirujuknya mengirim `X-Frame-Options: SAMEORIGIN`.
+ * Tautan profil bisnis Google resmi Bunga Wisata ("Bunga Wisata Tour and
+ * Travel"). Format `?cid=` stabil — ID-nya diambil dari profil pada
+ * 2026-09-28 dan sudah dicek membuka profil yang benar. Dipakai tombol
+ * "Buka di Google Maps", tautan ulasan, dan `hasMap` di JSON-LD. TIDAK bisa
+ * dipakai untuk `<iframe>` karena Google mengirim `X-Frame-Options`.
  */
-export const MAPS_LINK = "https://share.google/y3r2SFUjgEZDZzcdC";
+export const MAPS_LINK = "https://www.google.com/maps?cid=10290067987447166487";
+
+/** Ulasan pelanggan tampil di profil yang sama. */
+export const GOOGLE_REVIEWS_URL = MAPS_LINK;
+
+/**
+ * Email kontak dibaca dari env tanpa fallback: sebelum `info@bungawisata.co.id`
+ * aktif (Email Routing Cloudflare), email disembunyikan di seluruh situs,
+ * JSON-LD, dan PDF. Jangan isi alamat karangan di sini.
+ */
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || undefined;
+
+/**
+ * Jam operasional mengikuti Google Business Profile (dicek 2026-09-28).
+ * `days`/`time` untuk tampilan; `schema` untuk `openingHoursSpecification`.
+ */
+const HOURS = [
+  {
+    days: { id: "Senin – Sabtu", en: "Monday – Saturday" },
+    time: "08.00 – 17.00 WIB",
+    schema: {
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  },
+  {
+    days: { id: "Minggu & hari libur", en: "Sunday & public holidays" },
+    time: { id: "Tutup", en: "Closed" },
+    schema: null,
+  },
+] as const;
 
 export const site = {
+  /** Nama brand di UI. */
   name: "Bunga Wisata",
+  /** Nama di Google Business Profile — dipakai di JSON-LD. */
+  businessName: "Bunga Wisata Tour and Travel",
+  /** Nama badan usaha (profil Facebook resmi). */
+  legalName: "CV. Bunga Wisata Malang",
   tagline: "Ur Friendly Partner for Travelling",
-  // TODO(placeholder): email belum dikonfirmasi pemilik.
-  email: "halo@bungawisata.com",
+  email: CONTACT_EMAIL,
   phoneDisplay: "+62 812-3390-9129",
+  phoneE164: "+6281233909129",
   address: ADDRESS,
-  // TODO(placeholder): jam operasional masih perkiraan.
-  hours: [
-    {
-      days: { id: "Senin – Jumat", en: "Monday – Friday" },
-      time: "09.00 – 17.00 WIB",
-    },
-    {
-      days: { id: "Sabtu", en: "Saturday" },
-      time: "09.00 – 14.00 WIB",
-    },
-    {
-      days: { id: "Minggu & hari libur", en: "Sunday & public holidays" },
-      time: { id: "Tutup", en: "Closed" },
-    },
-  ],
-  // TODO(placeholder): akun media sosial belum dikonfirmasi.
+  geo: { lat: -7.8897902, lng: 112.591502 },
+  hours: HOURS,
+  // Ketiga akun dicek 2026-09-28: milik Bunga Wisata (nomor & nama cocok).
   social: {
-    instagram: "https://instagram.com/bungawisata",
+    instagram: "https://www.instagram.com/bungawisata/",
     facebook: "https://www.facebook.com/bungawisata.malang",
-    tiktok: "https://tiktok.com/@ownerbungawisata",
+    tiktok: "https://www.tiktok.com/@ownerbungawisata",
   },
-  // TODO(placeholder): angka statistik masih karangan.
-  stats: {
-    travelers: 2500,
-    destinations: 40,
-    years: 10,
+  /**
+   * Bukti yang bisa dicek publik (2026-09-28). Perbarui kalau angkanya
+   * berubah — jangan tambahkan angka yang tidak punya sumber.
+   */
+  proof: {
+    googleRating: 4.7,
+    googleReviewCount: 30,
+    facebookFollowers: 6700,
   },
 } as const;

@@ -85,19 +85,21 @@ export function Footer() {
                   <span>{site.phoneDisplay}</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
-                >
-                  <Mail
-                    className="mt-0.5 size-4 shrink-0 text-gold-400"
-                    aria-hidden="true"
-                    strokeWidth={1.5}
-                  />
-                  <span>{site.email}</span>
-                </a>
-              </li>
+              {site.email ? (
+                <li>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
+                  >
+                    <Mail
+                      className="mt-0.5 size-4 shrink-0 text-gold-400"
+                      aria-hidden="true"
+                      strokeWidth={1.5}
+                    />
+                    <span>{site.email}</span>
+                  </a>
+                </li>
+              ) : null}
               <li className="flex items-start gap-3">
                 <MapPin
                   className="mt-0.5 size-4 shrink-0 text-gold-400"

@@ -42,7 +42,7 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Tour & Travel since 2015",
+      "eyebrow": "Tour & Travel · Malang",
       "titleLine1": "Journeys you'll",
       "titleHighlight": "Never Forget",
       "titleLine2": "start right here",
@@ -50,9 +50,9 @@
       "primaryCta": "Browse Packages",
       "secondaryCta": "Free Consultation",
       "stats": {
-        "travelers": "Happy travelers",
-        "destinations": "Destinations",
-        "years": "Years of experience"
+        "googleReviews": "{count} Google reviews",
+        "facebookFollowers": "Facebook followers",
+        "packages": "Travel packages"
       }
     },
     "regionSplit": {

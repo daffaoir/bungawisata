@@ -42,7 +42,7 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Tour & Travel sejak 2015",
+      "eyebrow": "Tour & Travel · Malang",
       "titleLine1": "Perjalanan yang",
       "titleHighlight": "Tak Terlupakan",
       "titleLine2": "dimulai di sini",
@@ -50,9 +50,9 @@
       "primaryCta": "Jelajahi Paket",
       "secondaryCta": "Konsultasi Gratis",
       "stats": {
-        "travelers": "Jamaah & wisatawan",
-        "destinations": "Destinasi",
-        "years": "Tahun pengalaman"
+        "googleReviews": "{count} ulasan Google",
+        "facebookFollowers": "Pengikut Facebook",
+        "packages": "Paket perjalanan"
       }
     },
     "regionSplit": {

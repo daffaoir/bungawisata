@@ -50,12 +50,17 @@ export default async function ContactPage({
   const tWhatsApp = await getTranslations({ locale, namespace: "WhatsApp" });
 
   const otherChannels = [
-    {
-      key: "email",
-      label: t("emailTitle"),
-      href: `mailto:${site.email}`,
-      Icon: Mail,
-    },
+    // Email hanya tampil kalau `NEXT_PUBLIC_CONTACT_EMAIL` diisi.
+    ...(site.email
+      ? [
+          {
+            key: "email",
+            label: t("emailTitle"),
+            href: `mailto:${site.email}`,
+            Icon: Mail,
+          },
+        ]
+      : []),
     {
       key: "instagram",
       label: "Instagram",
@@ -74,7 +79,7 @@ export default async function ContactPage({
       href: site.social.tiktok,
       Icon: TikTokIcon,
     },
-  ] as const;
+  ];
 
   const whatsappUrl = buildWhatsAppUrl(tWhatsApp("generic"));
   const replyHours = site.hours[0];

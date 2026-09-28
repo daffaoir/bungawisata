@@ -315,7 +315,9 @@ export function ItineraryDocument({
 
         <View style={styles.footer} fixed>
           <Text>
-            {site.name} · WhatsApp {site.phoneDisplay} · {site.email}
+            {[site.name, `WhatsApp ${site.phoneDisplay}`, site.email]
+              .filter(Boolean)
+              .join(" · ")}
           </Text>
           <Text>{ADDRESS_LINE}</Text>
           <Text style={{ marginTop: 2 }}>{t.disclaimer}</Text>

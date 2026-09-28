@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 import { ButtonLink } from "@/components/shared/Button";
 import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import { images } from "@/content/images";
-import { site } from "@/content/site";
+import { GOOGLE_REVIEWS_URL, site } from "@/content/site";
+import { getAllPackages } from "@/lib/packages";
 import type { AppLocale } from "@/i18n/routing";
 
 const INTL_LOCALE: Record<AppLocale, string> = { id: "id-ID", en: "en-US" };
@@ -18,10 +18,30 @@ export function Hero() {
   const t = useTranslations("Home.hero");
   const locale = useLocale() as AppLocale;
 
+  const intl = INTL_LOCALE[locale];
+
+  // Hanya angka yang bisa dicek publik — lihat `site.proof`.
   const stats = [
-    { value: site.stats.travelers, label: t("stats.travelers") },
-    { value: site.stats.destinations, label: t("stats.destinations") },
-    { value: site.stats.years, label: t("stats.years") },
+    {
+      value: new Intl.NumberFormat(intl, {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      }).format(site.proof.googleRating),
+      suffix: "★",
+      label: t("stats.googleReviews", { count: site.proof.googleReviewCount }),
+      href: GOOGLE_REVIEWS_URL,
+    },
+    {
+      value: new Intl.NumberFormat(intl, { notation: "compact" }).format(
+        site.proof.facebookFollowers,
+      ),
+      label: t("stats.facebookFollowers"),
+      href: site.social.facebook,
+    },
+    {
+      value: String(getAllPackages().length),
+      label: t("stats.packages"),
+    },
   ];
 
   return (
@@ -77,23 +97,43 @@ export function Hero() {
           </div>
 
           <dl className="mt-14 grid max-w-lg grid-cols-3 gap-8 border-t border-line pt-8">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="sr-only">{stat.label}</dt>
-                <dd>
+            {stats.map((stat) => {
+              const content = (
+                <>
                   <span className="font-display text-[2rem] text-ink sm:text-4xl">
-                    <AnimatedCounter
-                      value={stat.value}
-                      locale={INTL_LOCALE[locale]}
-                      suffix="+"
-                    />
+                    {stat.value}
+                    {stat.suffix ? (
+                      <span className="ms-1 text-[0.6em] text-gold-600">
+                        {stat.suffix}
+                      </span>
+                    ) : null}
                   </span>
                   <span className="mt-2 block text-[0.68rem] tracking-[0.14em] text-ink-muted uppercase">
                     {stat.label}
                   </span>
-                </dd>
-              </div>
-            ))}
+                </>
+              );
+
+              return (
+                <div key={stat.label}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    {stat.href ? (
+                      <a
+                        href={stat.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block transition-opacity hover:opacity-75"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      content
+                    )}
+                  </dd>
+                </div>
+              );
+            })}
           </dl>
         </div>
 
