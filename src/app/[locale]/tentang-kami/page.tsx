@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { Section, SectionHeading } from "@/components/shared/Section";
+import { ClosingCta } from "@/components/shared/ClosingCta";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { buildAlternates } from "@/lib/metadata";
@@ -77,15 +77,7 @@ export default async function AboutPage({
         </StaggerGroup>
       </Section>
 
-      <Section tone="ink" compact>
-        <div className="text-center">
-          <h2 className="text-[1.9rem] sm:text-[2.4rem]">{t("ctaTitle")}</h2>
-          <p className="mx-auto mt-5 max-w-xl leading-[1.85] text-white/70">
-            {t("ctaSubtitle")}
-          </p>
-          <WhatsAppCta variant="outlineLight" size="lg" className="mt-9" />
-        </div>
-      </Section>
+      <ClosingCta title={t("ctaTitle")} subtitle={t("ctaSubtitle")} />
     </>
   );
 }
