@@ -8,7 +8,13 @@ import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { images } from "@/content/images";
 import { testimonials } from "@/content/testimonials";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
+import {
+  breadcrumbItems,
+  buildAlternates,
+  buildOpenGraph,
+} from "@/lib/metadata";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,8 +47,16 @@ export default async function TestimonialsPage({
 
   const t = await getTranslations({ locale, namespace: "Testimonials" });
 
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const breadcrumb = breadcrumbJsonLd(
+    breadcrumbItems(locale as AppLocale, tNav("home"), [
+      { name: tNav("testimonials"), href: "/testimoni" },
+    ]),
+  );
+
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}

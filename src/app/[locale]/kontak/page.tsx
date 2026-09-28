@@ -13,7 +13,13 @@ import { faq } from "@/content/faq";
 import { images } from "@/content/images";
 import { MAPS_EMBED_URL, MAPS_LINK, site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
+import {
+  breadcrumbItems,
+  buildAlternates,
+  buildOpenGraph,
+} from "@/lib/metadata";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function generateStaticParams() {
@@ -84,8 +90,16 @@ export default async function ContactPage({
   const whatsappUrl = buildWhatsAppUrl(tWhatsApp("generic"));
   const replyHours = site.hours[0];
 
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const breadcrumb = breadcrumbJsonLd(
+    breadcrumbItems(locale as AppLocale, tNav("home"), [
+      { name: tNav("contact"), href: "/kontak" },
+    ]),
+  );
+
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}

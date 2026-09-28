@@ -7,8 +7,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { SITE_URL } from "@/content/site";
 import { routing } from "@/i18n/routing";
+import { organizationJsonLd } from "@/lib/jsonld";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -67,6 +69,7 @@ export default async function LocaleLayout({
   // Wajib agar seluruh Server Component di bawah layout ini bisa dirender
   // statis saat build, bukan per-request.
   setRequestLocale(locale);
+  const tMeta = await getTranslations({ locale, namespace: "Meta" });
 
   return (
     <html
@@ -74,6 +77,8 @@ export default async function LocaleLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        {/* Entitas bisnis dirender sekali di sini, jadi ada di semua halaman. */}
+        <JsonLd data={organizationJsonLd(tMeta("defaultDescription"))} />
         <NextIntlClientProvider>
           <ScrollToTop />
           <Header />

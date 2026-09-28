@@ -16,12 +16,22 @@ import {
 } from "@/components/package/PriceBox";
 import { Badge } from "@/components/shared/Badge";
 import { Section, SectionHeading } from "@/components/shared/Section";
-import { SITE_URL } from "@/content/site";
 import { packageMetaTitle } from "@/lib/seo";
-import { getPathname, Link } from "@/i18n/navigation";
+import { breadcrumbJsonLd, ORGANIZATION_ID } from "@/lib/jsonld";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { Link } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
-import { getAllPackages, getPackageBySlug, getRelatedPackages } from "@/lib/packages";
+import {
+  absoluteUrl,
+  breadcrumbItems,
+  buildAlternates,
+  buildOpenGraph,
+} from "@/lib/metadata";
+import {
+  getAllPackages,
+  getPackageBySlug,
+  getRelatedPackages,
+} from "@/lib/packages";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -75,9 +85,17 @@ export default async function PackageDetailPage({
   const related = getRelatedPackages(pkg);
   const isDomestic = pkg.region === "dalam-negeri";
 
-  const jsonLd = {
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const url = absoluteUrl(
+    { pathname: "/paket/[slug]", params: { slug: pkg.slug } },
+    appLocale,
+  );
+
+  const tripJsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
+    "@id": `${url}#trip`,
+    url,
     name: content.title,
     description: content.summary,
     image: pkg.heroImage,
@@ -96,28 +114,24 @@ export default async function PackageDetailPage({
       price: pkg.priceFrom,
       priceCurrency: "IDR",
       availability: "https://schema.org/InStock",
-      url: `${SITE_URL}${getPathname({
-        href: { pathname: "/paket/[slug]", params: { slug: pkg.slug } },
-        locale: appLocale,
-      })}`,
+      url,
     },
-    provider: {
-      "@type": "TravelAgency",
-      name: "Bunga Wisata",
-      url: SITE_URL,
-    },
+    provider: { "@id": ORGANIZATION_ID },
   };
+
+  const breadcrumb = breadcrumbJsonLd(
+    breadcrumbItems(appLocale, tNav("home"), [
+      { name: tNav("packages"), href: "/paket" },
+      {
+        name: content.title,
+        href: { pathname: "/paket/[slug]", params: { slug: pkg.slug } },
+      },
+    ]),
+  );
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          // Sumbernya data paket kita sendiri, tapi `<` tetap di-escape agar
-          // teks apa pun di dalamnya mustahil menutup tag <script> ini.
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={[tripJsonLd, breadcrumb]} />
 
       <header className="relative">
         <div className="relative h-[52vh] min-h-[22rem] w-full overflow-hidden">
@@ -194,7 +208,9 @@ export default async function PackageDetailPage({
 
             <div className="mt-14">
               <h2 className="text-2xl">{t("itinerary")}</h2>
-              <p className="mt-2 mb-8 text-ink-soft">{t("itinerarySubtitle")}</p>
+              <p className="mt-2 mb-8 text-ink-soft">
+                {t("itinerarySubtitle")}
+              </p>
               <ItineraryTimeline days={content.itinerary} />
             </div>
 

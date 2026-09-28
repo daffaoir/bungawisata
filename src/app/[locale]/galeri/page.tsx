@@ -10,7 +10,13 @@ import { images } from "@/content/images";
 import { site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
-import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
+import {
+  breadcrumbItems,
+  buildAlternates,
+  buildOpenGraph,
+} from "@/lib/metadata";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -44,8 +50,16 @@ export default async function GalleryPage({
   const t = await getTranslations({ locale, namespace: "Gallery" });
   const appLocale = (await getLocale()) as AppLocale;
 
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const breadcrumb = breadcrumbJsonLd(
+    breadcrumbItems(locale as AppLocale, tNav("home"), [
+      { name: tNav("gallery"), href: "/galeri" },
+    ]),
+  );
+
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
@@ -99,9 +113,7 @@ export default async function GalleryPage({
         <div className="mt-16 flex flex-col items-start gap-5 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-2xl">{t("instagramTitle")}</h2>
-            <p className="mt-2 max-w-xl text-ink-soft">
-              {t("instagramText")}
-            </p>
+            <p className="mt-2 max-w-xl text-ink-soft">{t("instagramText")}</p>
           </div>
           <ButtonAnchor
             href={site.social.instagram}

@@ -5,6 +5,26 @@ import { routing, type AppLocale } from "@/i18n/routing";
 
 type Href = Parameters<typeof getPathname>[0]["href"];
 
+/** URL absolut satu halaman dalam bahasa tertentu. */
+export function absoluteUrl(href: Href, locale: AppLocale): string {
+  return `${SITE_URL}${getPathname({ href, locale })}`;
+}
+
+/**
+ * Item breadcrumb (beranda + `trail`) dengan URL absolut, siap untuk
+ * `breadcrumbJsonLd`.
+ */
+export function breadcrumbItems(
+  locale: AppLocale,
+  homeLabel: string,
+  trail: ReadonlyArray<{ name: string; href: Href }>,
+) {
+  return [{ name: homeLabel, href: "/" as Href }, ...trail].map((item) => ({
+    name: item.name,
+    url: absoluteUrl(item.href, locale),
+  }));
+}
+
 /**
  * Canonical + hreflang untuk satu halaman, dalam kedua bahasa.
  *
@@ -49,7 +69,8 @@ export async function buildOpenGraph(
     parent?: ResolvingMetadata;
   },
 ): Promise<NonNullable<Metadata["openGraph"]>> {
-  const inherited = images ?? (parent ? (await parent).openGraph?.images : undefined);
+  const inherited =
+    images ?? (parent ? (await parent).openGraph?.images : undefined);
 
   return {
     type: "website",

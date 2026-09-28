@@ -7,7 +7,13 @@ import { ClosingCta } from "@/components/shared/ClosingCta";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
+import {
+  breadcrumbItems,
+  buildAlternates,
+  buildOpenGraph,
+} from "@/lib/metadata";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 const VALUES = ["honest", "personal", "detail"] as const;
 
@@ -42,8 +48,16 @@ export default async function AboutPage({
 
   const t = await getTranslations({ locale, namespace: "About" });
 
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const breadcrumb = breadcrumbJsonLd(
+    breadcrumbItems(locale as AppLocale, tNav("home"), [
+      { name: tNav("about"), href: "/tentang-kami" },
+    ]),
+  );
+
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <PageHeader
         title={t("title")}
         subtitle={t("intro")}
@@ -97,7 +111,9 @@ export default async function AboutPage({
           {VALUES.map((key) => (
             <StaggerItem key={key} className="h-full">
               <div>
-                <h3 className="rule-gold text-lg">{t(`values.${key}.title`)}</h3>
+                <h3 className="rule-gold text-lg">
+                  {t(`values.${key}.title`)}
+                </h3>
                 <p className="mt-3 leading-[1.8] text-ink-soft">
                   {t(`values.${key}.description`)}
                 </p>
