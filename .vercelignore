@@ -1,0 +1,17 @@
+# Files skipped when deploying from the local CLI (`vercel --prod`).
+# Git-based deploys already exclude everything in .gitignore.
+
+# dependencies & build output (Vercel installs and builds remotely)
+node_modules
+.next
+out
+build
+coverage
+*.tsbuildinfo
+
+# local secrets — production env lives in Vercel project settings
+.env*
+*.pem
+
+# design audit screenshots (tens of MB, not needed at runtime)
+docs/design-audit/

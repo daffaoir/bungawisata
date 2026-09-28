@@ -92,14 +92,16 @@ kunci yang bersangkutan di `src/content/images.ts` menjadi
 
 ## `src/content/faq.ts`
 
-Tiga jawaban masih diawali kata "TODO:" dan **teks itu tampil apa adanya di
-halaman Kontak** — ini yang paling kentara kalau situs telanjur dipublikasikan.
+Sejak 2026-09-28 awalan "TODO:" sudah dihapus dari jawaban yang tampil di
+halaman Kontak. Akibatnya, dua angka di bawah kini terbaca sebagai **ketentuan
+pasti**, bukan lagi "umumnya", jadi justru makin penting dicocokkan dengan
+kebijakan Anda.
 
 | Kunci | Status | Catatan |
 |---|---|---|
-| `payment` — uang muka | 🔴 Wajib ganti | Menyebut DP 30% dan pelunasan H-14 sebagai "umumnya". |
-| `group-size` — minimum peserta | 🔴 Wajib ganti | Menyebut 15 peserta; harus cocok dengan `minPax` tiap paket, yang sekarang berkisar 10–40. |
-| `cancellation` — pembatalan | 🔴 Wajib ganti | Belum ada isinya sama sekali, hanya penanda TODO. Ini menyangkut uang pelanggan. |
+| `payment` — uang muka | 🔴 Wajib ganti | Menyatakan DP 30% dan pelunasan H-14 sebagai ketentuan. Angka karangan. |
+| `group-size` — minimum peserta | 🔴 Wajib ganti | Menyatakan minimal 15 peserta; harus cocok dengan `minPax` tiap paket, yang sekarang berkisar 10–40. |
+| `cancellation` — pembatalan | 🟡 Sebaiknya dikoreksi | Kini berisi kalimat netral: ketentuan dijelaskan saat pemesanan, hubungi lewat WhatsApp. Tidak menjanjikan angka, tapi sebaiknya diganti dengan ketentuan tertulis Anda. |
 | `booking`, `custom`, `visa` | 🟢 Boleh dibiarkan | Jawaban netral yang tidak menjanjikan angka apa pun. |
 
 ---
@@ -112,7 +114,6 @@ halaman Kontak** — ini yang paling kentara kalau situs telanjur dipublikasikan
 | `About.intro`, `About.story` | 🔴 Wajib ganti | Sebelumnya berupa teks "TODO:", sekarang sudah saya isi dengan narasi karangan (trip pertama ke Bromo lewat WhatsApp, kantor di Karangploso, dst.) supaya halaman tidak lagi menampilkan penanda TODO mentah. Ceritanya masuk akal tapi sepenuhnya fiktif — ganti dengan sejarah asli Anda. |
 | `About.values.*.description` | 🟡 Sebaiknya dikoreksi | Sama — sebelumnya "TODO:", sekarang sudah ditulis penuh. Isinya masuk akal untuk biro perjalanan pada umumnya, tapi bukan rumusan Anda; sesuaikan kalau ada penekanan berbeda. |
 | `Home.whyUs.items.*` | 🟡 Sebaiknya dikoreksi | Empat janji layanan — pastikan Anda memang bisa memenuhinya. |
-| `Gallery.placeholderNote` | 🟢 Boleh dibiarkan | Justru berisi pengakuan bahwa fotonya masih stok. Hapus kunci ini dan pemakaiannya di `src/app/[locale]/galeri/page.tsx` setelah foto asli masuk. |
 | `PackageDetail.priceNote` | 🟢 Boleh dibiarkan | Menyatakan harga dapat berubah — aman apa adanya. |
 
 ---
@@ -122,6 +123,9 @@ halaman Kontak** — ini yang paling kentara kalau situs telanjur dipublikasikan
 - **Legalitas** (`About.legalTitle` / `About.legalNote`) — dihapus dari halaman
   Tentang Kami sesuai permintaan. Kalau nanti punya NIB atau keanggotaan ASITA
   yang ingin ditampilkan, blok itu perlu dibuat ulang.
+- **Catatan foto stok di Galeri** (`Gallery.placeholderNote`) — dihapus
+  2026-09-28 karena menampilkan path kode ke pengunjung. Status foto stok tetap
+  tercatat di bagian `images.ts` di atas.
 
 ---
 
