@@ -233,6 +233,7 @@
   "NotFound": {
     "title": "Halaman tidak ditemukan",
     "description": "Halaman yang Anda cari mungkin sudah dipindahkan atau tidak pernah ada.",
-    "cta": "Kembali ke beranda"
+    "cta": "Kembali ke beranda",
+    "packagesCta": "Lihat paket wisata"
   }
 }

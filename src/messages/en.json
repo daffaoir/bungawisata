@@ -233,6 +233,7 @@
   "NotFound": {
     "title": "Page not found",
     "description": "The page you're looking for may have moved, or never existed.",
-    "cta": "Back to home"
+    "cta": "Back to home",
+    "packagesCta": "Browse tour packages"
   }
 }
