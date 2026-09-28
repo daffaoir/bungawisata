@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { site } from "@/content/site";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
@@ -14,6 +14,13 @@ export function Footer() {
   const tWa = useTranslations("WhatsApp");
   const locale = useLocale() as AppLocale;
   const year = new Date().getFullYear();
+  /*
+   * Tautan region sengaja `<a>` biasa (navigasi penuh), bukan `Link`:
+   * `PackageBrowser` membaca filter dari URL hanya saat mount, jadi navigasi
+   * client-side dari `/paket` ke `/paket?region=…` tidak akan memperbarui
+   * filternya.
+   */
+  const packagesPath = getPathname({ href: "/paket", locale });
 
   return (
     <footer className="bg-ink text-white">
@@ -53,20 +60,20 @@ export function Footer() {
             </h3>
             <ul className="mt-4 text-sm">
               <li>
-                <Link
-                  href={{ pathname: "/paket", query: { region: "dalam-negeri" } }}
+                <a
+                  href={`${packagesPath}?region=dalam-negeri`}
                   className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
                 >
                   {t("domestic")}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href={{ pathname: "/paket", query: { region: "luar-negeri" } }}
+                <a
+                  href={`${packagesPath}?region=luar-negeri`}
                   className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
                 >
                   {t("international")}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link
