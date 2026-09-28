@@ -1,7 +1,27 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+/**
+ * Header keamanan dasar untuk semua respons. CSP penuh sengaja tidak
+ * dipasang: JSON-LD inline dan skrip Next tanpa nonce akan terblokir. Cukup
+ * `frame-ancestors` supaya situs tidak bisa dibingkai situs lain.
+ */
+const SECURITY_HEADERS = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), payment=()",
+  },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
+];
+
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  async headers() {
+    return [{ source: "/:path*", headers: SECURITY_HEADERS }];
+  },
   /**
    * Bahasa Indonesia tampil tanpa prefix. Middleware next-intl sudah
    * mengalihkan `/id/...`, tapi dengan 307 (sementara); di sini dibuat 308
