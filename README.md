@@ -35,7 +35,7 @@ Buat file `.env.local` (tidak masuk git):
 
 ```bash
 NEXT_PUBLIC_WHATSAPP_NUMBER=6281234567890
-NEXT_PUBLIC_SITE_URL=https://bungawisata.com
+NEXT_PUBLIC_SITE_URL=https://bungawisata.co.id
 ```
 
 Nomor WhatsApp ditulis format internasional **tanpa tanda `+` dan tanpa spasi**

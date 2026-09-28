@@ -10,9 +10,12 @@
 export const WHATSAPP_NUMBER =
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281233909129";
 
-/** Dipakai untuk metadata absolut, sitemap, dan hreflang. */
+/**
+ * Dipakai untuk metadata absolut, sitemap, dan hreflang.
+ * `||` (bukan `??`) supaya env berisi string kosong juga jatuh ke fallback.
+ */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bungawisata.com"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://bungawisata.co.id"
 ).replace(/\/$/, "");
 
 const ADDRESS = {

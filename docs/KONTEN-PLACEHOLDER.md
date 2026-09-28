@@ -36,7 +36,7 @@ Supaya jelas batasnya, ini yang saya pakai apa adanya dari materi Anda:
 | `stats.travelers` | 2.500 | 🔴 Wajib ganti | Angka karangan yang tampil besar di beranda. |
 | `stats.destinations` | 40 | 🔴 Wajib ganti | Sama. |
 | `stats.years` | 10 | 🔴 Wajib ganti | Sama. Perhatikan juga eyebrow hero "Tour & Travel sejak 2015" di `src/messages/*.json`. |
-| `SITE_URL` | `https://bungawisata.com` | 🟡 Sebaiknya dikoreksi | Menentukan URL absolut di sitemap, hreflang, dan tag OG. Timpa lewat `NEXT_PUBLIC_SITE_URL`. |
+| `SITE_URL` | `https://bungawisata.co.id` | 🟡 Domain belum terdaftar | Menentukan URL absolut di sitemap, hreflang, dan tag OG. Domain `bungawisata.co.id` belum terdaftar/aktif per 2026-09-28. Timpa lewat `NEXT_PUBLIC_SITE_URL`. |
 
 ---
 
