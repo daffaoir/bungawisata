@@ -35,7 +35,13 @@ export function PageHeader({
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
+          {/*
+            Subjudul harus ≥4.5:1 bahkan di atas foto yang terang (langit
+            senja). Di bawah `lg` teksnya selebar layar, jadi lapisannya rata
+            ink/65; di `lg` gradien tetap ≥ink/70 sampai 60% lebar (ujung
+            kolom teks) lalu memudar agar foto di kanan tetap terlihat.
+          */}
+          <div className="absolute inset-0 bg-ink/65 lg:bg-transparent lg:bg-gradient-to-r lg:from-ink/90 lg:via-ink/70 lg:via-60% lg:to-ink/10" />
         </>
       ) : null}
 
@@ -47,7 +53,7 @@ export function PageHeader({
         <h1 className="max-w-3xl text-[2.5rem] sm:text-6xl">{title}</h1>
 
         {subtitle ? (
-          <p className="mt-6 max-w-2xl text-[1.05rem] leading-[1.75] text-white/70">
+          <p className="mt-6 max-w-2xl text-[1.05rem] leading-[1.75] text-white/90">
             {subtitle}
           </p>
         ) : null}
