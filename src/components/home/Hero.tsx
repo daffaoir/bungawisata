@@ -29,16 +29,19 @@ export function Hero() {
   return (
     <section className="px-2 pt-2 sm:px-4 sm:pt-3">
       <div className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col justify-end overflow-hidden rounded-[2rem] bg-daun-900 sm:min-h-[40rem] sm:rounded-[2.5rem] lg:min-h-[min(calc(100svh-7rem),48rem)]">
-        <Image
-          src={images["bromo-kaldera"]}
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          quality={85}
-          sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
-          className="hero-settle -z-10 object-cover object-[50%_40%]"
-        />
+        {/* Pembungkus 10% lebih tinggi dari bingkai untuk ruang gerak parallax. */}
+        <div className="parallax absolute inset-x-0 -top-[5%] -bottom-[5%] -z-10">
+          <Image
+            src={images["bromo-kaldera"]}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            quality={85}
+            sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
+            className="hero-settle object-cover object-[50%_40%]"
+          />
+        </div>
         {/* Gradien satu arah dari bawah-kiri, cukup untuk kontras teks. */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-daun-900/95 via-daun-900/45 via-45% to-transparent to-75% sm:bg-gradient-to-tr sm:from-daun-900/85 sm:via-daun-900/30 sm:via-50% sm:to-transparent sm:to-100%" />
 

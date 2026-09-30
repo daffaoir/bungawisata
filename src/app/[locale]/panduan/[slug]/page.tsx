@@ -198,7 +198,7 @@ export default async function GuidePage({
           <SectionHeading title={t("relatedPackages")} />
           <div className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {packages.map((pkg) => (
-              <PackageCard key={pkg.slug} pkg={pkg} />
+              <PackageCard key={pkg.slug} pkg={pkg} shape="adaptive" />
             ))}
           </div>
         </Section>

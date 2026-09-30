@@ -1,25 +1,75 @@
 # Design — bungawisata
 
-## Sistem desain yang dipakai
-Sumber: `src/app/globals.css`, `src/components/shared/*`, `docs/RENCANA-V2.md`. Tidak ada library UI; Tailwind v4 + lucide-react + motion.
+## Sistem desain "Hangat Keluarga" (sejak 2026-09-30)
 
-- **Font:** Playfair Display 500/600/700 (`font-display`, semua h1–h4) + Inter (`font-sans`, body). Tidak diganti.
-- **Warna (token `@theme`):** `ink #0F0F0F`, `ink-soft #4A4A4A`, `ink-muted #6E6E6E`, `canvas #FBFAF8`, `canvas-alt #F3F1ED`, `line #E4E0D9`, `gold-50…700` (teks emas di terang hanya `gold-600`; di atas ink `gold-400`). Hijau `#25D366` hanya untuk tombol WA mengambang.
-- **Bentuk:** sudut persegi (tanpa radius), garis rambut `border-line` pengganti bayangan, tombol persegi uppercase tracking 0.1em (`Button`, `ButtonLink`, `ButtonAnchor`, `WhatsAppCta`).
-- **Komponen dasar:** `Section` (tone canvas/white/alt/ink), `SectionHeading` (eyebrow + `rule-gold`), `PageHeader` (foto + gradien ink), `Badge`, `Select` (listbox kustom), `EmptyState`, `FaqAccordion` (`<details>`), `TestimonialCard`, `PackageCard`, `Reveal`/`StaggerGroup` (motion).
-- **Container:** `max-w-6xl px-5 sm:px-8` (konten 1088px di 1280).
+Plan: `docs/plans/2026-09-30-redesign-hangat.md`. Menggantikan gaya
+monokrom-persegi sebelumnya, yang dinilai pemilik terlalu kaku dan "terlihat
+seperti buatan AI".
+
+- **Palet:** diambil dari lanskap yang dijual. Tokennya ada di
+  `src/app/globals.css`; nama token lama dipertahankan, nilainya baru.
+  - `canvas` kertas `#FBF8F2` dan `canvas-alt` pasir vulkanik `#F1EADC` untuk
+    latar.
+  - `ink` cokelat soga `#2A1F16` untuk teks.
+  - `daun` `#1E3B2F` untuk section gelap dan footer.
+  - `gold-*` kunyit sebagai aksen:
+    - `gold-400` untuk latar tombol utama, dengan teks soga.
+    - `gold-600`/`700` untuk teks aksen di latar terang.
+    - `gold-300`/`400` untuk teks aksen di atas daun.
+  - Hijau WhatsApp (`wa`) hanya untuk aksi WhatsApp.
+  - Semua pasangan teks/latar ≥ 4,5:1 (angkanya ada di komentar `@theme`).
+- **Tipografi:** judul memakai **Fraunces** (sumbu SOFT 100, weight 500),
+  body/UI memakai **Plus Jakarta Sans**.
+  - Semua judul, tombol, dan label memakai sentence case.
+  - Satu-satunya teks huruf kapital adalah logotype.
+- **Bentuk:**
+  - Foto dan kartu `rounded-3xl` (24px).
+  - Panel section `rounded-[2rem]`/`[2.5rem]` dan sedikit masuk dari tepi
+    layar (`Section inset`, hero, `PageHeader`, `ClosingCta`).
+  - Tombol, chip, dan tab `rounded-full`.
+  - Pemisah memakai warna latar dan jarak, bukan garis kotak.
+- **Ritme halaman:** section polos (kertas) diselingi panel membulat (pasir,
+  daun, kunyit pucat). Beranda punya 6 section: hero → strip paket → layanan →
+  cara pesan → galeri → ulasan + ajakan.
+- **Gerak (murni CSS, lihat `globals.css`):**
+  - `.hero-settle` untuk foto hero yang "mendarat" saat dimuat. Teks tidak
+    dianimasikan, supaya LCP tidak tertahan.
+  - `.parallax` untuk pembungkus foto hero.
+  - `.reveal-photo` untuk foto yang terbuka saat di-scroll.
+  - `.reveal` untuk blok kecil.
+  - `.timeline-progress` untuk garis itinerary dan langkah pesan.
+  - `.wa-nudge` untuk tombol WhatsApp mengambang, berdenyut sekali setelah 3
+    detik.
+  - Strip geser (`ScrollStrip`) memakai `scroll-snap` asli, dengan progress
+    bar dan tombol bulat **di bawah** strip.
+  - Hover hanya di `@media (hover:hover)`.
+  - Semua gerak mati dengan `prefers-reduced-motion`.
+- **Foto:**
+  - Stok Unsplash 2560px q85 tanpa kompresi ulang
+    (`scripts/download-stock-images.mjs`).
+  - Next Image hanya WebP, dengan `deviceSizes` sampai 2560 dan
+    `quality={85}` untuk gambar besar.
+  - Foto suasana berisi orang (`suasana-*`) hanya ilustrasi, tidak pernah
+    diberi label sebagai tim atau peserta Bunga Wisata.
 
 ## Gaya yang dihindari
-Berlaku untuk semua item di bawah:
-- Tanpa `rounded-*` di foto, kartu, tombol, atau ikon sosial. Satu-satunya lingkaran yang dipertahankan: tombol WA mengambang.
-- Tanpa bayangan lembut di bawah kartu (`shadow-[0_24px_60px…]` di `TestimonialCard` dihapus); pemisah pakai `border-line`.
-- Tanpa gradien warna dekoratif, tanpa latar ungu/biru, tanpa glassmorphism selain header sticky yang sudah ada.
-- Tanpa ikon hiasan "AI": `Sparkles` di judul sorotan dihapus; tanpa emoji di UI mana pun.
-- Tanpa angka urut `01/02/03` untuk daftar yang bukan urutan (hanya itinerary "Hari 1, 2, 3" yang boleh bernomor).
-- Tanpa eyebrow uppercase baru. Eyebrow yang sudah ada boleh tetap, tetapi jangan ditambah di section yang dibuat ulang.
-- Tanpa animasi fade-up per kartu/per section yang baru; tanpa efek hover berlapis (kartu terangkat + border emas + kutip raksasa + bintang menyala).
-- Tanpa teks di bawah 12px (0.75rem) untuk informasi (harga, "/orang", label durasi).
-- Tanpa kartu seragam berulang sebagai pengisi; kalau isinya pendek (kutipan, nilai), pakai tipografi + garis rambut, bukan kotak.
+
+- Eyebrow uppercase dengan tracking lebar di atas judul, serta tombol atau
+  label berhuruf kapital.
+- Kotak persegi bergaris rambut sebagai kartu, serta grid kartu seragam yang
+  berulang di setiap section.
+- Latar hitam pekat (`#0F0F0F`). Section gelap memakai hijau daun.
+- Satu kata dalam judul yang diberi warna atau italic berbeda.
+- Angka urut (01/02/03) untuk isi yang bukan urutan. Langkah pesan dan hari
+  itinerary boleh bernomor.
+- Fade-up di setiap section dan hover berlapis di setiap kartu.
+- String meta yang digabung dengan titik tengah ("A · B · C"). Pakai koma.
+- Teks informasi di bawah 12px.
+
+---
+
+> Catatan di bawah ini adalah audit dan plan "poles tampilan" 2026-09-28
+> untuk sistem desain lama. Disimpan sebagai riwayat, bukan acuan.
 
 ## Poles tampilan sebelum domain bungawisata.co.id (2026-09-28)
 

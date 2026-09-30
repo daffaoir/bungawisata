@@ -215,7 +215,7 @@ export default async function ServiceDetailPage({
           <StaggerGroup className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((pkg) => (
               <StaggerItem key={pkg.slug} className="h-full">
-                <PackageCard pkg={pkg} />
+                <PackageCard pkg={pkg} shape="adaptive" />
               </StaggerItem>
             ))}
           </StaggerGroup>

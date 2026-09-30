@@ -273,7 +273,7 @@ export default async function PackageDetailPage({
           <StaggerGroup className="mt-9 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <StaggerItem key={item.slug} className="h-full">
-                <PackageCard pkg={item} />
+                <PackageCard pkg={item} shape="adaptive" />
               </StaggerItem>
             ))}
           </StaggerGroup>

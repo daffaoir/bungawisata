@@ -7,8 +7,8 @@
   },
   "Nav": {
     "home": "Home",
-    "packages": "Tour Packages",
-    "about": "About Us",
+    "packages": "Tour packages",
+    "about": "About us",
     "gallery": "Gallery",
     "testimonials": "Testimonials",
     "contact": "Contact",
@@ -18,7 +18,7 @@
     "languageId": "Indonesia",
     "languageEn": "English",
     "services": "Services",
-    "guides": "Travel Guides"
+    "guides": "Travel guides"
   },
   "Common": {
     "viewDetail": "View details",
@@ -37,8 +37,8 @@
   },
   "WhatsApp": {
     "cta": "Ask via WhatsApp",
-    "ctaShort": "WhatsApp Chat",
-    "ctaPackage": "Ask About This Package",
+    "ctaShort": "WhatsApp chat",
+    "ctaPackage": "Ask about this package",
     "floatingLabel": "Contact us on WhatsApp",
     "generic": "Hello Bunga Wisata, I'd like to ask about your tour packages.",
     "package": "Hello Bunga Wisata, I'm interested in the \"{packageTitle}\" package. Could I get more details?",
@@ -113,7 +113,7 @@
     }
   },
   "Packages": {
-    "title": "Tour Packages",
+    "title": "Tour packages",
     "description": "Every package comes with a full itinerary, transparent pricing, and tour leader support.",
     "metaTitle": "Tour Packages from Malang: Indonesia & Abroad",
     "metaDescription": "Tour packages from Malang, East Java: Bromo, Bali, Yogyakarta, Labuan Bajo, Japan, Korea, Türkiye and more, with day-by-day rundowns and starting prices.",
@@ -128,7 +128,7 @@
       "durationShort": "1–4 days",
       "durationMedium": "5–8 days",
       "durationLong": "9 days or more",
-      "price": "Price Range",
+      "price": "Price range",
       "allPrices": "Any price",
       "priceLow": "Under IDR 10 million",
       "priceMid": "IDR 10–25 million",
@@ -145,14 +145,14 @@
     }
   },
   "PackageDetail": {
-    "highlights": "Trip Highlights",
-    "itinerary": "Day-by-Day Itinerary",
+    "highlights": "Trip highlights",
+    "itinerary": "Day-by-day itinerary",
     "itinerarySubtitle": "Exactly what happens on each day.",
     "day": "Day {day}",
     "includes": "What's Included",
-    "excludes": "Not Included",
-    "notes": "Important Notes",
-    "gallery": "Destination Gallery",
+    "excludes": "Not included",
+    "notes": "Important notes",
+    "gallery": "Destination photos",
     "priceLabel": "Starting from",
     "priceNote": "Price per person; subject to change depending on season and availability.",
     "durationLabel": "Duration",
@@ -161,11 +161,11 @@
     "airlineLabel": "Airline",
     "minPaxLabel": "Min. pax",
     "minPaxValue": "{count} people",
-    "hotelsTitle": "Hotels Used",
+    "hotelsTitle": "Hotels",
     "hotelNights": "{count, plural, one {# night} other {# nights}}",
-    "downloadPdf": "Download Itinerary (PDF)",
+    "downloadPdf": "Download itinerary (PDF)",
     "downloadPdfShort": "PDF",
-    "relatedTitle": "Similar Packages",
+    "relatedTitle": "Similar packages",
     "askAbout": "Ask about this package",
     "askShort": "Ask",
     "priceNoteEstimate": "Estimated price per person — confirm the latest price on WhatsApp before booking. Subject to season and availability."
@@ -174,9 +174,9 @@
     "title": "About Bunga Wisata",
     "metaDescription": "Meet Bunga Wisata (CV. Bunga Wisata Malang), a family-run tour & travel agency in Karangploso, Malang, East Java: group, family, event tours and flights.",
     "intro": "Bunga Wisata is a family-run tour & travel agency in Karangploso, Malang Regency, East Java. We plan domestic and international trips — from a weekend at Bromo to tours abroad — for small groups, families and large groups alike.",
-    "storyTitle": "Our Journey",
+    "storyTitle": "Our story",
     "story": "Our office sits at the Karangjuwet rest area in Karangploso, on the road between Malang and Batu. From there we arrange group tours, school study tours, company gatherings and events, private family tours and flight tickets. Every trip starts with a WhatsApp chat: we ask about your destination, group size, dates and budget, then put together a clear written itinerary showing what is and isn't included. Our customers rate us 4.7 out of 5 on Google, and we want every group to come home with an equally good story.",
-    "valuesTitle": "What We Stand For",
+    "valuesTitle": "What we stand for",
     "values": {
       "honest": {
         "title": "Honest pricing",
@@ -196,7 +196,7 @@
     "metaTitle": "About Us: Tour & Travel Agency in Malang"
   },
   "Gallery": {
-    "title": "Destination Gallery",
+    "title": "Destination gallery",
     "metaDescription": "Destination ideas for tours from Malang with Bunga Wisata: Bromo, Bali, Labuan Bajo, Japan, Korea, Türkiye and other favourites for group travel.",
     "subtitle": "Inspiration for places you can visit with us.",
     "gridTitle": "Destination photos",
@@ -204,7 +204,7 @@
     "instagramText": "We post photos of our groups and the latest trip stories on Instagram."
   },
   "Testimonials": {
-    "title": "Traveller Reviews",
+    "title": "Traveller reviews",
     "metaDescription": "Genuine Google reviews of Bunga Wisata Tour and Travel in Malang, East Java: rated 4.7 from 30 reviews for group, family and event tours.",
     "subtitle": "Quotes from our customers' public reviews on Google Maps.",
     "ctaTitle": "Want to be the next story?",
@@ -215,21 +215,21 @@
     "viewOnGoogle": "See all reviews on Google"
   },
   "Contact": {
-    "title": "Contact Us",
+    "title": "Contact us",
     "metaDescription": "Reach Bunga Wisata Tour and Travel in Malang on WhatsApp +62 812-3390-9129 or visit our office in Karangploso. Open Monday–Saturday 08:00–17:00.",
     "subtitle": "Fastest route: message us on WhatsApp. We reply during business hours.",
     "whatsappTitle": "WhatsApp",
     "emailTitle": "Email",
-    "addressTitle": "Office Address",
-    "hoursTitle": "Opening Hours",
-    "connectTitle": "Contact & Follow Us",
-    "channelsEyebrow": "Get In Touch",
-    "channelsTitle": "Choose Whatever's Easiest for You",
+    "addressTitle": "Office address",
+    "hoursTitle": "Opening hours",
+    "connectTitle": "Other channels",
+    "channelsEyebrow": "Get in touch",
+    "channelsTitle": "Choose whatever's easiest for you",
     "mapEyebrow": "Location",
-    "mapTitle": "Our Office in Karangploso",
+    "mapTitle": "Our office in Karangploso",
     "mapSubtitle": "Drop by during working hours. Message us on WhatsApp first so we can set the time aside.",
     "openMaps": "Open in Google Maps",
-    "faqTitle": "Frequently Asked Questions",
+    "faqTitle": "Frequently asked questions",
     "faqSubtitle": "Still unanswered? Just ask us on WhatsApp.",
     "metaTitle": "Contact & Office Address in Karangploso, Malang"
   },
@@ -238,8 +238,8 @@
     "navTitle": "Navigation",
     "packagesTitle": "Packages",
     "contactTitle": "Contact",
-    "domestic": "Domestic Packages",
-    "international": "International Packages",
+    "domestic": "Domestic packages",
+    "international": "International packages",
     "rights": "All rights reserved.",
     "builtWith": "All prices are in Indonesian Rupiah and subject to change."
   },
@@ -265,7 +265,7 @@
     "ctaSubtitle": "Tell us your plans on WhatsApp and we'll help you shape the options."
   },
   "Guides": {
-    "title": "Travel Guides",
+    "title": "Travel guides",
     "metaTitle": "Travel Guides & Tour Tips from Malang",
     "metaDescription": "Travel guides from Bunga Wisata in Malang, East Java: Bromo tips, company group tours, school study tours and preparing for your first trip abroad.",
     "subtitle": "Practical tips before you travel, written by the Bunga Wisata team in Malang.",

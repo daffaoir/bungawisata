@@ -152,8 +152,8 @@
  *                     setengah transparan gagal kontras selama animasi).
  * - `.reveal-photo` → foto "terbuka" dari bingkai sedikit menyempit, isinya
  *                     sedikit membesar lalu kembali normal.
- * - `.parallax`     → foto bergeser pelan saat halaman di-scroll.
- * - `.strip-progress` → bilah progres strip geser (lihat `ScrollStrip`).
+ * - `.parallax`     → pembungkus foto bergeser pelan saat halaman di-scroll
+ *                     (pembungkusnya dibuat lebih tinggi dari bingkainya).
  */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -175,7 +175,7 @@
       animation-range: entry 0% cover 45%;
     }
 
-    .parallax :where(img) {
+    .parallax {
       animation: parallax-y linear both;
       animation-timeline: view();
       animation-range: cover 0% cover 100%;
@@ -185,16 +185,6 @@
       animation: grow-y linear both;
       animation-timeline: view();
       animation-range: cover 15% cover 65%;
-    }
-  }
-}
-
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .strip-progress {
-      transform-origin: left;
-      animation: grow-x linear both;
-      animation-timeline: var(--strip-timeline);
     }
   }
 }
@@ -228,27 +218,16 @@
 
 @keyframes parallax-y {
   from {
-    translate: 0 -3%;
-    scale: 1.08;
+    translate: 0 -4%;
   }
   to {
-    translate: 0 3%;
-    scale: 1.08;
+    translate: 0 4%;
   }
 }
 
 @keyframes grow-y {
   from {
     scale: 1 0;
-  }
-  to {
-    scale: 1 1;
-  }
-}
-
-@keyframes grow-x {
-  from {
-    scale: 0.08 1;
   }
   to {
     scale: 1 1;
@@ -262,16 +241,6 @@
   }
   to {
     scale: 1;
-  }
-}
-
-/* Garis rute di hero tergambar sekali. */
-@keyframes route-draw {
-  from {
-    stroke-dashoffset: var(--route-length, 400);
-  }
-  to {
-    stroke-dashoffset: 0;
   }
 }
 
@@ -292,11 +261,6 @@
 @media (prefers-reduced-motion: no-preference) {
   .hero-settle {
     animation: hero-settle 1.6s var(--ease-out-soft) both;
-  }
-
-  .route-draw {
-    stroke-dasharray: var(--route-length, 400);
-    animation: route-draw 1.8s 0.4s var(--ease-out-soft) both;
   }
 
   .wa-nudge {

@@ -13,11 +13,18 @@ import type { Package } from "@/lib/schema";
 export function PackageCard({
   pkg,
   sizes = "(min-width: 1024px) 24rem, (min-width: 640px) 45vw, 85vw",
+  shape = "portrait",
   className,
 }: {
   pkg: Package;
   /** `sizes` untuk foto; sesuaikan kalau kartu dipakai di lebar lain. */
   sizes?: string;
+  /**
+   * `portrait` — foto 4:5 di semua lebar (strip geser beranda).
+   * `adaptive` — 4:3 di ponsel supaya daftar satu kolom tidak terlalu
+   * panjang, 4:5 mulai `sm` (grid dua/tiga kolom).
+   */
+  shape?: "portrait" | "adaptive";
   className?: string;
 }) {
   const locale = useLocale() as AppLocale;
@@ -27,7 +34,12 @@ export function PackageCard({
 
   return (
     <article className={cn("group relative flex h-full flex-col", className)}>
-      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-canvas-alt">
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-3xl bg-canvas-alt",
+          shape === "adaptive" ? "aspect-[4/3] sm:aspect-[4/5]" : "aspect-[4/5]",
+        )}
+      >
         <Image
           src={pkg.heroImage}
           alt={content.title}
