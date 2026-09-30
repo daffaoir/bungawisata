@@ -64,7 +64,7 @@ export function Hero() {
           {t("departure")}
         </p>
 
-        <div className="relative mx-auto mt-2 w-full max-w-6xl px-5 pb-8 sm:mt-0 sm:px-8 sm:pb-14">
+        <div className="relative mx-auto mt-2 w-full max-w-7xl px-5 pb-8 sm:mt-0 sm:px-8 sm:pb-14">
           <h1 className="max-w-[15ch] text-[2.5rem] leading-[1.02] text-canvas sm:text-[4rem] lg:text-[5.25rem]">
             {t("title")}
           </h1>

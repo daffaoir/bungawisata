@@ -62,7 +62,7 @@ export default async function PackagesPage({
         image={images["bromo-lanskap"]}
       />
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-12">
+      <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 sm:py-12">
         <PackageBrowser
           index={packages.map(toIndexEntry)}
           cards={Object.fromEntries(

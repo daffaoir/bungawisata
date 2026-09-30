@@ -63,10 +63,11 @@ export default async function GalleryPage({
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
-        image={images["bali-pantai-senja"]}
+        image={images["umum-fotografer"]}
+        imagePosition="object-[28%_25%]"
       />
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <h2 className="sr-only">{t("gridTitle")}</h2>
         {/*
           Keterangan selalu terlihat di bawah foto — pengguna ponsel dan

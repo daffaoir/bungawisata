@@ -22,7 +22,6 @@ export function GalleryCarousel() {
 
       <ScrollStrip
         className="mt-10"
-        fadeEdge
         label={t("title")}
         previousLabel={t("previous")}
         nextLabel={t("next")}

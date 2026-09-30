@@ -63,7 +63,7 @@ export default async function TestimonialsPage({
         image={images["vietnam-ha-long"]}
       />
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         {/* Kutipan dalam kartu membulat; teks kutipan jadi elemen utama. */}
         <GoogleRatingSummary className="mb-12" />
 

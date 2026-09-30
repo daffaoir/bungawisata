@@ -3,7 +3,7 @@ import type { GuideInput } from "@/lib/content-schema";
 
 export const tourLuarNegeriPertama = {
   slug: "tour-luar-negeri-pertama",
-  heroImage: images["umum-pesawat"],
+  heroImage: images["umum-paspor"],
   publishedAt: "2026-09-29",
   updatedAt: "2026-09-29",
   relatedPackages: ["singapura-malaysia-4d3n", "bangkok-pattaya-4d3n", "jepang-7d6n"],

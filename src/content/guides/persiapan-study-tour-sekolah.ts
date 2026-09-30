@@ -3,7 +3,7 @@ import type { GuideInput } from "@/lib/content-schema";
 
 export const persiapanStudyTourSekolah = {
   slug: "persiapan-study-tour-sekolah",
-  heroImage: images["yogya-borobudur"],
+  heroImage: images["umum-study-tour"],
   publishedAt: "2026-09-29",
   updatedAt: "2026-09-29",
   relatedPackages: ["yogyakarta-3d2n", "bali-4d3n"],

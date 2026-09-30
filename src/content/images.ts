@@ -118,6 +118,14 @@ export const images = {
   // ── Umum ──────────────────────────────────────────────────────────────
   "umum-rombongan": stock("umum-rombongan", "photo-1506869640319-fe1a24fd76dc"),
   "umum-pesawat": stock("umum-pesawat", "photo-1530469641172-8ac15d0a7d6a"),
+  // Siswa berseragam Pramuka mencatat di luar kelas.
+  "umum-study-tour": stock("umum-study-tour", "photo-1756102080345-797e02549f97"),
+  // Empat teman di puncak bukit dengan gunung-gunung Jawa Tengah di belakang.
+  "umum-teman-puncak": stock("umum-teman-puncak", "photo-1601807258526-2637650ea2ec"),
+  // Tangan memegang paspor Indonesia di depan terminal bandara.
+  "umum-paspor": stock("umum-paspor", "photo-1787030186312-ee07d04114f6"),
+  // Wisatawan memotret danau dengan kamera.
+  "umum-fotografer": stock("umum-fotografer", "photo-1599488488048-10c00b12ea2b"),
 
   // ── Suasana (wisatawan umum, bukan peserta tur Bunga Wisata) ─────────
   // Rombongan pendaki menyaksikan matahari terbit di puncak gunung.

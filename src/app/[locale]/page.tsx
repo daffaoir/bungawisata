@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GalleryCarousel } from "@/components/home/GalleryCarousel";
 import { Hero } from "@/components/home/Hero";
+import { HomeFaq } from "@/components/home/HomeFaq";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { PackagesShowcase } from "@/components/home/PackagesShowcase";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
@@ -28,7 +29,7 @@ export async function generateMetadata(
 
 /**
  * Beranda ringkas: foto & ajakan → paket → layanan → cara pesan → galeri →
- * ulasan + ajakan penutup.
+ * FAQ singkat → ulasan + ajakan penutup.
  */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -41,6 +42,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <ServicesOverview />
       <HowItWorks />
       <GalleryCarousel />
+      <HomeFaq />
       <TestimonialStrip />
     </div>
   );

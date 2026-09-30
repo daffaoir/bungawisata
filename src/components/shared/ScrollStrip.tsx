@@ -15,12 +15,6 @@ type ScrollStripProps = {
   /** Konten di kiri bilah kontrol, mis. tautan "lihat semua". */
   footer?: ReactNode;
   tone?: "dark" | "light";
-  /**
-   * Pudarkan tepi kanan selama masih ada kartu di kanan. Untuk kartu yang
-   * lebarnya bervariasi (galeri) sehingga kartu terakhir terpotong; strip
-   * dengan jumlah kartu pas per layar tidak perlu.
-   */
-  fadeEdge?: boolean;
   className?: string;
 };
 
@@ -32,7 +26,10 @@ type ScrollStripProps = {
  * ada bilah progres dan dua tombol bulat — dekat dengan kartunya, bukan di
  * pojok judul — supaya jelas bahwa deretan ini bisa digeser.
  *
- * Jalurnya berada di dalam kolom konten, rata dengan teks di atasnya.
+ * Posisi awal kartu pertama rata dengan teks di atasnya, tetapi jalurnya
+ * melebar keluar kolom ke kiri dan kanan sampai sejajar panel membulat di
+ * tepi layar (`.strip-bleed` di globals.css). Kartu yang sedang lewat terlihat
+ * terpotong di sana, tidak menempel ke tepi layar.
  */
 export function ScrollStrip({
   label,
@@ -42,7 +39,6 @@ export function ScrollStrip({
   itemClassName,
   footer,
   tone = "dark",
-  fadeEdge = false,
   className,
 }: ScrollStripProps) {
   const trackRef = useRef<HTMLUListElement>(null);
@@ -111,17 +107,7 @@ export function ScrollStrip({
         onKeyDown={handleKeyDown}
         tabIndex={0}
         aria-label={label}
-        className={cn(
-          // Jalur tetap di dalam kolom konten, rata kiri dan kanan dengan
-          // teks di atasnya. Dengan `fadeEdge`, tepi kanannya memudar halus
-          // selama masih ada kartu di kanan (bukan potongan tajam).
-          "strip gap-4 pb-2 sm:gap-6",
-          "rounded-3xl focus-visible:outline-offset-4",
-          fadeEdge &&
-            scrollable &&
-            !atEnd &&
-            "[mask-image:linear-gradient(to_right,#000_calc(100%-4rem),transparent)]",
-        )}
+        className="strip strip-bleed gap-4 pb-2 sm:gap-6 rounded-3xl focus-visible:outline-offset-4"
       >
         {Children.map(children, (child) => (
           <li className={itemClassName}>{child}</li>

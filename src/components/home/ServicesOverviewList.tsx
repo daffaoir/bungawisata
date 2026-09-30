@@ -26,7 +26,9 @@ export function ServicesOverviewList({ items }: { items: Item[] }) {
 
   return (
     <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-      <div className="relative hidden aspect-[4/5] overflow-hidden rounded-3xl bg-canvas lg:block">
+      {/* Tinggi foto mengikuti daftar di sebelahnya (grid meregangkan kolom), jadi
+          tidak ada ruang kosong di bawah foto. */}
+      <div className="relative hidden min-h-[28rem] overflow-hidden rounded-3xl bg-canvas lg:block">
         {items.map((item, index) => (
           <Image
             key={item.slug}
@@ -57,7 +59,7 @@ export function ServicesOverviewList({ items }: { items: Item[] }) {
               onMouseEnter={() => setActive(index)}
               onFocus={() => setActive(index)}
               className={cn(
-                "group flex items-center gap-4 rounded-3xl p-3 transition-colors duration-300 sm:gap-5 sm:p-4",
+                "group flex items-start gap-4 rounded-3xl p-3 transition-colors duration-300 sm:gap-5 sm:p-4",
                 index === active ? "lg:bg-canvas" : "hover:bg-canvas/60",
               )}
             >

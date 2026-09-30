@@ -4,11 +4,12 @@ import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { ClosingCta } from "@/components/shared/ClosingCta";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { QuoteRequestForm } from "@/components/shared/QuoteRequestForm";
-import { Section, SectionHeading } from "@/components/shared/Section";
+import { QuoteSection } from "@/components/shared/QuoteSection";
+import { Section } from "@/components/shared/Section";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { images } from "@/content/images";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import {
   breadcrumbItems,
@@ -63,34 +64,32 @@ export default async function ServicesPage({
       <PageHeader
         title={t("title")}
         subtitle={t("subtitle")}
-        image={images["umum-rombongan"]}
+        image={images["suasana-sunrise-rombongan"]}
       />
 
       <Section tone="canvas" compact>
         <h2 className="sr-only">{tNav("services")}</h2>
-        <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <StaggerItem key={service.slug} className="h-full">
+        {/* Lima kartu tanpa slot kosong: desktop 3 + 2 (baris kedua lebih
+            lebar, grid 6 kolom), tablet 2 + 2 + 1 lebar. */}
+        <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          {services.map((service, index) => (
+            <StaggerItem
+              key={service.slug}
+              className={cn(
+                "h-full",
+                index < 3 ? "lg:col-span-2" : "lg:col-span-3",
+                index === services.length - 1 &&
+                  services.length % 2 === 1 &&
+                  "sm:col-span-2",
+              )}
+            >
               <ServiceCard service={service} />
             </StaggerItem>
           ))}
         </StaggerGroup>
       </Section>
 
-      <Section tone="white" compact>
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <SectionHeading
-            title={t("quoteTitle")}
-            subtitle={t("quoteSubtitle")}
-          />
-          <QuoteRequestForm
-            services={services.map((service) => ({
-              slug: service.slug,
-              name: service.content[appLocale].name,
-            }))}
-          />
-        </div>
-      </Section>
+      <QuoteSection />
 
       <ClosingCta
         title={t("ctaTitle")}

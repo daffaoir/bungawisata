@@ -147,7 +147,7 @@ export default async function PackageDetailPage({
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-daun-900/90 via-daun-900/40 to-daun-900/10" />
 
-          <div className="mx-auto w-full max-w-6xl px-5 pb-9 sm:px-8 sm:pb-12">
+          <div className="mx-auto w-full max-w-7xl px-5 pb-9 sm:px-8 sm:pb-12">
             <Link
               href="/paket"
               className="-my-3 inline-flex min-h-11 items-center gap-2 py-3 text-[0.95rem] font-medium text-canvas/85 transition-colors hover:text-canvas"
@@ -176,7 +176,7 @@ export default async function PackageDetailPage({
         </div>
       </header>
 
-      <div className="mx-auto w-full max-w-6xl px-5 py-14 pb-28 sm:px-8 sm:py-16 lg:pb-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 pb-28 sm:px-8 sm:py-16 lg:pb-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start lg:gap-14">
           <div className="min-w-0">
             <p className="text-[1.15rem] leading-[1.7] text-ink-soft">

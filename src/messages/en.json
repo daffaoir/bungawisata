@@ -110,6 +110,11 @@
       "next": "Next photo",
       "viewAll": "Open the gallery"
     },
+    "faq": {
+      "title": "Before you ask",
+      "subtitle": "What people ask most often before booking.",
+      "viewAll": "All questions"
+    },
     "testimonials": {
       "title": "From people who have travelled with us",
       "viewAll": "Read more reviews"
@@ -184,6 +189,13 @@
     "intro": "Bunga Wisata is a family-run tour & travel agency in Karangploso, Malang Regency, East Java. We plan domestic and international trips, from a weekend at Bromo to tours abroad, for small groups, families and large groups alike.",
     "storyTitle": "Our story",
     "story": "Our office sits at the Karangjuwet rest area in Karangploso, on the road between Malang and Batu. From there we arrange group tours, school study tours, company gatherings and events, private family tours and flight tickets. Every trip starts with a WhatsApp chat: we ask about your destination, group size, dates and budget, then put together a clear written itinerary showing what is and isn't included. Our customers rate us 4.7 out of 5 on Google, and we want every group to come home with an equally good story.",
+    "facts": {
+      "rating": "rating from {count} Google reviews",
+      "followers": "followers on Facebook",
+      "packages": "ready-made packages, domestic and international",
+      "services": "services, from group tours to flight tickets"
+    },
+    "legal": "Legal entity: {name}. The office is open Monday to Saturday, 08.00 to 17.00 WIB.",
     "valuesTitle": "What we stand for",
     "values": {
       "honest": {
@@ -268,6 +280,12 @@
     "faqTitle": "Frequently asked questions",
     "quoteTitle": "Request a quote",
     "quoteSubtitle": "Fill in a few details and send them on WhatsApp. We reply during office hours.",
+    "quoteStepsTitle": "After you send it",
+    "quoteSteps": [
+      "WhatsApp opens with the message already written. Just tap send.",
+      "We reply during office hours with a suggested itinerary and price estimate.",
+      "Adjust the days, hotels, or destinations until it fits. No obligation to book."
+    ],
     "otherServices": "Other services",
     "ctaTitle": "Not sure where to start?",
     "ctaSubtitle": "Tell us your plans on WhatsApp and we'll help you shape the options."

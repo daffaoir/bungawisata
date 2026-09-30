@@ -6,8 +6,11 @@ import { Section, SectionHeading } from "@/components/shared/Section";
 import { ClosingCta } from "@/components/shared/ClosingCta";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/content/images";
+import { site } from "@/content/site";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
+import { getAllPackages } from "@/lib/packages";
+import { getAllServices } from "@/lib/services";
 import {
   breadcrumbItems,
   buildAlternates,
@@ -47,6 +50,24 @@ export default async function AboutPage({
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "About" });
+  const number = new Intl.NumberFormat(locale === "id" ? "id-ID" : "en-US", {
+    maximumFractionDigits: 1,
+  });
+
+  // Hanya angka yang punya sumber publik (`site.proof`) atau dihitung dari
+  // konten situs. Jangan tambah tahun berdiri/jumlah peserta tanpa data.
+  const facts = [
+    {
+      value: number.format(site.proof.googleRating),
+      label: t("facts.rating", { count: site.proof.googleReviewCount }),
+    },
+    {
+      value: number.format(site.proof.facebookFollowers),
+      label: t("facts.followers"),
+    },
+    { value: String(getAllPackages().length), label: t("facts.packages") },
+    { value: String(getAllServices().length), label: t("facts.services") },
+  ];
 
   const tNav = await getTranslations({ locale, namespace: "Nav" });
   const breadcrumb = breadcrumbJsonLd(
@@ -71,7 +92,7 @@ export default async function AboutPage({
         mematikan `position: sticky` di kolom kiri.
       */}
       <section className="py-20 text-ink sm:py-28">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="text-[2.1rem] sm:text-[2.75rem] lg:text-[3.25rem]">
               {t("storyTitle")}
@@ -91,6 +112,23 @@ export default async function AboutPage({
           <div>
             <p className="max-w-[62ch] text-[1.1rem] leading-[1.85] text-ink-soft">
               {t("story")}
+            </p>
+
+            <dl className="mt-12 grid max-w-[62ch] grid-cols-2 gap-x-8 gap-y-8 border-t border-ink/10 pt-10">
+              {facts.map((fact) => (
+                <div key={fact.label} className="flex flex-col-reverse justify-end gap-1">
+                  <dt className="text-[0.95rem] leading-snug text-ink-soft">
+                    {fact.label}
+                  </dt>
+                  <dd className="font-display text-[2.5rem] leading-none sm:text-[3rem]">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="mt-10 max-w-[62ch] text-[0.95rem] leading-[1.7] text-ink-soft">
+              {t("legal", { name: site.legalName })}
             </p>
             <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-3xl lg:hidden">
               <Image

@@ -110,6 +110,11 @@
       "next": "Foto berikutnya",
       "viewAll": "Buka galeri"
     },
+    "faq": {
+      "title": "Sebelum Anda bertanya",
+      "subtitle": "Yang paling sering ditanyakan sebelum memesan.",
+      "viewAll": "Semua pertanyaan"
+    },
     "testimonials": {
       "title": "Kata mereka yang sudah ikut",
       "viewAll": "Baca ulasan lainnya"
@@ -169,7 +174,7 @@
     "airlineLabel": "Maskapai",
     "minPaxLabel": "Min. peserta",
     "minPaxValue": "{count} orang",
-    "hotelsTitle": "Hotel yang Dipakai",
+    "hotelsTitle": "Hotel yang dipakai",
     "hotelNights": "{count, plural, other {# malam}}",
     "downloadPdf": "Unduh itinerary (PDF)",
     "downloadPdfShort": "PDF",
@@ -184,6 +189,13 @@
     "intro": "Bunga Wisata adalah biro tour & travel keluarga di Karangploso, Kabupaten Malang. Kami menyusun perjalanan dalam dan luar negeri, dari akhir pekan ke Bromo sampai tour ke luar negeri, untuk grup kecil, keluarga, maupun rombongan besar.",
     "storyTitle": "Cerita kami",
     "story": "Kantor kami ada di rest area Jalan Raya Karangjuwet, Karangploso, di jalur antara Malang dan Batu. Dari sana kami melayani tour rombongan, study tour sekolah, gathering dan event kantor, private tour keluarga, sampai pemesanan tiket pesawat. Setiap perjalanan dimulai dari obrolan di WhatsApp: kami tanyakan tujuan, jumlah peserta, tanggal, dan anggaran Anda, lalu menyusun itinerary tertulis yang jelas. Apa yang sudah termasuk, apa yang belum. Pelanggan kami menilai layanan kami 4,7 dari 5 di Google, dan kami ingin setiap rombongan pulang dengan cerita yang sama baiknya.",
+    "facts": {
+      "rating": "rating dari {count} ulasan Google",
+      "followers": "pengikut di Facebook",
+      "packages": "paket siap berangkat, dalam dan luar negeri",
+      "services": "layanan, dari tour rombongan sampai tiket pesawat"
+    },
+    "legal": "Nama badan usaha: {name}. Kantor buka Senin sampai Sabtu, 08.00 sampai 17.00 WIB.",
     "valuesTitle": "Yang kami pegang",
     "values": {
       "honest": {
@@ -268,6 +280,12 @@
     "faqTitle": "Pertanyaan yang sering diajukan",
     "quoteTitle": "Minta penawaran",
     "quoteSubtitle": "Isi singkat, lalu kirim lewat WhatsApp. Tim kami membalas di jam kerja.",
+    "quoteStepsTitle": "Setelah Anda kirim",
+    "quoteSteps": [
+      "WhatsApp terbuka dengan pesan yang sudah tersusun. Tinggal tekan kirim.",
+      "Kami balas di jam kerja dengan usulan itinerary dan perkiraan harga.",
+      "Ubah hari, hotel, atau destinasi sampai pas. Tidak ada kewajiban memesan."
+    ],
     "otherServices": "Layanan lainnya",
     "ctaTitle": "Belum yakin mulai dari mana?",
     "ctaSubtitle": "Ceritakan rencana Anda lewat WhatsApp, kami bantu susun pilihannya."

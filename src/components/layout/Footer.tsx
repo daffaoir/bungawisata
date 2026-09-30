@@ -24,7 +24,7 @@ export function Footer() {
 
   return (
     <footer className="bg-daun text-canvas">
-      <div className="mx-auto w-full max-w-6xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20">
+      <div className="mx-auto w-full max-w-7xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <Logo tone="light" />

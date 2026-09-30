@@ -7,7 +7,7 @@ export default function NotFoundPage() {
 
   return (
     <section className="flex min-h-[60vh] items-center py-20 text-ink">
-      <div className="mx-auto w-full max-w-6xl px-5 text-center sm:px-8">
+      <div className="mx-auto w-full max-w-7xl px-5 text-center sm:px-8">
         <p
           aria-hidden="true"
           className="font-display text-[7rem] leading-none text-gold-500"

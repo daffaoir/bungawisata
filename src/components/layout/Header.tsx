@@ -15,7 +15,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-canvas/85 backdrop-blur-lg">
-      <div className="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center gap-6 px-5 sm:px-8">
+      <div className="mx-auto flex h-[4.5rem] w-full max-w-7xl items-center gap-6 px-5 sm:px-8">
         <Link href="/" className="shrink-0">
           <Logo />
         </Link>

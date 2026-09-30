@@ -3,7 +3,7 @@ import type { GuideInput } from "@/lib/content-schema";
 
 export const tipsTourRombonganKantor = {
   slug: "tips-tour-rombongan-kantor",
-  heroImage: images["umum-rombongan"],
+  heroImage: images["umum-teman-puncak"],
   publishedAt: "2026-09-29",
   updatedAt: "2026-09-29",
   relatedPackages: ["bali-4d3n", "bangkok-pattaya-4d3n"],

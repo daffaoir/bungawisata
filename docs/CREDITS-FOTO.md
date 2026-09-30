@@ -80,6 +80,10 @@ adanya — tidak dikompres ulang).
 | `/images/stock/abu-dhabi-masjid.jpg` | https://images.unsplash.com/photo-1512632578888-169bbbc64f33 |
 | `/images/stock/umum-rombongan.jpg` | https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc |
 | `/images/stock/umum-pesawat.jpg` | https://images.unsplash.com/photo-1530469641172-8ac15d0a7d6a |
+| `/images/stock/umum-study-tour.jpg` | https://images.unsplash.com/photo-1756102080345-797e02549f97 |
+| `/images/stock/umum-teman-puncak.jpg` | https://images.unsplash.com/photo-1601807258526-2637650ea2ec |
+| `/images/stock/umum-paspor.jpg` | https://images.unsplash.com/photo-1787030186312-ee07d04114f6 |
+| `/images/stock/umum-fotografer.jpg` | https://images.unsplash.com/photo-1599488488048-10c00b12ea2b |
 | `/images/stock/suasana-sunrise-rombongan.jpg` | https://images.unsplash.com/photo-1706865854509-821c960ce465 |
 | `/images/stock/suasana-pantai-keluarga.jpg` | https://images.unsplash.com/photo-1693020077268-1a3b572103c1 |
 | `/images/stock/suasana-kapal-teman.jpg` | https://images.unsplash.com/photo-1665234811705-02e42eda85d2 |
