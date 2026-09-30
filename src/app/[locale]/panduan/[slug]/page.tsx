@@ -140,6 +140,7 @@ export default async function GuidePage({
               src={guide.heroImage}
               alt=""
               fill
+              quality={85}
               priority
               sizes="(min-width: 1024px) 64rem, 100vw"
               className="object-cover"

@@ -30,6 +30,7 @@ export function HowItWorks() {
               src={images["suasana-kapal-teman"]}
               alt={t("photoAlt")}
               fill
+              quality={85}
               sizes="(min-width: 1280px) 32rem, 40vw"
               className="object-cover"
             />

@@ -27,7 +27,7 @@ export const rajaAmpat6d5n = {
     id: {
       title: "Raja Ampat 6 Hari 5 Malam",
       summary:
-        "Paket tour Raja Ampat 6 hari dari Sorong: Piaynemo, Pasir Timbul, dan Arborek — penerbangan dari Surabaya atau Malang ke Sorong bisa dibantu.",
+        "Paket tour Raja Ampat 6 hari dari Sorong: Piaynemo, Pasir Timbul, dan Arborek. Penerbangan dari Surabaya atau Malang ke Sorong bisa dibantu.",
       highlights: [
         "Panorama karst Piaynemo dari dek pandang di puncak tangga",
         "Snorkeling di dermaga Arborek yang ramai ikan",
@@ -130,7 +130,7 @@ export const rajaAmpat6d5n = {
     en: {
       title: "Raja Ampat 6 Days 5 Nights",
       summary:
-        "A 6-day Raja Ampat tour from Sorong: Piaynemo, Pasir Timbul, and Arborek village — flights to Sorong from Surabaya or Malang can be arranged.",
+        "A 6-day Raja Ampat tour from Sorong: Piaynemo, Pasir Timbul, and Arborek village. Flights to Sorong from Surabaya or Malang can be arranged.",
       highlights: [
         "The Piaynemo karst panorama from the viewing deck at the top of the stairs",
         "Snorkelling off Arborek jetty, thick with fish",

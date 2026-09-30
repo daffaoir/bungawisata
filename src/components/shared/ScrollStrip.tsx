@@ -26,8 +26,9 @@ type ScrollStripProps = {
  * ada bilah progres dan dua tombol bulat — dekat dengan kartunya, bukan di
  * pojok judul — supaya jelas bahwa deretan ini bisa digeser.
  *
- * Jalurnya diteruskan sampai tepi kanan layar sehingga kartu terakhir yang
- * terlihat terpotong di tepi layar: petunjuk bahwa masih ada lagi.
+ * Jalurnya mulai tepat di tepi kiri kolom konten dan diteruskan sampai tepi
+ * kanan layar, sehingga kartu terakhir yang terlihat terpotong di tepi layar:
+ * petunjuk bahwa masih ada lagi.
  */
 export function ScrollStrip({
   label,
@@ -106,7 +107,10 @@ export function ScrollStrip({
         tabIndex={0}
         aria-label={label}
         className={cn(
-          "strip -mx-5 scroll-px-5 gap-4 px-5 pb-2 sm:-mx-8 sm:scroll-px-8 sm:gap-6 sm:px-8",
+          // Tepi kiri jalur = tepi kiri kolom konten, jadi kartu yang sudah
+          // lewat terpotong rapi di sana (bukan menyisakan irisan tipis di
+          // luar kolom). Tepi kanan diteruskan sampai tepi layar.
+          "strip -me-5 gap-4 pe-5 pb-2 sm:-me-8 sm:gap-6 sm:pe-8",
           "lg:me-[calc(50%-50vw)]",
           "rounded-3xl focus-visible:outline-offset-4",
         )}

@@ -22,11 +22,11 @@ export const lombokGili4d3n = {
     id: {
       title: "Lombok & Gili 4 Hari 3 Malam",
       summary:
-        "Paket tour Lombok & Gili 4 hari: desa Sade, Tanjung Aan, dan semalam di Gili Trawangan — tiket pesawat dari Surabaya atau Malang bisa dibantu.",
+        "Paket tour Lombok & Gili 4 hari: desa Sade, Tanjung Aan, dan semalam di Gili Trawangan. Tiket pesawat dari Surabaya atau Malang bisa dibantu.",
       highlights: [
         "Desa adat Sade dengan rumah beratap alang-alang dan lantai tanah liat",
         "Pantai Tanjung Aan dan Bukit Merese di ujung selatan Lombok",
-        "Menginap di Gili Trawangan — hanya sepeda dan cidomo, tanpa mobil",
+        "Menginap di Gili Trawangan. Hanya sepeda dan cidomo, tanpa mobil",
         "Snorkeling di titik penyu antara Gili Trawangan, Meno, dan Air",
       ],
       itinerary: [
@@ -37,7 +37,7 @@ export const lombokGili4d3n = {
           activities: [
             "Penjemputan di Bandara Internasional Lombok",
             "Kunjungan ke desa adat Sade dan demonstrasi tenun songket",
-            "Makan siang khas Lombok — ayam taliwang dan plecing kangkung",
+            "Makan siang khas Lombok, ayam taliwang dan plecing kangkung",
             "Pantai Tanjung Aan dan Bukit Merese menjelang sore",
             "Check-in hotel di Senggigi, makan malam",
           ],
@@ -101,11 +101,11 @@ export const lombokGili4d3n = {
     en: {
       title: "Lombok & Gili 4 Days 3 Nights",
       summary:
-        "A 4-day Lombok and Gili tour: Sade village, Tanjung Aan beach, and a night on Gili Trawangan — flights from Surabaya or Malang can be arranged.",
+        "A 4-day Lombok and Gili tour: Sade village, Tanjung Aan beach, and a night on Gili Trawangan. Flights from Surabaya or Malang can be arranged.",
       highlights: [
         "Sade village, with thatched roofs and clay floors",
         "Tanjung Aan beach and Merese Hill at Lombok's southern tip",
-        "A night on Gili Trawangan — bicycles and horse carts only",
+        "A night on Gili Trawangan, bicycles and horse carts only",
         "Snorkelling the turtle spots between Trawangan, Meno, and Air",
       ],
       itinerary: [
@@ -116,7 +116,7 @@ export const lombokGili4d3n = {
           activities: [
             "Pickup at Lombok International Airport",
             "Visit Sade traditional village and a songket weaving demonstration",
-            "Lombok lunch — ayam taliwang and plecing kangkung",
+            "Lombok lunch, ayam taliwang and plecing kangkung",
             "Tanjung Aan beach and Merese Hill in the late afternoon",
             "Hotel check-in in Senggigi and dinner",
           ],

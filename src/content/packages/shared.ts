@@ -13,12 +13,12 @@ import type { AppLocale } from "@/i18n/routing";
 export const INTERNATIONAL_NOTE: Record<AppLocale, string> = {
   id:
     "Harga bersifat indikatif dan masih mengikuti kurs, tarif penerbangan, serta musim ramai. " +
-    "Keberangkatan dapat diatur dari kota asal lain — sebutkan kota Anda saat bertanya, " +
+    "Keberangkatan dapat diatur dari kota asal lain. Sebutkan kota Anda saat bertanya, " +
     "nanti kami hitungkan selisih tiketnya. Hotel yang disebutkan adalah acuan; " +
     "bila penuh, kami ganti dengan hotel setaraf di area yang sama.",
   en:
     "Prices are indicative and still move with exchange rates, airfares, and peak seasons. " +
-    "Departure can be arranged from another home city — tell us yours when you enquire and " +
+    "Departure can be arranged from another home city. Tell us yours when you enquire and " +
     "we will quote the fare difference. The hotels listed are a reference; if they are full " +
     "we substitute a hotel of a similar standard in the same area.",
 };

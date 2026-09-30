@@ -52,6 +52,7 @@ export function ClosingCta({
             alt=""
             aria-hidden="true"
             fill
+            quality={85}
             sizes="40vw"
             className="object-cover"
           />

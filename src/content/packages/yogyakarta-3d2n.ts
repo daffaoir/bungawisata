@@ -26,7 +26,7 @@ export const yogyakarta3d2n = {
     id: {
       title: "Yogyakarta & Borobudur 3 Hari 2 Malam",
       summary:
-        "Paket tour Yogyakarta 3 hari dari Malang dengan bus: Borobudur, Prambanan, Keraton, dan Malioboro — ringkas untuk rombongan sekolah maupun kantor.",
+        "Paket tour Yogyakarta 3 hari dari Malang dengan bus: Borobudur, Prambanan, Keraton, dan Malioboro. Ringkas untuk rombongan sekolah maupun kantor.",
       highlights: [
         "Candi Borobudur, candi Buddha terbesar di dunia (Warisan Dunia UNESCO)",
         "Candi Prambanan, kompleks candi Hindu abad ke-9",
@@ -92,7 +92,7 @@ export const yogyakarta3d2n = {
     en: {
       title: "Yogyakarta & Borobudur 3 Days 2 Nights",
       summary:
-        "A 3-day Yogyakarta coach tour from Malang: Borobudur, Prambanan, the Kraton, and Malioboro after dark — compact enough for school and office groups.",
+        "A 3-day Yogyakarta coach tour from Malang: Borobudur, Prambanan, the Kraton, and Malioboro after dark. Compact enough for school and office groups.",
       highlights: [
         "Borobudur, the largest Buddhist temple in the world (UNESCO World Heritage)",
         "Prambanan, the 9th-century Hindu temple complex",

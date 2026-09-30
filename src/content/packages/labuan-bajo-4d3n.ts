@@ -26,7 +26,7 @@ export const labuanBajo4d3n = {
     id: {
       title: "Labuan Bajo & Komodo 4 Hari 3 Malam",
       summary:
-        "Paket tour Labuan Bajo 4 hari: berlayar ke Padar, Pulau Komodo, Pink Beach, dan Manta Point — penerbangan dari Surabaya atau Malang bisa dibantu.",
+        "Paket tour Labuan Bajo 4 hari: berlayar ke Padar, Pulau Komodo, Pink Beach, dan Manta Point. Penerbangan dari Surabaya atau Malang bisa dibantu.",
       highlights: [
         "Trekking ke puncak Pulau Padar, titik pandang tiga teluk",
         "Bertemu komodo di Pulau Komodo bersama ranger taman nasional",
@@ -103,7 +103,7 @@ export const labuanBajo4d3n = {
     en: {
       title: "Labuan Bajo & Komodo 4 Days 3 Nights",
       summary:
-        "A 4-day Labuan Bajo tour sailing to Padar, Komodo Island, Pink Beach, and Manta Point — flights from Surabaya or Malang can be arranged for you.",
+        "A 4-day Labuan Bajo tour sailing to Padar, Komodo Island, Pink Beach, and Manta Point. Flights from Surabaya or Malang can be arranged for you.",
       highlights: [
         "The trek up Padar Island for its three-bay viewpoint",
         "Meeting Komodo dragons on Komodo Island with a park ranger",

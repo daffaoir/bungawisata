@@ -34,10 +34,13 @@ export function ServicesOverviewList({ items }: { items: Item[] }) {
             alt=""
             aria-hidden="true"
             fill
+            quality={85}
             sizes="(min-width: 1280px) 30rem, 40vw"
             className={cn(
               "object-cover transition-[opacity,scale] duration-700 ease-out-soft",
-              index === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0",
+              index === active
+                ? "scale-100 opacity-100"
+                : "scale-[1.04] opacity-0",
             )}
           />
         ))}
@@ -47,7 +50,10 @@ export function ServicesOverviewList({ items }: { items: Item[] }) {
         {items.map((item, index) => (
           <li key={item.slug}>
             <Link
-              href={{ pathname: "/layanan/[slug]", params: { slug: item.slug } }}
+              href={{
+                pathname: "/layanan/[slug]",
+                params: { slug: item.slug },
+              }}
               onMouseEnter={() => setActive(index)}
               onFocus={() => setActive(index)}
               className={cn(
@@ -61,6 +67,7 @@ export function ServicesOverviewList({ items }: { items: Item[] }) {
                   alt=""
                   aria-hidden="true"
                   fill
+                  quality={85}
                   sizes="6rem"
                   className="object-cover"
                 />

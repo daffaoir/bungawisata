@@ -23,7 +23,7 @@ export const danauToba4d3n = {
     id: {
       title: "Danau Toba & Samosir 4 Hari 3 Malam",
       summary:
-        "Paket tour Danau Toba 4 hari: Samosir, Sipiso-piso, dan Berastagi mulai dari Medan — penerbangan dari Surabaya atau Malang bisa kami bantu atur.",
+        "Paket tour Danau Toba 4 hari: Samosir, Sipiso-piso, dan Berastagi mulai dari Medan. Penerbangan dari Surabaya atau Malang bisa kami bantu atur.",
       highlights: [
         "Menyeberangi Danau Toba dengan feri menuju Pulau Samosir",
         "Kompleks makam Raja Sidabutar di Tomok dan rumah adat Batak di Ambarita",
@@ -104,7 +104,7 @@ export const danauToba4d3n = {
     en: {
       title: "Lake Toba & Samosir 4 Days 3 Nights",
       summary:
-        "A 4-day Lake Toba tour from Medan: Samosir, Sipiso-piso falls, and Berastagi — flights from Surabaya or Malang can be arranged on request.",
+        "A 4-day Lake Toba tour from Medan: Samosir, Sipiso-piso falls, and Berastagi. Flights from Surabaya or Malang can be arranged on request.",
       highlights: [
         "The ferry crossing of Lake Toba to Samosir Island",
         "King Sidabutar's stone tombs in Tomok and the Batak houses of Ambarita",

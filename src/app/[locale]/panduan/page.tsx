@@ -87,6 +87,7 @@ export default async function GuidesPage({
                       src={guide.heroImage}
                       alt=""
                       fill
+                      quality={85}
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-[900ms] ease-out-soft [@media(hover:hover)]:group-hover:scale-[1.04]"
                     />
@@ -98,7 +99,10 @@ export default async function GuidesPage({
                       </time>
                     </p>
                     <h3 className="mt-2 text-[1.5rem]">
-                      <Link href={href} className="after:absolute after:inset-0 after:rounded-3xl">
+                      <Link
+                        href={href}
+                        className="after:absolute after:inset-0 after:rounded-3xl"
+                      >
                         {content.title}
                       </Link>
                     </h3>

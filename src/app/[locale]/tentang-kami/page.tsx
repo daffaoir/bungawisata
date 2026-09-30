@@ -61,7 +61,7 @@ export default async function AboutPage({
       <PageHeader
         title={t("title")}
         subtitle={t("intro")}
-        image={images["suasana-sunrise-rombongan"]}
+        image={images["komodo-kapal"]}
       />
 
       {/*
@@ -81,6 +81,7 @@ export default async function AboutPage({
                 src={images["suasana-candi-jalan"]}
                 alt=""
                 fill
+                quality={85}
                 sizes="(min-width: 1024px) 40vw, 0px"
                 className="object-cover"
               />
@@ -96,6 +97,7 @@ export default async function AboutPage({
                 src={images["suasana-candi-jalan"]}
                 alt=""
                 fill
+                quality={85}
                 sizes="(min-width: 1024px) 0px, 100vw"
                 className="object-cover"
               />
@@ -111,9 +113,7 @@ export default async function AboutPage({
           {VALUES.map((key) => (
             <StaggerItem key={key} className="h-full">
               <div className="h-full rounded-3xl bg-canvas p-6 sm:p-7">
-                <h3 className="text-[1.4rem]">
-                  {t(`values.${key}.title`)}
-                </h3>
+                <h3 className="text-[1.4rem]">{t(`values.${key}.title`)}</h3>
                 <p className="mt-2 leading-[1.7] text-ink-soft">
                   {t(`values.${key}.description`)}
                 </p>

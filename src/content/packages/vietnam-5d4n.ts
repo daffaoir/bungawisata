@@ -27,7 +27,7 @@ export const vietnam5d4n = {
     id: {
       title: "Vietnam: Hanoi – Ha Long 5 Hari 4 Malam",
       summary:
-        "Paket tour Vietnam 5 hari dari Jakarta: Kota Tua Hanoi dan berlayar di Teluk Ha Long — perjalanan dari Malang atau Surabaya ke Jakarta bisa dibantu.",
+        "Paket tour Vietnam 5 hari dari Jakarta: Kota Tua Hanoi dan berlayar di Teluk Ha Long. Perjalanan dari Malang atau Surabaya ke Jakarta bisa dibantu.",
       highlights: [
         "Berlayar di Teluk Ha Long dan singgah di Gua Sung Sot",
         "Kota Tua Hanoi dengan 36 jalan pedagangnya",
@@ -121,7 +121,7 @@ export const vietnam5d4n = {
     en: {
       title: "Vietnam: Hanoi – Ha Long 5 Days 4 Nights",
       summary:
-        "A 5-day Vietnam tour from Jakarta: Hanoi's Old Quarter and a cruise on Ha Long Bay — travel from Malang or Surabaya to Jakarta can be arranged.",
+        "A 5-day Vietnam tour from Jakarta: Hanoi's Old Quarter and a cruise on Ha Long Bay. Travel from Malang or Surabaya to Jakarta can be arranged.",
       highlights: [
         "Cruising Ha Long Bay with a stop at Sung Sot Cave",
         "Hanoi's Old Quarter and its 36 merchant streets",

@@ -18,7 +18,7 @@ adanya — tidak dikompres ulang).
 |---|---|
 | `/images/stock/bali-sawah.jpg` | https://images.unsplash.com/photo-1513415756790-2ac1db1297d0 |
 | `/images/stock/bali-terasering.jpg` | https://images.unsplash.com/photo-1555400038-a088c772c8cd |
-| `/images/stock/bali-pura-laut.jpg` | https://images.unsplash.com/photo-1698799619978-872b701b44a8 |
+| `/images/stock/bali-pura-laut.jpg` | https://images.unsplash.com/photo-1542725231-e6ff634bf0f5 |
 | `/images/stock/bali-tebing-uluwatu.jpg` | https://images.unsplash.com/photo-1576019206484-54273acdfa89 |
 | `/images/stock/bali-pantai-senja.jpg` | https://images.unsplash.com/photo-1567520595708-2fb411a6ce88 |
 | `/images/stock/komodo-padar.jpg` | https://images.unsplash.com/photo-1660279582815-8d9a2b0d7e27 |
@@ -32,7 +32,7 @@ adanya — tidak dikompres ulang).
 | `/images/stock/yogya-borobudur-stupa.jpg` | https://images.unsplash.com/photo-1689904575573-ac10f7edc6f9 |
 | `/images/stock/yogya-prambanan.jpg` | https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d |
 | `/images/stock/bromo-lanskap.jpg` | https://images.unsplash.com/photo-1662114480912-05a338d79da3 |
-| `/images/stock/bromo-kaldera.jpg` | https://images.unsplash.com/photo-1555503581-3229026fee68 |
+| `/images/stock/bromo-kaldera.jpg` | https://images.unsplash.com/photo-1749731630653-d9b3f00573ed |
 | `/images/stock/bromo-udara.jpg` | https://images.unsplash.com/photo-1518043610038-064362b44076 |
 | `/images/stock/ijen-kawah.jpg` | https://images.unsplash.com/photo-1776875339246-ba5d0e9dce43 |
 | `/images/stock/gili-udara.jpg` | https://images.unsplash.com/photo-1583022846753-83a4eba54ac1 |
@@ -40,7 +40,7 @@ adanya — tidak dikompres ulang).
 | `/images/stock/gili-penyu.jpg` | https://images.unsplash.com/photo-1709483095301-2d1f3e95b1d4 |
 | `/images/stock/lombok-rinjani.jpg` | https://images.unsplash.com/photo-1654046920188-6e7ee051d7a4 |
 | `/images/stock/toba-perahu.jpg` | https://images.unsplash.com/photo-1592639298199-7b9d01c1cf29 |
-| `/images/stock/toba-danau.jpg` | https://images.unsplash.com/photo-1737549110662-5f03adff46e0 |
+| `/images/stock/toba-danau.jpg` | https://images.unsplash.com/photo-1569081562679-6d71c00aab86 |
 | `/images/stock/toba-samosir.jpg` | https://images.unsplash.com/photo-1674648749681-288624ea37ff |
 | `/images/stock/bangkok-grand-palace.jpg` | https://images.unsplash.com/photo-1586098311577-520120ba3df3 |
 | `/images/stock/bangkok-wat-phra-kaew.jpg` | https://images.unsplash.com/photo-1678915554115-a5e2de853191 |
@@ -75,12 +75,12 @@ adanya — tidak dikompres ulang).
 | `/images/stock/turki-masjid.jpg` | https://images.unsplash.com/photo-1623621534850-d325a1980c7e |
 | `/images/stock/dubai-burj-khalifa.jpg` | https://images.unsplash.com/photo-1544092683-c0c9ebb368e5 |
 | `/images/stock/dubai-kota.jpg` | https://images.unsplash.com/photo-1512453979798-5ea266f8880c |
-| `/images/stock/dubai-gurun.jpg` | https://images.unsplash.com/photo-1637935142056-03d421b2b13c |
+| `/images/stock/dubai-gurun.jpg` | https://images.unsplash.com/photo-1746569867775-c994d833b6aa |
 | `/images/stock/dubai-unta.jpg` | https://images.unsplash.com/photo-1549944850-84e00be4203b |
 | `/images/stock/abu-dhabi-masjid.jpg` | https://images.unsplash.com/photo-1512632578888-169bbbc64f33 |
 | `/images/stock/umum-rombongan.jpg` | https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc |
 | `/images/stock/umum-pesawat.jpg` | https://images.unsplash.com/photo-1530469641172-8ac15d0a7d6a |
-| `/images/stock/suasana-sunrise-rombongan.jpg` | https://images.unsplash.com/photo-1704801467339-8a00f9e1712c |
+| `/images/stock/suasana-sunrise-rombongan.jpg` | https://images.unsplash.com/photo-1706865854509-821c960ce465 |
 | `/images/stock/suasana-pantai-keluarga.jpg` | https://images.unsplash.com/photo-1693020077268-1a3b572103c1 |
 | `/images/stock/suasana-kapal-teman.jpg` | https://images.unsplash.com/photo-1665234811705-02e42eda85d2 |
 | `/images/stock/suasana-candi-jalan.jpg` | https://images.unsplash.com/photo-1684189162727-3b0fd73ba9e3 |

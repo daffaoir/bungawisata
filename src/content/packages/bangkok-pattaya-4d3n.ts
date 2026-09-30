@@ -37,7 +37,7 @@ export const bangkokPattaya4d3n = {
     id: {
       title: "Bangkok – Pattaya 4 Hari 3 Malam",
       summary:
-        "Paket tour Bangkok – Pattaya 4 hari, berangkat dari Surabaya (Juanda): Grand Palace, Nong Nooch, Alcazar — transfer dari Malang bisa dibantu.",
+        "Paket tour Bangkok – Pattaya 4 hari, berangkat dari Surabaya (Juanda): Grand Palace, Nong Nooch, Alcazar. Transfer dari Malang bisa dibantu.",
       highlights: [
         "Wat Phra Kaew dan Grand Palace, kompleks istana kerajaan Thailand",
         "Nong Nooch Tropical Garden dengan pertunjukan budaya dan gajah",
@@ -116,7 +116,7 @@ export const bangkokPattaya4d3n = {
     en: {
       title: "Bangkok – Pattaya 4 Days 3 Nights",
       summary:
-        "A 4-day Bangkok – Pattaya tour departing Surabaya (Juanda): the Grand Palace, Nong Nooch, and Alcazar — transfers from Malang can be arranged.",
+        "A 4-day Bangkok – Pattaya tour departing Surabaya (Juanda): the Grand Palace, Nong Nooch, and Alcazar. Transfers from Malang can be arranged.",
       highlights: [
         "Wat Phra Kaew and the Grand Palace, Thailand's royal complex",
         "Nong Nooch Tropical Garden with its cultural and elephant shows",

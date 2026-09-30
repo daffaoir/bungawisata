@@ -27,7 +27,7 @@ export const dubaiAbuDhabi5d4n = {
     id: {
       title: "Dubai – Abu Dhabi 5 Hari 4 Malam",
       summary:
-        "Paket tour Dubai – Abu Dhabi 5 hari dari Jakarta: Burj Khalifa, safari gurun, dan Masjid Sheikh Zayed — perjalanan dari Malang ke Jakarta bisa dibantu.",
+        "Paket tour Dubai – Abu Dhabi 5 hari dari Jakarta: Burj Khalifa, safari gurun, dan Masjid Sheikh Zayed. Perjalanan dari Malang ke Jakarta bisa dibantu.",
       highlights: [
         "Dek pandang lantai 124 Burj Khalifa, gedung tertinggi di dunia",
         "Desert safari dune bashing dilanjutkan makan malam barbeku di kemah gurun",
@@ -66,7 +66,7 @@ export const dubaiAbuDhabi5d4n = {
           meals: ["breakfast", "lunch", "dinner"],
           activities: [
             "Sarapan di hotel, berangkat menuju Abu Dhabi (± 1,5 jam)",
-            "Masjid Agung Sheikh Zayed — pengunjung perempuan wajib mengenakan abaya",
+            "Masjid Agung Sheikh Zayed. Pengunjung perempuan wajib mengenakan abaya",
             "Makan siang di kawasan Corniche",
             "Berhenti di Emirates Palace dan Qasr Al Watan dari luar",
             "Kembali ke Dubai, makan malam, dan istirahat",
@@ -120,7 +120,7 @@ export const dubaiAbuDhabi5d4n = {
     en: {
       title: "Dubai – Abu Dhabi 5 Days 4 Nights",
       summary:
-        "A 5-day Dubai – Abu Dhabi tour from Jakarta: Burj Khalifa, a desert safari, and Sheikh Zayed Mosque — the connection from Malang can be arranged.",
+        "A 5-day Dubai – Abu Dhabi tour from Jakarta: Burj Khalifa, a desert safari, and Sheikh Zayed Mosque. The connection from Malang can be arranged.",
       highlights: [
         "The level 124 observation deck of the Burj Khalifa, the world's tallest building",
         "Desert dune bashing followed by a barbecue dinner at a desert camp",
@@ -159,7 +159,7 @@ export const dubaiAbuDhabi5d4n = {
           meals: ["breakfast", "lunch", "dinner"],
           activities: [
             "Breakfast, then the drive to Abu Dhabi (about 1.5 hours)",
-            "Sheikh Zayed Grand Mosque — women visitors must wear an abaya",
+            "Sheikh Zayed Grand Mosque. Women visitors must wear an abaya",
             "Lunch along the Corniche",
             "Exterior stops at Emirates Palace and Qasr Al Watan",
             "Back to Dubai for dinner and rest",

@@ -40,7 +40,7 @@ const LABELS: Record<AppLocale, Record<string, string>> = {
     includes: "Harga termasuk",
     excludes: "Harga tidak termasuk",
     notes: "Catatan",
-    mealLegend: "Mp = makan pagi · Ms = makan siang · Mm = makan malam",
+    mealLegend: "Mp = makan pagi, Ms = makan siang, Mm = makan malam",
     disclaimer:
       "Harga bersifat indikatif dan dapat berubah. Silakan konfirmasi ke kami sebelum memesan.",
   },
@@ -59,7 +59,7 @@ const LABELS: Record<AppLocale, Record<string, string>> = {
     includes: "Price includes",
     excludes: "Price excludes",
     notes: "Notes",
-    mealLegend: "B = breakfast · L = lunch · D = dinner",
+    mealLegend: "B = breakfast, L = lunch, D = dinner",
     disclaimer:
       "Prices are indicative and subject to change. Please confirm with us before booking.",
   },
@@ -227,11 +227,11 @@ export function ItineraryDocument({
           <View style={styles.headerRight}>
             <Text style={styles.title}>{toPdfText(content.title)}</Text>
             <Text style={styles.subtitle}>
-              {toPdfText(pkg.destination)} · {duration}
+              {toPdfText(pkg.destination)}, {duration}
             </Text>
             <Text style={styles.meta}>
               {t.departure}: {toPdfText(pkg.departureFrom)}
-              {pkg.airline ? ` · ${t.airline}: ${toPdfText(pkg.airline)}` : ""}
+              {pkg.airline ? `, ${t.airline}: ${toPdfText(pkg.airline)}` : ""}
             </Text>
           </View>
         </View>
@@ -243,7 +243,7 @@ export function ItineraryDocument({
             <View key={day.day} style={styles.dayBlock} wrap={false}>
               <View style={styles.dayHead}>
                 <Text style={styles.dayTitle}>
-                  {t.day} {day.day} — {toPdfText(day.title).toUpperCase()}
+                  {t.day} {day.day}: {toPdfText(day.title).toUpperCase()}
                 </Text>
                 {codes ? <Text style={styles.dayMeals}>({codes})</Text> : null}
               </View>
@@ -282,7 +282,7 @@ export function ItineraryDocument({
 
           <View style={styles.priceRow}>
             <Text style={{ color: INK_MUTED }}>
-              {t.price} · {t.minPax} {pkg.minPax}
+              {t.price}, {t.minPax} {pkg.minPax}
             </Text>
             <View style={{ alignItems: "flex-end" }}>
               <Text style={styles.price}>
@@ -290,7 +290,7 @@ export function ItineraryDocument({
               </Text>
               <Text style={{ color: INK_MUTED }}>
                 {pkg.priceIsEstimate
-                  ? `${t.perPerson} · ${t.estimate}`
+                  ? `${t.perPerson}, ${t.estimate}`
                   : t.perPerson}
               </Text>
             </View>
@@ -323,7 +323,7 @@ export function ItineraryDocument({
           <Text>
             {[site.name, `WhatsApp ${site.phoneDisplay}`, site.email]
               .filter(Boolean)
-              .join(" · ")}
+              .join(", ")}
           </Text>
           <Text>{ADDRESS_LINE}</Text>
           <Text style={{ marginTop: 2 }}>{t.disclaimer}</Text>

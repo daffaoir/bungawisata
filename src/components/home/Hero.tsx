@@ -1,21 +1,18 @@
 import { MapPin, Star } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/shared/Button";
 import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import { images } from "@/content/images";
 import { GOOGLE_REVIEWS_URL, site } from "@/content/site";
 import type { AppLocale } from "@/i18n/routing";
+import { HeroSlideshow } from "./HeroSlideshow";
 
 const INTL_LOCALE: Record<AppLocale, string> = { id: "id-ID", en: "en-US" };
 
 /**
- * Satu foto besar yang membingkai seluruh layar pertama, dengan judul di atas
- * foto. Fotonya sedikit masuk dari tepi layar dan membulat, seperti selembar
- * foto perjalanan yang diletakkan di meja — bukan spanduk.
- *
- * Satu-satunya animasi saat dimuat: foto pelan-pelan "mendarat" (skala 1.06
- * → 1). Teks langsung tampil, jadi LCP tidak tertahan.
+ * Foto besar yang membingkai layar pertama, sedikit masuk dari tepi layar dan
+ * membulat. Fotonya berganti antar destinasi (lihat `HeroSlideshow`); teks
+ * langsung tampil tanpa animasi, jadi LCP tidak tertahan.
  */
 export function Hero() {
   const t = useTranslations("Home.hero");
@@ -35,19 +32,26 @@ export function Hero() {
           Mulai `sm`: foto mengisi seluruh kartu dengan teks di atasnya.
         */}
         <div className="relative h-[38svh] min-h-[15rem] shrink-0 overflow-hidden sm:absolute sm:inset-0 sm:-z-10 sm:h-auto sm:min-h-0">
-          {/* Pembungkus 10% lebih tinggi dari bingkai untuk ruang gerak parallax. */}
-          <div className="parallax absolute inset-x-0 -top-[5%] -bottom-[5%]">
-            <Image
-              src={images["bromo-kaldera"]}
-              alt=""
-              aria-hidden="true"
-              fill
-              priority
-              quality={85}
-              sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
-              className="hero-settle object-cover object-[66%_62%] sm:object-[50%_40%]"
-            />
-          </div>
+          <HeroSlideshow
+            chooseLabel={t.raw("slides.choose") as string}
+            slides={[
+              {
+                src: images["bromo-kaldera"],
+                place: t("slides.bromo"),
+                mobilePosition: "object-[38%_58%]",
+              },
+              { src: images["komodo-padar"], place: t("slides.padar") },
+              {
+                src: images["raja-ampat-gugusan"],
+                place: t("slides.rajaAmpat"),
+              },
+              {
+                src: images["turki-cappadocia"],
+                place: t("slides.cappadocia"),
+              },
+              { src: images["jepang-chureito"], place: t("slides.fuji") },
+            ]}
+          />
           {/*
             Ponsel: foto memudar ke hijau di bagian bawah, menyambung ke blok
             teks. `sm`+: gradien dari bawah-kiri untuk kontras teks di atas foto.
@@ -60,7 +64,7 @@ export function Hero() {
           {t("departure")}
         </p>
 
-        <div className="relative mx-auto -mt-4 w-full max-w-6xl px-5 pb-8 sm:mt-0 sm:px-8 sm:pb-14">
+        <div className="relative mx-auto mt-2 w-full max-w-6xl px-5 pb-8 sm:mt-0 sm:px-8 sm:pb-14">
           <h1 className="max-w-[15ch] text-[2.5rem] leading-[1.02] text-canvas sm:text-[4rem] lg:text-[5.25rem]">
             {t("title")}
           </h1>
@@ -91,7 +95,10 @@ export function Hero() {
               rel="noopener noreferrer"
               className="mt-2 inline-flex min-h-11 items-center gap-2 self-start rounded-full text-[0.9rem] text-canvas/85 transition-colors hover:text-canvas sm:mt-0 sm:ms-3 sm:self-center"
             >
-              <Star className="size-4 fill-gold-400 text-gold-400" aria-hidden="true" />
+              <Star
+                className="size-4 fill-gold-400 text-gold-400"
+                aria-hidden="true"
+              />
               {t("rating", { rating, count: site.proof.googleReviewCount })}
             </a>
           </div>

@@ -44,7 +44,7 @@ export const bromoIjen4d3n = {
             "Makan siang di Malang sebelum berangkat",
             "Perjalanan via tol Pandaan – Probolinggo lalu naik ke Sukapura, kawasan Bromo (± 3 jam)",
             "Check-in penginapan di ketinggian, pengarahan pendakian",
-            "Makan malam dan istirahat awal — bangun dini hari",
+            "Makan malam dan istirahat awal, bangun dini hari",
           ],
         },
         {
@@ -125,7 +125,7 @@ export const bromoIjen4d3n = {
             "Lunch in Malang before setting off",
             "Drive via the Pandaan – Probolinggo toll road, then up to Sukapura in the Bromo area (about 3 hours)",
             "Check in to the highland lodge and take the hike briefing",
-            "Dinner and an early night — the wake-up call is before dawn",
+            "Dinner and an early night, the wake-up call is before dawn",
           ],
         },
         {

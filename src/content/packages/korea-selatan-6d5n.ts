@@ -26,7 +26,7 @@ export const koreaSelatan6d5n = {
     id: {
       title: "Korea Selatan 6 Hari 5 Malam",
       summary:
-        "Paket tour Korea Selatan 6 hari dari Jakarta: Seoul, Pulau Nami, Everland, dan desa hanok — perjalanan dari Malang ke Jakarta bisa kami bantu atur.",
+        "Paket tour Korea Selatan 6 hari dari Jakarta: Seoul, Pulau Nami, Everland, dan desa hanok. Perjalanan dari Malang ke Jakarta bisa kami bantu atur.",
       highlights: [
         "Istana Gyeongbokgung dan upacara pergantian penjaga",
         "Pulau Nami dengan barisan pohon metasequoia-nya",
@@ -133,7 +133,7 @@ export const koreaSelatan6d5n = {
     en: {
       title: "South Korea 6 Days 5 Nights",
       summary:
-        "A 6-day South Korea tour from Jakarta: Seoul, Nami Island, Everland, and a hanok village — getting from Malang to Jakarta can be arranged for you.",
+        "A 6-day South Korea tour from Jakarta: Seoul, Nami Island, Everland, and a hanok village. Getting from Malang to Jakarta can be arranged for you.",
       highlights: [
         "Gyeongbokgung Palace and the changing of the guard",
         "Nami Island and its metasequoia tree lane",

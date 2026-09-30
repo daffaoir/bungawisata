@@ -20,6 +20,7 @@ export function ServiceCard({ service }: { service: Service }) {
           alt=""
           aria-hidden="true"
           fill
+          quality={85}
           sizes="(min-width: 1024px) 24rem, (min-width: 640px) 45vw, 100vw"
           className="object-cover transition-transform duration-[900ms] ease-out-soft [@media(hover:hover)]:group-hover:scale-[1.04]"
         />

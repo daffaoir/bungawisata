@@ -28,7 +28,7 @@ export const images = {
   // ── Bali ──────────────────────────────────────────────────────────────
   "bali-sawah": stock("bali-sawah", "photo-1513415756790-2ac1db1297d0"),
   "bali-terasering": stock("bali-terasering", "photo-1555400038-a088c772c8cd"),
-  "bali-pura-laut": stock("bali-pura-laut", "photo-1698799619978-872b701b44a8"),
+  "bali-pura-laut": stock("bali-pura-laut", "photo-1542725231-e6ff634bf0f5"),
   "bali-tebing-uluwatu": stock("bali-tebing-uluwatu", "photo-1576019206484-54273acdfa89"),
   "bali-pantai-senja": stock("bali-pantai-senja", "photo-1567520595708-2fb411a6ce88"),
 
@@ -50,7 +50,7 @@ export const images = {
 
   // ── Bromo & Ijen ──────────────────────────────────────────────────────
   "bromo-lanskap": stock("bromo-lanskap", "photo-1662114480912-05a338d79da3"),
-  "bromo-kaldera": stock("bromo-kaldera", "photo-1555503581-3229026fee68"),
+  "bromo-kaldera": stock("bromo-kaldera", "photo-1749731630653-d9b3f00573ed"),
   "bromo-udara": stock("bromo-udara", "photo-1518043610038-064362b44076"),
   "ijen-kawah": stock("ijen-kawah", "photo-1776875339246-ba5d0e9dce43"),
 
@@ -62,7 +62,7 @@ export const images = {
 
   // ── Danau Toba ────────────────────────────────────────────────────────
   "toba-perahu": stock("toba-perahu", "photo-1592639298199-7b9d01c1cf29"),
-  "toba-danau": stock("toba-danau", "photo-1737549110662-5f03adff46e0"),
+  "toba-danau": stock("toba-danau", "photo-1569081562679-6d71c00aab86"),
   "toba-samosir": stock("toba-samosir", "photo-1674648749681-288624ea37ff"),
 
   // ── Bangkok & Pattaya ─────────────────────────────────────────────────
@@ -111,7 +111,7 @@ export const images = {
   // ── Dubai & Abu Dhabi ─────────────────────────────────────────────────
   "dubai-burj-khalifa": stock("dubai-burj-khalifa", "photo-1544092683-c0c9ebb368e5"),
   "dubai-kota": stock("dubai-kota", "photo-1512453979798-5ea266f8880c"),
-  "dubai-gurun": stock("dubai-gurun", "photo-1637935142056-03d421b2b13c"),
+  "dubai-gurun": stock("dubai-gurun", "photo-1746569867775-c994d833b6aa"),
   "dubai-unta": stock("dubai-unta", "photo-1549944850-84e00be4203b"),
   "abu-dhabi-masjid": stock("abu-dhabi-masjid", "photo-1512632578888-169bbbc64f33"),
 
@@ -120,8 +120,8 @@ export const images = {
   "umum-pesawat": stock("umum-pesawat", "photo-1530469641172-8ac15d0a7d6a"),
 
   // ── Suasana (wisatawan umum, bukan peserta tur Bunga Wisata) ─────────
-  // Rombongan menyaksikan matahari terbit dari Bukit Sikunir, Dieng.
-  "suasana-sunrise-rombongan": stock("suasana-sunrise-rombongan", "photo-1704801467339-8a00f9e1712c"),
+  // Rombongan pendaki menyaksikan matahari terbit di puncak gunung.
+  "suasana-sunrise-rombongan": stock("suasana-sunrise-rombongan", "photo-1706865854509-821c960ce465"),
   // Siluet keluarga bermain di Pantai Parangtritis, Yogyakarta, saat senja.
   "suasana-pantai-keluarga": stock("suasana-pantai-keluarga", "photo-1693020077268-1a3b572103c1"),
   // Wisatawan di haluan kapal pinisi saat senja dekat Pulau Kalong, Labuan Bajo.

@@ -36,12 +36,12 @@ export const jepang7d6n = {
     id: {
       title: "Jepang: Tokyo – Fuji – Kyoto – Osaka 7 Hari 6 Malam",
       summary:
-        "Paket tour Jepang 7 hari dari Jakarta: Tokyo, Gunung Fuji, Kyoto, dan Osaka naik Shinkansen — penerbangan lanjutan dari Malang atau Surabaya bisa dibantu.",
+        "Paket tour Jepang 7 hari dari Jakarta: Tokyo, Gunung Fuji, Kyoto, dan Osaka naik Shinkansen. Penerbangan lanjutan dari Malang atau Surabaya bisa dibantu.",
       highlights: [
         "Gunung Fuji stasiun ke-5 dan Danau Kawaguchi di kakinya",
         "Lorong ribuan torii merah di Fushimi Inari Taisha, Kyoto",
         "Kuil Sensoji di Asakusa dan persimpangan Shibuya di Tokyo",
-        "Naik Shinkansen antarkota — kereta peluru Jepang",
+        "Naik Shinkansen antarkota, kereta peluru Jepang",
       ],
       itinerary: [
         {
@@ -77,7 +77,7 @@ export const jepang7d6n = {
             "Sarapan dan check-out hotel",
             "Perjalanan menuju kawasan Gunung Fuji (± 2,5 jam)",
             "Gunung Fuji stasiun ke-5 (menyesuaikan cuaca dan kondisi jalan)",
-            "Makan siang khas Yamanashi — hoto noodle",
+            "Makan siang khas Yamanashi, hoto noodle",
             "Danau Kawaguchi dan dek pandang Oishi Park",
             "Check-in penginapan bergaya ryokan, makan malam, dan berendam onsen",
           ],
@@ -148,13 +148,13 @@ export const jepang7d6n = {
         "Asuransi perjalanan dan kelebihan bagasi",
       ],
       notes:
-        "Warga negara Indonesia tetap memerlukan visa untuk masuk Jepang; pemegang e-paspor dapat mengajukan bebas visa lewat registrasi di kedutaan. Kunjungan ke Gunung Fuji stasiun ke-5 bergantung pada cuaca dan kondisi jalan — bila ditutup, kami alihkan ke kawasan Danau Kawaguchi. " +
+        "Warga negara Indonesia tetap memerlukan visa untuk masuk Jepang; pemegang e-paspor dapat mengajukan bebas visa lewat registrasi di kedutaan. Kunjungan ke Gunung Fuji stasiun ke-5 bergantung pada cuaca dan kondisi jalan. Bila ditutup, kami alihkan ke kawasan Danau Kawaguchi. " +
         INTERNATIONAL_NOTE.id,
     },
     en: {
       title: "Japan: Tokyo – Fuji – Kyoto – Osaka 7 Days 6 Nights",
       summary:
-        "A 7-day Japan tour from Jakarta: Tokyo, Mount Fuji, Kyoto, and Osaka by Shinkansen — connecting flights from Malang or Surabaya can be arranged.",
+        "A 7-day Japan tour from Jakarta: Tokyo, Mount Fuji, Kyoto, and Osaka by Shinkansen. Connecting flights from Malang or Surabaya can be arranged.",
       highlights: [
         "Mount Fuji's 5th Station and Lake Kawaguchi at its foot",
         "The tunnel of thousands of red torii at Fushimi Inari Taisha, Kyoto",
@@ -195,7 +195,7 @@ export const jepang7d6n = {
             "Breakfast and hotel check-out",
             "Drive to the Mount Fuji area (about 2.5 hours)",
             "Mount Fuji 5th Station (weather and road conditions permitting)",
-            "Yamanashi-style lunch — hoto noodles",
+            "Yamanashi-style lunch, hoto noodles",
             "Lake Kawaguchi and the Oishi Park viewpoint",
             "Check in to a ryokan-style inn, dinner, and an onsen soak",
           ],
@@ -266,7 +266,7 @@ export const jepang7d6n = {
         "Travel insurance and excess baggage",
       ],
       notes:
-        "Indonesian passport holders still need a visa for Japan; e-passport holders can register for visa exemption at the embassy. The Mount Fuji 5th Station visit depends on weather and road conditions — if it is closed we switch to the Lake Kawaguchi area. " +
+        "Indonesian passport holders still need a visa for Japan; e-passport holders can register for visa exemption at the embassy. The Mount Fuji 5th Station visit depends on weather and road conditions. If it is closed we switch to the Lake Kawaguchi area. " +
         INTERNATIONAL_NOTE.en,
     },
   },

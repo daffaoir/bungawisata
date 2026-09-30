@@ -2,13 +2,13 @@
   "Meta": {
     "siteName": "Bunga Wisata",
     "tagline": "Tour & Travel",
-    "defaultTitle": "Tour & Travel Malang — Paket Wisata Rombongan | Bunga Wisata",
+    "defaultTitle": "Tour & Travel Malang: Paket Wisata Rombongan | Bunga Wisata",
     "defaultDescription": "Bunga Wisata, tour & travel di Malang: paket tour rombongan, study tour, gathering, dan private tour ke Bromo, Bali, hingga luar negeri."
   },
   "Nav": {
     "home": "Beranda",
-    "packages": "Paket wisata",
-    "about": "Tentang kami",
+    "packages": "Paket Wisata",
+    "about": "Tentang Kami",
     "gallery": "Galeri",
     "testimonials": "Testimoni",
     "contact": "Kontak",
@@ -18,7 +18,7 @@
     "languageId": "Indonesia",
     "languageEn": "English",
     "services": "Layanan",
-    "guides": "Panduan wisata"
+    "guides": "Panduan Wisata"
   },
   "Common": {
     "viewDetail": "Lihat detail",
@@ -47,11 +47,19 @@
   "Home": {
     "hero": {
       "departure": "Berangkat dari Malang, Jawa Timur",
-      "title": "Tour & travel Malang untuk liburan bareng rombongan",
+      "title": "Tour & Travel Malang untuk liburan bareng rombongan",
       "subtitle": "Paket dalam dan luar negeri untuk keluarga, kantor, sekolah, dan komunitas. Itinerary jelas sejak awal, harga terbuka, dan tim kami mendampingi dari berangkat sampai pulang.",
       "primaryCta": "Tanya via WhatsApp",
       "secondaryCta": "Lihat paket",
-      "rating": "{rating} dari {count} ulasan Google"
+      "rating": "{rating} dari {count} ulasan Google",
+      "slides": {
+        "choose": "Tampilkan foto {place}",
+        "bromo": "Bromo, Jawa Timur",
+        "padar": "Pulau Padar, Labuan Bajo",
+        "rajaAmpat": "Raja Ampat, Papua Barat Daya",
+        "cappadocia": "Cappadocia, Türkiye",
+        "fuji": "Gunung Fuji, Jepang"
+      }
     },
     "packages": {
       "title": "Paket yang sering ditanyakan",
@@ -113,7 +121,7 @@
     }
   },
   "Packages": {
-    "title": "Paket wisata",
+    "title": "Paket Wisata",
     "description": "Semua paket dengan itinerary lengkap, harga transparan, dan pendampingan tour leader.",
     "metaTitle": "Paket Tour dari Malang: Dalam & Luar Negeri",
     "metaDescription": "Daftar paket tour dari Malang: Bromo, Bali, Yogyakarta, Labuan Bajo, Jepang, Korea, Turki, dan lainnya, lengkap dengan rundown harian dan harga mulai.",
@@ -140,7 +148,7 @@
     },
     "empty": {
       "title": "Belum ada paket yang cocok",
-      "description": "Coba longgarkan filternya, atau ceritakan rencana Anda pada kami — kami bisa susun paket custom.",
+      "description": "Coba longgarkan filternya, atau ceritakan rencana Anda pada kami. Kami bisa susun paket custom.",
       "cta": "Konsultasi paket custom"
     }
   },
@@ -168,23 +176,23 @@
     "relatedTitle": "Paket lain yang mirip",
     "askAbout": "Tanya paket ini",
     "askShort": "Tanya",
-    "priceNoteEstimate": "Harga estimasi per orang — konfirmasi harga terbaru via WhatsApp sebelum memesan. Dapat berubah tergantung musim dan ketersediaan."
+    "priceNoteEstimate": "Harga estimasi per orang. Konfirmasi harga terbaru via WhatsApp sebelum memesan. Dapat berubah tergantung musim dan ketersediaan."
   },
   "About": {
     "title": "Tentang Bunga Wisata",
     "metaDescription": "Kenali Bunga Wisata (CV. Bunga Wisata Malang), biro tour & travel keluarga di Karangploso, Malang: tour rombongan, keluarga, event, dan tiket pesawat.",
-    "intro": "Bunga Wisata adalah biro tour & travel keluarga di Karangploso, Kabupaten Malang. Kami menyusun perjalanan dalam dan luar negeri — dari akhir pekan ke Bromo sampai tour ke luar negeri — untuk grup kecil, keluarga, maupun rombongan besar.",
+    "intro": "Bunga Wisata adalah biro tour & travel keluarga di Karangploso, Kabupaten Malang. Kami menyusun perjalanan dalam dan luar negeri, dari akhir pekan ke Bromo sampai tour ke luar negeri, untuk grup kecil, keluarga, maupun rombongan besar.",
     "storyTitle": "Cerita kami",
-    "story": "Kantor kami ada di rest area Jalan Raya Karangjuwet, Karangploso, di jalur antara Malang dan Batu. Dari sana kami melayani tour rombongan, study tour sekolah, gathering dan event kantor, private tour keluarga, sampai pemesanan tiket pesawat. Setiap perjalanan dimulai dari obrolan di WhatsApp: kami tanyakan tujuan, jumlah peserta, tanggal, dan anggaran Anda, lalu menyusun itinerary tertulis yang jelas — apa yang sudah termasuk, apa yang belum. Pelanggan kami menilai layanan kami 4,7 dari 5 di Google, dan kami ingin setiap rombongan pulang dengan cerita yang sama baiknya.",
+    "story": "Kantor kami ada di rest area Jalan Raya Karangjuwet, Karangploso, di jalur antara Malang dan Batu. Dari sana kami melayani tour rombongan, study tour sekolah, gathering dan event kantor, private tour keluarga, sampai pemesanan tiket pesawat. Setiap perjalanan dimulai dari obrolan di WhatsApp: kami tanyakan tujuan, jumlah peserta, tanggal, dan anggaran Anda, lalu menyusun itinerary tertulis yang jelas. Apa yang sudah termasuk, apa yang belum. Pelanggan kami menilai layanan kami 4,7 dari 5 di Google, dan kami ingin setiap rombongan pulang dengan cerita yang sama baiknya.",
     "valuesTitle": "Yang kami pegang",
     "values": {
       "honest": {
         "title": "Jujur soal harga",
-        "description": "Setiap paket mencantumkan rincian sudah termasuk dan belum termasuk sebelum Anda membayar tanda jadi — tidak ada biaya kejutan yang muncul di tengah perjalanan."
+        "description": "Setiap paket mencantumkan rincian sudah termasuk dan belum termasuk sebelum Anda membayar tanda jadi. Tidak ada biaya kejutan yang muncul di tengah perjalanan."
       },
       "personal": {
         "title": "Dampingan personal",
-        "description": "Setiap rombongan, besar maupun kecil, didampingi tour leader yang tinggal satu pesan WhatsApp jauhnya — bukan sekadar nomor layanan pelanggan yang berganti-ganti."
+        "description": "Setiap rombongan, besar maupun kecil, didampingi tour leader yang tinggal satu pesan WhatsApp jauhnya. Bukan sekadar nomor layanan pelanggan yang berganti-ganti."
       },
       "detail": {
         "title": "Detail yang diurus",
@@ -236,7 +244,7 @@
   "Footer": {
     "about": "Bunga Wisata menyusun perjalanan dalam dan luar negeri dengan itinerary jelas dan harga yang transparan.",
     "navTitle": "Navigasi",
-    "packagesTitle": "Paket wisata",
+    "packagesTitle": "Paket Wisata",
     "contactTitle": "Kontak",
     "domestic": "Paket dalam negeri",
     "international": "Paket luar negeri",
@@ -253,19 +261,19 @@
     "title": "Layanan Bunga Wisata",
     "metaTitle": "Layanan Tour & Travel di Malang",
     "metaDescription": "Layanan Bunga Wisata di Malang: tour rombongan, study tour sekolah, gathering kantor, private tour keluarga, dan pemesanan tiket pesawat. Konsultasi via WhatsApp.",
-    "subtitle": "Kami susun perjalanan sesuai kebutuhan grup Anda — kecil maupun besar, dalam maupun luar negeri.",
+    "subtitle": "Kami susun perjalanan sesuai kebutuhan grup Anda, kecil maupun besar, dalam maupun luar negeri.",
     "introTitle": "Tentang layanan ini",
     "stepsTitle": "Cara memesan",
     "relatedTitle": "Paket yang cocok",
     "faqTitle": "Pertanyaan yang sering diajukan",
     "quoteTitle": "Minta penawaran",
-    "quoteSubtitle": "Isi singkat, lalu kirim lewat WhatsApp — tim kami membalas di jam kerja.",
+    "quoteSubtitle": "Isi singkat, lalu kirim lewat WhatsApp. Tim kami membalas di jam kerja.",
     "otherServices": "Layanan lainnya",
     "ctaTitle": "Belum yakin mulai dari mana?",
     "ctaSubtitle": "Ceritakan rencana Anda lewat WhatsApp, kami bantu susun pilihannya."
   },
   "Guides": {
-    "title": "Panduan wisata",
+    "title": "Panduan Wisata",
     "metaTitle": "Panduan Wisata & Tips Tour dari Malang",
     "metaDescription": "Panduan wisata dari Bunga Wisata Malang: tips Bromo, tour rombongan kantor, study tour sekolah, dan persiapan tour luar negeri pertama Anda.",
     "subtitle": "Tips praktis sebelum Anda berangkat, ditulis oleh tim Bunga Wisata di Malang.",
@@ -289,7 +297,7 @@
     "budgetPlaceholder": "mis. Rp3–5 juta",
     "name": "Nama Anda",
     "submit": "Kirim via WhatsApp",
-    "privacy": "Data tidak disimpan di situs ini — form hanya menyusun pesan WhatsApp untuk Anda kirim sendiri.",
+    "privacy": "Data tidak disimpan di situs ini. Form hanya menyusun pesan WhatsApp untuk Anda kirim sendiri.",
     "errorRequired": "Isi nama, tujuan, dan jumlah peserta dulu.",
     "greeting": "Halo Bunga Wisata, saya ingin minta penawaran.",
     "defaultPickup": "Malang"

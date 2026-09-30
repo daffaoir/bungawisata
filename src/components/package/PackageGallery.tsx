@@ -55,6 +55,7 @@ export function PackageGallery({
             src={src}
             alt={`${alt}, ${index + 1}`}
             fill
+            quality={85}
             sizes={
               index === 0
                 ? "(min-width: 1024px) 50vw, 100vw"

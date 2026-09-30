@@ -2,7 +2,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { Package } from "@/lib/schema";
 
 /** Akhiran yang ditambahkan `title.template` di layout. */
-export const TITLE_SUFFIX = " — Bunga Wisata";
+export const TITLE_SUFFIX = " | Bunga Wisata";
 
 const DURATION_SUFFIX = /\s+\d+\s+(Hari|Days?)\s+\d+\s+(Malam|Nights?)\s*$/i;
 

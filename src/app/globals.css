@@ -244,6 +244,16 @@
   }
 }
 
+/* Foto hero yang sedang tampil perlahan "mundur" (efek Ken Burns). */
+@keyframes ken-burns {
+  from {
+    scale: 1.1;
+  }
+  to {
+    scale: 1;
+  }
+}
+
 /* Tombol WhatsApp mengambang berdenyut sekali untuk menarik perhatian. */
 @keyframes wa-nudge {
   0%,
@@ -261,6 +271,10 @@
 @media (prefers-reduced-motion: no-preference) {
   .hero-settle {
     animation: hero-settle 1.6s var(--ease-out-soft) both;
+  }
+
+  .ken-burns {
+    animation: ken-burns 8s ease-out both;
   }
 
   .wa-nudge {

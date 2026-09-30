@@ -37,13 +37,16 @@ export function PackageCard({
       <div
         className={cn(
           "relative overflow-hidden rounded-3xl bg-canvas-alt",
-          shape === "adaptive" ? "aspect-[4/3] sm:aspect-[4/5]" : "aspect-[4/5]",
+          shape === "adaptive"
+            ? "aspect-[4/3] sm:aspect-[4/5]"
+            : "aspect-[4/5]",
         )}
       >
         <Image
           src={pkg.heroImage}
           alt={content.title}
           fill
+          quality={85}
           sizes={sizes}
           className="object-cover transition-transform duration-[900ms] ease-out-soft [@media(hover:hover)]:group-hover:scale-[1.04]"
         />
@@ -56,7 +59,9 @@ export function PackageCard({
 
         <div className="absolute bottom-4 left-4 rounded-2xl bg-canvas px-4 py-2.5 text-ink transition-transform duration-500 ease-out-soft [@media(hover:hover)]:group-hover:-translate-y-1">
           <p className="text-[0.75rem] leading-tight text-ink-muted">
-            {pkg.priceIsEstimate ? t("startingFromEstimate") : t("startingFrom")}
+            {pkg.priceIsEstimate
+              ? t("startingFromEstimate")
+              : t("startingFrom")}
           </p>
           <p className="font-display text-[1.2rem] leading-tight font-medium">
             {formatPrice(pkg.priceFrom, locale)}
@@ -70,7 +75,10 @@ export function PackageCard({
       <div className="flex flex-1 flex-col px-1 pt-5">
         <p className="text-[0.875rem] text-ink-muted">
           {pkg.destination},{" "}
-          {t("duration", { days: pkg.durationDays, nights: pkg.durationNights })}
+          {t("duration", {
+            days: pkg.durationDays,
+            nights: pkg.durationNights,
+          })}
         </p>
         <h3 className="mt-1.5 text-[1.4rem] leading-snug">
           <Link
