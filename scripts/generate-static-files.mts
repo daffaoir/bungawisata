@@ -13,11 +13,19 @@
  */
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { routing, type AppLocale } from "@/i18n/routing";
-import { getAllPackages } from "@/lib/packages";
-import { renderOgImage } from "@/lib/og/OgImage";
-import { renderItineraryPdf } from "@/lib/pdf/render";
-import { itineraryPdfPath, ogImagePath } from "@/lib/static-files";
+import nextEnv from "@next/env";
+import type { AppLocale } from "@/i18n/routing";
+
+// Muat berkas env seperti `next build`/`next dev` (nomor WhatsApp dan email
+// di PDF dibaca dari sana). Harus sebelum modul konten diimpor, karena
+// `src/content/site.ts` membaca `process.env` saat dimuat.
+nextEnv.loadEnvConfig(process.cwd(), process.argv.includes("--if-missing"));
+
+const { routing } = await import("@/i18n/routing");
+const { getAllPackages } = await import("@/lib/packages");
+const { renderOgImage } = await import("@/lib/og/OgImage");
+const { renderItineraryPdf } = await import("@/lib/pdf/render");
+const { itineraryPdfPath, ogImagePath } = await import("@/lib/static-files");
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 
