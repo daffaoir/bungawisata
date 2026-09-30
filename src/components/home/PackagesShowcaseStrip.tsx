@@ -63,9 +63,11 @@ export function PackagesShowcaseStrip({ labels, items }: PackagesShowcaseStripPr
         label={labels.strip}
         previousLabel={labels.previous}
         nextLabel={labels.next}
-        // Ponsel: satu kartu + intipan berikutnya. `sm`: tepat dua kartu,
-        // `lg`: tepat tiga kartu utuh (lebar dikurangi jarak antarkartu).
-        itemClassName="w-[85%] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+        // Ponsel: satu kartu + intipan berikutnya. `sm`: dua kartu + intipan,
+        // `lg`: tiga kartu utuh + intipan ±4rem kartu keempat, supaya tetap
+        // terlihat bisa digeser walau jalur di kanan kolom hanya 16px (layar
+        // 1280px).
+        itemClassName="w-[85%] sm:w-[calc((100%-4.5rem)/2)] lg:w-[calc((100%-7rem)/3)]"
         footer={
           <ButtonLink href="/paket" variant="outline" className="sm:hidden">
             {labels.viewAll}
