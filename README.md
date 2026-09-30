@@ -32,13 +32,11 @@ Perintah lain:
 
 ## Konfigurasi
 
-Buat file `.env.local` (tidak masuk git):
+Salin [`.env.example`](.env.example) menjadi `.env.local` (tidak masuk git),
+lalu isi nilainya:
 
 ```bash
-NEXT_PUBLIC_WHATSAPP_NUMBER=6281234567890
-NEXT_PUBLIC_SITE_URL=https://bungawisata.co.id
-# Opsional — kosong = email disembunyikan di seluruh situs & PDF
-NEXT_PUBLIC_CONTACT_EMAIL=info@bungawisata.co.id
+cp .env.example .env.local
 ```
 
 Nomor WhatsApp ditulis format internasional **tanpa tanda `+` dan tanpa spasi**
@@ -147,6 +145,19 @@ src/
 ├── messages/            Teks antarmuka per bahasa
 └── proxy.ts             Middleware next-intl
 ```
+
+## CI dan update dependency
+
+Setiap push ke `master` dan setiap pull request menjalankan
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml): lint, typecheck, test,
+build, dan `npm audit` untuk dependency produksi. Hasilnya ada di tab
+**Actions** GitHub. Vercel tetap men-deploy terpisah, jadi kalau CI merah,
+periksa dan perbaiki segera.
+
+[Dependabot](.github/dependabot.yml) membuka satu PR gabungan tiap Senin
+untuk update minor/patch, dan PR terpisah untuk celah keamanan. Merge PR-nya
+hanya kalau CI hijau. Update major (mis. TypeScript atau ESLint versi baru)
+dikerjakan manual.
 
 ## Deploy
 
