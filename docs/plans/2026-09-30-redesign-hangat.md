@@ -206,4 +206,19 @@ dan data paket.
 
 ## Progress
 
-(diisi saat pengerjaan)
+- 2026-09-30 builder: langkah 1–10 dikerjakan di branch `redesign-hangat`
+  (`854b8ee`, `8ba4b81`, `d79a61a`).
+  - Verify: lint 0, tsc 0, test 135/135, build 0; `check-images` 68/68.
+  - Beranda 6 section, tinggi 375px 8.403px (dari 12.138px, −30,8%), setelah
+    padding section di ponsel dirapatkan.
+  - Hero 1280@2x disajikan `w=2560&q=85`.
+  - Dengan `reducedMotion: reduce`: 0 animasi berjalan, 0 konten tersembunyi.
+  - Kontras teks di latar solid: 0 pelanggaran dari 534 elemen di 5 halaman.
+  - Teks uppercase tersisa: logotype saja.
+  - Menyimpang dari plan:
+    - Foto disimpan apa adanya dari Unsplash q85, tanpa re-encode, karena
+      PSNR-nya lebih baik. Folder foto kini 62 MB.
+    - Foto suasana sunrise diambil di Dieng dan pantai di Parangtritis,
+      karena tidak ada kandidat Bromo/Bali yang memenuhi syarat.
+    - Tombol WhatsApp mengambang tetap berbentuk lingkaran; labelnya muncul
+      saat hover. Versi pil menutupi kotak harga di 1280px.

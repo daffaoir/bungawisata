@@ -45,7 +45,7 @@ export function Section({
       className={cn(
         "relative overflow-hidden",
         TONES[tone],
-        compact ? "py-14 sm:py-20" : "py-20 sm:py-28",
+        compact ? "py-12 sm:py-20" : "py-16 sm:py-28",
         inset && "mx-2 rounded-[2rem] sm:mx-4 sm:rounded-[2.5rem]",
         className,
       )}
