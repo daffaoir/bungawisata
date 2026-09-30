@@ -9,8 +9,8 @@ type TestimonialCardProps = {
   /** Hanya untuk varian `card`: latar terang atau gelap (section ink). */
   tone?: "light" | "dark";
   /**
-   * `card` — kotak bergaris (strip testimoni di beranda).
-   * `quote` — kutipan tanpa kotak, dipisah garis rambut (halaman Testimoni).
+   * `card` — kartu membulat (strip testimoni di beranda).
+   * `quote` — kutipan lebih besar untuk halaman Testimoni.
    */
   variant?: "card" | "quote";
 };
@@ -32,7 +32,7 @@ function Stars({ rating, isDark }: { rating: number; isDark: boolean }) {
                   ? "fill-gold-400 text-gold-400"
                   : "fill-gold-600 text-gold-600"
                 : isDark
-                  ? "fill-white/20 text-white/20"
+                  ? "fill-canvas/20 text-canvas/20"
                   : "fill-line text-line",
             )}
           />
@@ -61,7 +61,7 @@ export function TestimonialCard({
     locale === "id" ? null : t("translated"),
   ]
     .filter(Boolean)
-    .join(" · ");
+    .join(", ");
 
   if (variant === "quote") {
     return (
@@ -72,11 +72,11 @@ export function TestimonialCard({
           {testimonial.quote[locale]}
         </blockquote>
 
-        <figcaption className="mt-6 text-[0.85rem]">
+        <figcaption className="mt-6 text-[0.9rem]">
           <span className="block font-semibold text-ink">
             {testimonial.name}
           </span>
-          <span className="mt-1 block text-ink-muted">
+          <span className="mt-0.5 block text-ink-muted">
             {meta}
           </span>
         </figcaption>
@@ -89,41 +89,34 @@ export function TestimonialCard({
   return (
     <figure
       className={cn(
-        "flex h-full flex-col border p-8",
-        isDark ? "border-white/15 bg-white/[0.04]" : "border-line bg-white",
+        "flex h-full flex-col rounded-3xl p-7 sm:p-8",
+        isDark ? "bg-canvas/10" : "bg-canvas",
       )}
     >
       <Stars rating={testimonial.rating} isDark={isDark} />
 
       <blockquote
         className={cn(
-          "mt-6 flex-1 text-[0.98rem] leading-[1.8]",
-          isDark ? "text-white/75" : "text-ink-soft",
+          "mt-5 flex-1 font-display text-[1.2rem] leading-[1.5]",
+          isDark ? "text-canvas" : "text-ink",
         )}
       >
         {testimonial.quote[locale]}
       </blockquote>
 
-      <figcaption className="mt-8">
-        <span
-          aria-hidden="true"
-          className={cn(
-            "mb-5 block h-px w-10",
-            isDark ? "bg-white/25" : "bg-line",
-          )}
-        />
+      <figcaption className="mt-6">
         <span
           className={cn(
-            "block text-sm font-semibold",
-            isDark ? "text-white" : "text-ink",
+            "block text-[0.9rem] font-semibold",
+            isDark ? "text-canvas" : "text-ink",
           )}
         >
           {testimonial.name}
         </span>
         <span
           className={cn(
-            "mt-1 block text-xs",
-            isDark ? "text-white/50" : "text-ink-muted",
+            "mt-0.5 block text-[0.825rem]",
+            isDark ? "text-canvas/70" : "text-ink-muted",
           )}
         >
           {meta}

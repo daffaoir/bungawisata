@@ -68,7 +68,7 @@ export default async function PackagesPage({
           cards={Object.fromEntries(
             packages.map((pkg) => [
               pkg.slug,
-              <PackageCard key={pkg.slug} pkg={pkg} />,
+              <PackageCard key={pkg.slug} pkg={pkg} shape="adaptive" />,
             ]),
           )}
         />

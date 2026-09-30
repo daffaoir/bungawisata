@@ -13,36 +13,35 @@ export type ButtonVariant =
 export type ButtonSize = "sm" | "md" | "lg";
 
 /**
- * Tombol persegi berhuruf kapital dengan jarak antarhuruf lebar. Bentuk pil
- * dan bayangan tebal sengaja ditinggalkan — kesan tenang datang dari garis
- * tegas dan ruang kosong, bukan dari kedalaman.
+ * Tombol pil dengan huruf biasa (sentence case). Tekanan kecil saat diklik
+ * memberi tanda bahwa tombol merespons, tanpa bayangan tebal.
  */
 const BASE =
-  "group/btn inline-flex items-center justify-center gap-2.5 " +
-  "font-sans font-semibold uppercase tracking-[0.1em] " +
-  "border transition-colors duration-300 " +
-  "disabled:pointer-events-none disabled:opacity-50";
+  "group/btn inline-flex items-center justify-center gap-2 rounded-full " +
+  "font-sans font-semibold tracking-[-0.005em] " +
+  "border transition-[background-color,border-color,color,scale] duration-300 ease-out-soft " +
+  "active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
 
 /**
  * Semua kombinasi di bawah sudah dicek kontrasnya minimal 4,5:1.
- * `gold-600` adalah nuansa emas paling terang yang masih aman dengan teks
- * putih; jangan turunkan ke gold-500.
+ * - primary: kunyit dengan teks soga (7,4:1) — aksi utama.
+ * - gold:    hijau daun dengan teks kertas (11,5:1) — aksi kedua yang tegas.
  */
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary: "border-ink bg-ink text-canvas hover:bg-gold-600 hover:border-gold-600",
-  gold: "border-gold-600 bg-gold-600 text-white hover:bg-ink hover:border-ink",
-  outline: "border-ink/25 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-canvas",
+  primary: "border-gold-400 bg-gold-400 text-ink hover:border-gold-300 hover:bg-gold-300",
+  gold: "border-daun bg-daun text-canvas hover:border-daun-900 hover:bg-daun-900",
+  outline: "border-ink/20 bg-transparent text-ink hover:border-ink/50 hover:bg-ink/[0.04]",
   outlineLight:
-    "border-white/35 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink",
-  white: "border-white bg-white text-ink hover:bg-transparent hover:text-white",
+    "border-canvas/40 bg-transparent text-canvas hover:border-canvas hover:bg-canvas/10",
+  white: "border-canvas bg-canvas text-ink hover:border-gold-100 hover:bg-gold-100",
   ghost: "border-transparent bg-transparent text-ink hover:text-gold-600",
 };
 
 const SIZES: Record<ButtonSize, string> = {
   // `min-h-11` menjaga target sentuh minimal 44px.
-  sm: "min-h-11 px-4 py-2.5 text-[0.68rem]",
-  md: "min-h-11 px-6 py-3 text-[0.72rem]",
-  lg: "px-8 py-4 text-[0.78rem]",
+  sm: "min-h-11 px-5 py-2 text-[0.9rem]",
+  md: "min-h-12 px-6 py-2.5 text-[0.95rem]",
+  lg: "min-h-14 px-7 py-3 text-base",
 };
 
 function classes(variant: ButtonVariant, size: ButtonSize, className?: string) {

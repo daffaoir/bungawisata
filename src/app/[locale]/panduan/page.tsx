@@ -81,31 +81,31 @@ export default async function GuidesPage({
 
             return (
               <StaggerItem key={guide.slug} className="h-full">
-                <article className="group relative flex h-full flex-col border border-line bg-white transition-colors duration-500 hover:border-ink">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-canvas-alt">
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
                       src={guide.heroImage}
                       alt=""
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                      className="object-cover transition-transform duration-[900ms] ease-out-soft [@media(hover:hover)]:group-hover:scale-[1.04]"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-7">
-                    <p className="text-xs text-ink-muted">
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <p className="text-[0.85rem] text-ink-muted">
                       <time dateTime={guide.updatedAt}>
                         {formatDate(guide.updatedAt, appLocale)}
                       </time>
                     </p>
-                    <h3 className="mt-3 text-[1.4rem]">
-                      <Link href={href} className="after:absolute after:inset-0">
+                    <h3 className="mt-2 text-[1.5rem]">
+                      <Link href={href} className="after:absolute after:inset-0 after:rounded-3xl">
                         {content.title}
                       </Link>
                     </h3>
-                    <p className="mt-3 mb-6 text-sm leading-[1.75] text-ink-soft">
+                    <p className="mt-2 mb-5 leading-[1.65] text-ink-soft">
                       {content.excerpt}
                     </p>
-                    <span className="mt-auto inline-flex items-center gap-2 text-[0.7rem] font-semibold tracking-[0.14em] text-gold-600 uppercase">
+                    <span className="mt-auto inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-gold-700">
                       {t("readMore")}
                       <ArrowRight
                         className="size-4 transition-transform duration-300 group-hover:translate-x-1"

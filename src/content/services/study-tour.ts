@@ -81,8 +81,8 @@ export const studyTour = {
   content: {
     id: {
       name: "Study Tour",
-      title: "Study Tour Sekolah & Kampus dari Malang",
-      metaTitle: "Study Tour Sekolah & Kampus dari Malang",
+      title: "Study tour sekolah & kampus dari Malang",
+      metaTitle: "Study tour sekolah & kampus dari Malang",
       metaDescription:
         "Study tour dan karya wisata sekolah atau kampus dari Malang ke Yogyakarta, Bali, dan Bromo. Itinerary edukatif, koordinasi dengan guru, tour leader pendamping.",
       summary:
@@ -130,7 +130,7 @@ export const studyTour = {
     },
     en: {
       name: "Study Tours",
-      title: "School & University Study Tours from Malang",
+      title: "School & university study tours from Malang",
       metaTitle: "Study Tours from Malang",
       metaDescription:
         "School and university study tours from Malang to Yogyakarta, Bali and Bromo. Educational itineraries, close coordination with teachers and tour leader support.",

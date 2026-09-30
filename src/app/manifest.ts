@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Tour & travel di Malang: paket tour rombongan, study tour, gathering, dan private tour dalam & luar negeri.",
     start_url: "/",
     display: "browser",
-    background_color: "#fbfaf8",
-    theme_color: "#b08d57",
+    background_color: "#fbf8f2",
+    theme_color: "#1e3b2f",
     lang: "id",
     icons: [
       { src: "/icon-192.png", sizes: "192x192", type: "image/png" },

@@ -46,13 +46,13 @@ export function GoogleRatingSummary({
         <span
           className={cn(
             "font-display text-2xl",
-            isDark ? "text-white" : "text-ink",
+            isDark ? "text-canvas" : "text-ink",
           )}
         >
           {rating}
         </span>
         <span
-          className={cn("text-sm", isDark ? "text-white/70" : "text-ink-soft")}
+          className={cn("text-[0.95rem]", isDark ? "text-canvas/80" : "text-ink-soft")}
         >
           {t("ratingSummary", { count: site.proof.googleReviewCount })}
         </span>
@@ -62,10 +62,10 @@ export function GoogleRatingSummary({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "-my-3 inline-flex min-h-11 items-center gap-2 py-3 text-[0.72rem] font-semibold tracking-[0.14em] uppercase transition-colors",
+          "-my-3 inline-flex min-h-11 items-center gap-1.5 py-3 text-[0.95rem] font-semibold underline decoration-1 underline-offset-4 transition-colors",
           isDark
-            ? "text-gold-400 hover:text-white"
-            : "text-gold-700 hover:text-ink",
+            ? "text-gold-300 decoration-gold-300/50 hover:text-canvas"
+            : "text-gold-700 decoration-gold-700/40 hover:text-ink",
         )}
       >
         {t("viewOnGoogle")}

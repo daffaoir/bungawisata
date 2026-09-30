@@ -81,8 +81,8 @@ export const tiketPesawat = {
   content: {
     id: {
       name: "Tiket Pesawat",
-      title: "Pesan Tiket Pesawat di Malang",
-      metaTitle: "Pesan Tiket Pesawat di Malang",
+      title: "Pesan tiket pesawat di Malang",
+      metaTitle: "Pesan tiket pesawat di Malang",
       metaDescription:
         "Pesan tiket pesawat domestik dan internasional di Malang lewat WhatsApp. Penerbangan dari Juanda, Abdul Rachman Saleh, atau Jakarta untuk grup maupun perorangan.",
       summary:
@@ -130,8 +130,8 @@ export const tiketPesawat = {
     },
     en: {
       name: "Flight Tickets",
-      title: "Book Flight Tickets in Malang",
-      metaTitle: "Book Flight Tickets in Malang",
+      title: "Book flight tickets in Malang",
+      metaTitle: "Book flight tickets in Malang",
       metaDescription:
         "Book domestic and international flights in Malang via WhatsApp. Departures from Juanda, Abdul Rachman Saleh or Jakarta, for individual travellers and groups.",
       summary:

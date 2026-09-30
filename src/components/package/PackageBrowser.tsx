@@ -164,11 +164,11 @@ export function PackageBrowser({
         semuanya terlihat dalam satu kotak seperti sebelumnya — pembungkus
         `lg:contents` meleburkan anak-anaknya ke grid empat kolom.
       */}
-      <div className="lg:border lg:border-line lg:bg-white lg:p-8">
+      <div className="lg:rounded-3xl lg:bg-canvas-alt lg:p-6">
         <div
           role="group"
           aria-label={tCommon("viewAllPackages")}
-          className="grid grid-cols-3 gap-2 lg:flex lg:flex-wrap"
+          className="flex gap-1.5 sm:gap-2"
         >
           {(["all", ...REGIONS] as const).map((region) => {
             const isActive = filters.region === region;
@@ -186,11 +186,11 @@ export function PackageBrowser({
                 onClick={() => update("region", region)}
                 aria-pressed={isActive}
                 className={cn(
-                  "min-h-11 border px-1 text-[0.68rem] leading-tight font-semibold tracking-[0.04em] uppercase lg:px-5 lg:tracking-[0.1em]",
+                  "min-h-11 rounded-full px-4 text-[0.925rem] font-medium sm:px-5 sm:text-[0.95rem]",
                   "transition-colors duration-300",
                   isActive
-                    ? "border-ink bg-ink text-canvas"
-                    : "border-line bg-white text-ink-soft hover:border-ink hover:text-ink",
+                    ? "bg-ink text-canvas"
+                    : "bg-canvas-alt text-ink hover:bg-gold-100 lg:bg-canvas",
                 )}
               >
                 {label}
@@ -199,7 +199,7 @@ export function PackageBrowser({
           })}
         </div>
 
-        <div className="mt-3 grid gap-3 lg:mt-6 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="mt-3 grid gap-3 lg:mt-4 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div className="flex gap-3 lg:contents">
             <div className="relative min-w-0 flex-1">
               <Search
@@ -213,7 +213,7 @@ export function PackageBrowser({
                 onChange={(event) => update("query", event.target.value)}
                 placeholder={t("searchPlaceholder")}
                 aria-label={t("search")}
-                className="min-h-11 w-full border border-line bg-white py-3 ps-11 pe-4 text-sm text-ink transition-colors duration-300 hover:border-ink/40 focus:border-ink focus:outline-none"
+                className="min-h-12 w-full rounded-full border border-ink/15 bg-canvas py-3 ps-11 pe-4 text-[0.95rem] text-ink transition-colors duration-300 placeholder:text-ink-muted hover:border-ink/40 focus:border-ink/60 focus:outline-none"
               />
             </div>
 
@@ -223,11 +223,11 @@ export function PackageBrowser({
               aria-expanded={showMoreFilters}
               aria-controls={moreFiltersId}
               className={cn(
-                "inline-flex min-h-11 shrink-0 items-center gap-2 border px-4 text-[0.68rem] font-semibold tracking-[0.1em] uppercase lg:hidden",
+                "inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border px-4 text-[0.925rem] font-medium lg:hidden",
                 "transition-colors duration-300",
                 showMoreFilters || activeMoreFilters > 0
                   ? "border-ink bg-ink text-canvas"
-                  : "border-line bg-white text-ink hover:border-ink",
+                  : "border-ink/15 bg-canvas text-ink hover:border-ink/40",
               )}
             >
               <SlidersHorizontal
@@ -287,7 +287,7 @@ export function PackageBrowser({
       <div className="mt-8 flex min-h-11 flex-wrap items-center justify-between gap-3 lg:mt-10">
         <p
           aria-live="polite"
-          className="text-[0.7rem] tracking-[0.12em] text-ink-muted uppercase"
+          className="text-[0.95rem] text-ink-muted"
         >
           {t("resultCount", { count: results.length })}
         </p>
@@ -296,7 +296,7 @@ export function PackageBrowser({
           <button
             type="button"
             onClick={() => setFilters(EMPTY)}
-            className="inline-flex min-h-11 items-center gap-2 text-[0.7rem] font-semibold tracking-[0.12em] text-gold-600 uppercase transition-colors hover:text-ink"
+            className="inline-flex min-h-11 items-center gap-2 text-[0.95rem] font-semibold text-gold-700 transition-colors hover:text-ink"
           >
             <RotateCcw className="size-4" aria-hidden="true" />
             {t("reset")}
@@ -305,7 +305,7 @@ export function PackageBrowser({
       </div>
 
       {results.length > 0 ? (
-        <StaggerGroup className="mt-6 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="mt-4 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((pkg) => (
             <StaggerItem key={pkg.slug} className="h-full">
               {cards[pkg.slug]}

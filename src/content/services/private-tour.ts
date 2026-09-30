@@ -81,7 +81,7 @@ export const privateTour = {
   content: {
     id: {
       name: "Private Tour",
-      title: "Private Tour Keluarga & Pasangan dari Malang",
+      title: "Private tour keluarga & pasangan dari Malang",
       metaTitle: "Private Tour Keluarga dari Malang",
       metaDescription:
         "Private tour dari Malang untuk keluarga, pasangan, dan grup kecil. Jadwal fleksibel, itinerary disesuaikan, ke destinasi dalam negeri maupun Jepang, Korea, Turki.",
@@ -130,7 +130,7 @@ export const privateTour = {
     },
     en: {
       name: "Private Tours",
-      title: "Private Tours for Families & Couples from Malang",
+      title: "Private tours for families & couples from Malang",
       metaTitle: "Private Family Tours from Malang",
       metaDescription:
         "Private tours from Malang for families, couples and small groups. Flexible dates and tailored itineraries across Indonesia or to Japan, South Korea and Turkey.",

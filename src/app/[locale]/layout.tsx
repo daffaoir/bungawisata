@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider, type Locale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -14,15 +14,16 @@ import { routing } from "@/i18n/routing";
 import { organizationJsonLd } from "@/lib/jsonld";
 import "../globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Serif variabel dengan sumbu SOFT (ujung huruf membulat) untuk judul.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  axes: ["SOFT", "WONK", "opsz"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
@@ -75,7 +76,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         {/* Entitas bisnis dirender sekali di sini, jadi ada di semua halaman. */}

@@ -1,80 +1,89 @@
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { formatPrice } from "@/lib/format";
 import type { Package } from "@/lib/schema";
 
-export function PackageCard({ pkg }: { pkg: Package }) {
+/**
+ * Kartu paket: fotonya yang bicara. Harga menempel di foto supaya terbaca
+ * sekilas, lalu judul dan ringkasan di bawahnya tanpa bingkai kotak.
+ */
+export function PackageCard({
+  pkg,
+  sizes = "(min-width: 1024px) 24rem, (min-width: 640px) 45vw, 85vw",
+  shape = "portrait",
+  className,
+}: {
+  pkg: Package;
+  /** `sizes` untuk foto; sesuaikan kalau kartu dipakai di lebar lain. */
+  sizes?: string;
+  /**
+   * `portrait` — foto 4:5 di semua lebar (strip geser beranda).
+   * `adaptive` — 4:3 di ponsel supaya daftar satu kolom tidak terlalu
+   * panjang, 4:5 mulai `sm` (grid dua/tiga kolom).
+   */
+  shape?: "portrait" | "adaptive";
+  className?: string;
+}) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("Common");
   const content = pkg.content[locale];
   const isDomestic = pkg.region === "dalam-negeri";
 
   return (
-    <article className="group relative flex h-full flex-col border border-line bg-white transition-colors duration-500 hover:border-ink">
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <article className={cn("group relative flex h-full flex-col", className)}>
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-3xl bg-canvas-alt",
+          shape === "adaptive" ? "aspect-[4/3] sm:aspect-[4/5]" : "aspect-[4/5]",
+        )}
+      >
         <Image
           src={pkg.heroImage}
           alt={content.title}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+          sizes={sizes}
+          className="object-cover transition-transform duration-[900ms] ease-out-soft [@media(hover:hover)]:group-hover:scale-[1.04]"
         />
+        {/* Gradien tipis di bawah supaya chip harga tetap terbaca di foto terang. */}
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/45 to-transparent" />
 
-        <span className="absolute top-0 left-0 bg-canvas px-3 py-1.5 text-[0.6rem] font-semibold tracking-[0.16em] text-ink uppercase">
+        <span className="absolute top-4 left-4 rounded-full bg-canvas/90 px-3 py-1 text-[0.8rem] font-medium text-ink backdrop-blur-sm">
           {isDomestic ? t("domestic") : t("international")}
         </span>
-      </div>
 
-      <div className="flex flex-1 flex-col p-7">
-        {/* Durasi di baris yang sama dengan destinasi, supaya posisinya tidak
-            bergeser saat judul patah dua baris. */}
-        <div className="flex items-baseline justify-between gap-3">
-          <p className="eyebrow text-gold-600">{pkg.destination}</p>
-          <p className="shrink-0 text-[0.75rem] text-ink-muted">
-            {t("duration", {
-              days: pkg.durationDays,
-              nights: pkg.durationNights,
-            })}
+        <div className="absolute bottom-4 left-4 rounded-2xl bg-canvas px-4 py-2.5 text-ink transition-transform duration-500 ease-out-soft [@media(hover:hover)]:group-hover:-translate-y-1">
+          <p className="text-[0.75rem] leading-tight text-ink-muted">
+            {pkg.priceIsEstimate ? t("startingFromEstimate") : t("startingFrom")}
+          </p>
+          <p className="font-display text-[1.2rem] leading-tight font-medium">
+            {formatPrice(pkg.priceFrom, locale)}
+            <span className="ms-1 font-sans text-[0.75rem] font-normal text-ink-muted">
+              {t("perPerson")}
+            </span>
           </p>
         </div>
+      </div>
 
-        <h3 className="mt-3 text-[1.35rem] leading-snug">
+      <div className="flex flex-1 flex-col px-1 pt-5">
+        <p className="text-[0.875rem] text-ink-muted">
+          {pkg.destination},{" "}
+          {t("duration", { days: pkg.durationDays, nights: pkg.durationNights })}
+        </p>
+        <h3 className="mt-1.5 text-[1.4rem] leading-snug">
           <Link
             href={{ pathname: "/paket/[slug]", params: { slug: pkg.slug } }}
             // Menutupi seluruh kartu agar area kliknya luas.
-            className="after:absolute after:inset-0 after:content-['']"
+            className="after:absolute after:inset-0 after:rounded-3xl after:content-[''] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-gold-600"
           >
             {content.title}
           </Link>
         </h3>
-
-        <p className="mt-3 mb-6 line-clamp-2 text-sm leading-[1.75] text-ink-soft">
+        <p className="mt-2 line-clamp-2 text-[0.95rem] leading-[1.65] text-ink-soft">
           {content.summary}
         </p>
-
-        <div className="mt-auto flex items-end justify-between gap-4 border-t border-line pt-6">
-          <div>
-            <p className="text-[0.75rem] tracking-[0.12em] text-ink-muted uppercase">
-              {t("startingFrom")}
-              {pkg.priceIsEstimate ? ` · ${t("estimate")}` : null}
-            </p>
-            <p className="mt-1 font-display text-xl text-ink">
-              {formatPrice(pkg.priceFrom, locale)}
-              <span className="ms-1 font-sans text-[0.75rem] tracking-wide text-ink-muted">
-                {t("perPerson")}
-              </span>
-            </p>
-          </div>
-
-          <ArrowUpRight
-            aria-hidden="true"
-            strokeWidth={1.25}
-            className="size-6 shrink-0 text-ink-muted transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-gold-600"
-          />
-        </div>
       </div>
     </article>
   );

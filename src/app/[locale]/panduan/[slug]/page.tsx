@@ -110,12 +110,12 @@ export default async function GuidePage({
           <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
             <Link
               href="/panduan"
-              className="-my-3 inline-flex min-h-11 items-center gap-2 py-3 text-[0.7rem] font-semibold tracking-[0.14em] text-gold-600 uppercase transition-colors hover:text-ink"
+              className="-my-3 inline-flex min-h-11 items-center gap-2 py-3 text-[0.95rem] font-medium text-gold-700 transition-colors hover:text-ink"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
               {t("backToList")}
             </Link>
-            <h1 className="mt-6 text-[2.3rem] leading-[1.1] sm:text-5xl">
+            <h1 className="mt-6 text-[2.5rem] leading-[1.06] sm:text-[3.5rem]">
               {content.title}
             </h1>
             <p className="mt-6 text-[1.1rem] leading-[1.8] text-ink-soft">
@@ -127,7 +127,7 @@ export default async function GuidePage({
               })}
               {guide.updatedAt !== guide.publishedAt ? (
                 <>
-                  {" · "}
+                  {", "}
                   {t("updated", {
                     date: formatDate(guide.updatedAt, appLocale),
                   })}
@@ -135,7 +135,7 @@ export default async function GuidePage({
               ) : null}
             </p>
           </div>
-          <div className="relative mx-auto mt-10 aspect-[16/9] w-full max-w-5xl overflow-hidden sm:px-8">
+          <div className="relative mx-auto mt-10 aspect-[16/9] w-[calc(100%-1rem)] max-w-5xl overflow-hidden rounded-[2rem] sm:w-[calc(100%-4rem)]">
             <Image
               src={guide.heroImage}
               alt=""
@@ -169,7 +169,7 @@ export default async function GuidePage({
                     {section.list.map((item) => (
                       <li
                         key={item}
-                        className="relative ps-5 text-[1.02rem] leading-[1.8] text-ink-soft before:absolute before:start-0 before:top-[0.8em] before:h-px before:w-2.5 before:bg-gold-500"
+                        className="relative ps-5 text-[1.02rem] leading-[1.8] text-ink-soft before:absolute before:start-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-gold-400"
                       >
                         {item}
                       </li>
@@ -183,7 +183,7 @@ export default async function GuidePage({
       </article>
 
       {services.length > 0 ? (
-        <Section tone="alt" compact>
+        <Section tone="alt" inset compact>
           <SectionHeading title={t("relatedServices")} />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -198,7 +198,7 @@ export default async function GuidePage({
           <SectionHeading title={t("relatedPackages")} />
           <div className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {packages.map((pkg) => (
-              <PackageCard key={pkg.slug} pkg={pkg} />
+              <PackageCard key={pkg.slug} pkg={pkg} shape="adaptive" />
             ))}
           </div>
         </Section>

@@ -23,29 +23,29 @@ export function Footer() {
   const packagesPath = getPathname({ href: "/paket", locale });
 
   return (
-    <footer className="bg-ink text-white">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8">
+    <footer className="bg-daun text-canvas">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-16 pb-10 sm:px-8 sm:pt-20">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <Logo tone="light" />
-            <p className="mt-6 max-w-xs text-sm leading-[1.8] text-white/60">
+            <p className="mt-6 max-w-xs text-sm leading-[1.8] text-canvas/75">
               {t("about")}
             </p>
-            <p className="mt-5 font-display text-sm text-gold-400 italic">
+            <p className="mt-5 font-display text-base text-gold-300 italic">
               &ldquo;{site.tagline}&rdquo;
             </p>
           </div>
 
           <nav aria-labelledby="footer-nav">
-            <h3 id="footer-nav" className="eyebrow text-gold-400">
+            <h3 id="footer-nav" className="font-display text-lg text-gold-300">
               {t("navTitle")}
             </h3>
-            <ul className="mt-4 text-sm">
+            <ul className="mt-3 text-[0.95rem]">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
+                    className="inline-flex min-h-11 items-center text-canvas/80 transition-colors duration-300 hover:text-canvas"
                   >
                     {tNav(item.key)}
                   </Link>
@@ -55,14 +55,14 @@ export function Footer() {
           </nav>
 
           <nav aria-labelledby="footer-packages">
-            <h3 id="footer-packages" className="eyebrow text-gold-400">
+            <h3 id="footer-packages" className="font-display text-lg text-gold-300">
               {t("packagesTitle")}
             </h3>
-            <ul className="mt-4 text-sm">
+            <ul className="mt-3 text-[0.95rem]">
               <li>
                 <a
                   href={`${packagesPath}?region=dalam-negeri`}
-                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
+                  className="inline-flex min-h-11 items-center text-canvas/80 transition-colors duration-300 hover:text-canvas"
                 >
                   {t("domestic")}
                 </a>
@@ -70,7 +70,7 @@ export function Footer() {
               <li>
                 <a
                   href={`${packagesPath}?region=luar-negeri`}
-                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
+                  className="inline-flex min-h-11 items-center text-canvas/80 transition-colors duration-300 hover:text-canvas"
                 >
                   {t("international")}
                 </a>
@@ -78,7 +78,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/panduan"
-                  className="inline-flex min-h-11 items-center text-white/65 transition-colors duration-300 hover:text-white"
+                  className="inline-flex min-h-11 items-center text-canvas/80 transition-colors duration-300 hover:text-canvas"
                 >
                   {tNav("guides")}
                 </Link>
@@ -87,16 +87,16 @@ export function Footer() {
           </nav>
 
           <div>
-            <h3 className="eyebrow text-gold-400">{t("contactTitle")}</h3>
-            <ul className="mt-6 space-y-5 text-sm text-white/65">
+            <h3 className="font-display text-lg text-gold-300">{t("contactTitle")}</h3>
+            <ul className="mt-5 space-y-5 text-[0.95rem] text-canvas/80">
               <li>
                 <a
                   href={buildWhatsAppUrl(tWa("generic"))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
+                  className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-canvas"
                 >
-                  <WhatsAppIcon className="mt-0.5 size-4 shrink-0 text-[#25D366]" />
+                  <WhatsAppIcon className="mt-0.5 size-4 shrink-0 text-wa" />
                   <span>{site.phoneDisplay}</span>
                 </a>
               </li>
@@ -104,7 +104,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`mailto:${site.email}`}
-                    className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-white"
+                    className="-my-3 flex items-start gap-3 py-3 transition-colors duration-300 hover:text-canvas"
                   >
                     <Mail
                       className="mt-0.5 size-4 shrink-0 text-gold-400"
@@ -130,14 +130,14 @@ export function Footer() {
                   {site.address.postalCode}
                 </address>
               </li>
-              <li className="ps-7 text-xs text-white/60">
-                {site.hours[0].days[locale]} · {site.hours[0].time}
+              <li className="ps-7 text-[0.875rem] text-canvas/75">
+                {site.hours[0].days[locale]}, {site.hours[0].time}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 pb-20 text-xs sm:pb-0 text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-canvas/15 pt-8 pb-20 text-[0.85rem] sm:pb-0 text-canvas/75 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. {t("rights")}
           </p>

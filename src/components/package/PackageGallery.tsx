@@ -47,13 +47,13 @@ export function PackageGallery({
         <li
           key={src}
           className={cn(
-            "group relative overflow-hidden",
+            "group relative overflow-hidden rounded-3xl",
             index === 0 ? first : rest,
           )}
         >
           <Image
             src={src}
-            alt={`${alt} — ${index + 1}`}
+            alt={`${alt}, ${index + 1}`}
             fill
             sizes={
               index === 0

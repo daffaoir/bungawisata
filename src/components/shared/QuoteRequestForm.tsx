@@ -16,7 +16,7 @@ type QuoteRequestFormProps = {
 };
 
 const inputClass =
-  "min-h-11 w-full border border-line bg-white px-4 py-3 text-sm text-ink transition-colors duration-300 placeholder:text-ink-muted hover:border-ink/40 focus:border-ink focus:outline-none";
+  "min-h-12 w-full rounded-2xl border border-ink/15 bg-canvas px-4 py-3 text-[0.95rem] text-ink transition-colors duration-300 placeholder:text-ink-muted hover:border-ink/40 focus:border-ink/60 focus:outline-none";
 
 /**
  * Form "minta penawaran" yang hanya menyusun pesan WhatsApp — tidak ada data
@@ -164,12 +164,12 @@ export function QuoteRequestForm({
         ) : null}
         <button
           type="submit"
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 bg-ink px-7 text-[0.75rem] font-semibold tracking-[0.14em] text-canvas uppercase transition-colors duration-300 hover:bg-gold-600 sm:w-auto"
+          className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-gold-400 px-7 text-base font-semibold text-ink transition-[background-color,scale] duration-300 hover:bg-gold-300 active:scale-[0.97] sm:w-auto"
         >
           <WhatsAppIcon className="size-[1.15em]" />
           {t("submit")}
         </button>
-        <p className="mt-4 text-xs leading-[1.7] text-ink-muted">
+        <p className="mt-4 text-[0.85rem] leading-[1.6] text-ink-muted">
           {t("privacy")}
         </p>
       </div>

@@ -23,11 +23,11 @@ export function InclusionList({
   return (
     <div
       className={cn(
-        "border p-7",
-        isInclude ? "border-gold-200 bg-gold-50" : "border-line bg-white",
+        "rounded-3xl p-6 sm:p-7",
+        isInclude ? "bg-gold-50" : "bg-canvas-alt",
       )}
     >
-      <h3 className="text-xl">{title}</h3>
+      <h3 className="text-[1.4rem]">{title}</h3>
 
       <ol className="mt-6 space-y-3.5">
         {items.map((item) => (

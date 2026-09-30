@@ -11,7 +11,7 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="border border-dashed border-line bg-white px-6 py-20 text-center">
+    <div className="rounded-3xl bg-canvas-alt px-6 py-16 text-center sm:py-20">
       <SearchX
         className="mx-auto size-8 text-gold-600"
         aria-hidden="true"

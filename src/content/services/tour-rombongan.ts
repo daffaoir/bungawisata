@@ -70,8 +70,8 @@ export const tourRombongan = {
   content: {
     id: {
       name: "Tour Rombongan",
-      title: "Tour Rombongan dari Malang",
-      metaTitle: "Tour Rombongan dari Malang",
+      title: "Tour rombongan dari Malang",
+      metaTitle: "Tour rombongan dari Malang",
       metaDescription:
         "Tour rombongan dari Malang untuk kantor, komunitas, keluarga besar, dan arisan. Domestik maupun luar negeri, bus pariwisata, tour leader, konsultasi via WhatsApp.",
       summary:
@@ -120,8 +120,8 @@ export const tourRombongan = {
     },
     en: {
       name: "Group Tours",
-      title: "Group Tours from Malang",
-      metaTitle: "Group Tours from Malang",
+      title: "Group tours from Malang",
+      metaTitle: "Group tours from Malang",
       metaDescription:
         "Group tours from Malang for offices, communities, extended families and social clubs. Domestic and overseas trips with coaches, tour leaders and WhatsApp support.",
       summary:
