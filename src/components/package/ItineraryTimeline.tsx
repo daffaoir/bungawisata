@@ -14,29 +14,33 @@ export function ItineraryTimeline({ days }: { days: ItineraryDay[] }) {
       {/* Garis dasar yang selalu tampak, agar strukturnya jelas tanpa JS. */}
       <div
         aria-hidden="true"
-        className="absolute top-2 bottom-2 start-[7px] w-px bg-line"
+        className="absolute top-5 bottom-5 start-[1.1rem] w-0.5 rounded-full bg-line"
       />
 
       <div
         aria-hidden="true"
-        className="timeline-progress absolute top-2 bottom-2 start-[7px] w-px origin-top bg-gold-500"
+        className="timeline-progress absolute top-5 bottom-5 start-[1.1rem] w-0.5 origin-top rounded-full bg-gold-400"
       />
 
       {days.map((day) => (
-        <li key={day.day} className="relative ps-10 pb-12 last:pb-0">
+        <li key={day.day} className="relative ps-14 pb-12 last:pb-0">
           <span
             aria-hidden="true"
-            className="absolute start-0 top-1.5 size-[15px] border border-gold-500 bg-canvas"
-          />
+            className="absolute start-0 top-0 flex size-9 items-center justify-center rounded-full bg-gold-400 font-display text-[1.05rem] font-medium text-ink"
+          >
+            {day.day}
+          </span>
 
-          <p className="eyebrow text-gold-600">{t("day", { day: day.day })}</p>
-          <h3 className="mt-2 text-[1.35rem]">{day.title}</h3>
+          <p className="pt-1.5 text-[0.95rem] font-medium text-gold-700">
+            {t("day", { day: day.day })}
+          </p>
+          <h3 className="mt-1 text-[1.5rem]">{day.title}</h3>
 
           <ul className="mt-4 space-y-2.5">
             {day.activities.map((activity) => (
               <li
                 key={activity}
-                className="relative ps-5 text-[0.95rem] leading-[1.75] text-ink-soft before:absolute before:start-0 before:top-[0.7em] before:h-px before:w-2.5 before:bg-gold-500"
+                className="relative ps-5 text-[0.95rem] leading-[1.75] text-ink-soft before:absolute before:start-0 before:top-[0.65em] before:size-1.5 before:rounded-full before:bg-gold-400"
               >
                 {activity}
               </li>

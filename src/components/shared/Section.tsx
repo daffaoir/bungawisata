@@ -9,7 +9,8 @@ type Tone = "canvas" | "white" | "alt" | "ink" | "daun";
 
 const TONES: Record<Tone, string> = {
   canvas: "bg-canvas text-ink",
-  white: "bg-white text-ink",
+  // `white` dulu putih murni; sekarang sama dengan kertas agar tidak ada pita putih.
+  white: "bg-canvas text-ink",
   alt: "bg-canvas-alt text-ink",
   ink: "bg-daun text-canvas",
   daun: "bg-daun text-canvas",

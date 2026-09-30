@@ -117,25 +117,25 @@ export default async function ContactPage({
       <Section tone="white">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h2 className="text-2xl">{t("whatsappTitle")}</h2>
+            <h2 className="text-[1.75rem]">{t("whatsappTitle")}</h2>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex min-h-11 items-center font-display text-[2rem] leading-tight text-ink transition-colors hover:text-gold-600"
+              className="mt-3 inline-flex min-h-11 items-center font-display text-[2.25rem] leading-tight text-ink transition-colors hover:text-gold-600"
             >
               {site.phoneDisplay}
             </a>
             <div className="mt-6">
               <WhatsAppCta size="lg" className="w-full sm:w-auto" />
             </div>
-            <p className="mt-4 text-sm text-ink-soft">
-              {replyHours.days[appLocale]} · {replyHours.time}
+            <p className="mt-4 text-[0.925rem] text-ink-soft">
+              {replyHours.days[appLocale]}, {replyHours.time}
             </p>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7">
-            <div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+            <div className="rounded-3xl bg-canvas-alt p-6">
               <h3 className="flex items-center gap-2.5 text-lg">
                 <MapPin
                   className="size-5 text-gold-600"
@@ -154,7 +154,7 @@ export default async function ContactPage({
               </address>
             </div>
 
-            <div>
+            <div className="rounded-3xl bg-canvas-alt p-6">
               <h3 className="flex items-center gap-2.5 text-lg">
                 <Clock
                   className="size-5 text-gold-600"
@@ -163,11 +163,11 @@ export default async function ContactPage({
                 />
                 {t("hoursTitle")}
               </h3>
-              <dl className="mt-4 space-y-2.5 text-sm">
+              <dl className="mt-4 space-y-2.5 text-[0.925rem]">
                 {site.hours.map((entry) => (
                   <div
                     key={entry.days[appLocale]}
-                    className="flex justify-between gap-4 border-b border-line pb-2 last:border-0 last:pb-0"
+                    className="flex justify-between gap-4"
                   >
                     <dt className="text-ink-soft">{entry.days[appLocale]}</dt>
                     <dd className="font-medium">
@@ -182,8 +182,8 @@ export default async function ContactPage({
           </div>
         </div>
 
-        <div className="mt-14 border-t border-line pt-8">
-          <h3 className="text-base">{t("connectTitle")}</h3>
+        <div className="mt-12">
+          <h3 className="text-[1.25rem]">{t("connectTitle")}</h3>
           <ul className="mt-5 flex flex-wrap gap-3">
             {otherChannels.map(({ key, label, href, Icon }) => (
               <li key={key}>
@@ -191,7 +191,7 @@ export default async function ContactPage({
                   href={href}
                   target={key === "email" ? undefined : "_blank"}
                   rel={key === "email" ? undefined : "noopener noreferrer"}
-                  className="inline-flex min-h-11 items-center gap-2.5 border border-line px-4 text-sm text-ink transition-colors hover:border-ink hover:bg-ink hover:text-canvas"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-ink/15 px-4 text-[0.925rem] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-canvas"
                 >
                   <Icon className="size-4 shrink-0" aria-hidden="true" />
                   {label}
@@ -217,10 +217,10 @@ export default async function ContactPage({
         </div>
       </Section>
 
-      <Section tone="alt">
+      <Section tone="alt" inset>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
-            <h2 className="text-[2rem] sm:text-[2.6rem]">{t("mapTitle")}</h2>
+            <h2 className="text-[2.1rem] sm:text-[2.75rem]">{t("mapTitle")}</h2>
             <address className="mt-5 leading-[1.75] text-ink-soft not-italic">
               {site.address.street}, {site.address.area}, {site.address.city},{" "}
               {site.address.province} {site.address.postalCode}
@@ -233,7 +233,7 @@ export default async function ContactPage({
               <MapPin className="size-4" strokeWidth={1.5} aria-hidden="true" />
               {t("openMaps")}
             </ButtonAnchor>
-            <p className="mt-6 text-sm leading-[1.75] text-ink-soft">
+            <p className="mt-6 text-[0.925rem] leading-[1.7] text-ink-soft">
               {t("mapSubtitle")}
             </p>
           </div>
@@ -242,7 +242,7 @@ export default async function ContactPage({
             Peta dimuat malas supaya tidak ikut menahan LCP. Latar
             `canvas-alt` mengisi kotaknya selama iframe belum termuat.
           */}
-          <div className="aspect-[4/3] w-full border border-line bg-canvas-alt">
+          <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl bg-canvas">
             <iframe
               src={MAPS_EMBED_URL}
               title={t("mapTitle")}

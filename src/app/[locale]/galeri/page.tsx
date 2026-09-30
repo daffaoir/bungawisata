@@ -73,7 +73,7 @@ export default async function GalleryPage({
           keyboard tidak punya hover. Foto `span: 2` memakai rasio 8/3 supaya
           tingginya sama dengan foto 4/3 di sebelahnya.
         */}
-        <StaggerGroup className="grid grid-cols-2 items-start gap-x-4 gap-y-8 lg:grid-cols-4">
+        <StaggerGroup className="grid grid-cols-2 items-start gap-x-3 gap-y-7 sm:gap-x-4 lg:grid-cols-4">
           {gallery.map((item) => (
             <StaggerItem
               key={item.src}
@@ -82,8 +82,8 @@ export default async function GalleryPage({
               <figure>
                 <div
                   className={cn(
-                    "relative aspect-[4/3] overflow-hidden",
-                    item.span === 2 && "sm:aspect-[8/3]",
+                    "relative aspect-[4/5] overflow-hidden rounded-3xl",
+                    item.span === 2 && "sm:aspect-[8/5]",
                   )}
                 >
                   <Image
@@ -95,10 +95,11 @@ export default async function GalleryPage({
                         ? "(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 50vw"
                         : "(min-width: 1024px) 25vw, 50vw"
                     }
+                    quality={85}
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="mt-3 text-[0.85rem] leading-snug text-ink-soft">
+                <figcaption className="mt-2.5 px-1 text-[0.9rem] leading-snug text-ink-soft">
                   {item.caption[appLocale]}
                 </figcaption>
               </figure>
@@ -110,9 +111,9 @@ export default async function GalleryPage({
           Foto di atas adalah foto stok destinasi. Dokumentasi perjalanan
           asli ada di Instagram, jadi pengunjung diarahkan ke sana.
         */}
-        <div className="mt-16 flex flex-col items-start gap-5 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col items-start gap-5 rounded-3xl bg-canvas-alt p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
-            <h2 className="text-2xl">{t("instagramTitle")}</h2>
+            <h2 className="text-[1.75rem]">{t("instagramTitle")}</h2>
             <p className="mt-2 max-w-xl text-ink-soft">{t("instagramText")}</p>
           </div>
           <ButtonAnchor

@@ -142,9 +142,9 @@ export function Select({
         onClick={() => (open ? setOpen(false) : openPanel())}
         onKeyDown={handleKeyDown}
         className={cn(
-          "flex w-full items-center justify-between gap-3 border bg-white py-3 ps-4 pe-3.5",
-          "text-start text-sm text-ink transition-colors duration-300",
-          open ? "border-ink" : "border-line hover:border-ink/40",
+          "flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl border bg-canvas py-3 ps-4 pe-3.5",
+          "text-start text-[0.95rem] text-ink transition-colors duration-300",
+          open ? "border-ink/60" : "border-ink/15 hover:border-ink/40",
         )}
       >
         <span className="truncate">{selected?.label ?? label}</span>
@@ -166,8 +166,8 @@ export function Select({
           aria-label={label}
           tabIndex={-1}
           className={cn(
-            "absolute inset-x-0 top-[calc(100%+0.35rem)] z-30 max-h-64 overflow-y-auto",
-            "border border-ink bg-white py-1 shadow-[0_24px_50px_-30px_rgba(15,15,15,0.6)]",
+            "absolute inset-x-0 top-[calc(100%+0.4rem)] z-30 max-h-64 overflow-y-auto",
+            "rounded-2xl border border-ink/10 bg-canvas p-1.5 shadow-[0_24px_50px_-24px_rgba(42,31,22,0.45)]",
             "motion-safe:animate-[select-open_0.18s_ease-out]",
           )}
         >
@@ -190,8 +190,8 @@ export function Select({
                 }}
                 onPointerEnter={() => setActiveIndex(index)}
                 className={cn(
-                  "flex cursor-pointer items-center justify-between gap-3 px-4 py-2.5 text-sm",
-                  isActive ? "bg-gold-50 text-ink" : "text-ink-soft",
+                  "flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-xl px-3.5 py-2 text-[0.95rem]",
+                  isActive ? "bg-canvas-alt text-ink" : "text-ink-soft",
                 )}
               >
                 <span className="truncate">{option.label}</span>

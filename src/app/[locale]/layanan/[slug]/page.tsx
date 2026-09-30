@@ -108,12 +108,11 @@ export default async function ServiceDetailPage({
     <>
       <JsonLd data={jsonLd} />
       <PageHeader
-        eyebrow={content.name}
         title={content.title}
         subtitle={content.summary}
         image={service.heroImage}
       >
-        <ButtonAnchor href={whatsappUrl} size="lg" variant="white">
+        <ButtonAnchor href={whatsappUrl} size="lg">
           <WhatsAppIcon className="size-[1.15em]" />
           {tWa("cta")}
         </ButtonAnchor>
@@ -137,7 +136,7 @@ export default async function ServiceDetailPage({
 
           <div className="space-y-10">
             <div>
-              <h3 className="rule-gold text-xl">{content.suitableForTitle}</h3>
+              <h3 className="text-[1.5rem]">{content.suitableForTitle}</h3>
               <ul className="space-y-3">
                 {content.suitableFor.map((item) => (
                   <li
@@ -154,7 +153,7 @@ export default async function ServiceDetailPage({
               </ul>
             </div>
             <div>
-              <h3 className="rule-gold text-xl">{content.weHandleTitle}</h3>
+              <h3 className="text-[1.5rem]">{content.weHandleTitle}</h3>
               <ul className="space-y-3">
                 {content.weHandle.map((item) => (
                   <li
@@ -174,16 +173,16 @@ export default async function ServiceDetailPage({
         </div>
       </Section>
 
-      <Section tone="alt">
-        <SectionHeading title={t("stepsTitle")} />
-        <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <Section tone="daun" inset>
+        <SectionHeading title={t("stepsTitle")} tone="light" />
+        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {content.steps.map((step, index) => (
-            <li key={step.title} className="reveal border-t border-ink pt-6">
-              <p className="font-display text-3xl text-gold-600">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-3 text-lg">{step.title}</h3>
-              <p className="mt-2 text-sm leading-[1.75] text-ink-soft">
+            <li key={step.title} className="reveal rounded-3xl bg-canvas/10 p-6">
+              <span className="flex size-11 items-center justify-center rounded-full bg-gold-400 font-display text-lg font-medium text-ink">
+                {index + 1}
+              </span>
+              <h3 className="mt-5 text-[1.35rem] text-canvas">{step.title}</h3>
+              <p className="mt-2 leading-[1.65] text-canvas/80">
                 {step.text}
               </p>
             </li>
@@ -232,7 +231,7 @@ export default async function ServiceDetailPage({
         </div>
       </Section>
 
-      <Section tone="alt" compact>
+      <Section tone="alt" inset compact>
         <SectionHeading title={t("otherServices")} />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {others.map((other) => (

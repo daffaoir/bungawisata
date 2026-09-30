@@ -61,7 +61,7 @@ export default async function AboutPage({
       <PageHeader
         title={t("title")}
         subtitle={t("intro")}
-        image={images["umum-rombongan"]}
+        image={images["suasana-sunrise-rombongan"]}
       />
 
       {/*
@@ -70,15 +70,15 @@ export default async function AboutPage({
         lalu foto. Sengaja bukan `Section`: `overflow-hidden` miliknya
         mematikan `position: sticky` di kolom kiri.
       */}
-      <section className="bg-white py-24 text-ink sm:py-32">
+      <section className="py-20 text-ink sm:py-28">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
+            <h2 className="text-[2.1rem] sm:text-[2.75rem] lg:text-[3.25rem]">
               {t("storyTitle")}
             </h2>
-            <div className="relative mt-10 hidden aspect-[4/5] overflow-hidden lg:block">
+            <div className="reveal-photo relative mt-10 hidden aspect-[4/5] overflow-hidden rounded-3xl lg:block">
               <Image
-                src={images["umum-rombongan"]}
+                src={images["suasana-candi-jalan"]}
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 40vw, 0px"
@@ -88,12 +88,12 @@ export default async function AboutPage({
           </div>
 
           <div>
-            <p className="max-w-[62ch] text-[1.05rem] leading-[1.9] text-ink-soft">
+            <p className="max-w-[62ch] text-[1.1rem] leading-[1.85] text-ink-soft">
               {t("story")}
             </p>
-            <div className="relative mt-10 aspect-[4/5] overflow-hidden lg:hidden">
+            <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-3xl lg:hidden">
               <Image
-                src={images["umum-rombongan"]}
+                src={images["suasana-candi-jalan"]}
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 0px, 100vw"
@@ -104,17 +104,17 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <Section tone="alt">
+      <Section tone="alt" inset>
         <SectionHeading title={t("valuesTitle")} align="center" />
 
-        <StaggerGroup className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
+        <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-3">
           {VALUES.map((key) => (
             <StaggerItem key={key} className="h-full">
-              <div>
-                <h3 className="rule-gold text-lg">
+              <div className="h-full rounded-3xl bg-canvas p-6 sm:p-7">
+                <h3 className="text-[1.4rem]">
                   {t(`values.${key}.title`)}
                 </h3>
-                <p className="mt-3 leading-[1.8] text-ink-soft">
+                <p className="mt-2 leading-[1.7] text-ink-soft">
                   {t(`values.${key}.description`)}
                 </p>
               </div>

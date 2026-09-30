@@ -64,13 +64,10 @@ export default async function TestimonialsPage({
       />
 
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        {/*
-          Kutipan tanpa kotak: teks kutipan jadi elemen utama, tiap item
-          dipisah garis rambut di atasnya.
-        */}
-        <GoogleRatingSummary className="mb-14 border-b border-line pb-10" />
+        {/* Kutipan dalam kartu membulat; teks kutipan jadi elemen utama. */}
+        <GoogleRatingSummary className="mb-12" />
 
-        <StaggerGroup className="grid gap-x-16 gap-y-12 lg:grid-cols-2">
+        <StaggerGroup className="grid gap-4 lg:grid-cols-2">
           {testimonials.map((testimonial) => (
             <StaggerItem key={testimonial.id} className="h-full">
               <TestimonialCard testimonial={testimonial} variant="quote" />
