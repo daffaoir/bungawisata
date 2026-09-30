@@ -34,8 +34,15 @@ yarn-error.log*
 .env*
 !.env.example
 
-# vercel
-.vercel
+# cloudflare / opennext
+/.open-next/
+/.wrangler/
+.dev.vars*
+cloudflare-env.d.ts
+
+# dibuat scripts/generate-static-files.mts
+/public/itinerary/
+/public/og/
 
 # typescript
 *.tsbuildinfo

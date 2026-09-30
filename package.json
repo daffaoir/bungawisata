@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "generate": "tsx scripts/generate-static-files.mts",
+    "predev": "npm run generate -- --if-missing",
     "dev": "next dev",
+    "prebuild": "npm run generate",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf:size": "node scripts/check-worker-size.mjs",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.5.1",
-    "@vercel/analytics": "^2.0.1",
+    "@opennextjs/cloudflare": "^1.20.7",
     "lucide-react": "^1.30.0",
     "next": "^16.3.7",
     "next-intl": "^4.13.5",
@@ -21,15 +28,19 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@react-pdf/renderer": "^4.5.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.5",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "^16.3.7",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "wrangler": "^4.144.0"
   }
 }

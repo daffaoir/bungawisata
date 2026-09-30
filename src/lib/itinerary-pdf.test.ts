@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import {
-  buildContentDisposition,
   buildItineraryFilename,
   formatDurationCode,
   formatMealCodes,
@@ -81,22 +80,5 @@ describe("buildItineraryFilename", () => {
         "id",
       ),
     ).toBe("Bunga Wisata - Danau Toba 4H3M.pdf");
-  });
-});
-
-describe("buildContentDisposition", () => {
-  it("mengutip nama berkas yang mengandung spasi", () => {
-    expect(
-      buildContentDisposition("Bunga Wisata - Bali 4H3M.pdf"),
-    ).toContain('filename="Bunga Wisata - Bali 4H3M.pdf"');
-  });
-
-  it("menyediakan versi UTF-8 untuk nama berkas non-ASCII", () => {
-    const header = buildContentDisposition("Bunga Wisata - Türkiye 9H8M.pdf");
-
-    // Versi ASCII-nya tidak boleh membawa karakter di luar rentang aman.
-    expect(header).toContain('filename="Bunga Wisata - T_rkiye 9H8M.pdf"');
-    expect(header).toContain("filename*=UTF-8''");
-    expect(header).toContain(encodeURIComponent("Türkiye"));
   });
 });

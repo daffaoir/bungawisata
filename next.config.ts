@@ -31,12 +31,29 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      // Gambar OG dulu route `[locale]/opengraph-image`; sekarang berkas
+      // statis. Harus di atas aturan `/id/:path*`.
+      {
+        source: "/:locale(id|en)/opengraph-image",
+        destination: "/og/:locale.png",
+        permanent: true,
+      },
       { source: "/id", destination: "/", permanent: true },
       { source: "/id/:path*", destination: "/:path*", permanent: true },
+      // PDF itinerary dulu dirender route `/api/itinerary/...`; sekarang
+      // berkas statis (lihat `src/lib/static-files.ts`). Tautan lama yang
+      // sudah dibagikan tetap sampai.
+      {
+        source: "/api/itinerary/:locale(id|en)/:slug",
+        destination: "/itinerary/:locale/:slug.pdf",
+        permanent: true,
+      },
     ];
   },
   images: {
-    // Foto dilayani dari `public/` (lihat `src/content/images.ts`). Hanya
+    // Foto dilayani dari `public/` (lihat `src/content/images.ts`). Di
+    // Cloudflare, OpenNext mengoptimasi lewat binding `IMAGES` (Cloudflare
+    // Images, free 5.000 transformasi unik/bulan). Hanya
     // WebP: AVIF pada kualitas yang sama tampak lebih lembut (detail foto
     // lanskap hilang); browser lama tetap mendapat JPEG.
     formats: ["image/webp"],

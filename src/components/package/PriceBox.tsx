@@ -5,15 +5,20 @@ import { WhatsAppCta } from "@/components/shared/WhatsAppCta";
 import type { AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { formatPrice } from "@/lib/format";
+import { buildItineraryFilename } from "@/lib/itinerary-pdf";
 import type { Package } from "@/lib/schema";
+import { itineraryPdfPath } from "@/lib/static-files";
 
 /**
- * PDF-nya sudah dirender saat build oleh route handler di
- * `src/app/api/itinerary/[locale]/[slug]/route.ts`, jadi tautannya cukup
- * berupa `<a download>` biasa — tanpa JavaScript dan tanpa status memuat.
+ * PDF-nya berkas statis buatan `scripts/generate-static-files.mts`, jadi
+ * tautannya cukup `<a download>` biasa, tanpa JavaScript dan tanpa status
+ * memuat. Nilai `download` memberi nama berkas yang rapi (tautan satu origin).
  */
-function pdfHref(locale: AppLocale, slug: string) {
-  return `/api/itinerary/${locale}/${slug}`;
+function pdfLink(pkg: Package, locale: AppLocale) {
+  return {
+    href: itineraryPdfPath(locale, pkg.slug),
+    download: buildItineraryFilename(pkg, locale),
+  };
 }
 
 /**
@@ -107,8 +112,7 @@ export function PriceBox({ pkg }: { pkg: Package }) {
       />
 
       <ButtonAnchor
-        href={pdfHref(locale, pkg.slug)}
-        download
+        {...pdfLink(pkg, locale)}
         target="_self"
         rel=""
         variant="outline"
@@ -161,8 +165,7 @@ export function StickyPriceBar({ pkg }: { pkg: Package }) {
 
         <div className="flex shrink-0 items-center gap-2">
           <a
-            href={pdfHref(locale, pkg.slug)}
-            download
+            {...pdfLink(pkg, locale)}
             aria-label={t("downloadPdf")}
             className="inline-flex size-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-canvas"
           >

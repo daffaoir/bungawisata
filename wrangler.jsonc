@@ -1,0 +1,23 @@
+/**
+ * Cloudflare Worker untuk situs publik, dibangun oleh OpenNext
+ * (`npx opennextjs-cloudflare build`). Deploy otomatis lewat Workers Builds
+ * dari branch `master`; lihat README bagian Deploy.
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bungawisata",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-25",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    // Dipakai OpenNext untuk memanggil Worker ini sendiri (mis. cache).
+    { "binding": "WORKER_SELF_REFERENCE", "service": "bungawisata" },
+  ],
+  // Optimasi `next/image` lewat Cloudflare Images.
+  "images": { "binding": "IMAGES" },
+  "observability": { "enabled": true },
+}

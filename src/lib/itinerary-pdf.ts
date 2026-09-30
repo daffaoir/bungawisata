@@ -117,16 +117,3 @@ export function buildItineraryFilename(
 
   return `Bunga Wisata - ${name} ${duration}.pdf`;
 }
-
-/**
- * Nilai untuk header `Content-Disposition`.
- *
- * Nama berkasnya mengandung spasi, jadi versi ASCII harus dikutip. `filename*`
- * ditambahkan sesuai RFC 5987 agar peramban yang mendukungnya memakai nama
- * dengan karakter non-ASCII secara utuh.
- */
-export function buildContentDisposition(filename: string): string {
-  const ascii = filename.replace(/[^\x20-\x7E]/g, "_").replace(/"/g, "");
-
-  return `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(filename)}`;
-}

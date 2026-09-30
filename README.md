@@ -21,7 +21,10 @@ Perintah lain:
 
 | Perintah | Kegunaan |
 |---|---|
-| `npm run build` | Build produksi; gagal kalau ada data paket yang tidak valid |
+| `npm run build` | Build produksi `next build` (didahului `npm run generate`); gagal kalau ada data paket yang tidak valid |
+| `npm run generate` | Membuat PDF itinerary dan gambar OG ke `public/itinerary/` dan `public/og/` |
+| `npm run preview` | Build OpenNext lalu menjalankan Worker lokal di runtime Cloudflare (http://localhost:8787) |
+| `npm run cf:size` | Setelah build OpenNext: memastikan bundle Worker ≤ 3 MB gzip (batas free plan) |
 | `npm start` | Menjalankan hasil build |
 | `npm test` | Menjalankan test Vitest |
 | `npm run test:watch` | Test dalam mode watch |
@@ -70,11 +73,19 @@ field-nya — jadi versi Inggris tidak akan pernah diam-diam tertinggal.
 
 ## Unduh PDF itinerary
 
-Setiap paket punya PDF yang bisa diunduh dari halaman detailnya. Berkasnya
-dirender saat `next build` oleh route handler di
-[`src/app/api/itinerary/[locale]/[slug]/route.ts`](src/app/api/itinerary/[locale]/[slug]/route.ts),
-jadi tidak ada biaya rendering saat pengguna mengklik. Tata letaknya ada di
-[`src/lib/pdf/ItineraryDocument.tsx`](src/lib/pdf/ItineraryDocument.tsx).
+Setiap paket punya PDF yang bisa diunduh dari halaman detailnya
+(`/itinerary/<bahasa>/<slug>.pdf`). Berkasnya dibuat sebelum build oleh
+[`scripts/generate-static-files.mts`](scripts/generate-static-files.mts)
+(`npm run generate`, otomatis lewat `prebuild`; `predev` hanya membuat kalau
+belum ada), sekaligus gambar Open Graph `public/og/<bahasa>.png`. Keduanya
+tidak masuk git. Tata letak PDF ada di
+[`src/lib/pdf/ItineraryDocument.tsx`](src/lib/pdf/ItineraryDocument.tsx),
+gambar OG di [`src/lib/og/OgImage.tsx`](src/lib/og/OgImage.tsx).
+
+Kenapa bukan route Next: kode @react-pdf dan resvg ikut terbundel ke Cloudflare
+Worker walau halamannya statis, dan bundlenya jadi melewati batas 3 MB free
+plan. Setelah mengubah konten paket saat `npm run dev` jalan, jalankan
+`npm run generate` supaya PDF-nya ikut baru.
 
 Dua hal yang perlu diingat saat menyuntingnya:
 
@@ -151,8 +162,9 @@ src/
 Setiap push ke `master` dan setiap pull request menjalankan
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml): lint, typecheck, test,
 build, dan `npm audit` untuk dependency produksi. Hasilnya ada di tab
-**Actions** GitHub. Vercel tetap men-deploy terpisah, jadi kalau CI merah,
-periksa dan perbaiki segera.
+**Actions** GitHub. Build di CI memakai OpenNext lalu `npm run cf:size`, jadi
+bundle Worker yang kebesaran ketahuan sebelum deploy. Cloudflare tetap
+men-deploy terpisah, jadi kalau CI merah, periksa dan perbaiki segera.
 
 [Dependabot](.github/dependabot.yml) membuka satu PR gabungan tiap Senin
 untuk update minor/patch, dan PR terpisah untuk celah keamanan. Merge PR-nya
@@ -161,18 +173,31 @@ dikerjakan manual.
 
 ## Deploy
 
-Situs ini butuh runtime Node.js karena memakai middleware next-intl.
+Produksi berjalan di **Cloudflare Workers** (free plan) lewat adapter
+[OpenNext](https://opennext.js.org/cloudflare). Konfigurasinya di
+[`wrangler.jsonc`](wrangler.jsonc) dan [`open-next.config.ts`](open-next.config.ts).
 
-**Vercel** — hubungkan repo, isi `NEXT_PUBLIC_WHATSAPP_NUMBER`,
-`NEXT_PUBLIC_SITE_URL`, dan (opsional) `NEXT_PUBLIC_CONTACT_EMAIL` di
-Environment Variables, selesai. Langkah memasang domain `bungawisata.co.id`
-(Cloudflare, Vercel, email, Search Console, Google Maps) ada di
-[`docs/DOMAIN-LAUNCH.md`](docs/DOMAIN-LAUNCH.md).
+- **Workers Builds**: repo terhubung di dashboard Cloudflare (Worker
+  `bungawisata`). Push ke `master` → build `npx opennextjs-cloudflare build`
+  → deploy `npx opennextjs-cloudflare deploy`. Branch lain mendapat URL
+  preview (`npx opennextjs-cloudflare upload`).
+- **Variabel build** (Settings → Build → Variables): `NEXT_PUBLIC_SITE_URL`
+  (`https://bungawisata.co.id`), `NEXT_PUBLIC_WHATSAPP_NUMBER`,
+  `NEXT_PUBLIC_CONTACT_EMAIL` (opsional), `NEXT_PUBLIC_CF_BEACON_TOKEN`
+  (token Web Analytics). Semuanya dibaca saat build, bukan saat runtime.
+- **Halaman** statis dilayani dari cache aset (`x-opennext-cache: HIT`), jadi
+  CPU per request jauh di bawah batas 10 ms. **Foto** `next/image` dioptimasi
+  lewat binding Cloudflare Images (free 5.000 transformasi unik/bulan; lewat
+  dari itu foto baru gagal dengan error 9422, tanpa tagihan).
+- **Rollback**: dashboard Worker → Deployments → pilih versi lama → Rollback.
+- **Domain**: `bungawisata.co.id` adalah Custom Domain Worker; `www` diarahkan
+  308 ke apex lewat Redirect Rule Cloudflare.
+- OpenNext tidak resmi mendukung Windows; `npm run preview` tetap jalan untuk
+  cek lokal, tapi build produksi selalu di Linux (Workers Builds/CI).
 
-**Hosting statis tanpa Node** — kalau nanti ternyata hanya tersedia shared
-hosting biasa, ubah `localePrefix` di `src/i18n/routing.ts` menjadi `"always"`,
-hapus `src/proxy.ts`, lalu tambahkan `output: "export"` di `next.config.ts`.
-Konsekuensinya URL berubah menjadi `/id/paket` dan `/en/packages`.
+Langkah memasang domain (email, Search Console, Google Maps) ada di
+[`docs/DOMAIN-LAUNCH.md`](docs/DOMAIN-LAUNCH.md); migrasi dari Vercel di
+[`docs/plans/2026-09-30-cloudflare-migration.md`](docs/plans/2026-09-30-cloudflare-migration.md).
 
 ## Aksesibilitas & animasi
 

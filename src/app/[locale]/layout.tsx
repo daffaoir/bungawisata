@@ -1,17 +1,17 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider, type Locale } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { JsonLd } from "@/components/shared/JsonLd";
-import { SITE_URL } from "@/content/site";
+import { CF_BEACON_TOKEN, SITE_URL } from "@/content/site";
 import { routing } from "@/i18n/routing";
 import { organizationJsonLd } from "@/lib/jsonld";
+import { OG_IMAGE_SIZE, ogImagePath } from "@/lib/static-files";
 import "../globals.css";
 
 // Serif variabel dengan sumbu SOFT (ujung huruf membulat) untuk judul.
@@ -35,8 +35,18 @@ export function generateStaticParams() {
 export async function generateMetadata(
   props: Omit<LayoutProps<"/[locale]">, "children">,
 ): Promise<Metadata> {
-  const { locale } = await props.params;
-  const t = await getTranslations({ locale: locale as Locale, namespace: "Meta" });
+  const { locale: requested } = await props.params;
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
+  const t = await getTranslations({ locale, namespace: "Meta" });
+  // Dibuat `scripts/generate-static-files.mts`; halaman yang tidak mengisi
+  // `images` sendiri mewarisi gambar ini lewat `buildOpenGraph`.
+  const ogImage = {
+    url: ogImagePath(locale),
+    ...OG_IMAGE_SIZE,
+    alt: t("siteName"),
+  };
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -51,9 +61,11 @@ export async function generateMetadata(
       title: t("defaultTitle"),
       description: t("defaultDescription"),
       locale: locale === "id" ? "id_ID" : "en_US",
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
+      images: [ogImage],
     },
   };
 }
@@ -89,12 +101,17 @@ export default async function LocaleLayout({
           <FloatingWhatsApp />
         </NextIntlClientProvider>
         {/*
-          Vercel Web Analytics: tanpa cookie, jadi tidak perlu banner izin.
-          Versi `/react`, bukan `/next`: versi Next memakai `useSearchParams`
-          yang membuat setiap halaman statis punya bailout ke client
-          rendering. Skripnya tetap mencatat perpindahan halaman sendiri.
+          Cloudflare Web Analytics: tanpa cookie, jadi tidak perlu banner
+          izin. Hanya dipasang bila tokennya diisi, jadi `next dev` dan
+          preview lokal tidak mengirim data.
         */}
-        <Analytics />
+        {CF_BEACON_TOKEN ? (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: CF_BEACON_TOKEN })}
+          />
+        ) : null}
       </body>
     </html>
   );

@@ -18,6 +18,13 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://bungawisata.co.id"
 ).replace(/\/$/, "");
 
+/**
+ * Token Cloudflare Web Analytics (bukan rahasia; ikut tampil di HTML).
+ * Kosong = skrip analytics tidak dipasang.
+ */
+export const CF_BEACON_TOKEN =
+  process.env.NEXT_PUBLIC_CF_BEACON_TOKEN?.trim() || undefined;
+
 const ADDRESS = {
   street: "Rest Area Jl. Raya Karangjuwet No. 6 (Kav. 5)",
   area: "Karang Juwet, Donowarih, Kec. Karangploso",

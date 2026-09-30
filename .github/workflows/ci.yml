@@ -39,8 +39,13 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Build
-        run: npm run build
+      # Build yang sama dengan Workers Builds: `next build` (lewat
+      # `npm run build`) lalu dibungkus OpenNext untuk Cloudflare Workers.
+      - name: Build (OpenNext)
+        run: npx opennextjs-cloudflare build
+
+      - name: Worker bundle fits free plan
+        run: npm run cf:size
 
       - name: Production dependency audit
         run: npm audit --omit=dev --audit-level=high
