@@ -28,29 +28,39 @@ export function Hero() {
 
   return (
     <section className="px-2 pt-2 sm:px-4 sm:pt-3">
-      <div className="relative isolate flex min-h-[calc(100svh-6rem)] flex-col justify-end overflow-hidden rounded-[2rem] bg-daun-900 sm:min-h-[40rem] sm:rounded-[2.5rem] lg:min-h-[min(calc(100svh-7rem),48rem)]">
-        {/* Pembungkus 10% lebih tinggi dari bingkai untuk ruang gerak parallax. */}
-        <div className="parallax absolute inset-x-0 -top-[5%] -bottom-[5%] -z-10">
-          <Image
-            src={images["bromo-kaldera"]}
-            alt=""
-            aria-hidden="true"
-            fill
-            priority
-            quality={85}
-            sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
-            className="hero-settle object-cover object-[50%_40%]"
-          />
+      <div className="relative isolate flex flex-col overflow-hidden rounded-[2rem] bg-daun-900 sm:min-h-[40rem] sm:justify-end sm:rounded-[2.5rem] lg:min-h-[min(calc(100svh-7rem),48rem)]">
+        {/*
+          Ponsel: foto berdiri sendiri di atas kartu (titik fokus kawah Bromo)
+          dan teks di bawahnya, supaya gunungnya tidak tertutup judul.
+          Mulai `sm`: foto mengisi seluruh kartu dengan teks di atasnya.
+        */}
+        <div className="relative h-[38svh] min-h-[15rem] shrink-0 overflow-hidden sm:absolute sm:inset-0 sm:-z-10 sm:h-auto sm:min-h-0">
+          {/* Pembungkus 10% lebih tinggi dari bingkai untuk ruang gerak parallax. */}
+          <div className="parallax absolute inset-x-0 -top-[5%] -bottom-[5%]">
+            <Image
+              src={images["bromo-kaldera"]}
+              alt=""
+              aria-hidden="true"
+              fill
+              priority
+              quality={85}
+              sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
+              className="hero-settle object-cover object-[66%_62%] sm:object-[50%_40%]"
+            />
+          </div>
+          {/*
+            Ponsel: foto memudar ke hijau di bagian bawah, menyambung ke blok
+            teks. `sm`+: gradien dari bawah-kiri untuk kontras teks di atas foto.
+          */}
+          <div className="absolute inset-0 bg-gradient-to-t from-daun-900 via-daun-900/0 via-30% to-transparent sm:bg-gradient-to-tr sm:from-daun-900/85 sm:via-daun-900/30 sm:via-50% sm:to-transparent sm:to-100%" />
         </div>
-        {/* Gradien satu arah dari bawah-kiri, cukup untuk kontras teks. */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-daun-900/95 via-daun-900/45 via-45% to-transparent to-75% sm:bg-gradient-to-tr sm:from-daun-900/85 sm:via-daun-900/30 sm:via-50% sm:to-transparent sm:to-100%" />
 
         <p className="absolute top-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-daun-900/60 px-3.5 py-1.5 text-[0.85rem] text-canvas backdrop-blur-md sm:top-7 sm:left-8">
           <MapPin className="size-4" aria-hidden="true" />
           {t("departure")}
         </p>
 
-        <div className="mx-auto w-full max-w-6xl px-5 pb-8 sm:px-8 sm:pb-14">
+        <div className="relative mx-auto -mt-4 w-full max-w-6xl px-5 pb-8 sm:mt-0 sm:px-8 sm:pb-14">
           <h1 className="max-w-[15ch] text-[2.5rem] leading-[1.02] text-canvas sm:text-[4rem] lg:text-[5.25rem]">
             {t("title")}
           </h1>
