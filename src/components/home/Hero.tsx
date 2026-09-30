@@ -45,7 +45,7 @@ export function Hero() {
         {/* Gradien satu arah dari bawah-kiri, cukup untuk kontras teks. */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-daun-900/95 via-daun-900/45 via-45% to-transparent to-75% sm:bg-gradient-to-tr sm:from-daun-900/85 sm:via-daun-900/30 sm:via-50% sm:to-transparent sm:to-100%" />
 
-        <p className="absolute top-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-canvas/15 px-3.5 py-1.5 text-[0.85rem] text-canvas backdrop-blur-md sm:top-7 sm:left-8">
+        <p className="absolute top-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-daun-900/60 px-3.5 py-1.5 text-[0.85rem] text-canvas backdrop-blur-md sm:top-7 sm:left-8">
           <MapPin className="size-4" aria-hidden="true" />
           {t("departure")}
         </p>

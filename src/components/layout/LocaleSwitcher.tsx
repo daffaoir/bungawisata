@@ -56,8 +56,8 @@ export function LocaleSwitcher({ className }: { className?: string }) {
               aria-pressed={isActive}
               disabled={isPending}
               className={cn(
-                // Area sentuh minimal 44×44px (pembungkus menambah 4px).
-                "inline-flex min-h-10 min-w-11 items-center justify-center rounded-full transition-colors duration-300",
+                // Area sentuh minimal 44×44px.
+                "inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-300",
                 isActive ? "bg-ink text-canvas" : "text-ink-muted hover:text-ink",
               )}
             >
