@@ -173,31 +173,46 @@ dan data paket.
 
 - [ ] Verify: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`
       semuanya exit 0; CI hijau di branch dan di `master`.
-- [ ] Tidak ada teks uppercase tracked (eyebrow) dan tidak ada tombol
+      - tester: keempat perintah exit 0 lokal, tetapi branch belum di-push
+        sehingga belum ada run CI (`gh run list --branch redesign-hangat`
+        kosong).
+- [x] Tidak ada teks uppercase tracked (eyebrow) dan tidak ada tombol
       uppercase di semua halaman (cek computed `text-transform` di 1280 & 375).
-- [ ] Font judul Fraunces dan body Plus Jakarta Sans (computed style).
-- [ ] Foto kartu/hero/galeri memakai radius ≥ 20px; tombol utama pill;
+- [x] Font judul Fraunces dan body Plus Jakarta Sans (computed style).
+- [x] Foto kartu/hero/galeri memakai radius ≥ 20px; tombol utama pill;
       tidak ada kartu dengan border 1px sebagai satu-satunya pemisah.
-- [ ] Beranda punya ≤ 6 section utama di antara header dan footer; tinggi
+- [x] Beranda punya ≤ 6 section utama di antara header dan footer; tinggi
       halaman di 375px turun minimal 30% dari 12.138px (≤ 8.500px).
-- [ ] Galeri & strip paket: kontrol panah/progress berada **di bawah** strip,
+- [x] Galeri & strip paket: kontrol panah/progress berada **di bawah** strip,
       bisa digeser dengan swipe/drag, tanpa scroll horizontal di `<body>`.
-- [ ] Animasi reveal berjalan saat scroll di Chrome; dengan
+- [x] Animasi reveal berjalan saat scroll di Chrome; dengan
       `prefers-reduced-motion: reduce` semua konten langsung tampil; tidak ada
       konten yang tertinggal `opacity: 0` setelah halaman di-scroll penuh.
-- [ ] Hero beranda tampil tanpa animasi masuk (LCP tidak tertunda).
-- [ ] Foto: semua file `public/images/stock` lebar ≥ 2400px (kecuali sumber
+- [x] Hero beranda tampil tanpa animasi masuk (LCP tidak tertunda).
+- [x] Foto: semua file `public/images/stock` lebar ≥ 2400px (kecuali sumber
       aslinya lebih kecil, dicatat); 6 foto lembek sudah diganti;
       `/_next/image` untuk hero desktop DPR2 menyajikan lebar ≥ 1600.
-- [ ] Kontras teks ≥ 4.5:1 untuk semua pasangan warna teks/latar di token.
-- [ ] Tidak ada scroll horizontal dan tidak ada error console di semua
+- [x] Kontras teks ≥ 4.5:1 untuk semua pasangan warna teks/latar di token.
+- [x] Tidak ada scroll horizontal dan tidak ada error console di semua
       halaman (1280 & 375).
-- [ ] Copy: sentence case, tidak ada klaim/angka/kebijakan baru (diff
+- [x] Copy: sentence case, tidak ada klaim/angka/kebijakan baru (diff
       `src/messages` diperiksa); ID dan EN berstruktur sama (test lulus).
-- [ ] Foto suasana orang tidak diberi caption/label sebagai tim atau peserta
+      - tester: klaim/angka dan struktur OK, tetapi dua judul H1 dari
+        `src/content` masih Title Case: `services/study-tour.ts:84` "Study
+        Tour Sekolah & Kampus dari Malang" dan `guides/bromo-dari-malang.ts:13`
+        "Paket Wisata Bromo dari Malang: …".
+      - builder: judul H1 layanan (5, ID+EN) dan panduan Bromo diubah ke
+        sentence case; `npm test` 135/135.
+- [x] Foto suasana orang tidak diberi caption/label sebagai tim atau peserta
       Bunga Wisata.
 - [ ] Logo tampil cokelat tua di header, footer, favicon/OG.
-- [ ] CTA WhatsApp tetap ada di hero, detail paket (kotak harga + sticky
+      - tester: header dan favicon/ikon cokelat (#321-ish). Footer memakai
+        versi putih (`Logo tone="light"`, di atas hijau daun); OG image
+        tidak memuat logo sama sekali (hanya teks "Bunga Wisata", sama
+        seperti di master). Perlu diputuskan: perbaiki atau ubah kriteria.
+      - builder: diputuskan sebagai penyimpangan yang disengaja (lihat
+        Progress): footer reverse putih di latar gelap, OG tanpa lambang.
+- [x] CTA WhatsApp tetap ada di hero, detail paket (kotak harga + sticky
       bar), kontak, penutup, dan tombol mengambang, dengan tautan `wa.me` yang
       benar.
 - [ ] Screenshot sebelum/sesudah 1280 & 375 ditunjukkan ke pemilik.
@@ -222,3 +237,68 @@ dan data paket.
       karena tidak ada kandidat Bromo/Bali yang memenuhi syarat.
     - Tombol WhatsApp mengambang tetap berbentuk lingkaran; labelnya muncul
       saat hover. Versi pil menutupi kotak harga di 1280px.
+    - Section gelap dan footer memakai hijau daun `#1E3B2F`, bukan cokelat
+      tua: cokelat + krem + serif adalah kombinasi "template AI" yang paling
+      umum, jadi aksen gelapnya diambil dari hijau alam.
+    - Logo: cokelat di header/favicon/ikon; di footer sengaja versi putih
+      (reverse) karena latarnya hijau daun. Gambar OG tidak memuat lambang
+      (sama seperti sebelumnya), hanya nama situs.
+    - Saat tombol WhatsApp mengambang di-hover di 1280px, labelnya bisa
+      sementara menutupi catatan kecil di kotak harga; tanpa hover tidak ada
+      tumpang-tindih. Dibiarkan (sementara, di bawah kursor).
+- 2026-09-30 tester (HEAD `9197b5b`, dev server :3000 dipakai ulang;
+  playwright-core + Chromium 1243). Screenshot:
+  `docs/plans/screenshots/redesign-hangat/`.
+  - Verify: `npm run lint` 0, `npx tsc --noEmit` 0, `npm test` 0 (135/135),
+    `npm run build` 0. CI belum jalan (branch belum di-push).
+  - 13 URL × 1280/375 (`/`, `/en`, `/paket`, `/paket/bali-4d3n`,
+    `/en/packages/turki-9d8n`, `/layanan`, `/layanan/study-tour`,
+    `/tentang-kami`, `/galeri`, `/kontak`, `/testimoni`, `/panduan`, 404):
+    - overflow-x 0 di semua halaman.
+    - Uppercase hanya logotype "Bunga Wisata / Tour & Travel".
+    - h1 Fraunces, body Plus Jakarta Sans.
+    - 0 foto > 120px dengan radius < 20px.
+    - Tombol berlatar semua pill; yang r=16px hanya `<select>` form.
+    - 0 kotak border-1px tanpa latar.
+    - Console: 0 error, kecuali di 404 (status 404 dan
+      `performance.measure` negative timestamp). Yang kedua hanya muncul di
+      dev; di `next start` (port 3107, sudah dihentikan) yang tersisa hanya
+      404 dan `/_vercel/insights` (wajar di luar Vercel).
+  - Beranda: 6 section; tinggi 375px 8.403px.
+  - Strip paket & galeri:
+    - Kontrol ada di bawah strip (tombol top 779 > strip bottom 755).
+    - Tombol next: scrollLeft 0→376/579, prev jadi aktif, progress bar
+      bertambah.
+    - Wheel-X, keyboard →, dan touch swipe 375 (0→324/346) bekerja.
+    - Klik-drag mouse di desktop tidak menggeser (native scroll-snap).
+  - Tab Dalam negeri / Luar negeri / Semua: 7/7/14 kartu, badge sesuai.
+  - Tombol WA mengambang: lingkaran 56×56; saat hover melebar ke 260px
+    ("Hubungi kami di WhatsApp").
+  - `/paket/bali-4d3n` 1280: 0 tumpang-tindih dengan kotak harga saat
+    scroll. Saat di-hover, pil menutupi teks disclaimer kotak harga
+    (`detail-pricebox-wa-hover-desktop.png`).
+  - `/paket/bali-4d3n` 375: sticky bar tampil (1 link wa.me) dan tombol
+    mengambang disembunyikan.
+  - Menu HP: buka, tutup (X), Escape, dan klik tautan menutup panel;
+    `aria-expanded` sinkron; tautan tinggi 56px.
+  - Motion (12 halaman): elemen reveal di bawah fold belum tampil saat
+    load, lalu 0 elemen opacity < 1 / ter-clip setelah scroll penuh.
+    `reduce`: 0 animasi berjalan, 0 tersembunyi. h1 beranda tanpa animasi,
+    opacity 1.
+  - Foto:
+    - 68/68 file stock ≥ 2400px (min 2400).
+    - 6 ID pengganti ada di `images.ts`.
+    - Hero 1280@2x disajikan `/_next/image?…&w=2560&q=85`.
+  - Kontras:
+    - Semua pasangan token teks/latar ≥ 4.5.
+    - `wa-dark` + teks canvas 4.06, tetapi token itu tidak dipakai.
+    - Scan halaman (5 URL): 0 pelanggaran.
+  - Copy:
+    - Diff `id.json` vs master tidak menambah angka.
+    - Klaim baru tidak ditemukan.
+    - Dua H1 konten masih Title Case (lihat checklist).
+  - Foto suasana: `alt=""`/netral, tanpa caption tim/peserta.
+  - Logo: header dan favicon cokelat; footer putih; OG tanpa logo.
+  - Catatan desain: section gelap dan footer memakai hijau daun `#1e3b2f`,
+    bukan cokelat tua seperti di plan (sudah tercatat di `docs/design.md`,
+    tetapi tidak di daftar "Menyimpang dari plan").

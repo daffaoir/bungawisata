@@ -10,7 +10,7 @@ export const bromoDariMalang = {
   relatedServices: ["tour-rombongan", "private-tour"],
   content: {
     id: {
-      title: "Paket Wisata Bromo dari Malang: rute, waktu terbaik, dan persiapan",
+      title: "Paket wisata Bromo dari Malang: rute, waktu terbaik, dan persiapan",
       metaTitle: "Wisata Bromo dari Malang: Rute & Persiapan",
       metaDescription:
         "Panduan wisata Bromo dari Malang: pilihan rute via Tumpang atau Probolinggo, sunrise Penanjakan, Lautan Pasir, musim terbaik, pakaian, dan tips kesehatan.",

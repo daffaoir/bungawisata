@@ -81,8 +81,8 @@ export const gatheringEvent = {
   content: {
     id: {
       name: "Gathering & Event",
-      title: "Gathering Kantor & Event dari Malang",
-      metaTitle: "Gathering Kantor & Event dari Malang",
+      title: "Gathering kantor & event dari Malang",
+      metaTitle: "Gathering kantor & event dari Malang",
       metaDescription:
         "Outing dan gathering kantor, family gathering, serta event outbound di Malang–Batu atau luar kota. Bunga Wisata mengatur transportasi, hotel, konsumsi, dan acara.",
       summary:
@@ -131,8 +131,8 @@ export const gatheringEvent = {
     },
     en: {
       name: "Gatherings & Events",
-      title: "Company Gatherings & Events from Malang",
-      metaTitle: "Company Gatherings & Events from Malang",
+      title: "Company gatherings & events from Malang",
+      metaTitle: "Company gatherings & events from Malang",
       metaDescription:
         "Company outings, family gatherings and outbound events in Malang–Batu or further afield. We arrange transport, accommodation, catering and the event programme.",
       summary:
