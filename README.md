@@ -190,8 +190,9 @@ Produksi berjalan di **Cloudflare Workers** (free plan) lewat adapter
   lewat binding Cloudflare Images (free 5.000 transformasi unik/bulan; lewat
   dari itu foto baru gagal dengan error 9422, tanpa tagihan).
 - **Rollback**: dashboard Worker → Deployments → pilih versi lama → Rollback.
-- **Domain**: `bungawisata.co.id` adalah Custom Domain Worker; `www` diarahkan
-  308 ke apex lewat Redirect Rule Cloudflare.
+- **Domain**: `bungawisata.co.id` adalah Custom Domain Worker; `www` (CNAME
+  proxied ke apex) diarahkan 308 ke apex lewat Redirect Rule Cloudflare, dan
+  SSL/TLS "Always Use HTTPS" mengalihkan `http://`.
 - OpenNext tidak resmi mendukung Windows; `npm run preview` tetap jalan untuk
   cek lokal, tapi build produksi selalu di Linux (Workers Builds/CI).
 

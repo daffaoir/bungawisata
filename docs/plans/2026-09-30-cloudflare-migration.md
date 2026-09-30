@@ -56,8 +56,8 @@ E. Verifikasi di domain (Claude), lalu Vercel: lepas domain → hapus project.
 - [ ] Tidak ada referensi `@vercel/analytics`/`_vercel` tersisa; beacon Cloudflare dirender hanya bila token ada.
   - Tidak ada referensi tersisa (terverifikasi) dan beacon tidak dirender tanpa token (terverifikasi). Kasus "dengan token" hanya dicek lewat kode (`layout.tsx:108`), tidak di runtime: butuh build ulang dengan token. Bukan bug.
 - [x] Tampilan `/` dan `/en` di 1280px dan 375px sama seperti sebelumnya.
-- [ ] (setelah dashboard) `*.workers.dev` dan lalu `https://bungawisata.co.id` lolos daftar halaman di atas; `www` → 308 apex; header `server: cloudflare`.
-  - Belum bisa dites: butuh langkah dashboard (B–D).
+- [x] (setelah dashboard) `*.workers.dev` dan lalu `https://bungawisata.co.id` lolos daftar halaman di atas; `www` → 308 apex; header `server: cloudflare`.
+  - Diverifikasi sesi utama 2026-09-30/10-01, lihat "Cutover" di bawah.
 
 ## Verification
 
@@ -97,3 +97,11 @@ Tidak ada bug yang ditemukan.
 
 1 temuan: generator PDF tidak memuat berkas `.env*` (PDF memakai nomor/email cadangan). Diperbaiki di `7ce8112` dengan `loadEnvConfig` dari `@next/env` sebelum modul konten diimpor; dites dengan berkas env dummy.
 
+## Cutover (2026-09-30 malam s.d. 2026-10-01)
+
+- Workers Builds terhubung (Worker `bungawisata`, branch `master`, build variables `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CF_BEACON_TOKEN`). Build pertama antre ±11 menit di Initializing, lalu sukses.
+- `bungawisata.daffarioalexandra.workers.dev`: semua rute 200/404/308 sesuai checklist, `x-opennext-cache: HIT`, beacon Web Analytics ada, foto WebP dengan lebar sesuai `w` (640→640, 2560→2560), tampilan 1280/375 sama.
+- DNS: A `@` ke Vercel dihapus, Custom Domain Worker `bungawisata.co.id` ditambahkan. CNAME `www` → `bungawisata.co.id` (proxied) + Redirect Rule template "Redirect from WWW to root" (308, preserve query string). SSL/TLS **Always Use HTTPS** dinyalakan (sebelumnya `http://` tampil tanpa redirect dan `http://www` 522).
+- Domain asli: semua halaman ID/EN 200, 404 bermerek, sitemap 31 URL, PDF/OG 200, redirect lama 308, canonical/og:image memakai `.co.id`, `Server: cloudflare`, sertifikat Google Trust Services s.d. 2026-12-29 (auto-renew).
+- Lighthouse headless (tanpa extension): mobile beranda 64, `/paket` 78, detail 66; desktop beranda 97; TTFB 50-60 ms. Setara dengan Vercel sebelumnya (mobile `/paket` 71-81). LCP mobile 4-5 dtk berasal dari render delay hero + JS, bukan hosting; jadi tugas terpisah (backlog).
+- Vercel: project `bungawisata` dihapus user (domain tim `bungawisata.co.id` tetap, dipakai `dashboard.bungawisata.co.id`). Dashboard tetap 307 ke login di Vercel; `bungawisata.vercel.app` kini 404.
