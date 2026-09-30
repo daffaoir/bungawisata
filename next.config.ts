@@ -36,12 +36,15 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    // Foto dilayani dari `public/` (lihat `src/content/images.ts`). AVIF
-    // lebih kecil daripada WebP; browser lama tetap mendapat WebP/JPEG.
-    formats: ["image/avif", "image/webp"],
-    // Batas atas 1920: sumber foto hanya 1600px, jadi varian 2048/3840
+    // Foto dilayani dari `public/` (lihat `src/content/images.ts`). Hanya
+    // WebP: AVIF pada kualitas yang sama tampak lebih lembut (detail foto
+    // lanskap hilang); browser lama tetap mendapat JPEG.
+    formats: ["image/webp"],
+    // Sumber foto stok lebarnya 2560px, jadi batas atas 2560; varian 3840
     // hanya pembesaran yang membuang kuota.
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920, 2560],
+    // Wajib sejak Next 16. 75 = default, 85 = foto besar (hero/galeri).
+    qualities: [75, 85],
   },
 };
 

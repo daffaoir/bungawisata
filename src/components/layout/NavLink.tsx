@@ -35,15 +35,16 @@ export function NavLink({
       onClick={onNavigate}
       aria-current={isActive ? "page" : undefined}
       className={cn(
-        "relative font-medium tracking-[0.06em] uppercase transition-colors duration-300",
-        "after:absolute after:left-0 after:h-px after:bg-gold-600",
+        "font-medium transition-colors duration-300",
         variant === "mobile"
-          ? "inline-flex min-h-11 items-center text-[0.95rem] after:bottom-2"
-          : "text-[0.82rem] after:-bottom-1.5",
-        "after:transition-all after:duration-500",
-        isActive
-          ? "text-ink after:w-full"
-          : "text-ink-muted after:w-0 hover:text-ink hover:after:w-full",
+          ? cn(
+              "flex min-h-14 items-center rounded-2xl px-4 font-display text-[1.6rem]",
+              isActive ? "bg-canvas-alt text-ink" : "text-ink hover:bg-canvas-alt/70",
+            )
+          : cn(
+              "inline-flex min-h-10 items-center rounded-full px-4 text-[0.95rem]",
+              isActive ? "bg-canvas-alt text-ink" : "text-ink-soft hover:bg-canvas-alt/70 hover:text-ink",
+            ),
         className,
       )}
     >

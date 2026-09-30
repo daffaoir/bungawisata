@@ -56,7 +56,7 @@ export function MobileNav() {
       data-mobile-nav-open={isOpen ? "" : undefined}
       inert={!isOpen}
       className={cn(
-        "fixed inset-0 z-50 bg-ink/50 backdrop-blur-sm transition-[opacity,visibility] duration-200 lg:hidden",
+        "fixed inset-0 z-50 bg-ink/40 backdrop-blur-sm transition-[opacity,visibility] duration-200 lg:hidden",
         isOpen ? "visible opacity-100" : "invisible opacity-0",
       )}
       onClick={() => setIsOpen(false)}
@@ -64,9 +64,9 @@ export function MobileNav() {
       <nav
         aria-label={t("openMenu")}
         className={cn(
-          "ms-auto flex h-full w-[min(20rem,86vw)] flex-col gap-10 border-s border-line bg-canvas p-7",
-          "transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          isOpen ? "translate-x-0" : "translate-x-full",
+          "m-2 ms-auto flex h-[calc(100%-1rem)] w-[min(22rem,calc(100vw-1rem))] flex-col gap-8 rounded-[2rem] bg-canvas p-5",
+          "transition-transform duration-300 ease-out-soft",
+          isOpen ? "translate-x-0" : "translate-x-[calc(100%+1rem)]",
         )}
         onClick={(event) => event.stopPropagation()}
       >
@@ -77,7 +77,7 @@ export function MobileNav() {
             type="button"
             onClick={() => setIsOpen(false)}
             aria-label={t("closeMenu")}
-            className="flex size-11 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
+            className="flex size-11 items-center justify-center rounded-full bg-canvas-alt text-ink transition-colors duration-300 hover:bg-gold-100"
           >
             <X className="size-5" aria-hidden="true" />
           </button>
@@ -111,7 +111,7 @@ export function MobileNav() {
         onClick={open}
         aria-label={t("openMenu")}
         aria-expanded={isOpen}
-        className="flex size-11 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
+        className="flex size-11 items-center justify-center rounded-full bg-canvas-alt text-ink transition-colors duration-300 hover:bg-gold-100"
       >
         <Menu className="size-5" aria-hidden="true" />
       </button>

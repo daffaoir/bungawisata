@@ -1,13 +1,18 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type Tone = "canvas" | "white" | "alt" | "ink";
+/**
+ * `ink` dipertahankan sebagai alias section gelap supaya pemanggil lama tetap
+ * jalan; warnanya sekarang hijau daun, bukan hitam.
+ */
+type Tone = "canvas" | "white" | "alt" | "ink" | "daun";
 
 const TONES: Record<Tone, string> = {
   canvas: "bg-canvas text-ink",
   white: "bg-white text-ink",
   alt: "bg-canvas-alt text-ink",
-  ink: "bg-ink text-white",
+  ink: "bg-daun text-canvas",
+  daun: "bg-daun text-canvas",
 };
 
 type SectionProps = {
@@ -17,6 +22,12 @@ type SectionProps = {
   className?: string;
   /** Padding vertikal lebih rapat untuk section pendek. */
   compact?: boolean;
+  /**
+   * Section berwarna tampil sebagai panel membulat yang sedikit masuk dari
+   * tepi layar, bukan pita selebar layar. Memberi ritme berbeda dari section
+   * polos di sekitarnya.
+   */
+  inset?: boolean;
 };
 
 export function Section({
@@ -25,6 +36,7 @@ export function Section({
   tone = "canvas",
   className,
   compact = false,
+  inset = false,
 }: SectionProps) {
   return (
     <section
@@ -32,7 +44,8 @@ export function Section({
       className={cn(
         "relative overflow-hidden",
         TONES[tone],
-        compact ? "py-16 sm:py-20" : "py-24 sm:py-32",
+        compact ? "py-14 sm:py-20" : "py-20 sm:py-28",
+        inset && "mx-2 rounded-[2rem] sm:mx-4 sm:rounded-[2.5rem]",
         className,
       )}
     >
@@ -42,7 +55,6 @@ export function Section({
 }
 
 type SectionHeadingProps = {
-  eyebrow?: string;
   title: ReactNode;
   subtitle?: string;
   align?: "left" | "center";
@@ -58,13 +70,14 @@ type SectionHeadingProps = {
   /**
    * Di bawah `sm`, `action` dirender setelah subjudul supaya urutan bacanya
    * judul → penjelas → tombol. Isi `true` kalau pemanggil menaruh versi
-   * ponselnya sendiri di tempat lain (mis. setelah grid kartu).
+   * ponselnya sendiri di tempat lain (mis. setelah daftar kartu).
    */
   hideActionOnMobile?: boolean;
+  /** Tingkat judul; default `h2`. */
+  as?: "h1" | "h2";
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   subtitle,
   align = "left",
@@ -72,45 +85,34 @@ export function SectionHeading({
   className,
   action,
   hideActionOnMobile = false,
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   const isLight = tone === "light";
+  const titleClass = "max-w-3xl text-[2.1rem] sm:text-[2.75rem] lg:text-[3.25rem]";
 
   return (
     <div
       className={cn(
-        !action && "max-w-2xl",
+        !action && "max-w-3xl",
         align === "center" && "mx-auto text-center",
         className,
       )}
     >
-      {eyebrow ? (
-        <p
-          className={cn(
-            "eyebrow rule-gold mb-4",
-            align === "center" && "rule-gold-center",
-            isLight ? "text-gold-400" : "text-gold-600",
-          )}
-        >
-          {eyebrow}
-        </p>
-      ) : null}
-
       {action ? (
-        <div className="flex flex-wrap items-center justify-between gap-6">
-          <h2 className="max-w-2xl text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
-            {title}
-          </h2>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <Heading className={titleClass}>{title}</Heading>
           <div className="hidden shrink-0 sm:block">{action}</div>
         </div>
       ) : (
-        <h2 className="text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">{title}</h2>
+        <Heading className={titleClass}>{title}</Heading>
       )}
 
       {subtitle ? (
         <p
           className={cn(
-            "mt-5 max-w-2xl text-[1.05rem] leading-[1.75]",
-            isLight ? "text-white/70" : "text-ink-soft",
+            "mt-4 max-w-2xl text-[1.075rem] leading-[1.7]",
+            align === "center" && "mx-auto",
+            isLight ? "text-canvas/80" : "text-ink-soft",
           )}
         >
           {subtitle}

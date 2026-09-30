@@ -33,7 +33,7 @@ export const images = {
   "bali-pantai-senja": stock("bali-pantai-senja", "photo-1567520595708-2fb411a6ce88"),
 
   // ── Labuan Bajo & Komodo ──────────────────────────────────────────────
-  "komodo-padar": stock("komodo-padar", "photo-1604560929658-bbc3c2ba6a36"),
+  "komodo-padar": stock("komodo-padar", "photo-1660279582815-8d9a2b0d7e27"),
   "komodo-kapal": stock("komodo-kapal", "photo-1624104416015-f0ef71c7800a"),
   "komodo-satwa": stock("komodo-satwa", "photo-1562578057-3ca1f7815237"),
   "komodo-pink-beach": stock("komodo-pink-beach", "photo-1747806735725-ad02ac970269"),
@@ -46,7 +46,7 @@ export const images = {
   // ── Yogyakarta ────────────────────────────────────────────────────────
   "yogya-borobudur": stock("yogya-borobudur", "photo-1566559532224-6d65e9fc0f37"),
   "yogya-borobudur-stupa": stock("yogya-borobudur-stupa", "photo-1689904575573-ac10f7edc6f9"),
-  "yogya-prambanan": stock("yogya-prambanan", "photo-1628488321763-eb2f79b7f3b5"),
+  "yogya-prambanan": stock("yogya-prambanan", "photo-1578469550956-0e16b69c6a3d"),
 
   // ── Bromo & Ijen ──────────────────────────────────────────────────────
   "bromo-lanskap": stock("bromo-lanskap", "photo-1662114480912-05a338d79da3"),
@@ -57,7 +57,7 @@ export const images = {
   // ── Lombok & Gili ─────────────────────────────────────────────────────
   "gili-udara": stock("gili-udara", "photo-1583022846753-83a4eba54ac1"),
   "gili-pulau": stock("gili-pulau", "photo-1619681216575-d6b3964fc278"),
-  "gili-penyu": stock("gili-penyu", "photo-1709166796897-d5da6e01ca4f"),
+  "gili-penyu": stock("gili-penyu", "photo-1709483095301-2d1f3e95b1d4"),
   "lombok-rinjani": stock("lombok-rinjani", "photo-1654046920188-6e7ee051d7a4"),
 
   // ── Danau Toba ────────────────────────────────────────────────────────
@@ -82,7 +82,7 @@ export const images = {
   "malaysia-malaka": stock("malaysia-malaka", "photo-1654428168579-a8c200df6848"),
 
   // ── Vietnam ───────────────────────────────────────────────────────────
-  "vietnam-ha-long": stock("vietnam-ha-long", "photo-1668000018482-a02acf02b22a"),
+  "vietnam-ha-long": stock("vietnam-ha-long", "photo-1561461221-959c3f16234b"),
   "vietnam-ha-long-kapal": stock("vietnam-ha-long-kapal", "photo-1528127269322-539801943592"),
   "vietnam-hanoi-kota-tua": stock("vietnam-hanoi-kota-tua", "photo-1758104372690-0e14bc4dec5c"),
   "vietnam-hanoi-jalan": stock("vietnam-hanoi-jalan", "photo-1613131145282-9476375618e1"),
@@ -90,7 +90,7 @@ export const images = {
   // ── Jepang ────────────────────────────────────────────────────────────
   "jepang-fuji": stock("jepang-fuji", "photo-1526481280693-3bfa7568e0f3"),
   "jepang-chureito": stock("jepang-chureito", "photo-1579525108311-0c5730b5799d"),
-  "jepang-fushimi-inari": stock("jepang-fushimi-inari", "photo-1613487691352-7d9b4ee5045b"),
+  "jepang-fushimi-inari": stock("jepang-fushimi-inari", "photo-1558862107-d49ef2a04d72"),
   "jepang-gion": stock("jepang-gion", "photo-1693378173709-2197ce8c5af3"),
   "jepang-osaka-castle": stock("jepang-osaka-castle", "photo-1596240748549-6ec0f32d4c95"),
   "jepang-shibuya": stock("jepang-shibuya", "photo-1564608909988-b678124c55d6"),
@@ -111,13 +111,23 @@ export const images = {
   // ── Dubai & Abu Dhabi ─────────────────────────────────────────────────
   "dubai-burj-khalifa": stock("dubai-burj-khalifa", "photo-1544092683-c0c9ebb368e5"),
   "dubai-kota": stock("dubai-kota", "photo-1512453979798-5ea266f8880c"),
-  "dubai-gurun": stock("dubai-gurun", "photo-1624062999726-083e5268525d"),
+  "dubai-gurun": stock("dubai-gurun", "photo-1637935142056-03d421b2b13c"),
   "dubai-unta": stock("dubai-unta", "photo-1549944850-84e00be4203b"),
   "abu-dhabi-masjid": stock("abu-dhabi-masjid", "photo-1512632578888-169bbbc64f33"),
 
   // ── Umum ──────────────────────────────────────────────────────────────
   "umum-rombongan": stock("umum-rombongan", "photo-1506869640319-fe1a24fd76dc"),
   "umum-pesawat": stock("umum-pesawat", "photo-1530469641172-8ac15d0a7d6a"),
+
+  // ── Suasana (wisatawan umum, bukan peserta tur Bunga Wisata) ─────────
+  // Rombongan menyaksikan matahari terbit dari Bukit Sikunir, Dieng.
+  "suasana-sunrise-rombongan": stock("suasana-sunrise-rombongan", "photo-1704801467339-8a00f9e1712c"),
+  // Siluet keluarga bermain di Pantai Parangtritis, Yogyakarta, saat senja.
+  "suasana-pantai-keluarga": stock("suasana-pantai-keluarga", "photo-1693020077268-1a3b572103c1"),
+  // Wisatawan di haluan kapal pinisi saat senja dekat Pulau Kalong, Labuan Bajo.
+  "suasana-kapal-teman": stock("suasana-kapal-teman", "photo-1665234811705-02e42eda85d2"),
+  // Wisatawan berjalan menuju Candi Borobudur.
+  "suasana-candi-jalan": stock("suasana-candi-jalan", "photo-1684189162727-3b0fd73ba9e3"),
 } as const;
 
 export type ImageKey = keyof typeof images;

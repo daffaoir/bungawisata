@@ -21,9 +21,9 @@
     "guides": "Travel Guides"
   },
   "Common": {
-    "viewDetail": "View Details",
-    "viewAllPackages": "View All Packages",
-    "startingFrom": "Starting from",
+    "viewDetail": "View details",
+    "viewAllPackages": "See all packages",
+    "startingFrom": "From",
     "perPerson": "/person",
     "days": "{count} Days",
     "nights": "{count} Nights",
@@ -32,7 +32,8 @@
     "international": "International",
     "backToPackages": "Back to all packages",
     "loading": "Loading…",
-    "estimate": "estimate"
+    "estimate": "estimate",
+    "startingFromEstimate": "From (estimate)"
   },
   "WhatsApp": {
     "cta": "Ask via WhatsApp",
@@ -45,78 +46,70 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Groups · Families · Study Tours",
-      "titleLine1": "Malang Tour & Travel for",
-      "titleHighlight": "unforgettable journeys",
-      "subtitle": "Domestic and international tour packages from Malang for small groups and large groups alike — clear itineraries, open pricing, and a team with you from departure to return.",
-      "primaryCta": "Browse Packages",
-      "secondaryCta": "Free Consultation",
-      "stats": {
-        "googleReviews": "{count} Google reviews",
-        "facebookFollowers": "Facebook followers",
-        "packages": "Travel packages"
-      }
+      "departure": "Departing from Malang, East Java",
+      "title": "Malang tour & travel for group holidays",
+      "subtitle": "Domestic and international packages for families, offices, schools, and communities. A clear itinerary from the start, open pricing, and our team with you from departure to return.",
+      "primaryCta": "Ask on WhatsApp",
+      "secondaryCta": "See packages",
+      "rating": "{rating} from {count} Google reviews"
     },
-    "regionSplit": {
-      "title": "Where to this time?",
-      "subtitle": "Pick your direction — we'll handle everything else.",
-      "domesticTitle": "Domestic",
-      "domesticDescription": "From the beaches of Labuan Bajo to the underwater paradise of Raja Ampat — Indonesia still has so much left to explore.",
-      "internationalTitle": "International",
-      "internationalDescription": "Türkiye, Japan, Korea, and other dream destinations with full support from the moment you land.",
-      "explore": "Explore {count} packages"
-    },
-    "featured": {
-      "eyebrow": "Most Requested",
-      "title": "This Month's Picks",
-      "subtitle": "The itineraries our customers ask about most."
-    },
-    "whyUs": {
-      "eyebrow": "Why Bunga Wisata",
-      "title": "Calm trips, no surprises",
-      "items": {
-        "itinerary": {
-          "title": "Itinerary Upfront",
-          "description": "The full day-by-day rundown is published before you commit. No unannounced detours."
-        },
-        "price": {
-          "title": "Transparent Pricing",
-          "description": "What's included and what isn't is written plainly. No surprise costs mid-trip."
-        },
-        "leader": {
-          "title": "Experienced Tour Leaders",
-          "description": "Every departure is accompanied by a leader who knows the route, the language, and the local customs."
-        },
-        "flexible": {
-          "title": "Fully Customisable",
-          "description": "Travelling with family, colleagues, or a community group? We'll build an itinerary around your needs and budget."
-        }
-      }
-    },
-    "gallery": {
-      "eyebrow": "Gallery",
-      "title": "A glimpse of our destinations",
-      "subtitle": "Swipe through the places our groups ask for most often.",
-      "previous": "Previous photo",
-      "next": "Next photo",
-      "viewAll": "See the full gallery"
-    },
-    "testimonials": {
-      "eyebrow": "Google reviews",
-      "title": "What our travellers say",
-      "viewAll": "Read selected reviews"
-    },
-    "cta": {
-      "title": "Ready to go?",
-      "subtitle": "Tell us your travel plans — we'll help shape the right package, free and with no commitment.",
-      "button": "Chat on WhatsApp"
+    "packages": {
+      "title": "Packages people ask about most",
+      "subtitle": "Prices are per person. Every package has a full day-by-day rundown.",
+      "tabs": {
+        "all": "All",
+        "domestic": "Domestic",
+        "international": "International"
+      },
+      "previous": "Previous package",
+      "next": "Next package",
+      "viewAll": "See all packages"
     },
     "services": {
-      "eyebrow": "Our Services",
-      "title": "From large groups to flight tickets",
-      "subtitle": "One WhatsApp contact for group tours, study tours, gatherings, private tours and flight tickets from Malang.",
-      "viewAll": "See all services",
-      "more": "Learn more"
+      "title": "More than holiday packages",
+      "subtitle": "One WhatsApp number for group tours, study tours, company gatherings, private tours, and flight tickets.",
+      "viewAll": "All services",
+      "more": "View details"
+    },
+    "steps": {
+      "title": "Booking is just a chat",
+      "subtitle": "From the first message to departure day, here is how it works.",
+      "photoAlt": "Travellers on the bow of a phinisi boat at sunset in Labuan Bajo",
+      "items": {
+        "chat": {
+          "title": "Tell us your plan",
+          "description": "Send a WhatsApp message: where, when, and how many people. It's fine if nothing is fixed yet."
+        },
+        "plan": {
+          "title": "Get the itinerary and price",
+          "description": "A daily rundown and cost breakdown in writing, including what is and isn't included."
+        },
+        "adjust": {
+          "title": "Adjust until it fits",
+          "description": "Change the number of days, hotels, or destinations to suit your group's needs and budget."
+        },
+        "go": {
+          "title": "Travel with a tour leader",
+          "description": "On the trip, our tour leader stays with the group and handles the schedule on the ground."
+        }
+      },
+      "cta": "Start a chat"
+    },
+    "gallery": {
+      "title": "Where to next?",
+      "subtitle": "Some of the destinations we can arrange for your group.",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "viewAll": "Open the gallery"
+    },
+    "testimonials": {
+      "title": "From people who have travelled with us",
+      "viewAll": "Read more reviews"
+    },
+    "cta": {
+      "title": "Tell us about your trip",
+      "subtitle": "Destination, dates, and group size. We reply with a suggested itinerary and an estimated price, free and with no commitment.",
+      "button": "Chat on WhatsApp"
     }
   },
   "Packages": {

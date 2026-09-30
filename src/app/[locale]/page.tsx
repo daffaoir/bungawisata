@@ -1,13 +1,11 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { FeaturedPackages } from "@/components/home/FeaturedPackages";
 import { GalleryCarousel } from "@/components/home/GalleryCarousel";
 import { Hero } from "@/components/home/Hero";
-import { RegionSplit } from "@/components/home/RegionSplit";
-import { ServicesStrip } from "@/components/home/ServicesStrip";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { PackagesShowcase } from "@/components/home/PackagesShowcase";
+import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { TestimonialStrip } from "@/components/home/TestimonialStrip";
-import { WhyUs } from "@/components/home/WhyUs";
-import { ClosingCta } from "@/components/shared/ClosingCta";
 import type { AppLocale } from "@/i18n/routing";
 import { buildAlternates, buildOpenGraph } from "@/lib/metadata";
 
@@ -28,27 +26,22 @@ export async function generateMetadata(
   };
 }
 
+/**
+ * Beranda ringkas: foto & ajakan → paket → layanan → cara pesan → galeri →
+ * ulasan + ajakan penutup.
+ */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const tCta = await getTranslations({ locale, namespace: "Home.cta" });
-
   return (
-    <>
+    <div className="flex flex-col gap-2 pb-2 sm:gap-4 sm:pb-4">
       <Hero />
-      <RegionSplit />
-      <ServicesStrip />
-      <FeaturedPackages />
-      <WhyUs />
+      <PackagesShowcase />
+      <ServicesOverview />
+      <HowItWorks />
       <GalleryCarousel />
       <TestimonialStrip />
-      <ClosingCta
-        title={tCta("title")}
-        subtitle={tCta("subtitle")}
-        buttonLabel={tCta("button")}
-        intent="custom"
-      />
-    </>
+    </div>
   );
 }

@@ -14,14 +14,14 @@ export function Header() {
   const t = useTranslations("Nav");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-lg">
-      <div className="mx-auto flex h-[4.75rem] w-full max-w-6xl items-center gap-8 px-5 sm:px-8">
+    <header className="sticky top-0 z-40 bg-canvas/85 backdrop-blur-lg">
+      <div className="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center gap-6 px-5 sm:px-8">
         <Link href="/" className="shrink-0">
           <Logo />
         </Link>
 
         <nav aria-label={t("home")} className="ms-auto hidden lg:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <NavLink href={item.href}>{t(item.key)}</NavLink>

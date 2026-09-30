@@ -5,9 +5,9 @@ import { cn } from "@/lib/cn";
  * Lambang belah ketupat, dipotong dari logo master oleh
  * `scripts/prepare-logo.mjs`.
  *
- * Lambangnya hitam dengan latar transparan, jadi di atas latar gelap ia perlu
- * dibalik — `invert` mengubahnya menjadi belah ketupat putih dengan bunga
- * hitam, yaitu versi reverse yang lazim untuk logo satu warna.
+ * Lambangnya cokelat soga dengan latar transparan. Di atas latar gelap ia
+ * dijadikan putih (`brightness-0 invert`) — versi reverse yang lazim untuk
+ * logo satu warna.
  *
  * Ukuran ditentukan sepenuhnya oleh `className` dari pemanggil (mis.
  * `size-10`) — sengaja tidak ada `w-full`/`h-auto` di sini. `cn()` di proyek
@@ -32,7 +32,7 @@ export function LogoMark({
       width={512}
       height={512}
       priority
-      className={cn(tone === "light" && "invert", className)}
+      className={cn(tone === "light" && "brightness-0 invert", className)}
     />
   );
 }
@@ -54,7 +54,7 @@ export function Logo({
         <span
           className={cn(
             "text-[1.05rem] font-extrabold tracking-[-0.01em] uppercase",
-            isLight ? "text-white" : "text-ink",
+            isLight ? "text-canvas" : "text-ink",
           )}
         >
           Bunga Wisata
@@ -62,7 +62,7 @@ export function Logo({
         <span
           className={cn(
             "mt-1 text-[0.6rem] font-semibold tracking-[0.28em] uppercase",
-            isLight ? "text-gold-400" : "text-gold-600",
+            isLight ? "text-gold-300" : "text-gold-600",
           )}
         >
           Tour &amp; Travel

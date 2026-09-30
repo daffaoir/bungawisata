@@ -21,18 +21,19 @@
     "guides": "Panduan Wisata"
   },
   "Common": {
-    "viewDetail": "Lihat Detail",
-    "viewAllPackages": "Lihat Semua Paket",
+    "viewDetail": "Lihat detail",
+    "viewAllPackages": "Lihat semua paket",
     "startingFrom": "Mulai dari",
     "perPerson": "/orang",
     "days": "{count} Hari",
     "nights": "{count} Malam",
     "duration": "{days} Hari {nights} Malam",
-    "domestic": "Dalam Negeri",
-    "international": "Luar Negeri",
+    "domestic": "Dalam negeri",
+    "international": "Luar negeri",
     "backToPackages": "Kembali ke daftar paket",
     "loading": "Memuat…",
-    "estimate": "estimasi"
+    "estimate": "estimasi",
+    "startingFromEstimate": "Mulai dari (estimasi)"
   },
   "WhatsApp": {
     "cta": "Tanya via WhatsApp",
@@ -45,78 +46,70 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Rombongan · Keluarga · Study Tour",
-      "titleLine1": "Tour & Travel Malang untuk",
-      "titleHighlight": "perjalanan tak terlupakan",
-      "subtitle": "Paket wisata dalam dan luar negeri dari Malang untuk grup kecil sampai rombongan besar — itinerary jelas, harga terbuka, dan tim yang mendampingi dari berangkat sampai pulang.",
-      "primaryCta": "Jelajahi Paket",
-      "secondaryCta": "Konsultasi Gratis",
-      "stats": {
-        "googleReviews": "{count} ulasan Google",
-        "facebookFollowers": "Pengikut Facebook",
-        "packages": "Paket perjalanan"
-      }
+      "departure": "Berangkat dari Malang, Jawa Timur",
+      "title": "Tour & travel Malang untuk liburan bareng rombongan",
+      "subtitle": "Paket dalam dan luar negeri untuk keluarga, kantor, sekolah, dan komunitas. Itinerary jelas sejak awal, harga terbuka, dan tim kami mendampingi dari berangkat sampai pulang.",
+      "primaryCta": "Tanya lewat WhatsApp",
+      "secondaryCta": "Lihat paket",
+      "rating": "{rating} dari {count} ulasan Google"
     },
-    "regionSplit": {
-      "title": "Mau ke mana kali ini?",
-      "subtitle": "Pilih dulu arah perjalananmu, sisanya biar kami yang urus.",
-      "domesticTitle": "Dalam Negeri",
-      "domesticDescription": "Dari pantai Labuan Bajo sampai surga bawah laut Raja Ampat — keindahan Indonesia yang belum habis dijelajahi.",
-      "internationalTitle": "Luar Negeri",
-      "internationalDescription": "Turki, Jepang, Korea, dan destinasi impian lainnya dengan pendampingan penuh sejak dari bandara.",
-      "explore": "Jelajahi {count} paket"
-    },
-    "featured": {
-      "eyebrow": "Paling Diminati",
-      "title": "Paket Pilihan Bulan Ini",
-      "subtitle": "Itinerary yang paling sering ditanyakan pelanggan kami."
-    },
-    "whyUs": {
-      "eyebrow": "Kenapa Bunga Wisata",
-      "title": "Perjalanan tenang, tanpa drama",
-      "items": {
-        "itinerary": {
-          "title": "Itinerary Jelas di Muka",
-          "description": "Rundown harian dipublikasikan lengkap sebelum Anda memutuskan. Tidak ada acara dadakan yang tak disepakati."
-        },
-        "price": {
-          "title": "Harga Transparan",
-          "description": "Yang termasuk dan tidak termasuk tertulis apa adanya. Tanpa biaya kejutan di tengah perjalanan."
-        },
-        "leader": {
-          "title": "Tour Leader Berpengalaman",
-          "description": "Setiap keberangkatan didampingi tour leader yang paham rute, bahasa, dan kebiasaan setempat."
-        },
-        "flexible": {
-          "title": "Bisa Custom",
-          "description": "Rombongan keluarga, kantor, atau komunitas? Kami susun itinerary sesuai kebutuhan dan anggaran Anda."
-        }
-      }
-    },
-    "gallery": {
-      "eyebrow": "Galeri",
-      "title": "Sekilas dari destinasi kami",
-      "subtitle": "Geser untuk melihat tempat-tempat yang paling sering diminta rombongan kami.",
-      "previous": "Foto sebelumnya",
-      "next": "Foto berikutnya",
-      "viewAll": "Lihat galeri lengkap"
-    },
-    "testimonials": {
-      "eyebrow": "Ulasan Google",
-      "title": "Kata pelanggan kami",
-      "viewAll": "Baca ulasan pilihan"
-    },
-    "cta": {
-      "title": "Siap berangkat?",
-      "subtitle": "Ceritakan rencana perjalanan Anda — kami bantu susun paket yang paling pas, gratis dan tanpa komitmen.",
-      "button": "Konsultasi via WhatsApp"
+    "packages": {
+      "title": "Paket yang sering ditanyakan",
+      "subtitle": "Harga per orang. Rundown lengkap hari demi hari ada di setiap paket.",
+      "tabs": {
+        "all": "Semua",
+        "domestic": "Dalam negeri",
+        "international": "Luar negeri"
+      },
+      "previous": "Paket sebelumnya",
+      "next": "Paket berikutnya",
+      "viewAll": "Lihat semua paket"
     },
     "services": {
-      "eyebrow": "Layanan Kami",
-      "title": "Dari rombongan besar sampai tiket pesawat",
-      "subtitle": "Satu kontak WhatsApp untuk tour rombongan, study tour, gathering, private tour, dan tiket pesawat dari Malang.",
-      "viewAll": "Lihat semua layanan",
-      "more": "Selengkapnya"
+      "title": "Bukan cuma paket liburan",
+      "subtitle": "Satu nomor WhatsApp untuk tour rombongan, study tour, gathering kantor, private tour, dan tiket pesawat.",
+      "viewAll": "Semua layanan",
+      "more": "Lihat detail"
+    },
+    "steps": {
+      "title": "Pesan semudah ngobrol",
+      "subtitle": "Dari chat pertama sampai hari keberangkatan, begini alurnya.",
+      "photoAlt": "Wisatawan di haluan kapal pinisi saat senja di Labuan Bajo",
+      "items": {
+        "chat": {
+          "title": "Ceritakan rencana Anda",
+          "description": "Kirim pesan WhatsApp: mau ke mana, kapan, dan berapa orang. Belum pasti pun tidak apa-apa."
+        },
+        "plan": {
+          "title": "Terima itinerary dan harga",
+          "description": "Rundown harian dan rincian biaya dikirim tertulis, termasuk apa saja yang sudah dan belum termasuk."
+        },
+        "adjust": {
+          "title": "Sesuaikan sampai pas",
+          "description": "Ubah jumlah hari, hotel, atau destinasi sesuai kebutuhan dan anggaran rombongan."
+        },
+        "go": {
+          "title": "Berangkat bersama tour leader",
+          "description": "Selama perjalanan, tour leader kami mendampingi dan mengurus jadwal di lapangan."
+        }
+      },
+      "cta": "Mulai chat sekarang"
+    },
+    "gallery": {
+      "title": "Mau ke mana berikutnya?",
+      "subtitle": "Sebagian destinasi yang bisa kami atur untuk rombongan Anda.",
+      "previous": "Foto sebelumnya",
+      "next": "Foto berikutnya",
+      "viewAll": "Buka galeri"
+    },
+    "testimonials": {
+      "title": "Kata mereka yang sudah ikut",
+      "viewAll": "Baca ulasan lainnya"
+    },
+    "cta": {
+      "title": "Ceritakan rencana perjalanan Anda",
+      "subtitle": "Tujuan, tanggal, dan jumlah orang. Kami balas dengan usulan itinerary dan perkiraan harga, gratis dan tanpa komitmen.",
+      "button": "Chat di WhatsApp"
     }
   },
   "Packages": {

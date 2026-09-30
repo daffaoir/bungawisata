@@ -1,49 +1,52 @@
 @import "tailwindcss";
 
 /*
- * Palet Bunga Wisata — monokrom mengikuti logo, dengan satu aksen emas.
+ * Palet Bunga Wisata "Hangat Keluarga" — diambil dari lanskap yang dijual:
+ * kertas & pasir vulkanik untuk latar, cokelat soga batik untuk teks, hijau
+ * daun untuk section gelap, dan kunyit sebagai aksen.
  *
- * Aturan pakainya:
- * - ink      → teks dan latar section gelap
- * - canvas   → latar terang (putih gading, bukan putih murni)
- * - line     → garis rambut pemisah; menggantikan bayangan tebal
- * - gold-600 → satu-satunya nuansa emas yang aman untuk teks di atas latar
- *              terang: putih/canvas ≥ 5,2:1, canvas-alt 4,9:1, gold-50 5,1:1. gold-500 ke bawah hanya untuk latar, garis,
- *              dan teks berukuran besar.
- * - gold-400 → teks emas di atas latar ink (kontras 7,9:1)
+ * Nama token lama (`ink`, `canvas`, `gold-*`) dipertahankan supaya seluruh
+ * komponen ikut palet baru; nilainya yang berubah.
+ *
+ * Aturan pakai (kontras dihitung 2026-09-30):
+ * - ink (soga)   → teks utama. paper 15,2:1 · sand 13,4:1
+ * - ink-muted    → teks sekunder. paper 6,1:1 · sand 5,4:1
+ * - canvas       → latar utama (kertas); canvas-alt → latar selang (pasir)
+ * - daun         → latar section gelap; teks canvas di atasnya 11,5:1
+ * - gold-400     → latar tombol utama (teks ink 7,4:1) dan teks aksen di atas
+ *                  daun (5,6:1). BUKAN untuk teks di latar terang.
+ * - gold-600     → teks aksen di latar terang. paper 5,6:1 · sand 4,9:1
+ * - line         → garis pemisah halus; hanya kalau jarak & warna tidak cukup
  */
 @theme {
-  --color-ink: #0f0f0f;
-  --color-ink-soft: #4a4a4a;
-  --color-ink-muted: #6e6e6e;
+  --color-ink: #2a1f16;
+  --color-ink-soft: #54463a;
+  --color-ink-muted: #6b5c4e;
 
-  --color-canvas: #fbfaf8;
-  --color-canvas-alt: #f3f1ed;
-  --color-line: #e4e0d9;
+  --color-canvas: #fbf8f2;
+  --color-canvas-alt: #f1eadc;
+  --color-line: #e6dccb;
 
-  --color-gold-50: #faf6ee;
-  --color-gold-100: #f2e9d6;
-  --color-gold-200: #e3d2ac;
-  --color-gold-300: #d6bd80;
-  --color-gold-400: #c9a227;
-  --color-gold-500: #b08d57;
-  --color-gold-600: #806534;
-  --color-gold-700: #6d552e;
+  --color-daun: #1e3b2f;
+  --color-daun-900: #152a21;
+  --color-daun-100: #dfe7e1;
 
-  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-gold-50: #fbf3e2;
+  --color-gold-100: #f6e4be;
+  --color-gold-200: #efcf8e;
+  --color-gold-300: #ebc27a;
+  --color-gold-400: #e0a640;
+  --color-gold-500: #c98a2b;
+  --color-gold-600: #8a5a17;
+  --color-gold-700: #744b12;
 
-  --animate-drift: drift 24s ease-in-out infinite;
+  --color-wa: #25d366;
+  --color-wa-dark: #128c4b;
 
-  @keyframes drift {
-    0%,
-    100% {
-      transform: scale(1) translate3d(0, 0, 0);
-    }
-    50% {
-      transform: scale(1.06) translate3d(0, -1.5%, 0);
-    }
-  }
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Panel dropdown kustom (`components/shared/Select.tsx`) saat dibuka. */
   @keyframes select-open {
@@ -78,9 +81,11 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.12;
+    font-weight: 500;
+    /* Fraunces dengan sumbu SOFT penuh: ujung huruf membulat, lebih ramah. */
+    font-variation-settings: "SOFT" 100, "WONK" 0;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
@@ -95,35 +100,7 @@
   }
 }
 
-@layer components {
-  /*
-   * Label kecil berhuruf kapital dengan jarak antarhuruf lebar — penanda
-   * bagian yang dipakai berulang di seluruh situs.
-   */
-  .eyebrow {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-  }
-}
-
 @layer utilities {
-  /* Garis emas pendek sebagai pembuka bagian. */
-  .rule-gold::before {
-    content: "";
-    display: block;
-    width: 2.5rem;
-    height: 1px;
-    margin-bottom: 1.25rem;
-    background-color: var(--color-gold-500);
-  }
-
-  .rule-gold-center::before {
-    margin-inline: auto;
-  }
-
   /*
    * Di layar kecil, halaman yang punya bilah CTA sticky sendiri tidak perlu
    * tombol WhatsApp mengambang — keduanya menuju tautan yang sama dan akan
@@ -136,7 +113,7 @@
 
     /* Beri ruang supaya bilah sticky tidak menutupi baris hak cipta. */
     body:has([data-sticky-cta]) footer {
-      padding-bottom: 4.5rem;
+      padding-bottom: 5.5rem;
     }
   }
 
@@ -144,21 +121,64 @@
   body:has([data-mobile-nav-open]) [data-floating-wa] {
     display: none;
   }
+
+  /* Strip geser horizontal: tanpa scrollbar, snap per kartu. */
+  .strip {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .strip > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
 }
 
 /*
- * Animasi "muncul saat di-scroll" tanpa JavaScript (dipakai `Reveal` dan
- * `StaggerItem`). Hanya aktif kalau browser mendukung scroll-driven
- * animation dan pengguna tidak meminta gerakan dikurangi; selain itu konten
- * tampil apa adanya. Elemen yang sudah terlihat saat halaman dimuat langsung
- * berada di akhir animasi, jadi LCP tidak tertahan.
+ * Gerak saat di-scroll tanpa JavaScript. Hanya aktif kalau browser mendukung
+ * scroll-driven animation dan pengguna tidak meminta gerakan dikurangi;
+ * selain itu konten tampil apa adanya. Elemen yang sudah terlihat saat
+ * halaman dimuat langsung berada di akhir animasi, jadi LCP tidak tertahan.
+ *
+ * - `.reveal`       → blok naik pelan saat masuk layar (tanpa fade: teks
+ *                     setengah transparan gagal kontras selama animasi).
+ * - `.reveal-photo` → foto "terbuka" dari bingkai sedikit menyempit, isinya
+ *                     sedikit membesar lalu kembali normal.
+ * - `.parallax`     → foto bergeser pelan saat halaman di-scroll.
+ * - `.strip-progress` → bilah progres strip geser (lihat `ScrollStrip`).
  */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
       animation: reveal-in linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 0% entry 60%;
+    }
+
+    .reveal-photo {
+      animation: photo-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+
+    .reveal-photo :where(img) {
+      animation: photo-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    .parallax :where(img) {
+      animation: parallax-y linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
     }
 
     .timeline-progress {
@@ -169,16 +189,51 @@
   }
 }
 
-/*
- * Hanya geser, tanpa fade: teks yang setengah transparan gagal kontras
- * (WCAG) selama animasi berjalan.
- */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .strip-progress {
+      transform-origin: left;
+      animation: grow-x linear both;
+      animation-timeline: var(--strip-timeline);
+    }
+  }
+}
+
 @keyframes reveal-in {
   from {
-    translate: var(--reveal-x, 0px) var(--reveal-y, 28px);
+    translate: var(--reveal-x, 0px) var(--reveal-y, 32px);
   }
   to {
     translate: 0 0;
+  }
+}
+
+@keyframes photo-open {
+  from {
+    clip-path: inset(6% 4% 6% 4% round 1.5rem);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 1.5rem);
+  }
+}
+
+@keyframes photo-settle {
+  from {
+    scale: 1.12;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes parallax-y {
+  from {
+    translate: 0 -3%;
+    scale: 1.08;
+  }
+  to {
+    translate: 0 3%;
+    scale: 1.08;
   }
 }
 
@@ -188,6 +243,64 @@
   }
   to {
     scale: 1 1;
+  }
+}
+
+@keyframes grow-x {
+  from {
+    scale: 0.08 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+/* Satu-satunya momen "masuk" saat halaman dimuat: foto hero beranda. */
+@keyframes hero-settle {
+  from {
+    scale: 1.06;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+/* Garis rute di hero tergambar sekali. */
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: var(--route-length, 400);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Tombol WhatsApp mengambang berdenyut sekali untuk menarik perhatian. */
+@keyframes wa-nudge {
+  0%,
+  100% {
+    scale: 1;
+  }
+  40% {
+    scale: 1.08;
+  }
+  70% {
+    scale: 0.97;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-settle {
+    animation: hero-settle 1.6s var(--ease-out-soft) both;
+  }
+
+  .route-draw {
+    stroke-dasharray: var(--route-length, 400);
+    animation: route-draw 1.8s 0.4s var(--ease-out-soft) both;
+  }
+
+  .wa-nudge {
+    animation: wa-nudge 0.9s 3s var(--ease-out-soft) 1 both;
   }
 }
 
