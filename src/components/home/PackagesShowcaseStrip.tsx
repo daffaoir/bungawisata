@@ -63,7 +63,9 @@ export function PackagesShowcaseStrip({ labels, items }: PackagesShowcaseStripPr
         label={labels.strip}
         previousLabel={labels.previous}
         nextLabel={labels.next}
-        itemClassName="w-[82vw] max-w-[22rem] sm:w-[21rem] lg:w-[23rem]"
+        // Ponsel: satu kartu + intipan berikutnya. `sm`: tepat dua kartu,
+        // `lg`: tepat tiga kartu utuh (lebar dikurangi jarak antarkartu).
+        itemClassName="w-[85%] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
         footer={
           <ButtonLink href="/paket" variant="outline" className="sm:hidden">
             {labels.viewAll}

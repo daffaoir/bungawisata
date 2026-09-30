@@ -5,9 +5,9 @@ import { cn } from "@/lib/cn";
  * Lambang belah ketupat, dipotong dari logo master oleh
  * `scripts/prepare-logo.mjs`.
  *
- * Lambangnya cokelat soga dengan latar transparan. Di atas latar gelap ia
- * dijadikan putih (`brightness-0 invert`) — versi reverse yang lazim untuk
- * logo satu warna.
+ * Lambangnya cokelat soga dengan latar transparan. Di atas latar gelap
+ * (`Logo tone="light"`) lambang tetap berwarna asli, diletakkan di atas ubin
+ * krem kecil supaya kontras, bukan dibalik menjadi putih.
  *
  * Ukuran ditentukan sepenuhnya oleh `className` dari pemanggil (mis.
  * `size-10`) — sengaja tidak ada `w-full`/`h-auto` di sini. `cn()` di proyek
@@ -17,13 +17,7 @@ import { cn } from "@/lib/cn";
  * Sebelumnya itu membuat logo melebar mengikuti lebar container (~400px)
  * alih-alih ukuran `size-10` yang dimaksud.
  */
-export function LogoMark({
-  className,
-  tone = "dark",
-}: {
-  className?: string;
-  tone?: "dark" | "light";
-}) {
+export function LogoMark({ className }: { className?: string }) {
   return (
     <Image
       src="/logo-mark.png"
@@ -32,7 +26,7 @@ export function LogoMark({
       width={512}
       height={512}
       priority
-      className={cn(tone === "light" && "brightness-0 invert", className)}
+      className={className}
     />
   );
 }
@@ -48,7 +42,13 @@ export function Logo({
 
   return (
     <span className={cn("flex items-center gap-3", className)}>
-      <LogoMark tone={tone} className="size-10 shrink-0" />
+      {isLight ? (
+        <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-canvas">
+          <LogoMark className="size-10" />
+        </span>
+      ) : (
+        <LogoMark className="size-10 shrink-0" />
+      )}
 
       <span className="flex flex-col leading-none">
         <span

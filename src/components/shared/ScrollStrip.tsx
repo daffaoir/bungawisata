@@ -15,6 +15,12 @@ type ScrollStripProps = {
   /** Konten di kiri bilah kontrol, mis. tautan "lihat semua". */
   footer?: ReactNode;
   tone?: "dark" | "light";
+  /**
+   * Pudarkan tepi kanan selama masih ada kartu di kanan. Untuk kartu yang
+   * lebarnya bervariasi (galeri) sehingga kartu terakhir terpotong; strip
+   * dengan jumlah kartu pas per layar tidak perlu.
+   */
+  fadeEdge?: boolean;
   className?: string;
 };
 
@@ -26,9 +32,7 @@ type ScrollStripProps = {
  * ada bilah progres dan dua tombol bulat — dekat dengan kartunya, bukan di
  * pojok judul — supaya jelas bahwa deretan ini bisa digeser.
  *
- * Jalurnya mulai tepat di tepi kiri kolom konten dan diteruskan sampai tepi
- * kanan layar, sehingga kartu terakhir yang terlihat terpotong di tepi layar:
- * petunjuk bahwa masih ada lagi.
+ * Jalurnya berada di dalam kolom konten, rata dengan teks di atasnya.
  */
 export function ScrollStrip({
   label,
@@ -38,6 +42,7 @@ export function ScrollStrip({
   itemClassName,
   footer,
   tone = "dark",
+  fadeEdge = false,
   className,
 }: ScrollStripProps) {
   const trackRef = useRef<HTMLUListElement>(null);
@@ -107,12 +112,15 @@ export function ScrollStrip({
         tabIndex={0}
         aria-label={label}
         className={cn(
-          // Tepi kiri jalur = tepi kiri kolom konten, jadi kartu yang sudah
-          // lewat terpotong rapi di sana (bukan menyisakan irisan tipis di
-          // luar kolom). Tepi kanan diteruskan sampai tepi layar.
-          "strip -me-5 gap-4 pe-5 pb-2 sm:-me-8 sm:gap-6 sm:pe-8",
-          "lg:me-[calc(50%-50vw)]",
+          // Jalur tetap di dalam kolom konten, rata kiri dan kanan dengan
+          // teks di atasnya. Dengan `fadeEdge`, tepi kanannya memudar halus
+          // selama masih ada kartu di kanan (bukan potongan tajam).
+          "strip gap-4 pb-2 sm:gap-6",
           "rounded-3xl focus-visible:outline-offset-4",
+          fadeEdge &&
+            scrollable &&
+            !atEnd &&
+            "[mask-image:linear-gradient(to_right,#000_calc(100%-4rem),transparent)]",
         )}
       >
         {Children.map(children, (child) => (
