@@ -2,26 +2,31 @@
 
 import { useState, type ReactNode } from "react";
 import { ButtonLink } from "@/components/shared/Button";
-import { ScrollStrip } from "@/components/shared/ScrollStrip";
 import { cn } from "@/lib/cn";
 import type { Region } from "@/lib/schema";
 
 type Filter = "all" | Region;
 
-type PackagesShowcaseStripProps = {
+type PackagesShowcaseGridProps = {
   labels: {
-    strip: string;
+    group: string;
     all: string;
     domestic: string;
     international: string;
-    previous: string;
-    next: string;
     viewAll: string;
   };
   items: Array<{ key: string; region: Region; card: ReactNode }>;
 };
 
-export function PackagesShowcaseStrip({ labels, items }: PackagesShowcaseStripProps) {
+/** Jumlah kartu yang tampil: 3 kolom × 2 baris di desktop. */
+const LIMIT = 6;
+
+/**
+ * Grid paket populer dengan tab region, rata kiri-kanan dengan judul. Tidak
+ * digeser: daftar lengkapnya ada di /paket. Di ponsel hanya tiga kartu dan
+ * di tablet empat, supaya halaman tidak terlalu panjang.
+ */
+export function PackagesShowcaseGrid({ labels, items }: PackagesShowcaseGridProps) {
   const [filter, setFilter] = useState<Filter>("all");
 
   const tabs: Array<{ value: Filter; label: string }> = [
@@ -30,11 +35,13 @@ export function PackagesShowcaseStrip({ labels, items }: PackagesShowcaseStripPr
     { value: "luar-negeri", label: labels.international },
   ];
 
-  const visible = items.filter((item) => filter === "all" || item.region === filter);
+  const visible = items
+    .filter((item) => filter === "all" || item.region === filter)
+    .slice(0, LIMIT);
 
   return (
     <div className="mt-10">
-      <div role="group" aria-label={labels.strip} className="flex gap-1.5 sm:gap-2">
+      <div role="group" aria-label={labels.group} className="flex gap-1.5 sm:gap-2">
         {tabs.map((tab) => {
           const active = tab.value === filter;
           return (
@@ -56,30 +63,23 @@ export function PackagesShowcaseStrip({ labels, items }: PackagesShowcaseStripPr
         })}
       </div>
 
-      {/* `key` mengulang strip dari awal setiap kali tab berganti. */}
-      <ScrollStrip
-        key={filter}
-        className="mt-8"
-        label={labels.strip}
-        previousLabel={labels.previous}
-        nextLabel={labels.next}
-        // Ponsel: satu kartu + intipan berikutnya. `sm`: dua kartu + intipan,
-        // `lg`: tiga kartu utuh + intipan ±4rem kartu keempat, supaya tetap
-        // terlihat bisa digeser walau jalur di kanan kolom hanya 16px (layar
-        // 1280px).
-        itemClassName="w-[85%] sm:w-[calc((100%-4.5rem)/2)] lg:w-[calc((100%-7rem)/3)]"
-        footer={
-          <ButtonLink href="/paket" variant="outline" className="sm:hidden">
-            {labels.viewAll}
-          </ButtonLink>
-        }
-      >
-        {visible.map((item) => (
-          <div key={item.key} className="h-full">
+      <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((item, index) => (
+          <li
+            key={item.key}
+            className={cn(
+              index >= 3 && "max-sm:hidden",
+              index >= 4 && "sm:max-lg:hidden",
+            )}
+          >
             {item.card}
-          </div>
+          </li>
         ))}
-      </ScrollStrip>
+      </ul>
+
+      <ButtonLink href="/paket" variant="outline" className="mt-10 sm:hidden">
+        {labels.viewAll}
+      </ButtonLink>
     </div>
   );
 }

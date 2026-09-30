@@ -1,6 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { GalleryCarousel } from "@/components/home/GalleryCarousel";
+import { GalleryMosaic } from "@/components/home/GalleryMosaic";
 import { Hero } from "@/components/home/Hero";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -41,7 +41,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <PackagesShowcase />
       <ServicesOverview />
       <HowItWorks />
-      <GalleryCarousel />
+      <GalleryMosaic />
       <HomeFaq />
       <TestimonialStrip />
     </div>

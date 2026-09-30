@@ -3,10 +3,10 @@ import { PackageCard } from "@/components/package/PackageCard";
 import { ButtonLink } from "@/components/shared/Button";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { getFeaturedPackages } from "@/lib/packages";
-import { PackagesShowcaseStrip } from "./PackagesShowcaseStrip";
+import { PackagesShowcaseGrid } from "./PackagesShowcaseGrid";
 
 /**
- * Semua paket dalam satu strip geser, paket unggulan di depan. Tab region
+ * Paket populer dalam grid 3 × 2, paket unggulan di depan. Tab region
  * menggantikan dua kartu "Dalam/Luar Negeri" yang dulu berdiri sendiri.
  *
  * Kartunya dirender di server lalu dikirim sebagai `children` ke komponen
@@ -29,20 +29,24 @@ export function PackagesShowcase() {
         }
       />
 
-      <PackagesShowcaseStrip
+      <PackagesShowcaseGrid
         labels={{
-          strip: t("title"),
+          group: t("title"),
           all: t("tabs.all"),
           domestic: t("tabs.domestic"),
           international: t("tabs.international"),
-          previous: t("previous"),
-          next: t("next"),
           viewAll: t("viewAll"),
         }}
         items={packages.map((pkg) => ({
           key: pkg.slug,
           region: pkg.region,
-          card: <PackageCard pkg={pkg} />,
+          card: (
+            <PackageCard
+              pkg={pkg}
+              shape="adaptive"
+              sizes="(min-width: 1280px) 24rem, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+            />
+          ),
         }))}
       />
     </Section>

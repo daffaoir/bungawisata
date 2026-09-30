@@ -20,7 +20,7 @@ export function PackageCard({
   /** `sizes` untuk foto; sesuaikan kalau kartu dipakai di lebar lain. */
   sizes?: string;
   /**
-   * `portrait` — foto 4:5 di semua lebar (strip geser beranda).
+   * `portrait` — foto 4:5 di semua lebar.
    * `adaptive` — 4:3 di ponsel supaya daftar satu kolom tidak terlalu
    * panjang, 4:5 mulai `sm` (grid dua/tiga kolom).
    */

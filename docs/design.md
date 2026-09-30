@@ -40,8 +40,9 @@ seperti buatan AI".
   - `.timeline-progress` untuk garis itinerary dan langkah pesan.
   - `.wa-nudge` untuk tombol WhatsApp mengambang, berdenyut sekali setelah 3
     detik.
-  - Strip geser (`ScrollStrip`) memakai `scroll-snap` asli, dengan progress
-    bar dan tombol bulat **di bawah** strip.
+  - Beranda tidak memakai strip geser horizontal: paket tampil sebagai grid
+    3 × 2 dan galeri sebagai mosaik (1 foto besar + 4 kecil), keduanya rata
+    kiri-kanan dengan kolom. Strip yang melebar ke satu sisi terasa miring.
   - Hover hanya di `@media (hover:hover)`.
   - Semua gerak mati dengan `prefers-reduced-motion`.
 - **Foto:**

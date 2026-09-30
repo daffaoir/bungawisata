@@ -43,8 +43,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        // `@container`: `.strip-bleed` mengukur lebar section lewat `cqw`.
-        "@container relative overflow-hidden",
+        "relative overflow-hidden",
         TONES[tone],
         compact ? "py-12 sm:py-20" : "py-16 sm:py-28",
         inset && "mx-2 rounded-[2rem] sm:mx-4 sm:rounded-[2.5rem]",

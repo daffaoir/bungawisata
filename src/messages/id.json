@@ -69,8 +69,6 @@
         "domestic": "Dalam negeri",
         "international": "Luar negeri"
       },
-      "previous": "Paket sebelumnya",
-      "next": "Paket berikutnya",
       "viewAll": "Lihat semua paket"
     },
     "services": {
@@ -106,8 +104,6 @@
     "gallery": {
       "title": "Mau ke mana berikutnya?",
       "subtitle": "Sebagian destinasi yang bisa kami atur untuk rombongan Anda.",
-      "previous": "Foto sebelumnya",
-      "next": "Foto berikutnya",
       "viewAll": "Buka galeri"
     },
     "faq": {

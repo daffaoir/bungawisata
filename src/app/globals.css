@@ -128,51 +128,6 @@
   body:has([data-mobile-nav-open]) [data-floating-wa] {
     display: none;
   }
-
-  /* Strip geser horizontal: tanpa scrollbar, snap per kartu. */
-  .strip {
-    display: flex;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .strip::-webkit-scrollbar {
-    display: none;
-  }
-
-  .strip > * {
-    scroll-snap-align: start;
-    flex-shrink: 0;
-  }
-
-  /*
-   * Jalur strip melebar keluar kolom konten (max-w-7xl, padding 1.25rem /
-   * 2rem) sampai `--strip-edge` dari tepi section: sejajar panel membulat
-   * (mx-2 / mx-4). Padding dan scroll-padding yang sama menjaga kartu
-   * pertama dan titik snap tetap rata dengan kolom. `cqw` diukur dari
-   * `<section>` (container di komponen Section), jadi lebar scrollbar tidak
-   * ikut terhitung seperti pada `vw`.
-   */
-  .strip-bleed {
-    --strip-pad: 1.25rem;
-    --strip-edge: 0.5rem;
-    --strip-bleed: calc(
-      max(0px, (100cqw - 80rem) / 2) + var(--strip-pad) - var(--strip-edge)
-    );
-    margin-inline: calc(var(--strip-bleed) * -1);
-    padding-inline: var(--strip-bleed);
-    scroll-padding-inline: var(--strip-bleed);
-  }
-
-  @media (width >= 40rem) {
-    .strip-bleed {
-      --strip-pad: 2rem;
-      --strip-edge: 1rem;
-    }
-  }
 }
 
 /*

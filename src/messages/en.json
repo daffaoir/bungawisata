@@ -69,8 +69,6 @@
         "domestic": "Domestic",
         "international": "International"
       },
-      "previous": "Previous package",
-      "next": "Next package",
       "viewAll": "See all packages"
     },
     "services": {
@@ -106,8 +104,6 @@
     "gallery": {
       "title": "Where to next?",
       "subtitle": "Some of the destinations we can arrange for your group.",
-      "previous": "Previous photo",
-      "next": "Next photo",
       "viewAll": "Open the gallery"
     },
     "faq": {
