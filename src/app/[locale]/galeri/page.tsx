@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+import { Lightbox, LightboxTrigger } from "@/components/shared/Lightbox";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { ButtonAnchor } from "@/components/shared/Button";
@@ -74,39 +75,48 @@ export default async function GalleryPage({
           keyboard tidak punya hover. Foto `span: 2` memakai rasio 8/3 supaya
           tingginya sama dengan foto 4/3 di sebelahnya.
         */}
-        <StaggerGroup className="grid grid-cols-2 items-start gap-x-3 gap-y-7 sm:gap-x-4 lg:grid-cols-4">
-          {gallery.map((item) => (
-            <StaggerItem
-              key={item.src}
-              className={item.span === 2 ? "sm:col-span-2" : undefined}
-            >
-              <figure>
-                <div
-                  className={cn(
-                    "relative aspect-[4/5] overflow-hidden rounded-3xl",
-                    item.span === 2 && "sm:aspect-[8/5]",
-                  )}
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.caption[appLocale]}
-                    fill
-                    sizes={
-                      item.span === 2
-                        ? "(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 50vw"
-                        : "(min-width: 1024px) 25vw, 50vw"
-                    }
-                    quality={85}
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-2.5 px-1 text-[0.9rem] leading-snug text-ink-soft">
-                  {item.caption[appLocale]}
-                </figcaption>
-              </figure>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
+        <Lightbox
+          items={gallery.map((item) => ({
+            src: item.src,
+            alt: item.caption[appLocale],
+            caption: item.caption[appLocale],
+          }))}
+        >
+          <StaggerGroup className="grid grid-cols-2 items-start gap-x-3 gap-y-7 sm:gap-x-4 lg:grid-cols-4">
+            {gallery.map((item, index) => (
+              <StaggerItem
+                key={item.src}
+                className={item.span === 2 ? "sm:col-span-2" : undefined}
+              >
+                <figure>
+                  <div
+                    className={cn(
+                      "relative aspect-[4/5] overflow-hidden rounded-3xl",
+                      item.span === 2 && "sm:aspect-[8/5]",
+                    )}
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.caption[appLocale]}
+                      fill
+                      sizes={
+                        item.span === 2
+                          ? "(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 50vw"
+                          : "(min-width: 1024px) 25vw, 50vw"
+                      }
+                      quality={85}
+                      className="object-cover"
+                    />
+                    <LightboxTrigger index={index} />
+                  </div>
+                  <figcaption className="mt-2.5 px-1 text-[0.9rem] leading-snug text-ink-soft">
+                    {item.caption[appLocale]}
+                  </figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </Lightbox>
 
         {/*
           Foto di atas adalah foto stok destinasi. Dokumentasi perjalanan

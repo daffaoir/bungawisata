@@ -5,13 +5,14 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type WhatsAppCtaProps = {
   /**
-   * Kalau diisi, pesan WhatsApp otomatis menyebut nama paket ini sehingga
-   * calon pelanggan tidak perlu mengetik ulang.
+   * Kalau diisi, pesan WhatsApp otomatis menyebut nama dan tautan paket ini,
+   * plus baris "rencana tanggal/jumlah peserta" yang tinggal dilengkapi,
+   * sehingga calon pelanggan tidak perlu mengetik ulang.
    */
-  packageTitle?: string;
+  pkg?: { title: string; url: string };
   /** Nada pesan saat tidak menyebut paket tertentu. */
   intent?: "generic" | "custom";
-  /** Ganti label tombol. Default mengikuti ada/tidaknya `packageTitle`. */
+  /** Ganti label tombol. Default mengikuti ada/tidaknya `pkg`. */
   label?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -19,7 +20,7 @@ type WhatsAppCtaProps = {
 };
 
 export function WhatsAppCta({
-  packageTitle,
+  pkg,
   intent = "generic",
   label,
   variant = "primary",
@@ -28,8 +29,8 @@ export function WhatsAppCta({
 }: WhatsAppCtaProps) {
   const t = useTranslations("WhatsApp");
 
-  const message = packageTitle
-    ? t("package", { packageTitle })
+  const message = pkg
+    ? t("package", { packageTitle: pkg.title, packageUrl: pkg.url })
     : t(intent);
 
   return (
@@ -40,7 +41,7 @@ export function WhatsAppCta({
       className={className}
     >
       <WhatsAppIcon className="size-[1.15em]" />
-      {label ?? (packageTitle ? t("ctaPackage") : t("cta"))}
+      {label ?? (pkg ? t("ctaPackage") : t("cta"))}
     </ButtonAnchor>
   );
 }

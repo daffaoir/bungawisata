@@ -10,7 +10,7 @@ Wisata. Jangan beri caption yang mengklaim sebaliknya. Ganti dengan foto asli
 kapan pun tersedia (lihat `src/content/images.ts`). Foto `suasana-*`
 menampilkan wisatawan umum (bukan peserta tur Bunga Wisata).
 
-Diunduh 2026-09-30 dengan `node scripts/download-stock-images.mjs --force`
+Diunduh 2026-10-01 dengan `node scripts/download-stock-images.mjs --force`
 (lebar maks. 2560px tanpa pembesaran, JPEG q85 dari Unsplash disimpan apa
 adanya — tidak dikompres ulang).
 
@@ -20,11 +20,11 @@ adanya — tidak dikompres ulang).
 | `/images/stock/bali-terasering.jpg` | https://images.unsplash.com/photo-1555400038-a088c772c8cd |
 | `/images/stock/bali-pura-laut.jpg` | https://images.unsplash.com/photo-1542725231-e6ff634bf0f5 |
 | `/images/stock/bali-tebing-uluwatu.jpg` | https://images.unsplash.com/photo-1576019206484-54273acdfa89 |
-| `/images/stock/bali-pantai-senja.jpg` | https://images.unsplash.com/photo-1567520595708-2fb411a6ce88 |
+| `/images/stock/bali-pantai-senja.jpg` | https://images.unsplash.com/photo-1655779282295-a573301955cc |
 | `/images/stock/komodo-padar.jpg` | https://images.unsplash.com/photo-1660279582815-8d9a2b0d7e27 |
 | `/images/stock/komodo-kapal.jpg` | https://images.unsplash.com/photo-1624104416015-f0ef71c7800a |
 | `/images/stock/komodo-satwa.jpg` | https://images.unsplash.com/photo-1562578057-3ca1f7815237 |
-| `/images/stock/komodo-pink-beach.jpg` | https://images.unsplash.com/photo-1747806735725-ad02ac970269 |
+| `/images/stock/komodo-pink-beach.jpg` | https://images.unsplash.com/photo-1736478771374-434fa25e81ea |
 | `/images/stock/raja-ampat-piaynemo.jpg` | https://images.unsplash.com/photo-1675377668920-86545643d25c |
 | `/images/stock/raja-ampat-gugusan.jpg` | https://images.unsplash.com/photo-1724258426133-ade44aa271b8 |
 | `/images/stock/raja-ampat-laguna.jpg` | https://images.unsplash.com/photo-1637060544104-ce8f8b6b4d81 |
@@ -33,12 +33,12 @@ adanya — tidak dikompres ulang).
 | `/images/stock/yogya-prambanan.jpg` | https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d |
 | `/images/stock/bromo-lanskap.jpg` | https://images.unsplash.com/photo-1662114480912-05a338d79da3 |
 | `/images/stock/bromo-kaldera.jpg` | https://images.unsplash.com/photo-1749731630653-d9b3f00573ed |
-| `/images/stock/bromo-udara.jpg` | https://images.unsplash.com/photo-1518043610038-064362b44076 |
+| `/images/stock/bromo-udara.jpg` | https://images.unsplash.com/photo-1585357214259-f977cc7d73a4 |
 | `/images/stock/ijen-kawah.jpg` | https://images.unsplash.com/photo-1776875339246-ba5d0e9dce43 |
 | `/images/stock/gili-udara.jpg` | https://images.unsplash.com/photo-1583022846753-83a4eba54ac1 |
-| `/images/stock/gili-pulau.jpg` | https://images.unsplash.com/photo-1619681216575-d6b3964fc278 |
+| `/images/stock/gili-pulau.jpg` | https://images.unsplash.com/photo-1587364125669-354c5735dd2d |
 | `/images/stock/gili-penyu.jpg` | https://images.unsplash.com/photo-1709483095301-2d1f3e95b1d4 |
-| `/images/stock/lombok-rinjani.jpg` | https://images.unsplash.com/photo-1654046920188-6e7ee051d7a4 |
+| `/images/stock/lombok-rinjani.jpg` | https://images.unsplash.com/photo-1698267703889-06c41f9acba5 |
 | `/images/stock/toba-perahu.jpg` | https://images.unsplash.com/photo-1592639298199-7b9d01c1cf29 |
 | `/images/stock/toba-danau.jpg` | https://images.unsplash.com/photo-1569081562679-6d71c00aab86 |
 | `/images/stock/toba-samosir.jpg` | https://images.unsplash.com/photo-1674648749681-288624ea37ff |
@@ -48,7 +48,7 @@ adanya — tidak dikompres ulang).
 | `/images/stock/bangkok-kota.jpg` | https://images.unsplash.com/photo-1531169628939-e84f860fa5d6 |
 | `/images/stock/bangkok-pasar-terapung.jpg` | https://images.unsplash.com/photo-1546945344-e830559a0601 |
 | `/images/stock/pattaya-teluk.jpg` | https://images.unsplash.com/photo-1625492206717-61c584a8b11e |
-| `/images/stock/pattaya-pantai.jpg` | https://images.unsplash.com/photo-1562908234-59564a6baaa3 |
+| `/images/stock/pattaya-pantai.jpg` | https://images.unsplash.com/photo-1620373901514-4319a7c81cdb |
 | `/images/stock/singapura-marina-bay.jpg` | https://images.unsplash.com/photo-1525625293386-3f8f99389edd |
 | `/images/stock/singapura-merlion.jpg` | https://images.unsplash.com/photo-1707412948209-e5143b6e2b49 |
 | `/images/stock/singapura-sentosa.jpg` | https://images.unsplash.com/photo-1707412924066-13d9e3e58257 |
@@ -80,11 +80,11 @@ adanya — tidak dikompres ulang).
 | `/images/stock/abu-dhabi-masjid.jpg` | https://images.unsplash.com/photo-1512632578888-169bbbc64f33 |
 | `/images/stock/umum-rombongan.jpg` | https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc |
 | `/images/stock/umum-pesawat.jpg` | https://images.unsplash.com/photo-1530469641172-8ac15d0a7d6a |
-| `/images/stock/umum-study-tour.jpg` | https://images.unsplash.com/photo-1756102080345-797e02549f97 |
-| `/images/stock/umum-teman-puncak.jpg` | https://images.unsplash.com/photo-1601807258526-2637650ea2ec |
+| `/images/stock/umum-study-tour.jpg` | https://images.unsplash.com/photo-1648518295678-f78670c35924 |
+| `/images/stock/umum-teman-puncak.jpg` | https://images.unsplash.com/photo-1578598486218-90db948624fb |
 | `/images/stock/umum-paspor.jpg` | https://images.unsplash.com/photo-1787030186312-ee07d04114f6 |
 | `/images/stock/umum-fotografer.jpg` | https://images.unsplash.com/photo-1599488488048-10c00b12ea2b |
 | `/images/stock/suasana-sunrise-rombongan.jpg` | https://images.unsplash.com/photo-1706865854509-821c960ce465 |
-| `/images/stock/suasana-pantai-keluarga.jpg` | https://images.unsplash.com/photo-1693020077268-1a3b572103c1 |
+| `/images/stock/suasana-pantai-keluarga.jpg` | https://images.unsplash.com/photo-1761030149081-50abb59676ef |
 | `/images/stock/suasana-kapal-teman.jpg` | https://images.unsplash.com/photo-1665234811705-02e42eda85d2 |
 | `/images/stock/suasana-candi-jalan.jpg` | https://images.unsplash.com/photo-1684189162727-3b0fd73ba9e3 |

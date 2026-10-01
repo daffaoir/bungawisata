@@ -21,6 +21,7 @@
     "guides": "Travel Guides"
   },
   "Common": {
+    "skipToContent": "Skip to content",
     "viewDetail": "View details",
     "viewAllPackages": "See all packages",
     "startingFrom": "From",
@@ -41,7 +42,7 @@
     "ctaPackage": "Ask about this package",
     "floatingLabel": "Contact us on WhatsApp",
     "generic": "Hello Bunga Wisata, I'd like to ask about your tour packages.",
-    "package": "Hello Bunga Wisata, I'm interested in the \"{packageTitle}\" package. Could I get more details?",
+    "package": "Hello Bunga Wisata, I'm interested in the \"{packageTitle}\" package. Could I get more details?\n{packageUrl}\n\nPlanned date: \nNumber of travellers: ",
     "custom": "Hello Bunga Wisata, I'd like to discuss a custom tour package."
   },
   "Home": {
@@ -257,7 +258,23 @@
     "domestic": "Domestic Packages",
     "international": "International Packages",
     "rights": "All rights reserved.",
-    "builtWith": "All prices are in Indonesian Rupiah and subject to change."
+    "builtWith": "All prices are in Indonesian Rupiah and subject to change.",
+    "privacy": "Privacy Policy"
+  },
+  "Lightbox": {
+    "open": "Enlarge photo: {label}",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "counter": "{current} / {total}",
+    "dialogLabel": "Photo"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "metaDescription": "What personal data Bunga Wisata receives when you use this site or message us on WhatsApp, what it is used for, and your rights under Indonesian law.",
+    "updated": "Last updated {date}",
+    "contactTitle": "Contact us",
+    "contactText": "For questions about your personal data, or to exercise any of the rights above, contact us at:"
   },
   "NotFound": {
     "title": "Page not found",
@@ -314,6 +331,10 @@
     "privacy": "Nothing is stored on this site. The form only drafts a WhatsApp message for you to send.",
     "errorRequired": "Please fill in your name, destination and number of travellers.",
     "greeting": "Hello Bunga Wisata, I'd like to request a quote.",
+    "greetingPackage": "Hello Bunga Wisata, I'd like to request a quote for the \"{packageTitle}\" package.\n{packageUrl}",
+    "packageTitle": "Request a quote for this package",
+    "packageSubtitle": "Tell us your dates and group size, and we'll reply on WhatsApp with the latest price.",
+    "errorRequiredPackage": "Please fill in your name and number of travellers.",
     "defaultPickup": "Malang"
   }
 }

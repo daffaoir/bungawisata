@@ -41,7 +41,7 @@ export function PageHeader({
               alt=""
               aria-hidden="true"
               fill
-              priority
+              preload
               quality={85}
               sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
               className={cn("hero-settle -z-10 object-cover", imagePosition)}

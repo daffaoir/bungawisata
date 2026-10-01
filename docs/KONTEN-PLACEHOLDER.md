@@ -44,7 +44,7 @@ Perbarui angka rating/pengikut di `site.proof` (`src/content/site.ts`) sesekali.
 | Kebijakan DP, minimal peserta, pembatalan | 🟡 | `src/content/faq.ts` | Sekarang netral ("dijelaskan saat pemesanan"). Tambahkan angka hanya kalau sudah pasti. |
 | Teks halaman layanan | 🟡 | `src/content/services/*.ts` | Menggambarkan layanan umum biro tour. Cek kalimat ini: rencana cadangan saat cuaca buruk (gathering), pemandu lokal & kontak WA selama perjalanan (private tour), e-tiket dikirim lewat WA (tiket), bantuan mencari fasilitas kesehatan (study tour). |
 | Artikel panduan | 🟢 | `src/content/guides/*.ts` | Informasi umum tanpa harga/aturan visa spesifik. Perbarui `updatedAt` kalau isinya diubah. |
-| Empat janji di "Kenapa Kami" | 🟡 | `Home.whyUs.items.*` di `src/messages/*.json` | Pastikan memang bisa dipenuhi. |
+| Kebijakan Privasi | 🟡 | `src/content/privacy.ts` | Draf 2026-10-01, sudah tayang di `/kebijakan-privasi`. Minta papa cek bagian retensi, pihak penerima data, dan keamanan; perbarui `PRIVACY_UPDATED_AT` kalau isinya diubah. |
 
 ---
 

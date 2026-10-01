@@ -84,6 +84,7 @@ export default async function LocaleLayout({
   // statis saat build, bukan per-request.
   setRequestLocale(locale);
   const tMeta = await getTranslations({ locale, namespace: "Meta" });
+  const tCommon = await getTranslations({ locale, namespace: "Common" });
 
   return (
     <html
@@ -95,8 +96,17 @@ export default async function LocaleLayout({
         <JsonLd data={organizationJsonLd(tMeta("defaultDescription"))} />
         <NextIntlClientProvider>
           <ScrollToTop />
+          {/* Lompat dari navigasi langsung ke isi halaman (pengguna keyboard). */}
+          <a
+            href="#konten"
+            className="fixed top-3 left-3 z-[60] -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-canvas transition-transform focus:translate-y-[env(safe-area-inset-top,0px)]"
+          >
+            {tCommon("skipToContent")}
+          </a>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main id="konten" tabIndex={-1} className="flex-1 outline-none">
+            {children}
+          </main>
           <Footer />
           <FloatingWhatsApp />
         </NextIntlClientProvider>

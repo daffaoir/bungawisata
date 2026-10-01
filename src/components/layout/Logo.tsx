@@ -16,6 +16,10 @@ import { cn } from "@/lib/cn";
  * JSX; siapa yang menang bergantung urutan di stylesheet hasil kompilasi.
  * Sebelumnya itu membuat logo melebar mengikuti lebar container (~400px)
  * alih-alih ukuran `size-10` yang dimaksud.
+ *
+ * `width`/`height` = ukuran tampil (40px) supaya srcset-nya 48/96w, bukan
+ * 640/1080w. Tidak di-`preload`: logo bukan LCP, preload-nya hanya berebut
+ * bandwidth dengan foto hero.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -23,9 +27,8 @@ export function LogoMark({ className }: { className?: string }) {
       src="/logo-mark.png"
       alt=""
       aria-hidden="true"
-      width={512}
-      height={512}
-      priority
+      width={40}
+      height={40}
       className={className}
     />
   );

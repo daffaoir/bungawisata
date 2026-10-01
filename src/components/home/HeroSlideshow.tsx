@@ -87,7 +87,7 @@ export function HeroSlideshow({
                 src={slide.src}
                 alt={isActive ? slide.place : ""}
                 fill
-                priority={index === 0}
+                preload={index === 0}
                 quality={85}
                 sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
                 className={cn(

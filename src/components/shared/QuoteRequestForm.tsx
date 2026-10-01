@@ -8,8 +8,13 @@ import { Select } from "./Select";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 type QuoteRequestFormProps = {
-  /** Pilihan layanan dalam bahasa aktif. */
-  services: ReadonlyArray<{ slug: string; name: string }>;
+  /** Pilihan layanan dalam bahasa aktif. Diabaikan dalam mode paket. */
+  services?: ReadonlyArray<{ slug: string; name: string }>;
+  /**
+   * Mode paket (halaman detail paket): pesan menyebut nama + tautan paket,
+   * jadi pilihan layanan, tujuan, dan budget tidak ditanyakan.
+   */
+  pkg?: { title: string; url: string };
   /** Layanan yang terpilih saat form pertama tampil. */
   defaultService?: string;
   className?: string;
@@ -24,7 +29,8 @@ const inputClass =
  * penawaran tanpa bolak-balik bertanya.
  */
 export function QuoteRequestForm({
-  services,
+  services = [],
+  pkg,
   defaultService = "",
   className,
 }: QuoteRequestFormProps) {
@@ -38,22 +44,35 @@ export function QuoteRequestForm({
     const data = new FormData(event.currentTarget);
     const value = (key: string) => String(data.get(key) ?? "").trim();
 
-    if (!value("name") || !value("destination") || !value("pax")) {
+    if (!value("name") || !value("pax") || (!pkg && !value("destination"))) {
       setError(true);
       return;
     }
     setError(false);
 
     const serviceName = services.find((s) => s.slug === service)?.name;
-    const message = buildQuoteMessage(t("greeting"), [
-      { label: t("name"), value: value("name") },
-      { label: t("service"), value: serviceName },
-      { label: t("destination"), value: value("destination") },
-      { label: t("pax"), value: value("pax") },
-      { label: t("date"), value: value("date") },
-      { label: t("pickup"), value: value("pickup") },
-      { label: t("budget"), value: value("budget") },
-    ]);
+    const message = pkg
+      ? buildQuoteMessage(
+          t("greetingPackage", {
+            packageTitle: pkg.title,
+            packageUrl: pkg.url,
+          }),
+          [
+            { label: t("name"), value: value("name") },
+            { label: t("pax"), value: value("pax") },
+            { label: t("date"), value: value("date") },
+            { label: t("pickup"), value: value("pickup") },
+          ],
+        )
+      : buildQuoteMessage(t("greeting"), [
+          { label: t("name"), value: value("name") },
+          { label: t("service"), value: serviceName },
+          { label: t("destination"), value: value("destination") },
+          { label: t("pax"), value: value("pax") },
+          { label: t("date"), value: value("date") },
+          { label: t("pickup"), value: value("pickup") },
+          { label: t("budget"), value: value("budget") },
+        ]);
 
     window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
   }
@@ -66,31 +85,35 @@ export function QuoteRequestForm({
       noValidate
       className={cn("grid gap-5 sm:grid-cols-2", className)}
     >
-      <div className="sm:col-span-2">
-        <p className="mb-2 text-sm font-medium text-ink">{t("service")}</p>
-        <Select
-          value={service}
-          onChange={setService}
-          label={t("service")}
-          options={[
-            { value: "", label: t("servicePlaceholder") },
-            ...services.map((s) => ({ value: s.slug, label: s.name })),
-          ]}
-        />
-      </div>
+      {pkg ? null : (
+        <>
+          <div className="sm:col-span-2">
+            <p className="mb-2 text-sm font-medium text-ink">{t("service")}</p>
+            <Select
+              value={service}
+              onChange={setService}
+              label={t("service")}
+              options={[
+                { value: "", label: t("servicePlaceholder") },
+                ...services.map((s) => ({ value: s.slug, label: s.name })),
+              ]}
+            />
+          </div>
 
-      <label htmlFor={field("destination")} className="block">
-        <span className="mb-2 block text-sm font-medium text-ink">
-          {t("destination")} *
-        </span>
-        <input
-          id={field("destination")}
-          name="destination"
-          required
-          placeholder={t("destinationPlaceholder")}
-          className={inputClass}
-        />
-      </label>
+          <label htmlFor={field("destination")} className="block">
+            <span className="mb-2 block text-sm font-medium text-ink">
+              {t("destination")} *
+            </span>
+            <input
+              id={field("destination")}
+              name="destination"
+              required
+              placeholder={t("destinationPlaceholder")}
+              className={inputClass}
+            />
+          </label>
+        </>
+      )}
 
       <label htmlFor={field("pax")} className="block">
         <span className="mb-2 block text-sm font-medium text-ink">
@@ -131,17 +154,19 @@ export function QuoteRequestForm({
         />
       </label>
 
-      <label htmlFor={field("budget")} className="block">
-        <span className="mb-2 block text-sm font-medium text-ink">
-          {t("budget")}
-        </span>
-        <input
-          id={field("budget")}
-          name="budget"
-          placeholder={t("budgetPlaceholder")}
-          className={inputClass}
-        />
-      </label>
+      {pkg ? null : (
+        <label htmlFor={field("budget")} className="block">
+          <span className="mb-2 block text-sm font-medium text-ink">
+            {t("budget")}
+          </span>
+          <input
+            id={field("budget")}
+            name="budget"
+            placeholder={t("budgetPlaceholder")}
+            className={inputClass}
+          />
+        </label>
+      )}
 
       <label htmlFor={field("name")} className="block">
         <span className="mb-2 block text-sm font-medium text-ink">
@@ -159,7 +184,7 @@ export function QuoteRequestForm({
       <div className="sm:col-span-2">
         {error ? (
           <p role="alert" className="mb-4 text-sm font-medium text-red-700">
-            {t("errorRequired")}
+            {pkg ? t("errorRequiredPackage") : t("errorRequired")}
           </p>
         ) : null}
         <button

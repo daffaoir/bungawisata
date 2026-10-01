@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/kontak", 0.6),
     entry("/layanan", 0.9),
     entry("/panduan", 0.6),
+    entry("/kebijakan-privasi", 0.2),
     ...getAllPackages().map((pkg) =>
       entry({ pathname: "/paket/[slug]", params: { slug: pkg.slug } }, 0.8),
     ),

@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { formatPrice } from "@/lib/format";
 import { buildItineraryFilename } from "@/lib/itinerary-pdf";
+import { absoluteUrl } from "@/lib/metadata";
 import type { Package } from "@/lib/schema";
 import { itineraryPdfPath } from "@/lib/static-files";
 
@@ -18,6 +19,17 @@ function pdfLink(pkg: Package, locale: AppLocale) {
   return {
     href: itineraryPdfPath(locale, pkg.slug),
     download: buildItineraryFilename(pkg, locale),
+  };
+}
+
+/** Nama + URL absolut paket untuk pesan WhatsApp, dalam bahasa aktif. */
+export function packageRef(pkg: Package, locale: AppLocale) {
+  return {
+    title: pkg.content[locale].title,
+    url: absoluteUrl(
+      { pathname: "/paket/[slug]", params: { slug: pkg.slug } },
+      locale,
+    ),
   };
 }
 
@@ -79,7 +91,6 @@ export function PriceBox({ pkg }: { pkg: Package }) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("PackageDetail");
   const tCommon = useTranslations("Common");
-  const content = pkg.content[locale];
   const rows = usePackageFacts(pkg);
 
   return (
@@ -106,7 +117,7 @@ export function PriceBox({ pkg }: { pkg: Package }) {
       </dl>
 
       <WhatsAppCta
-        packageTitle={content.title}
+        pkg={packageRef(pkg, locale)}
         size="lg"
         className="mt-8 w-full"
       />
@@ -140,7 +151,6 @@ export function StickyPriceBar({ pkg }: { pkg: Package }) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("PackageDetail");
   const tCommon = useTranslations("Common");
-  const content = pkg.content[locale];
 
   return (
     <div
@@ -173,7 +183,7 @@ export function StickyPriceBar({ pkg }: { pkg: Package }) {
           </a>
 
           <WhatsAppCta
-            packageTitle={content.title}
+            pkg={packageRef(pkg, locale)}
             label={t("askShort")}
             size="sm"
           />

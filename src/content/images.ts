@@ -30,13 +30,13 @@ export const images = {
   "bali-terasering": stock("bali-terasering", "photo-1555400038-a088c772c8cd"),
   "bali-pura-laut": stock("bali-pura-laut", "photo-1542725231-e6ff634bf0f5"),
   "bali-tebing-uluwatu": stock("bali-tebing-uluwatu", "photo-1576019206484-54273acdfa89"),
-  "bali-pantai-senja": stock("bali-pantai-senja", "photo-1567520595708-2fb411a6ce88"),
+  "bali-pantai-senja": stock("bali-pantai-senja", "photo-1655779282295-a573301955cc"),
 
   // ── Labuan Bajo & Komodo ──────────────────────────────────────────────
   "komodo-padar": stock("komodo-padar", "photo-1660279582815-8d9a2b0d7e27"),
   "komodo-kapal": stock("komodo-kapal", "photo-1624104416015-f0ef71c7800a"),
   "komodo-satwa": stock("komodo-satwa", "photo-1562578057-3ca1f7815237"),
-  "komodo-pink-beach": stock("komodo-pink-beach", "photo-1747806735725-ad02ac970269"),
+  "komodo-pink-beach": stock("komodo-pink-beach", "photo-1736478771374-434fa25e81ea"),
 
   // ── Raja Ampat ────────────────────────────────────────────────────────
   "raja-ampat-piaynemo": stock("raja-ampat-piaynemo", "photo-1675377668920-86545643d25c"),
@@ -51,14 +51,14 @@ export const images = {
   // ── Bromo & Ijen ──────────────────────────────────────────────────────
   "bromo-lanskap": stock("bromo-lanskap", "photo-1662114480912-05a338d79da3"),
   "bromo-kaldera": stock("bromo-kaldera", "photo-1749731630653-d9b3f00573ed"),
-  "bromo-udara": stock("bromo-udara", "photo-1518043610038-064362b44076"),
+  "bromo-udara": stock("bromo-udara", "photo-1585357214259-f977cc7d73a4"),
   "ijen-kawah": stock("ijen-kawah", "photo-1776875339246-ba5d0e9dce43"),
 
   // ── Lombok & Gili ─────────────────────────────────────────────────────
   "gili-udara": stock("gili-udara", "photo-1583022846753-83a4eba54ac1"),
-  "gili-pulau": stock("gili-pulau", "photo-1619681216575-d6b3964fc278"),
+  "gili-pulau": stock("gili-pulau", "photo-1587364125669-354c5735dd2d"),
   "gili-penyu": stock("gili-penyu", "photo-1709483095301-2d1f3e95b1d4"),
-  "lombok-rinjani": stock("lombok-rinjani", "photo-1654046920188-6e7ee051d7a4"),
+  "lombok-rinjani": stock("lombok-rinjani", "photo-1698267703889-06c41f9acba5"),
 
   // ── Danau Toba ────────────────────────────────────────────────────────
   "toba-perahu": stock("toba-perahu", "photo-1592639298199-7b9d01c1cf29"),
@@ -72,7 +72,7 @@ export const images = {
   "bangkok-kota": stock("bangkok-kota", "photo-1531169628939-e84f860fa5d6"),
   "bangkok-pasar-terapung": stock("bangkok-pasar-terapung", "photo-1546945344-e830559a0601"),
   "pattaya-teluk": stock("pattaya-teluk", "photo-1625492206717-61c584a8b11e"),
-  "pattaya-pantai": stock("pattaya-pantai", "photo-1562908234-59564a6baaa3"),
+  "pattaya-pantai": stock("pattaya-pantai", "photo-1620373901514-4319a7c81cdb"),
 
   // ── Singapura & Malaysia ──────────────────────────────────────────────
   "singapura-marina-bay": stock("singapura-marina-bay", "photo-1525625293386-3f8f99389edd"),
@@ -118,10 +118,10 @@ export const images = {
   // ── Umum ──────────────────────────────────────────────────────────────
   "umum-rombongan": stock("umum-rombongan", "photo-1506869640319-fe1a24fd76dc"),
   "umum-pesawat": stock("umum-pesawat", "photo-1530469641172-8ac15d0a7d6a"),
-  // Siswa berseragam Pramuka mencatat di luar kelas.
-  "umum-study-tour": stock("umum-study-tour", "photo-1756102080345-797e02549f97"),
-  // Empat teman di puncak bukit dengan gunung-gunung Jawa Tengah di belakang.
-  "umum-teman-puncak": stock("umum-teman-puncak", "photo-1601807258526-2637650ea2ec"),
+  // Siswa SD berseragam merah putih di gazebo luar ruang.
+  "umum-study-tour": stock("umum-study-tour", "photo-1648518295678-f78670c35924"),
+  // Rombongan pendaki bergembira di puncak berbatu.
+  "umum-teman-puncak": stock("umum-teman-puncak", "photo-1578598486218-90db948624fb"),
   // Tangan memegang paspor Indonesia di depan terminal bandara.
   "umum-paspor": stock("umum-paspor", "photo-1787030186312-ee07d04114f6"),
   // Wisatawan memotret danau dengan kamera.
@@ -130,8 +130,8 @@ export const images = {
   // ── Suasana (wisatawan umum, bukan peserta tur Bunga Wisata) ─────────
   // Rombongan pendaki menyaksikan matahari terbit di puncak gunung.
   "suasana-sunrise-rombongan": stock("suasana-sunrise-rombongan", "photo-1706865854509-821c960ce465"),
-  // Siluet keluarga bermain di Pantai Parangtritis, Yogyakarta, saat senja.
-  "suasana-pantai-keluarga": stock("suasana-pantai-keluarga", "photo-1693020077268-1a3b572103c1"),
+  // Ibu dan anak berlari ke ombak saat matahari sore.
+  "suasana-pantai-keluarga": stock("suasana-pantai-keluarga", "photo-1761030149081-50abb59676ef"),
   // Wisatawan di haluan kapal pinisi saat senja dekat Pulau Kalong, Labuan Bajo.
   "suasana-kapal-teman": stock("suasana-kapal-teman", "photo-1665234811705-02e42eda85d2"),
   // Wisatawan berjalan menuju Candi Borobudur.

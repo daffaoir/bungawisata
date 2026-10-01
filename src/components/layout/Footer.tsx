@@ -141,7 +141,15 @@ export function Footer() {
           <p>
             © {year} {site.name}. {t("rights")}
           </p>
-          <p>{t("builtWith")}</p>
+          <p className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <span>{t("builtWith")}</span>
+            <Link
+              href="/kebijakan-privasi"
+              className="-my-3 inline-flex min-h-11 items-center underline decoration-canvas/30 underline-offset-4 transition-colors duration-300 hover:text-canvas"
+            >
+              {t("privacy")}
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

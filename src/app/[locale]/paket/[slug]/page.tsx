@@ -11,9 +11,11 @@ import { PackageCard } from "@/components/package/PackageCard";
 import { PackageGallery } from "@/components/package/PackageGallery";
 import {
   PackageFacts,
+  packageRef,
   PriceBox,
   StickyPriceBar,
 } from "@/components/package/PriceBox";
+import { QuoteRequestForm } from "@/components/shared/QuoteRequestForm";
 import { Badge } from "@/components/shared/Badge";
 import { Section, SectionHeading } from "@/components/shared/Section";
 import { SITE_URL } from "@/content/site";
@@ -82,6 +84,7 @@ export default async function PackageDetailPage({
   const appLocale = locale as AppLocale;
   const content = pkg.content[appLocale];
   const t = await getTranslations({ locale, namespace: "PackageDetail" });
+  const tQuote = await getTranslations({ locale, namespace: "QuoteForm" });
   const tCommon = await getTranslations({ locale, namespace: "Common" });
   const related = getRelatedPackages(pkg);
   const isDomestic = pkg.region === "dalam-negeri";
@@ -140,7 +143,7 @@ export default async function PackageDetailPage({
             src={pkg.heroImage}
             alt={content.title}
             fill
-            priority
+            preload
             quality={85}
             sizes="(min-width: 640px) calc(100vw - 2rem), calc(100vw - 1rem)"
             className="hero-settle -z-10 object-cover"
@@ -259,6 +262,20 @@ export default async function PackageDetailPage({
                 <PackageGallery images={pkg.gallery} alt={content.title} />
               </Reveal>
             ) : null}
+
+            <section
+              id="penawaran"
+              aria-labelledby="penawaran-title"
+              className="mt-14 scroll-mt-28 rounded-[2rem] bg-canvas-alt p-6 sm:p-8"
+            >
+              <h2 id="penawaran-title" className="text-[2rem]">
+                {tQuote("packageTitle")}
+              </h2>
+              <p className="mt-2 mb-8 text-ink-soft">
+                {tQuote("packageSubtitle")}
+              </p>
+              <QuoteRequestForm pkg={packageRef(pkg, appLocale)} />
+            </section>
           </div>
 
           <aside className="lg:sticky lg:top-28">

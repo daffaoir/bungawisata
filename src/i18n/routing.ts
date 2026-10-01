@@ -31,6 +31,10 @@ export const routing = defineRouting({
     "/layanan/[slug]": { id: "/layanan/[slug]", en: "/services/[slug]" },
     "/panduan": { id: "/panduan", en: "/guides" },
     "/panduan/[slug]": { id: "/panduan/[slug]", en: "/guides/[slug]" },
+    "/kebijakan-privasi": {
+      id: "/kebijakan-privasi",
+      en: "/privacy-policy",
+    },
   },
 });
 

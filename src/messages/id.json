@@ -21,6 +21,7 @@
     "guides": "Panduan Wisata"
   },
   "Common": {
+    "skipToContent": "Lewati ke konten",
     "viewDetail": "Lihat detail",
     "viewAllPackages": "Lihat semua paket",
     "startingFrom": "Mulai dari",
@@ -41,7 +42,7 @@
     "ctaPackage": "Tanya paket ini",
     "floatingLabel": "Hubungi kami di WhatsApp",
     "generic": "Halo Bunga Wisata, saya ingin bertanya tentang paket wisata.",
-    "package": "Halo Bunga Wisata, saya tertarik dengan paket \"{packageTitle}\". Boleh minta info lebih lanjut?",
+    "package": "Halo Bunga Wisata, saya tertarik dengan paket \"{packageTitle}\". Boleh minta info lebih lanjut?\n{packageUrl}\n\nRencana tanggal: \nJumlah peserta: ",
     "custom": "Halo Bunga Wisata, saya ingin konsultasi paket wisata custom."
   },
   "Home": {
@@ -257,7 +258,23 @@
     "domestic": "Paket Dalam Negeri",
     "international": "Paket Luar Negeri",
     "rights": "Hak cipta dilindungi.",
-    "builtWith": "Semua harga dalam Rupiah dan dapat berubah sewaktu-waktu."
+    "builtWith": "Semua harga dalam Rupiah dan dapat berubah sewaktu-waktu.",
+    "privacy": "Kebijakan Privasi"
+  },
+  "Lightbox": {
+    "open": "Perbesar foto: {label}",
+    "close": "Tutup",
+    "previous": "Foto sebelumnya",
+    "next": "Foto berikutnya",
+    "counter": "{current} / {total}",
+    "dialogLabel": "Foto"
+  },
+  "Privacy": {
+    "title": "Kebijakan Privasi",
+    "metaDescription": "Data pribadi apa yang diterima Bunga Wisata saat Anda memakai situs ini atau menghubungi kami lewat WhatsApp, untuk apa dipakai, dan hak Anda sesuai UU PDP.",
+    "updated": "Terakhir diperbarui {date}",
+    "contactTitle": "Hubungi kami",
+    "contactText": "Untuk pertanyaan tentang data pribadi Anda, atau untuk memakai hak-hak di atas, hubungi kami di:"
   },
   "NotFound": {
     "title": "Halaman tidak ditemukan",
@@ -314,6 +331,10 @@
     "privacy": "Data tidak disimpan di situs ini. Form hanya menyusun pesan WhatsApp untuk Anda kirim sendiri.",
     "errorRequired": "Isi nama, tujuan, dan jumlah peserta dulu.",
     "greeting": "Halo Bunga Wisata, saya ingin minta penawaran.",
+    "greetingPackage": "Halo Bunga Wisata, saya ingin minta penawaran paket \"{packageTitle}\".\n{packageUrl}",
+    "packageTitle": "Minta penawaran paket ini",
+    "packageSubtitle": "Isi tanggal dan jumlah peserta, kami balas dengan harga terbaru lewat WhatsApp.",
+    "errorRequiredPackage": "Isi nama dan jumlah peserta dulu.",
     "defaultPickup": "Malang"
   }
 }

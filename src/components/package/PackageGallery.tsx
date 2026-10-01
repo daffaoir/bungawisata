@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Lightbox, LightboxTrigger } from "@/components/shared/Lightbox";
 import { cn } from "@/lib/cn";
 
 /**
@@ -40,31 +41,38 @@ export function PackageGallery({
   if (images.length === 0) return null;
 
   const { grid, first, rest } = layout(images.length);
+  const items = images.map((src, index) => ({
+    src,
+    alt: `${alt}, ${index + 1}`,
+  }));
 
   return (
-    <ul className={cn("grid gap-3 sm:gap-4", grid)}>
-      {images.map((src, index) => (
-        <li
-          key={src}
-          className={cn(
-            "group relative overflow-hidden rounded-3xl",
-            index === 0 ? first : rest,
-          )}
-        >
-          <Image
-            src={src}
-            alt={`${alt}, ${index + 1}`}
-            fill
-            quality={85}
-            sizes={
-              index === 0
-                ? "(min-width: 1024px) 50vw, 100vw"
-                : "(min-width: 1024px) 25vw, 50vw"
-            }
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        </li>
-      ))}
-    </ul>
+    <Lightbox items={items}>
+      <ul className={cn("grid gap-3 sm:gap-4", grid)}>
+        {images.map((src, index) => (
+          <li
+            key={src}
+            className={cn(
+              "group relative overflow-hidden rounded-3xl",
+              index === 0 ? first : rest,
+            )}
+          >
+            <Image
+              src={src}
+              alt={`${alt}, ${index + 1}`}
+              fill
+              quality={85}
+              sizes={
+                index === 0
+                  ? "(min-width: 1024px) 50vw, 100vw"
+                  : "(min-width: 1024px) 25vw, 50vw"
+              }
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <LightboxTrigger index={index} />
+          </li>
+        ))}
+      </ul>
+    </Lightbox>
   );
 }

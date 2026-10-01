@@ -141,7 +141,7 @@ export default async function GuidePage({
               alt=""
               fill
               quality={85}
-              priority
+              preload
               sizes="(min-width: 1024px) 64rem, 100vw"
               className="object-cover"
             />
